@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/UILib" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/UILib/build/intermediates/assets" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UILib/build/intermediates/bundles" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UILib/build/intermediates/classes" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UILib/build/intermediates/lint" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UILib/build/intermediates/res" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UILib/build/intermediates/rs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UILib/build/outputs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UILib/build/tmp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/aspeed/src/main/res/values/colors.xml" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
