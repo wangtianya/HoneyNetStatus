@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2015 wangtianya.com, Inc. All Rights Reserved.
+  -->
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="#ebebeb"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:background="#4fc1e9"
+            android:layout_height="375dp">
+        <RelativeLayout
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content">
+            <ImageView
+                    android:id="@+id/iv_clock"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:src="@drawable/bw_back_clock"/>
+            <ImageView
+                    android:id="@+id/iv_point"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:src="@drawable/bw_back_point"/>
+        </RelativeLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="15dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+            <TextView
+                    android:id="@+id/tv_current_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:textSize="14dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="..."/>
+            <TextView
+                    android:id="@+id/tv_isp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:textSize="14dp"
+                    android:text="..."/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:paddingBottom="20dp"
+            android:background="#a0d468">
+        <TextView
+                android:id="@+id/tv_result"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginTop="25dp"
+                android:singleLine="false"
+                android:textSize="14dp"
+                android:visibility="visible"
+                android:text=""/>
+                <!--        您的平均下载速度为 1.8 m/s, 最大下载速度为 2.4 m/s , 相当于 20 兆带宽。 这样的速度在全国网友中 也是名列前茅哦！点击右上角的分享按钮分享给好友吧！ -->
+        <TextView
+                android:id="@+id/tv_before_test"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ebebeb"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginTop="60dp"
+                android:gravity="center_horizontal"
+                android:textSize="14dp"
+                android:visibility="visible"
+                android:text="网络畅通, 点击开始测速"/>
+
+        <TextView
+                android:id="@+id/tv_cesu_btn"
+                android:layout_width="300dp"
+                android:layout_height="55dp"
+                android:gravity="center"
+                android:background="#ec87c0"
+                android:textColor="#fff"
+                android:textSize="24dp"
+                android:layout_alignParentBottom="true"
+                android:text="开始测速"/>
+    </RelativeLayout>
+
+
+</LinearLayout>
