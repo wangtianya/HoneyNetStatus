@@ -49,10 +49,11 @@ public class TopBarView extends LinearLayout {
 
         container = (LinearLayout) llTopBar.findViewById(R.id.llBtnRightContainer);
 
-        btnSearch = addRightButtonView(R.drawable.topbar_icon_button_search);
         btnRefresh = addRightButtonView(R.drawable.topbar_icon_button_refresh);
         btnAdd = addRightButtonView(R.drawable.topbar_icon_button_add);
         btnSetting = addRightButtonView(R.drawable.topbar_icon_button_setting);
+        btnSearch = addRightButtonView(R.drawable.topbar_icon_button_search);
+
     }
 
     public void setTitle(String title) {

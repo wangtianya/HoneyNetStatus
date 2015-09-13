@@ -93,11 +93,11 @@ public class ABasePreference {
      * @return
      */
     public int getInt(String key) {
-        return getPreferneces().getInt(key, 0);
+        return getInt(key, 0);
     }
 
     public int getInt(String key, int defValue) {
-        return getInt(key, defValue);
+        return getPreferneces().getInt(key, defValue);
     }
 
     public void put(String key, long value) {

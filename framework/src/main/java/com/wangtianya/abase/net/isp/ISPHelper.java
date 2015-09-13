@@ -11,10 +11,7 @@ public class ISPHelper {
 
     public static final String url = "http://ip.taobao.com/service/getIpInfo.php?ip=";
 
-    public static ISPModel fetchFromTaobao(String url) {
-        if (url == null) {
-            return null;
-        }
+    public static ISPModel fetchFromTaobao() {
         try {
             HttpClient httpClient = new DefaultHttpClient();
             String IPSJsonStr =

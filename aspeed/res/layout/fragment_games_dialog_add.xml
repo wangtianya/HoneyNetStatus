@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:hint="服务器名"
+        android:paddingLeft="20dp"
+        android:textSize="16sp"
+        android:id="@+id/et_title"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ip地址    如: 192.168.1.1"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:id="@+id/et_ip"/>
+</LinearLayout>

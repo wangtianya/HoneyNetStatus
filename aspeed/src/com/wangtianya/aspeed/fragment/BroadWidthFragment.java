@@ -297,7 +297,7 @@ public class BroadWidthFragment extends ABaseFragment {
 
     private String getBoradWidthPingjia(int bw) {
         if (bw < 2) {
-            return "龟速，还能再慢点!!";
+            return "龟速，还能再慢点!";
         }
         if (bw < 4) {
             return "这样的速度在全国网友中, 基本上算是垫底了";
@@ -306,7 +306,7 @@ public class BroadWidthFragment extends ABaseFragment {
         } else if (bw < 20) {
             return "在全国网友中，排名是靠前的";
         } else if (bw >= 20) {
-            return "好快的网速！！！！！！！！！！！！！！！";
+            return "好快的网, 这样的网速足以笑傲一切！";
         }
         return "";
     }

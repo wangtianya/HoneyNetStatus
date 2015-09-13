@@ -32,6 +32,7 @@ public class DrawerMainActivity extends ABaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_drawer);
 
+        ASContext.Caches.mainActivity = this;
         EventBus.getDefault().register(this);
 
         initViews();
@@ -50,14 +51,18 @@ public class DrawerMainActivity extends ABaseActivity {
         menu.setMenu(R.layout.activity_welcome);
 
         ASContext.Caches.topbar = mTopBar;
+        setLeftOnclick();
+
+        PageSwitchEvent.gotoPage(PageSwitchEvent.DELAY);
+    }
+
+    private void setLeftOnclick() {
         mTopBar.setLeftButton(TopBarView.LeftButtonType.List, new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 menu.showMenu();
             }
         });
-
-        PageSwitchEvent.gotoPage(PageSwitchEvent.SPEED);
     }
 
     @Override
@@ -68,7 +73,6 @@ public class DrawerMainActivity extends ABaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-
     }
 
     @Override
@@ -76,12 +80,32 @@ public class DrawerMainActivity extends ABaseActivity {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
         ASContext.Caches.topbar = null;
+        ASContext.Caches.mainActivity = null;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (menu.isMenuShowing()) {
+            menu.toggle();
+            return;
+        }
+        super.onBackPressed();
     }
 
     public void onEventMainThread(PageSwitchEvent event) {
+        if (event.pageName.equals(PageSwitchEvent.DELAY)) {
+            setLeftOnclick();
+        }
+
         mTopBar.setTitle(event.pageName);
         FragmentManager manager = getFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
+        if (PageSwitchEvent.TransitionAnimation.Go.equals(event.transitionAnimation)) {
+            ft.setCustomAnimations(R.animator.slide_go_right, R.animator.slide_go_left);
+        } else if (PageSwitchEvent.TransitionAnimation.Back.equals(event.transitionAnimation)) {
+            ft.setCustomAnimations(R.animator.slide_back_left, R.animator.slide_back_right);
+        }
+        this.setFragmentShouldAskOnBackPressed(event.fragment);
         ft.add(R.id.rlContainer, event.fragment);
         ft.disallowAddToBackStack();
         ft.commit();

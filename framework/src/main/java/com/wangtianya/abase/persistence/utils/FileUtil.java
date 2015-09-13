@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import com.wangtianya.abase.core.context.ABaseContext;
 import com.wangtianya.abase.core.context.ABaseLog;
@@ -28,21 +29,21 @@ public class FileUtil {
     private static ABaseLog log = ABaseLog.getLogger();
 
     public static File getSdcardDir() {
-        if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             return new File(Environment.getExternalStorageDirectory() + File.separator + getAppName());
         }
         return null;
     }
 
     public static File getSdcardDir(String name) {
-        if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             return new File(Environment.getExternalStorageDirectory() + File.separator + getAppName() + File.separator + name);
         }
         return null;
     }
 
     public static File getAppDir() {
-        if ((!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))) {
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             return ABaseContext.getContext().getFilesDir();
         }
         return null;
@@ -160,6 +161,25 @@ public class FileUtil {
         try {
             FileReader reader = new FileReader(file);
             BufferedReader br = new BufferedReader(reader);
+            StringBuffer buffer = new StringBuffer();
+            String s;
+            while ((s = br.readLine()) != null) {
+                buffer.append(s);
+            }
+            br.close();
+            return buffer.toString();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    public static String readString(InputStream is) {
+        try {
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
             StringBuffer buffer = new StringBuffer();
             String s;
             while ((s = br.readLine()) != null) {
