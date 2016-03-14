@@ -1,44 +1,33 @@
 
 package com.wangtianya.abase.net.utils;
-
-import java.util.List;
-
-import org.apache.http.NameValuePair;
+import java.util.Map;
 
 public class HttpParamUtil {
 
     /**
      * Used Mark: HttpContorller
      */
-    public static String buildGetUrlWithParams(String url, List<NameValuePair> forms) {
+    public static String buildGetUrlWithParams(String url, Map<String, String> forms) {
         boolean isFirst = true;
         StringBuffer urlStringBuffer = new StringBuffer();
         urlStringBuffer.append(url);
         urlStringBuffer.append("?");
-        for (NameValuePair n : forms) {
-            urlStringBuffer.append(n.getName());
-            urlStringBuffer.append("=");
-            urlStringBuffer.append(n.getValue());
-            urlStringBuffer.append("&");
-        }
-        if (!isFirst) {
+        urlStringBuffer.append(buildParams(forms));
+        if ((urlStringBuffer.lastIndexOf("&") == urlStringBuffer.length())
+                || (urlStringBuffer.lastIndexOf("?") == urlStringBuffer.length())) {
             return urlStringBuffer.substring(0, urlStringBuffer.length() - 1);
         }
         return urlStringBuffer.toString();
     }
 
-    public static String buildPostUrlWithParams(List<NameValuePair> forms) {
-        boolean isFirst = true;
+    public static String buildParams(Map<String, String> forms) {
         StringBuffer urlStringBuffer = new StringBuffer();
-        for (NameValuePair n : forms) {
-            urlStringBuffer.append(n.getName());
+        for (String key : forms.keySet()) {
+            urlStringBuffer.append(key);
             urlStringBuffer.append("=");
-            urlStringBuffer.append(n.getValue());
+            urlStringBuffer.append(forms.get(key));
             urlStringBuffer.append("&");
         }
-        if (!isFirst) {
-            return urlStringBuffer.substring(0, urlStringBuffer.length() - 1);
-        }
-        return urlStringBuffer.toString();
+        return urlStringBuffer.substring(0, urlStringBuffer.length() - 1);
     }
 }
