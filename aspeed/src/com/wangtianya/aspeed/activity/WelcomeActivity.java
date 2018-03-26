@@ -1,9 +1,7 @@
-/*
- * Copyright (C) 2015 Baidu, Inc. All Rights Reserved.
- */
+
 package com.wangtianya.aspeed.activity;
 
-import com.wangtianya.abase.core.activity.ABaseActivity;
+import com.wangtianya.yaa.core.activity.YaaActivity;
 import com.wangtianya.aspeed.R;
 import com.wangtianya.aspeed.bean.PingModel;
 import com.wangtianya.aspeed.core.ASConfig;
@@ -14,7 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 
-public class WelcomeActivity extends ABaseActivity {
+public class WelcomeActivity extends YaaActivity {
 
 
 

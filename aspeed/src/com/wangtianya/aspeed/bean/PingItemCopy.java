@@ -9,8 +9,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 import com.google.gson.annotations.Expose;
-import com.wangtianya.abase.persistence.utils.FileUtil;
-import com.wangtianya.abase.persistence.utils.GsonUtil;
+import com.wangtianya.yaa.persistence.utils.FileUtil;
+import com.wangtianya.yaa.persistence.utils.GsonUtil;
 import com.wangtianya.aspeed.core.ASConfig;
 import com.wangtianya.aspeed.core.ASContext;
 

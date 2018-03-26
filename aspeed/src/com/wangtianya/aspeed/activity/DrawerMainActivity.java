@@ -1,10 +1,7 @@
-/*
- * Copyright (C) 2015 Baidu, Inc. All Rights Reserved.
- */
+
 package com.wangtianya.aspeed.activity;
 
-import com.wangtianya.abase.core.activity.ABaseActivity;
-import com.wangtianya.abase.ioc.annotation.InjectView;
+import com.wangtianya.yaa.core.activity.backhandle.YaaFragmentPageTask;
 import com.wangtianya.aspeed.R;
 import com.wangtianya.aspeed.core.ASContext;
 import com.wangtianya.aspeed.event.PageSwitchEvent;
@@ -20,9 +17,8 @@ import de.greenrobot.event.EventBus;
 /**
  * Created by tianya on 2015/8/31.
  */
-public class DrawerMainActivity extends ABaseActivity {
+public class DrawerMainActivity extends YaaFragmentPageTask {
 
-    @InjectView(id = R.id.topBar)
     private TopBarView mTopBar;
 
     private SlidingMenu menu = null;
@@ -30,12 +26,16 @@ public class DrawerMainActivity extends ABaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main_drawer);
+        mTopBar = findViewById(R.id.topBar);
 
         ASContext.Caches.mainActivity = this;
         EventBus.getDefault().register(this);
 
         initViews();
+
+        PageSwitchEvent.gotoPage(PageSwitchEvent.DELAY);
     }
 
     public void initViews() {
@@ -52,8 +52,6 @@ public class DrawerMainActivity extends ABaseActivity {
 
         ASContext.Caches.topbar = mTopBar;
         setLeftOnclick();
-
-        PageSwitchEvent.gotoPage(PageSwitchEvent.DELAY);
     }
 
     private void setLeftOnclick() {
@@ -65,15 +63,6 @@ public class DrawerMainActivity extends ABaseActivity {
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
 
     @Override
     protected void onDestroy() {
@@ -105,7 +94,7 @@ public class DrawerMainActivity extends ABaseActivity {
         } else if (PageSwitchEvent.TransitionAnimation.Back.equals(event.transitionAnimation)) {
             ft.setCustomAnimations(R.animator.slide_back_left, R.animator.slide_back_right);
         }
-        this.setFragmentShouldAskOnBackPressed(event.fragment);
+        setFragmentShouldAskOnBackPressed(event.fragment);
         ft.add(R.id.rlContainer, event.fragment);
         ft.disallowAddToBackStack();
         ft.commit();

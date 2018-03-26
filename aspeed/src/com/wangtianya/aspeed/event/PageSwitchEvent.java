@@ -6,10 +6,11 @@ package com.wangtianya.aspeed.event;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.wangtianya.abase.core.activity.ABaseFragment;
+import com.wangtianya.yaa.core.activity.YaaFragment;
 import com.wangtianya.aspeed.fragment.BroadWidthFragment;
 import com.wangtianya.aspeed.fragment.PingFragment;
 import com.wangtianya.aspeed.fragment.PingSelectFragment;
+import com.wangtianya.yaa.core.activity.backhandle.YaaBackHandleFragment;
 
 import de.greenrobot.event.EventBus;
 
@@ -45,7 +46,7 @@ public class PageSwitchEvent {
 
     public static void gotoPage(String pageName, TransitionAnimation transitionAnimation) {
         try {
-            ABaseFragment fragment = (ABaseFragment) classMap.get(pageName).newInstance();
+            YaaBackHandleFragment fragment = (YaaBackHandleFragment) classMap.get(pageName).newInstance();
             EventBus.getDefault().post(new PageSwitchEvent(pageName, fragment, transitionAnimation));
         } catch (InstantiationException e) {
             e.printStackTrace();
@@ -56,12 +57,12 @@ public class PageSwitchEvent {
 
     // 实例方法开始
     public String pageName = "";
-    public ABaseFragment fragment = null;
+    public YaaBackHandleFragment fragment = null;
     public TransitionAnimation transitionAnimation;
 
     public PageSwitchEvent() {};
 
-    public PageSwitchEvent(String pageName, ABaseFragment fragment, TransitionAnimation transitionAnimation) {
+    public PageSwitchEvent(String pageName, YaaBackHandleFragment fragment, TransitionAnimation transitionAnimation) {
         this.pageName = pageName;
         this.fragment = fragment;
         this.transitionAnimation = transitionAnimation;

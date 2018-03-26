@@ -3,7 +3,7 @@
  */
 package com.wangtianya.aspeed.core;
 
-import com.wangtianya.abase.persistence.utils.ABasePreference;
+import com.wangtianya.yaa.persistence.utils.ABasePreference;
 
 public class ASConfig {
 

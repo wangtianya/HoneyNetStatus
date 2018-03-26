@@ -10,7 +10,7 @@ package com.wangtianya.aspeed.wigets;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.wangtianya.abase.core.util.ScreenUtil;
+import com.wangtianya.yaa.core.util.ScreenUtil;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,6 +18,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
+import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -343,7 +344,7 @@ public class WheelView extends ScrollView {
 
             @Override
             public int getOpacity() {
-                return 0;
+                return PixelFormat.UNKNOWN;
             }
         };
 

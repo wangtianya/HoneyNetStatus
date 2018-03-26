@@ -3,13 +3,11 @@
  */
 package com.wangtianya.aspeed.fragment;
 
-import com.wangtianya.abase.core.activity.ABaseFragment;
-import com.wangtianya.abase.core.context.ABaseLog;
+import com.wangtianya.yaa.core.activity.backhandle.YaaBackHandleFragment;
 import com.wangtianya.aspeed.R;
 import com.wangtianya.aspeed.adapter.GamesPingAdapter;
 import com.wangtianya.aspeed.bean.PingModel;
 import com.wangtianya.aspeed.core.ASContext;
-import com.wangtianya.aspeed.event.PageSwitchEvent;
 import com.wangtianya.aspeed.wigets.topbar.TopBarView;
 
 import android.os.Bundle;
@@ -20,15 +18,11 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-public class PingSelectFragment extends ABaseFragment {
-
-    ABaseLog log = ABaseLog.getLogger();
+public class PingSelectFragment extends YaaBackHandleFragment {
 
     private ListView myListView;
-
     public GamesPingAdapter mPingAdapter = null;
 
-    View mDialogView = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +36,7 @@ public class PingSelectFragment extends ABaseFragment {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         view.setLayoutParams(params);
 
-        myListView = (ListView) view.findViewById(R.id.lv_my_list);
+        myListView = view.findViewById(R.id.lv_my_list);
         mPingAdapter = new GamesPingAdapter();
         myListView.setAdapter(mPingAdapter);
         mPingAdapter.setmItemDatas(PingModel.getPingItemsCommand());
@@ -65,15 +59,6 @@ public class PingSelectFragment extends ABaseFragment {
     }
 
     @Override
-    public boolean onBackPressed() {
-        mPingAdapter.clearCache();
-        GamesPingAdapter.isSelect = false;
-        PageSwitchEvent.gotoPage(PageSwitchEvent.DELAY, PageSwitchEvent.TransitionAnimation.Back);
-        return false;
-
-    }
-
-    @Override
     public void onDestroy() {
 
         super.onDestroy();
@@ -88,5 +73,4 @@ public class PingSelectFragment extends ABaseFragment {
             }
         });
     }
-
 }

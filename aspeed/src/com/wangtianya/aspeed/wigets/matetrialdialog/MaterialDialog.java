@@ -1,6 +1,6 @@
 package com.wangtianya.aspeed.wigets.matetrialdialog;
 
-import com.wangtianya.abase.core.util.ScreenUtil;
+import com.wangtianya.yaa.core.util.ScreenUtil;
 import com.wangtianya.aspeed.R;
 import com.wangtianya.aspeed.core.ASContext;
 

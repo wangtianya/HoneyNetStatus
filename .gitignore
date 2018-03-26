@@ -1,6 +1,22 @@
-.gradle
+*.iml
+.DS_Store
+*.pyc
+.externalNativeBuild
+*.class
+
+# Package Files #
+*.war
+*.ear
+
+/.gradle
 /local.properties
+
+
+/.idea
 /.idea/workspace.xml
 /.idea/libraries
-.DS_Store
+
 /build
+/out
+/captures
+

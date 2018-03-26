@@ -16,8 +16,8 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.annotations.Expose;
 import com.google.gson.reflect.TypeToken;
-import com.wangtianya.abase.persistence.utils.FileUtil;
-import com.wangtianya.abase.persistence.utils.GsonUtil;
+import com.wangtianya.yaa.persistence.utils.FileUtil;
+import com.wangtianya.yaa.persistence.utils.GsonUtil;
 import com.wangtianya.aspeed.core.ASConfig;
 import com.wangtianya.aspeed.core.ASContext;
 
@@ -182,7 +182,7 @@ public class PingModel {
             }
         }, null);
 
-        ASContext.getRequestQueue().add(request);
+        ASContext.sendRequest(request);
         return request;
     }
 

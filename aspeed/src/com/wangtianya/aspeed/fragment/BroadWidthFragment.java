@@ -6,14 +6,14 @@ package com.wangtianya.aspeed.fragment;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.wangtianya.abase.core.activity.ABaseFragment;
-import com.wangtianya.abase.core.context.ABaseLog;
-import com.wangtianya.abase.core.util.ScreenUtil;
-import com.wangtianya.abase.net.bandwidth.BroadWidthListener;
-import com.wangtianya.abase.net.bandwidth.BroadwidthTest;
-import com.wangtianya.abase.net.bandwidth.BroadwidthTestI;
-import com.wangtianya.abase.net.isp.ISPModel;
-import com.wangtianya.abase.net.isp.TaobaoISPRequest;
+import com.wangtianya.yaa.core.activity.YaaFragment;
+import com.wangtianya.yaa.core.util.ABaseLog;
+import com.wangtianya.yaa.core.util.ScreenUtil;
+import com.wangtianya.yaa.net.bandwidth.BroadWidthListener;
+import com.wangtianya.yaa.net.bandwidth.BroadwidthTest;
+import com.wangtianya.yaa.net.bandwidth.BroadwidthTestI;
+import com.wangtianya.yaa.net.isp.ISPModel;
+import com.wangtianya.yaa.net.isp.TaobaoISPRequest;
 import com.wangtianya.aspeed.R;
 import com.wangtianya.aspeed.core.ASContext;
 import com.wangtianya.aspeed.util.AnimationManager;
@@ -32,7 +32,7 @@ import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
-public class BroadWidthFragment extends ABaseFragment {
+public class BroadWidthFragment extends YaaFragment {
     private static String[] URLS = {
             "http://dlsw.baidu.com/sw-search-sp/soft/a8/27390/androidstudio.1401270841.exe",
             "http://42.236.2.151/dlied1.qq.com/lol/full/LOL_V3.1.5.0_FULL.7z.001?mkey=55544e314ea9a1c8&f=178a&p=.001",
@@ -309,14 +309,5 @@ public class BroadWidthFragment extends ABaseFragment {
             return "好快的网, 这样的网速足以笑傲一切！";
         }
         return "";
-    }
-
-    @Override
-    public boolean onBackPressed() {
-        if (mNumberPickerDialog != null) {
-            mNumberPickerDialog.dismiss();
-            return false;
-        }
-        return super.onBackPressed();
     }
 }

@@ -3,10 +3,10 @@
  */
 package com.wangtianya.aspeed.fragment;
 
-import com.wangtianya.abase.core.activity.ABaseFragment;
-import com.wangtianya.abase.core.context.ABaseLog;
-import com.wangtianya.abase.core.util.AToast;
-import com.wangtianya.abase.net.utils.NetworkUtil;
+import com.wangtianya.yaa.core.activity.YaaFragment;
+import com.wangtianya.yaa.core.util.ABaseLog;
+import com.wangtianya.yaa.core.util.AToast;
+import com.wangtianya.yaa.net.utils.NetworkUtil;
 import com.wangtianya.aspeed.R;
 import com.wangtianya.aspeed.adapter.GamesPingAdapter;
 import com.wangtianya.aspeed.bean.PingModel;
@@ -25,7 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class PingFragment extends ABaseFragment {
+public class PingFragment extends YaaFragment {
 
     ABaseLog log = ABaseLog.getLogger();
 

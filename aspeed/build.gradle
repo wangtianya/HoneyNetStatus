@@ -1,24 +1,13 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.1.1'
-    }
-}
 apply plugin: 'com.android.application'
 
-repositories {
-    jcenter()
-}
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "com.wangtianya.aspeed"
-        minSdkVersion 14
+        minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -26,17 +15,17 @@ android {
 
     sourceSets {
         main {
-            manifest.srcFile 'res/AndroidManifest.xml'
+            manifest.srcFile 'resources/AndroidManifest.xml'
             java.srcDirs = ['src']
             resources.srcDirs = ['src']
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']
-            res.srcDirs = ['res', 'res-wigets/slidingmenu', 'res-wigets/topbar', 'res-wigets/materialdialog']
-            assets.srcDirs = ['assets']
+            res.srcDirs = ['resources/res',
+                           'resources/res-wigets/slidingmenu',
+                           'resources/res-wigets/topbar',
+                           'resources/res-wigets/materialdialog']
+            assets.srcDirs = ['resources/assets']
         }
-
-        /**
-         hiapk {manifest.srcFile 'AndroidManifest.xml'} **/
     }
 
     compileOptions {
@@ -49,6 +38,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
 
 dependencies {
