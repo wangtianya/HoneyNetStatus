@@ -80,9 +80,14 @@ public class ScreenUtil {
             }
             return rectangle.top;
         } else {
-            DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-            int STATUS_BAR_HEIGHT = (int) Math.ceil(25 * metrics.density);
-            return STATUS_BAR_HEIGHT;
+            int statusBarHeight1 = -1;
+            //获取status_bar_height资源的ID
+            int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+            if (resourceId > 0) {
+                //根据资源ID获取响应的尺寸值
+                statusBarHeight1 = context.getResources().getDimensionPixelSize(resourceId);
+            }
+            return statusBarHeight1;
         }
 
     }

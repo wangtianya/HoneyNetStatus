@@ -1,10 +1,11 @@
+include ':HoneyApp', ':HoneyApp'
 rootProject.name = 'Honey NetStat'
 
 
-
-
-include 'HoneyApp'
-project(':HoneyApp').projectDir = new File('honey')
+//
+//
+//include 'OldAppProject'
+//project(':OldAppProject').projectDir = new File('OldAppProject')
 
 
 include 'YaaLib'

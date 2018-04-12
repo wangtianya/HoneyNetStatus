@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.wangtianya.honey.MainActivity">
+
+
+        <com.wangtianya.honey.widget.EmptyTopLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <Toolbar
+                android:id="@+id/toolbar"
+                android:title=" "
+                android:logo="@drawable/ic_network_check"
+                android:layout_width="match_parent"
+                android:titleMarginStart="10dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:titleTextColor="@android:color/white"
+                android:subtitleTextColor="@android:color/white">
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#fff"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="18dp"
+                        android:text="Honey(网络工具集)"/>
+                <ImageView
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:background="@drawable/ic_settings"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+        </Toolbar>
+
+        <ScrollView android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical">
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:background="@color/colorAccent"
+                        android:orientation="vertical">
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="999dp"
+                        android:orientation="vertical">
+                    <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:columnCount="5">
+                        <ImageView
+                                android:layout_width="66dp"
+                                android:layout_height="66dp"
+                                android:background="@drawable/ic_launcher"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_alignParentRight="true"/>
+                        <ImageView
+                                android:layout_width="66dp"
+                                android:layout_height="66dp"
+                                android:background="@drawable/ic_launcher"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_alignParentRight="true"/>
+                        <ImageView
+                                android:layout_width="66dp"
+                                android:layout_height="66dp"
+                                android:background="@drawable/ic_launcher"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_alignParentRight="true"/>
+                        <ImageView
+                                android:layout_width="66dp"
+                                android:layout_height="66dp"
+                                android:background="@drawable/ic_launcher"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_alignParentRight="true"/>
+                        <ImageView
+                                android:layout_width="66dp"
+                                android:layout_height="66dp"
+                                android:background="@drawable/ic_launcher"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_alignParentRight="true"/>
+
+                        <ImageView
+                                android:layout_width="66dp"
+                                android:layout_height="66dp"
+                                android:background="@drawable/ic_launcher"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_alignParentRight="true"/>
+                        <ImageView
+                                android:layout_width="66dp"
+                                android:layout_height="66dp"
+                                android:background="@drawable/ic_launcher"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_alignParentRight="true"/>
+                        <ImageView
+                                android:layout_width="66dp"
+                                android:layout_height="66dp"
+                                android:background="@drawable/ic_launcher"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_alignParentRight="true"/>
+                    </GridLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>
