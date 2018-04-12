@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_color"
+              android:orientation="horizontal"
+              android:gravity="center_vertical">
+
+    <ImageView
+            android:id="@+id/btnLeft"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/topbar_icon_button_list"/>
+
+    <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="25dp"
+            android:text="英雄联盟"
+            android:textColor="@color/text_white"
+            android:textSize="16dp"/>
+
+    <LinearLayout
+            android:id="@+id/llBtnRightContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+    </LinearLayout>
+
+
+</LinearLayout>

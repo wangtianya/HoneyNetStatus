@@ -4,8 +4,8 @@ package com.wangtianya.yaa.core.activity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.wangtianya.yaa.core.context.YaaActivityStack;
 import com.wangtianya.yaa.core.context.YaaContext;
-import com.wangtianya.yaa.core.context.ActivityStack;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -17,18 +17,18 @@ import android.os.Bundle;
  */
 public class YaaActivity extends Activity {
 
-    private ActivityStack activityStack = ActivityStack.getActivityStack();
+    private YaaActivityStack yaaActivityStack = YaaActivityStack.getActivityStack();
     private RequestQueue mRequestQueue = Volley.newRequestQueue(YaaContext.getContext());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityStack.addActivity(this);
+        yaaActivityStack.addActivity(this);
     }
 
     @Override
     public void finish() {
-        activityStack.removeActivity(this);
+        yaaActivityStack.removeActivity(this);
         mRequestQueue.cancelAll(this);
         super.finish();
     }
@@ -40,11 +40,6 @@ public class YaaActivity extends Activity {
 
     public RequestQueue getRequestQueue() {
         return mRequestQueue;
-    }
-
-    @Override
-    public void setContentView(int layoutResID) {
-        super.setContentView(layoutResID);
     }
 
 

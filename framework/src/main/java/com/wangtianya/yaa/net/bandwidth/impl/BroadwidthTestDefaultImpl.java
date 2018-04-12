@@ -13,7 +13,7 @@ import java.net.UnknownHostException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-import com.wangtianya.yaa.core.util.ABaseLog;
+import com.wangtianya.yaa.core.util.YaaLog;
 import com.wangtianya.yaa.net.bandwidth.BroadWidthListener;
 import com.wangtianya.yaa.net.bandwidth.BroadwidthTestI;
 import com.wangtianya.yaa.other.RandomUtil;
@@ -24,7 +24,7 @@ import android.net.TrafficStats;
  * 实现类，写的有点早，所以有点丑
  */
 public class BroadwidthTestDefaultImpl implements BroadwidthTestI {
-    ABaseLog log = ABaseLog.getLogger();
+    YaaLog log = YaaLog.getLogger();
 
     @Override
     public void start(String[] urls, int seconds, BroadWidthListener listener) {

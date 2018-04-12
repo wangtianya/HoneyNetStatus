@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import com.wangtianya.yaa.core.context.YaaContext;
-import com.wangtianya.yaa.core.util.ABaseLog;
+import com.wangtianya.yaa.core.util.YaaLog;
 
 import android.os.Environment;
 
@@ -26,7 +26,7 @@ import android.os.Environment;
  */
 public class FileUtil {
 
-    private static ABaseLog log = ABaseLog.getLogger();
+    private static YaaLog log = YaaLog.getLogger();
 
     public static File getSdcardDir() {
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {

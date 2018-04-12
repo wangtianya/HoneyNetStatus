@@ -1,13 +1,13 @@
 
 package com.wangtianya.yaa.image.yaa;
 
-import com.wangtianya.yaa.core.util.ABaseLog;
+import com.wangtianya.yaa.core.util.YaaLog;
 
 import android.graphics.Bitmap;
 import android.util.LruCache;
 
 public class LruCacheBitmap extends LruCache<String, Bitmap> {
-    public static ABaseLog log = ABaseLog.getLogger();
+    public static YaaLog log = YaaLog.getLogger();
 
     public static LruCacheBitmap sLruCacheBitmap;
 

@@ -1,3 +1,11 @@
 rootProject.name = 'Honey NetStat'
 
-include ':aspeed', 'framework'
+
+
+
+include 'HoneyApp'
+project(':HoneyApp').projectDir = new File('honey')
+
+
+include 'YaaLib'
+project(':YaaLib').projectDir = new File('framework')

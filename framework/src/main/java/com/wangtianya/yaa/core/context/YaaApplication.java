@@ -13,12 +13,13 @@ import android.app.Application;
  */
 public class YaaApplication extends Application {
 
-    private RequestQueue mRequestQueue = Volley.newRequestQueue(this);
+    private RequestQueue mRequestQueue;
 
     @Override
     public void onCreate() {
         super.onCreate();
         YaaContext.init(this);
+        mRequestQueue = Volley.newRequestQueue(this);
     }
 
     @Override
@@ -28,7 +29,7 @@ public class YaaApplication extends Application {
     }
 
     public void exit() {
-        ActivityStack.getActivityStack().exit();
+        YaaActivityStack.getActivityStack().exit();
     }
 
     public void sendRequest(Request request) {

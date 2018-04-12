@@ -4,6 +4,7 @@ package com.wangtianya.yaa.core.util;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
+import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
@@ -71,10 +72,18 @@ public class ScreenUtil {
     }
 
     public static int getStatusBarHeight(Context context) {
-        Rect rectangle= new Rect();
-        Window window= ((Activity)context).getWindow();
-        window.getDecorView().getWindowVisibleDisplayFrame(rectangle);
-        return rectangle.top;
-    }
+        if (context instanceof Activity) {
+            Rect rectangle = new Rect();
+            Window window = ((Activity) context).getWindow();
+            if (window != null && window.getDecorView() != null) {
+                window.getDecorView().getWindowVisibleDisplayFrame(rectangle);
+            }
+            return rectangle.top;
+        } else {
+            DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+            int STATUS_BAR_HEIGHT = (int) Math.ceil(25 * metrics.density);
+            return STATUS_BAR_HEIGHT;
+        }
 
+    }
 }
