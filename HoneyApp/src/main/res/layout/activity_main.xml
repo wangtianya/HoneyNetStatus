@@ -1,133 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    <LinearLayout
+    <android.support.v4.widget.SwipeRefreshLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/swipeRefreshView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             tools:context="com.wangtianya.honey.MainActivity">
 
 
-        <com.wangtianya.honey.widget.EmptyTopLayout
+        <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        <Toolbar
-                android:id="@+id/toolbar"
-                android:title=" "
-                android:logo="@drawable/ic_network_check"
-                android:layout_width="match_parent"
-                android:titleMarginStart="10dp"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:titleTextColor="@android:color/white"
-                android:subtitleTextColor="@android:color/white">
+                android:orientation="vertical"
+                android:layout_height="match_parent">
 
-            <RelativeLayout
+
+            <com.wangtianya.honey.widget.EmptyTopLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <Toolbar
+                    android:id="@+id/toolbar"
+                    android:title=" "
+                    android:logo="@drawable/ic_network_check"
+                    android:layout_width="match_parent"
+                    android:titleMarginStart="10dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:titleTextColor="@android:color/white"
+                    android:subtitleTextColor="@android:color/white">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#fff"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="18dp"
+                            android:text="橘子测速"/>
+                    <ImageView
+                            android:layout_width="21dp"
+                            android:layout_height="21dp"
+                            android:background="@drawable/ic_settings"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"/>
+                </RelativeLayout>
+            </Toolbar>
+
+            <android.support.v4.widget.NestedScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#fff"
-                        android:layout_marginLeft="5dp"
-                        android:textSize="18dp"
-                        android:text="Honey(网络工具集)"/>
-                <ImageView
-                        android:layout_width="21dp"
-                        android:layout_height="21dp"
-                        android:background="@drawable/ic_settings"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:layout_alignParentRight="true"/>
-            </RelativeLayout>
-        </Toolbar>
+                    android:fadingEdge="none">
 
-        <ScrollView android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:orientation="vertical">
-                <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:background="@color/colorAccent"
-                        android:orientation="vertical">
-
-                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:orientation="vertical">
+                    <include
+                            android:id="@+id/content_block"
+                            layout="@layout/main_content_block"/>
 
 
-                <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="999dp"
-                        android:orientation="vertical">
-                    <GridLayout
+                    <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:columnCount="5">
-                        <ImageView
-                                android:layout_width="66dp"
-                                android:layout_height="66dp"
-                                android:background="@drawable/ic_launcher"
-                                android:layout_centerVertical="true"
-                                android:layout_marginRight="10dp"
-                                android:layout_alignParentRight="true"/>
-                        <ImageView
-                                android:layout_width="66dp"
-                                android:layout_height="66dp"
-                                android:background="@drawable/ic_launcher"
-                                android:layout_centerVertical="true"
-                                android:layout_marginRight="10dp"
-                                android:layout_alignParentRight="true"/>
-                        <ImageView
-                                android:layout_width="66dp"
-                                android:layout_height="66dp"
-                                android:background="@drawable/ic_launcher"
-                                android:layout_centerVertical="true"
-                                android:layout_marginRight="10dp"
-                                android:layout_alignParentRight="true"/>
-                        <ImageView
-                                android:layout_width="66dp"
-                                android:layout_height="66dp"
-                                android:background="@drawable/ic_launcher"
-                                android:layout_centerVertical="true"
-                                android:layout_marginRight="10dp"
-                                android:layout_alignParentRight="true"/>
-                        <ImageView
-                                android:layout_width="66dp"
-                                android:layout_height="66dp"
-                                android:background="@drawable/ic_launcher"
-                                android:layout_centerVertical="true"
-                                android:layout_marginRight="10dp"
-                                android:layout_alignParentRight="true"/>
+                            android:layout_height="999dp"
+                            android:orientation="vertical">
+                        <GridLayout
+                                android:id="@+id/gridLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:columnCount="3">
+                            <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="100dp"
+                                    android:layout_columnWeight="1"
+                                    android:background="@drawable/bg_gridlayout_item"
+                                    android:src="@drawable/ic_launcher"/>
+                            <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="100dp"
+                                    android:layout_columnWeight="1"
+                                    android:background="@drawable/bg_gridlayout_item"
+                                    android:src="@drawable/ic_launcher"/>
+                            <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="100dp"
+                                    android:layout_columnWeight="1"
+                                    android:background="@drawable/bg_gridlayout_item"
+                                    android:src="@drawable/ic_launcher"/>
+                            <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="100dp"
+                                    android:layout_columnWeight="1"
+                                    android:background="@drawable/bg_gridlayout_item"
+                                    android:src="@drawable/ic_launcher"/>
+                            <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="100dp"
+                                    android:layout_columnWeight="1"
+                                    android:background="@drawable/bg_gridlayout_item"
+                                    android:src="@drawable/ic_launcher"/>
+                            <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="120dp"
+                                    android:layout_columnWeight="1"
+                                    android:background="@drawable/bg_gridlayout_item"
+                                    android:src="@drawable/ic_launcher"/>
 
-                        <ImageView
-                                android:layout_width="66dp"
-                                android:layout_height="66dp"
-                                android:background="@drawable/ic_launcher"
-                                android:layout_centerVertical="true"
-                                android:layout_marginRight="10dp"
-                                android:layout_alignParentRight="true"/>
-                        <ImageView
-                                android:layout_width="66dp"
-                                android:layout_height="66dp"
-                                android:background="@drawable/ic_launcher"
-                                android:layout_centerVertical="true"
-                                android:layout_marginRight="10dp"
-                                android:layout_alignParentRight="true"/>
-                        <ImageView
-                                android:layout_width="66dp"
-                                android:layout_height="66dp"
-                                android:background="@drawable/ic_launcher"
-                                android:layout_centerVertical="true"
-                                android:layout_marginRight="10dp"
-                                android:layout_alignParentRight="true"/>
-                    </GridLayout>
+                        </GridLayout>
 
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </layout>

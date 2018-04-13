@@ -1,6 +1,6 @@
-include ':HoneyApp', ':HoneyApp'
-rootProject.name = 'Honey NetStat'
+rootProject.name = 'Oranger'
 
+include ':HoneyApp', ':HoneyApp'
 
 //
 //
