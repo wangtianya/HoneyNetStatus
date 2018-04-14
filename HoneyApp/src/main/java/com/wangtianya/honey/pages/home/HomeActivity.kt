@@ -1,27 +1,20 @@
-package com.wangtianya.honey
+package com.wangtianya.honey.pages.home
 
-import android.app.Activity
 import android.databinding.DataBindingUtil
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.widget.NestedScrollView
-import android.view.View
-import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.LinearLayout
+import com.wangtianya.honey.R
 import com.wangtianya.honey.databinding.ActivityMainBinding
 import com.wangtianya.honey.util.ScreenManager
 import com.wangtianya.yaa.core.activity.YaaActivity
 import com.wangtianya.yaa.core.util.ScreenUtil
 import com.wangtianya.yaa.core.util.YaaToast
-import java.util.*
 import javax.xml.transform.OutputKeys.METHOD
 
 
-class MainActivity : YaaActivity() {
+class HomeActivity : YaaActivity() {
 
     lateinit var binding: ActivityMainBinding
-    var firstLayout: Boolean = true
 
 
     @SuppressWarnings(METHOD)
@@ -32,11 +25,11 @@ class MainActivity : YaaActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         initSwipeRefreshLayout()
         initView()
+
     }
 
     fun initView() {
         setActionBar(binding.toolbar)
-
     }
 
     fun initSwipeRefreshLayout() {

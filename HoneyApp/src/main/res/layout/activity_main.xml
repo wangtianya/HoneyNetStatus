@@ -6,7 +6,7 @@
             android:id="@+id/swipeRefreshView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="com.wangtianya.honey.MainActivity">
+            tools:context="com.wangtianya.honey.pages.home.HomeActivity">
 
 
         <LinearLayout
@@ -59,59 +59,14 @@
                               android:layout_height="wrap_content"
                               android:orientation="vertical">
                     <include
-                            android:id="@+id/content_block"
-                            layout="@layout/main_content_block"/>
+                            android:id="@+id/contentBlock"
+                            layout="@layout/activity_main_content_block"/>
+
+                    <include
+                            android:id="@+id/gridApps"
+                            layout="@layout/activity_main_grid_apps"/>
 
 
-                    <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="999dp"
-                            android:orientation="vertical">
-                        <GridLayout
-                                android:id="@+id/gridLayout"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:columnCount="3">
-                            <ImageView
-                                    android:layout_width="0dp"
-                                    android:layout_height="100dp"
-                                    android:layout_columnWeight="1"
-                                    android:background="@drawable/bg_gridlayout_item"
-                                    android:src="@drawable/ic_launcher"/>
-                            <ImageView
-                                    android:layout_width="0dp"
-                                    android:layout_height="100dp"
-                                    android:layout_columnWeight="1"
-                                    android:background="@drawable/bg_gridlayout_item"
-                                    android:src="@drawable/ic_launcher"/>
-                            <ImageView
-                                    android:layout_width="0dp"
-                                    android:layout_height="100dp"
-                                    android:layout_columnWeight="1"
-                                    android:background="@drawable/bg_gridlayout_item"
-                                    android:src="@drawable/ic_launcher"/>
-                            <ImageView
-                                    android:layout_width="0dp"
-                                    android:layout_height="100dp"
-                                    android:layout_columnWeight="1"
-                                    android:background="@drawable/bg_gridlayout_item"
-                                    android:src="@drawable/ic_launcher"/>
-                            <ImageView
-                                    android:layout_width="0dp"
-                                    android:layout_height="100dp"
-                                    android:layout_columnWeight="1"
-                                    android:background="@drawable/bg_gridlayout_item"
-                                    android:src="@drawable/ic_launcher"/>
-                            <ImageView
-                                    android:layout_width="0dp"
-                                    android:layout_height="120dp"
-                                    android:layout_columnWeight="1"
-                                    android:background="@drawable/bg_gridlayout_item"
-                                    android:src="@drawable/ic_launcher"/>
-
-                        </GridLayout>
-
-                    </LinearLayout>
                 </LinearLayout>
             </android.support.v4.widget.NestedScrollView>
         </LinearLayout>

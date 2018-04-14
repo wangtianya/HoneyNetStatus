@@ -6,8 +6,6 @@ import android.view.Window
 import android.view.WindowManager
 
 class ScreenManager {
-
-
     companion object {
         fun initScreenColor(window: Window, statusBarColor: Int, navigationBarColor: Int) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

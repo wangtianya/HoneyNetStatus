@@ -1,6 +1,12 @@
 rootProject.name = 'Oranger'
 
-include ':HoneyApp', ':HoneyApp'
+
+include ':HoneyApp'
+
+include ':YaaLib'
+
+include 'YaaLib'
+project(':YaaLib').projectDir = new File('YaaLib')
 
 //
 //
@@ -8,5 +14,3 @@ include ':HoneyApp', ':HoneyApp'
 //project(':OldAppProject').projectDir = new File('OldAppProject')
 
 
-include 'YaaLib'
-project(':YaaLib').projectDir = new File('framework')
