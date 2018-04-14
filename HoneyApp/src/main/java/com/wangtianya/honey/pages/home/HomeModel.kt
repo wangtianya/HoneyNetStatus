@@ -20,5 +20,7 @@ class HomeModel {
     val netTypeIcon = ObservableInt(R.drawable.ic_signal_wifi_off)
     val statusColor = ObservableInt(Color.GRAY)
     val delay = ObservableField<String>("-")
+    val up = ObservableField<String>("-")
+    val down = ObservableField<String>("-")
 
 }

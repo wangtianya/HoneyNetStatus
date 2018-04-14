@@ -12,28 +12,49 @@ import com.wangtianya.yaa.net.ping2.inteface.PingRow
 import com.wangtianya.yaa.net.provider.ip.tool.GetIP
 import com.wangtianya.yaa.net.provider.isp.ISPModel
 import com.wangtianya.yaa.net.provider.isp.ISPProvider
+import com.wangtianya.yaa.net.traffic.CurrentTrafficStats
 
 
 class HomePresenter {
 
     val homeModel = HomeModel()
 
+
+    // 需要被销毁的资源们
+    private val currentTrafficStats: CurrentTrafficStats = CurrentTrafficStats.getInstance()
+    private lateinit var networkChangedListener: NetworkChangedListener
+
     fun initData() {
         ThreadUtil.runOnNotUI(Runnable { initNetListener() })
         ThreadUtil.runOnNotUI(Runnable { initDelayData() })
+        ThreadUtil.runOnNotUI(Runnable { initUpDownData() })
 
+    }
+
+    private fun initUpDownData() {
+        currentTrafficStats.addCurrentTrafficListener { up, down ->
+            if (MyNetworkReceiver.isAvailable) {
+                homeModel.up.set(up)
+                homeModel.down.set(down)
+            } else {
+                homeModel.up.set("-")
+                homeModel.down.set("-")
+            }
+        };
+        ThreadUtil.runOnNotUI(currentTrafficStats)
     }
 
 
     private fun initNetListener() {
-        MyNetworkReceiver.addListener(object : NetworkChangedListener {
+        networkChangedListener = object : NetworkChangedListener {
             override fun call() {
                 homeModel.statusColor.set(Color.GRAY)
                 homeModel.delay.set("-")
                 homeModel.netTypeIcon.set(HomeHelper.getNetTypeIcon())
                 ThreadUtil.runOnNotUI(Runnable { updateIP() })
             }
-        })
+        }
+        MyNetworkReceiver.addListener(networkChangedListener)
     }
 
 
@@ -61,13 +82,14 @@ class HomePresenter {
     private fun initDelayData() {
         // todo: 根据网络状态、屏幕前台，停止和启动任务
         PingTaskFactory.newOne("www.baidu.com", object : PingListener {
+            var i : Int = 0
             override fun onStart(row: PingRow) {
                 homeModel.statusColor.set(Color.GRAY)
                 homeModel.delay.set("-")
             }
 
             override fun onProgress(row: PingRow) {
-                if (!MyNetworkReceiver.isAvailable) return
+                if (!MyNetworkReceiver.isAvailable || i++ % 2 ==0) return
                 homeModel.delay.set(HomeHelper.getDelayStr(row.time))
                 homeModel.statusColor.set(HomeHelper.getStatusColorByDelay(row.time))
             }
@@ -81,5 +103,10 @@ class HomePresenter {
                 }
             }
         }).start()
+    }
+
+    fun destory() {
+        currentTrafficStats.stop()
+        MyNetworkReceiver.removeListener(networkChangedListener)
     }
 }

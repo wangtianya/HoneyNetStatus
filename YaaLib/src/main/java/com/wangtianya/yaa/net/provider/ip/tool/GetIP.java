@@ -58,8 +58,8 @@ public class GetIP {
 
     public static String getIpAddressFromCmyip() {
         try {
-            Document document = Jsoup.connect("https://cmyip.com/").get();
-            return extractIp(document.selectFirst(".page-title").html());
+            Document document = Jsoup.connect("http://2017.ip138.com/ic.asp").get();
+            return extractIp(document.html());
         } catch (IOException e) {
             e.printStackTrace();
         }

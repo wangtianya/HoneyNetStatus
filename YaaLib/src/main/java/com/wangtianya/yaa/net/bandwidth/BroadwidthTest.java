@@ -11,29 +11,16 @@ public class BroadwidthTest {
 
     private static List<BroadwidthTestI> BroadwidthTests = new ArrayList<BroadwidthTestI>();
 
-    /**
-     * 慎用，必须是BroadwidthTestI的实现类
-     */
-    public static void changImpl(Class<BroadwidthTestI> clazz) {
-        mClass = clazz;
-    }
-
     public static BroadwidthTestI start(String[] urls, int seconds, BroadWidthListener listener) {
         BroadwidthTestI instance = null;
         try {
             stopAll();
             instance = (BroadwidthTestI) mClass.getConstructor().newInstance();
             BroadwidthTests.add(instance);
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+            instance.start(urls, seconds, listener);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        instance.start(urls, seconds, listener);
         return instance;
     }
 
