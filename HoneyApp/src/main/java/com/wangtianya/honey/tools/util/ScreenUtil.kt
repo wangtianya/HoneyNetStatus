@@ -1,4 +1,4 @@
-package com.wangtianya.honey.util
+package com.wangtianya.honey.tools.util
 
 import android.os.Build
 import android.view.View

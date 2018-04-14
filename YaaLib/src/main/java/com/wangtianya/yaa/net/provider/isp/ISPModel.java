@@ -1,5 +1,5 @@
 
-package com.wangtianya.yaa.net.isp;
+package com.wangtianya.yaa.net.provider.isp;
 
 public class ISPModel {
     public String country;
@@ -9,6 +9,4 @@ public class ISPModel {
     public String county;
     public String isp;
     public String ip;
-
-
 }

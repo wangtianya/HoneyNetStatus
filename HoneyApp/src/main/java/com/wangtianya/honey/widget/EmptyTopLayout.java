@@ -8,6 +8,9 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 
+/**
+ * 沉浸式帮助类
+ */
 public class EmptyTopLayout extends View {
     public EmptyTopLayout(Context context) {
         super(context);

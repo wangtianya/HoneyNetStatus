@@ -12,8 +12,6 @@ import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.wangtianya.yaa.net.ping.PingManagerForLinuxEM;
-import com.wangtianya.yaa.net.ping.model.PingResult;
 
 import android.app.Activity;
 import android.content.Context;
@@ -30,131 +28,100 @@ public class NetworkUtil {
      *
      * @return
      */
-    public static boolean isReachable(String host, int timeout) {
-        boolean result = false;
+//    public static boolean isReachable(String host, int timeout) {
+//        boolean result = false;
+//
+//        InetAddress inetAddress = null;
+//        try {
+//            inetAddress = InetAddress.getByName(host);
+//            result = inetAddress.isReachable(timeout);
+//
+//            if (result == true) {
+//                return true;
+//            } else {
+//                result = isReachableByPing(host, timeout / 1000);
+//            }
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return result;
+//    }
+//
+//    private static boolean isReachableByPing(String host, int timeout) {
+//        if (pingForResult(host, 1, timeout).isSuccess) {
+//            return true;
+//        }
+//        return false;
+//    }
 
-        InetAddress inetAddress = null;
-        try {
-            inetAddress = InetAddress.getByName(host);
-            result = inetAddress.isReachable(timeout);
-
-            if (result == true) {
-                return true;
-            } else {
-                result = isReachableByPing(host, timeout / 1000);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return result;
-    }
-
-    private static boolean isReachableByPing(String host, int timeout) {
-        if (pingForResult(host, 1, timeout).isSuccess) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 获取 ping 结果
-     *
-     * @param host
-     * @param times
-     * @param timeout
-     *
-     * @return
-     */
-    public static PingResult pingForResult(String host, int times, int timeout) {
-        Process p;
-        PingResult pr = new PingResult(host);
-        try {
-            p = Runtime.getRuntime().exec("ping -c " + times + " -W " + timeout + " " + host);
-
-            BufferedReader buf = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String str = new String();
-
-            //读出所有信息并显示
-            while ((str = buf.readLine()) != null) {
-                if (PingManagerForLinuxEM.isStatisticsStr(str)) {
-                    return PingManagerForLinuxEM.getResult(str, pr);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return pr;
-    }
+//    /**
+//     * 获取 ping 结果
+//     *
+//     * @param host
+//     * @param times
+//     * @param timeout
+//     *
+//     * @return
+//     */
+//    public static PingResult pingForResult(String host, int times, int timeout) {
+//        Process p;
+//        PingResult pr = new PingResult(host);
+//        try {
+//            p = Runtime.getRuntime().exec("ping -c " + times + " -W " + timeout + " " + host);
+//
+//            BufferedReader buf = new BufferedReader(new InputStreamReader(p.getInputStream()));
+//            String str = new String();
+//
+//            //读出所有信息并显示
+//            while ((str = buf.readLine()) != null) {
+//                if (PingManagerForLinuxEM.isStatisticsStr(str)) {
+//                    return PingManagerForLinuxEM.getResult(str, pr);
+//                }
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return pr;
+//    }
 
 
-    public static String getIpAddressFromCmyip() {
-        try {
-            URL url = new URL("http://www.cmyip.com");
-            InputStream inStream = null;
 
-            HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
-            int responseCode = httpConnection.getResponseCode();
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                inStream = httpConnection.getInputStream();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(inStream, "utf-8"));
-                StringBuilder strber = new StringBuilder();
-                String line = null;
-                while ((line = reader.readLine()) != null) {
-                    if (line.indexOf("My IP Address is") > -1) {
-                        String subString = "My IP Address is ";
-                        int baseIndex = line.indexOf("My IP Address is ");
-                        if (baseIndex > -1) {
-                            String ip = line.substring(baseIndex + subString.length(), line.indexOf("</h1>"));
-                            return ip;
-                        }
-                    }
 
-                }
-                inStream.close();
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+//    /**
+//     * 网络是否是CONNECTED状态
+//     */
+//    public boolean isConnected(Activity activity) {
+//        ConnectivityManager manager = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
+//        if (manager == null) {
+//            return false;
+//        } else {
+//            NetworkInfo[] info = manager.getAllNetworkInfo();
+//            if (info != null) {
+//                for (int i = 0; i < info.length; i++) {
+//                    if (info[i].getState() == NetworkInfo.State.CONNECTED) {
+//                        return true;
+//                    }
+//                }
+//            }
+//        }
+//        return false;
+//    }
 
-    /**
-     * 网络是否是CONNECTED状态
-     */
-    public boolean isConnected(Activity activity) {
-        ConnectivityManager manager = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (manager == null) {
-            return false;
-        } else {
-            NetworkInfo[] info = manager.getAllNetworkInfo();
-            if (info != null) {
-                for (int i = 0; i < info.length; i++) {
-                    if (info[i].getState() == NetworkInfo.State.CONNECTED) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
-     * 网络是否连接或正在连接中
-     */
-    public boolean isConnectedOrConnecting(Activity activity) {
-        ConnectivityManager manager = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (manager != null) {
-            NetworkInfo network = manager.getActiveNetworkInfo();
-            if (network != null && network.isConnectedOrConnecting()) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    /**
+//     * 网络是否连接或正在连接中
+//     */
+//    public boolean isConnectedOrConnecting(Activity activity) {
+//        ConnectivityManager manager = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
+//        if (manager != null) {
+//            NetworkInfo network = manager.getActiveNetworkInfo();
+//            if (network != null && network.isConnectedOrConnecting()) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
     public static boolean isIpv4(String ipAddress) {
 

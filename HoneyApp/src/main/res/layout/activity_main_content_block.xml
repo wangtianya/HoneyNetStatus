@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
+    <data>
+        <variable name="model" type="com.wangtianya.honey.pages.home.HomeModel"/>
+    </data>
+
     <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -31,7 +36,8 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="5dp"
-                        android:src="@drawable/ic_wifi"/>
+                        android:tint="@android:color/white"
+                        android:src="@{model.netTypeIcon}"/>
 
                 <TextView
                         android:id="@+id/tvIp"
@@ -39,7 +45,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/white"
                         android:layout_marginLeft="7dp"
-                        android:text="223.168.11.254 (联通)"/>
+                        android:text="@{model.ip}"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -58,9 +64,11 @@
                     android:gravity="center"
                     android:layout_weight="1">
                 <ImageView
+                        android:id="@+id/ivStatus"
                         android:layout_width="12dp"
                         android:layout_height="12dp"
                         android:layout_marginLeft="5dp"
+                        android:tint="@{model.statusColor}"
                         android:src="@drawable/ic_dot"/>
 
                 <TextView
@@ -68,7 +76,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/white"
                         android:layout_marginLeft="5dp"
-                        android:text="23ms"/>
+                        android:text="@{model.delay}"/>
             </LinearLayout>
 
 

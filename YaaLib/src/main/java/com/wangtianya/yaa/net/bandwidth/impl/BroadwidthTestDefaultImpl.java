@@ -84,7 +84,7 @@ public class BroadwidthTestDefaultImpl implements BroadwidthTestI {
 
         @Override
         public void run() {
-            InputStream in = null;
+            InputStream in;
             try {
                 int connectTimeout = 30 * 1000; // 连接超时:30s
                 int readTimeout = 1 * 1000 * 1000; // IO超时:1min
