@@ -1,32 +1,26 @@
 
-package com.wangtianya.yaa.net.ping;
+package com.wangtianya.yaa.net.ping2.impl;
 
 import java.util.Map;
 
-import com.wangtianya.yaa.net.ping.model.PingResult;
-import com.wangtianya.yaa.net.ping.model.PingResultRow;
+import com.wangtianya.yaa.net.ping2.inteface.PingResult;
+import com.wangtianya.yaa.net.ping2.inteface.PingRow;
 
-public class PingManagerForLinuxEM {
+public class PingTaskImplHelper {
 
-    public static PingResult getResult(String str, PingResult pr) {
+    public static PingResult getResult(PingResult pr, String str) {
         pr.packetsReceived = Integer.valueOf(str.substring(str.indexOf("tted,") + 6, str.indexOf(" received")));
         pr.packetsTransmitted = Integer.valueOf(str.substring(0, str.indexOf(" packets transmitted,")));
-        if (pr.packetsReceived > 0) {
-            pr.isSuccess = true;
-        }
+        pr.consoleMsg = str;
         return pr;
     }
 
-    public static PingResultRow getRow(String str) {
-        PingResultRow prr = new PingResultRow();
-        prr.ip = str.substring(str.indexOf("from") + 5, str.indexOf(": icmp_seq"));
-        prr.icmp_seq = Integer.valueOf(str.substring(str.indexOf("icmp_seq=") + 9, str.indexOf(" ttl=")));
-        prr.ttl = Integer.valueOf(str.substring(str.indexOf("ttl=") + 4, str.indexOf(" time=")));
-        prr.time = Float.valueOf(str.substring(str.indexOf("time=") + 5, str.indexOf(" ms")));
-        if (prr.time > 0){
-            prr.isTimeout = false;
-        }
-        return prr;
+    public static PingRow getRow(PingRow row, String str) {
+        row.ip = str.substring(str.indexOf("from") + 5, str.indexOf(": icmp_seq"));
+        row.icmpSeq = Integer.valueOf(str.substring(str.indexOf("icmp_seq=") + 9, str.indexOf(" ttl=")));
+        row.ttl = Integer.valueOf(str.substring(str.indexOf("ttl=") + 4, str.indexOf(" time=")));
+        row.time = Float.valueOf(str.substring(str.indexOf("time=") + 5, str.indexOf(" ms")));
+        return row;
     }
 
     public static  boolean isCanReachable(String str) {
@@ -43,7 +37,7 @@ public class PingManagerForLinuxEM {
     }
 
     public static  String getPingStr(String host, Map<String, String> param) {
-        String execStr = "ping";
+        String execStr = "/system/bin/ping";
         for (String key : param.keySet()) {
             execStr += " " + key;
             if (param.get(key) != null) {
