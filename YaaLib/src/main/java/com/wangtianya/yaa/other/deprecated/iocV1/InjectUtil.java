@@ -1,5 +1,5 @@
 
-package com.wangtianya.yaa.deprecated.ioc;
+package com.wangtianya.yaa.other.deprecated.iocV1;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -11,9 +11,9 @@ import org.json.JSONObject;
 
 import com.google.gson.Gson;
 import com.wangtianya.yaa.core.context.YaaContext;
-import com.wangtianya.yaa.deprecated.ioc.annotation.InjectExtra;
-import com.wangtianya.yaa.deprecated.ioc.annotation.InjectResource;
-import com.wangtianya.yaa.deprecated.ioc.annotation.InjectView;
+import com.wangtianya.yaa.other.deprecated.iocV1.annotation.InjectExtra;
+import com.wangtianya.yaa.other.deprecated.iocV1.annotation.InjectResource;
+import com.wangtianya.yaa.other.deprecated.iocV1.annotation.InjectView;
 
 import android.app.Activity;
 import android.app.Dialog;

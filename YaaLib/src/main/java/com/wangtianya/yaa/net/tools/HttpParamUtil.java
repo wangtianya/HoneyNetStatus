@@ -1,5 +1,5 @@
 
-package com.wangtianya.yaa.net.utils;
+package com.wangtianya.yaa.net.tools;
 import java.util.Map;
 
 public class HttpParamUtil {

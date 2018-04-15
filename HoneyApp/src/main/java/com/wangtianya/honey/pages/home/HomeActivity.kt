@@ -1,14 +1,20 @@
 package com.wangtianya.honey.pages.home
 
+import android.content.Context
 import android.databinding.DataBindingUtil
 import android.graphics.Color
+import android.net.wifi.WifiManager
 import android.os.Bundle
+import android.widget.Toast
 import com.wangtianya.honey.R
 import com.wangtianya.honey.databinding.ActivityMainBinding
 import com.wangtianya.honey.tools.util.ScreenManager
 import com.wangtianya.yaa.core.activity.YaaActivity
+import com.wangtianya.yaa.core.context.YaaApplication
+import com.wangtianya.yaa.core.context.YaaContext
 import com.wangtianya.yaa.core.util.ScreenUtil
 import com.wangtianya.yaa.core.util.YaaLog
+import com.wangtianya.yaa.core.util.YaaToast
 import com.wangtianya.yaa.net.ping2.PingTaskFactory
 import com.wangtianya.yaa.net.ping2.inteface.PingListener
 import com.wangtianya.yaa.net.ping2.inteface.PingResult
@@ -59,19 +65,13 @@ class HomeActivity : YaaActivity() {
 
 
     fun testPing() {
-        PingTaskFactory.newOne("127.0.0.1", 5, object : PingListener {
-            override fun onStart(row: PingRow) {
-                YaaLog.getLogger().e(row.consoleMsg)
-            }
+        YaaToast.show((getConnectWifiSsid()))
+    }
 
-            override fun onProgress(row: PingRow) {
-                YaaLog.getLogger().e(row.consoleMsg)
-            }
-
-            override fun onFinish(result: PingResult) {
-                YaaLog.getLogger().e(result.consoleMsg)
-            }
-        }).start()
+    fun getConnectWifiSsid(): String {
+        val wifiManager = application.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        val wifiInfo = wifiManager.connectionInfo
+        return wifiInfo.ssid
     }
 
 

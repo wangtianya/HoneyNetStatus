@@ -1,5 +1,5 @@
 
-package com.wangtianya.yaa.image.yaa;
+package com.wangtianya.yaa.other.deprecated.imagev1;
 
 import com.wangtianya.yaa.core.util.YaaLog;
 

@@ -5,6 +5,7 @@ import android.text.TextUtils
 import com.wangtianya.honey.broadcast.MyNetworkReceiver
 import com.wangtianya.honey.broadcast.NetworkChangedListener
 import com.wangtianya.honey.tools.thread.ThreadUtil
+import com.wangtianya.yaa.core.context.YaaContext
 import com.wangtianya.yaa.net.ping2.PingTaskFactory
 import com.wangtianya.yaa.net.ping2.inteface.PingListener
 import com.wangtianya.yaa.net.ping2.inteface.PingResult
@@ -12,9 +13,11 @@ import com.wangtianya.yaa.net.ping2.inteface.PingRow
 import com.wangtianya.yaa.net.provider.ip.tool.GetIP
 import com.wangtianya.yaa.net.provider.isp.ISPModel
 import com.wangtianya.yaa.net.provider.isp.ISPProvider
+import com.wangtianya.yaa.net.tools.WifiUtil
 import com.wangtianya.yaa.net.traffic.CurrentTrafficStats
 
 
+// todo: 根据网络状态、屏幕前台，停止和启动任务
 class HomePresenter {
 
     val homeModel = HomeModel()
@@ -28,7 +31,6 @@ class HomePresenter {
         ThreadUtil.runOnNotUI(Runnable { initNetListener() })
         ThreadUtil.runOnNotUI(Runnable { initDelayData() })
         ThreadUtil.runOnNotUI(Runnable { initUpDownData() })
-
     }
 
     private fun initUpDownData() {
@@ -62,34 +64,40 @@ class HomePresenter {
         if (!MyNetworkReceiver.isAvailable) {
             homeModel.ip.set("网络已断开")
         } else {
-            var ip = GetIP.getIpAddressFromCmyip()
+            var wifiName = ""
+            if (MyNetworkReceiver.isWifi()) {
+                wifiName = WifiUtil.getConnectWifiSsid(YaaContext.getContext())
+            }
+
+            var ip = GetIP.getIpAddressFromWeb()
             if (TextUtils.isEmpty(ip)) {
                 ip = GetIP.getIntranetIp()
             }
+            var isp = ""
             val ispModel: ISPModel? = ISPProvider.getInstance().getIspModel(ip)
-            if (ispModel != null) {
-                var ipBuilder = StringBuilder(ispModel.ip)
-                if (!TextUtils.isEmpty(ispModel.isp)) {
-                    ipBuilder.append(" (%s)".format(ispModel.isp))
-                }
-                homeModel.ip.set(ipBuilder.toString())
-            } else {
-                homeModel.ip.set(ip)
+
+            ip = StringBuilder("   ").append(ip).toString()
+            if (ispModel != null && !TextUtils.isEmpty(ispModel.isp) && !TextUtils.equals("XX", ispModel.isp)) {
+                isp = StringBuilder(" (").append(ispModel.isp).append(")").toString()
             }
+
+            val formatStr = "%s%s%s"
+
+            homeModel.ip.set(formatStr.format(wifiName, ip, isp))
+
         }
     }
 
     private fun initDelayData() {
-        // todo: 根据网络状态、屏幕前台，停止和启动任务
         PingTaskFactory.newOne("www.baidu.com", object : PingListener {
-            var i : Int = 0
+            var i: Int = 0
             override fun onStart(row: PingRow) {
                 homeModel.statusColor.set(Color.GRAY)
                 homeModel.delay.set("-")
             }
 
             override fun onProgress(row: PingRow) {
-                if (!MyNetworkReceiver.isAvailable || i++ % 2 ==0) return
+                if (!MyNetworkReceiver.isAvailable || i++ % 2 == 0) return
                 homeModel.delay.set(HomeHelper.getDelayStr(row.time))
                 homeModel.statusColor.set(HomeHelper.getStatusColorByDelay(row.time))
             }

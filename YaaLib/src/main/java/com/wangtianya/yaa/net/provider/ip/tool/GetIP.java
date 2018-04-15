@@ -23,7 +23,7 @@ public class GetIP {
     public static String byDomain(String domain) {
         InetAddress ip;
         try {
-            ip = InetAddress.getByName(domain);
+            ip = InetAddress.getByName(domain.trim());
             return ip.getHostAddress();
         } catch (UnknownHostException e) {
             // pass
@@ -56,7 +56,7 @@ public class GetIP {
         }
     }
 
-    public static String getIpAddressFromCmyip() {
+    public static String getIpAddressFromWeb() {
         try {
             Document document = Jsoup.connect("http://2017.ip138.com/ic.asp").get();
             return extractIp(document.html());

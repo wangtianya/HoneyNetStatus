@@ -8,9 +8,9 @@ import android.widget.ImageView;
  */
 
 public class HomeBindingAdapter {
-    @BindingAdapter("android:svgColor")
-    public static void setSvgColor(ImageView imageView, int color) {
-        imageView.getDrawable().setTint(color);
-    }
+//    @BindingAdapter("android:svgColor")
+//    public static void setSvgColor(ImageView imageView, int color) {
+//        imageView.getDrawable().setTint(color);
+//    }
 
 }

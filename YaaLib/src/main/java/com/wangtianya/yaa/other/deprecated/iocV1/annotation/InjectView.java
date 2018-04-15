@@ -1,5 +1,5 @@
 
-package com.wangtianya.yaa.deprecated.ioc.annotation;
+package com.wangtianya.yaa.other.deprecated.iocV1.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

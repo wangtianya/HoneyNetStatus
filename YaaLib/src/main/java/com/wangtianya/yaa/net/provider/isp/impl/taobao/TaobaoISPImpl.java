@@ -24,7 +24,7 @@ public class TaobaoISPImpl implements ISPProviderI {
 
     @Override
     public ISPModel getIspModel(String host) {
-        return convert(request(GetIP.byDomain(host)));
+        return convert(request(host));
     }
 
     @Override

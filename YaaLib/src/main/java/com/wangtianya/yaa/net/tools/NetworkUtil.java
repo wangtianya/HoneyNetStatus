@@ -1,5 +1,5 @@
 
-package com.wangtianya.yaa.net.utils;
+package com.wangtianya.yaa.net.tools;
 
 import java.io.BufferedReader;
 import java.io.IOException;

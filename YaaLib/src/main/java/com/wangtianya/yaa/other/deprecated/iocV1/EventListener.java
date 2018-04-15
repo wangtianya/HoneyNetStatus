@@ -1,5 +1,5 @@
 
-package com.wangtianya.yaa.deprecated.ioc;
+package com.wangtianya.yaa.other.deprecated.iocV1;
 
 import java.lang.reflect.Method;
 
