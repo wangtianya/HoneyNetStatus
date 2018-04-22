@@ -1,5 +1,5 @@
 
-apply from: "scripts/config.gradle"
+apply from: "submodule/config/config.gradle"
 
 buildscript {
     repositories {
