@@ -3,7 +3,7 @@ rootProject.name = 'QNet'
 
 def submodule = "submodule"
 
-include ':QNet'
+include 'QNet'
 
 include 'YaaLib'
 project(':YaaLib').projectDir = new File('YaaLib')
