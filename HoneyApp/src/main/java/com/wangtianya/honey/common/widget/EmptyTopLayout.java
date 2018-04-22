@@ -1,4 +1,4 @@
-package com.wangtianya.honey.widget;
+package com.wangtianya.honey.common.widget;
 
 import com.wangtianya.yaa.core.context.YaaContext;
 import com.wangtianya.yaa.core.util.ScreenUtil;

@@ -1,4 +1,4 @@
-package com.wangtianya.honey.binding;
+package com.wangtianya.honey.common.binding;
 
 import android.databinding.BindingAdapter;
 import android.widget.ImageView;

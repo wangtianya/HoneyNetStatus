@@ -3,7 +3,7 @@ package com.wangtianya.honey.pages.home
 import android.graphics.Color
 import android.text.TextUtils
 import com.wangtianya.honey.R
-import com.wangtianya.honey.broadcast.MyNetworkReceiver
+import com.wangtianya.honey.common.broadcast.MyNetworkReceiver
 import com.wangtianya.yaa.core.context.YaaContext
 import com.wangtianya.yaa.net.provider.ip.tools.GetIP
 import com.wangtianya.yaa.net.provider.isp.ISPModel

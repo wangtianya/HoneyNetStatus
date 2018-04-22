@@ -1,11 +1,10 @@
-package com.wangtianya.honey.broadcast
+package com.wangtianya.honey.common.broadcast
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.*
-import android.util.Log
 import com.wangtianya.yaa.core.context.YaaContext
 
 

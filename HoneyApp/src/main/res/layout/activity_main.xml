@@ -9,7 +9,7 @@
             android:id="@+id/swipeRefreshView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="com.wangtianya.honey.pages.home.HomeActivity">
+            tools:context=".pages.home.HomeActivity">
 
 
         <LinearLayout
@@ -18,7 +18,7 @@
                 android:layout_height="match_parent">
 
 
-            <com.wangtianya.honey.widget.EmptyTopLayout
+            <com.wangtianya.honey.common.widget.EmptyTopLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             <Toolbar

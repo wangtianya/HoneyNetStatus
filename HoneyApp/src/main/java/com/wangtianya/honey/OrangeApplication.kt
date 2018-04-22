@@ -1,6 +1,6 @@
 package com.wangtianya.honey
 
-import com.wangtianya.honey.broadcast.MyNetworkReceiver
+import com.wangtianya.honey.common.broadcast.MyNetworkReceiver
 import com.wangtianya.yaa.core.context.YaaApplication
 
 /**

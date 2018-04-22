@@ -5,20 +5,12 @@ import android.databinding.DataBindingUtil
 import android.graphics.Color
 import android.net.wifi.WifiManager
 import android.os.Bundle
-import android.widget.Toast
 import com.wangtianya.honey.R
 import com.wangtianya.honey.databinding.ActivityMainBinding
-import com.wangtianya.honey.tools.util.ScreenManager
+import com.wangtianya.honey.common.tools.util.ScreenManager
 import com.wangtianya.yaa.core.activity.YaaActivity
-import com.wangtianya.yaa.core.context.YaaApplication
-import com.wangtianya.yaa.core.context.YaaContext
 import com.wangtianya.yaa.core.util.ScreenUtil.dip2px
-import com.wangtianya.yaa.core.util.YaaLog
 import com.wangtianya.yaa.core.util.YaaToast
-import com.wangtianya.yaa.net.ping2.PingTaskFactory
-import com.wangtianya.yaa.net.ping2.inteface.PingListener
-import com.wangtianya.yaa.net.ping2.inteface.PingResult
-import com.wangtianya.yaa.net.ping2.inteface.PingRow
 
 
 class HomeActivity : YaaActivity() {
