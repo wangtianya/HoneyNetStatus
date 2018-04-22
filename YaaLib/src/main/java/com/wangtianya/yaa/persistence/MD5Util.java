@@ -1,5 +1,5 @@
 
-package com.wangtianya.yaa.persistence.utils;
+package com.wangtianya.yaa.persistence;
 
 import java.security.MessageDigest;
 

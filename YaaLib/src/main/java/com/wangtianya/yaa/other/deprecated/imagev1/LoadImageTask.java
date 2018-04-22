@@ -11,8 +11,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import com.wangtianya.yaa.core.context.YaaContext;
-import com.wangtianya.yaa.persistence.utils.FileUtil;
-import com.wangtianya.yaa.persistence.utils.MD5Util;
+import com.wangtianya.yaa.persistence.IOHelper;
+import com.wangtianya.yaa.persistence.SDCardHelper;
+import com.wangtianya.yaa.persistence.MD5Util;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -49,7 +50,7 @@ public class LoadImageTask extends AsyncTask<Integer, Integer, Bitmap> {
         }
 
         // 在磁盘缓存上找，找了后丢到内存去
-        File fileCache = new File(FileUtil.getCacheDir() + File.separator + fileNameByUrl + ".png");
+        File fileCache = new File(SDCardHelper.getCacheDir() + File.separator + fileNameByUrl + ".png");
         if (fileCache.exists()) {
             try {
                 BitmapFactory.Options options = new BitmapFactory.Options();
@@ -80,7 +81,7 @@ public class LoadImageTask extends AsyncTask<Integer, Integer, Bitmap> {
             Bitmap bitmap = BitmapFactory.decodeStream(mNetInputStream);
             mLruCacheBitmap.put(fileNameByUrl, bitmap);
             InputStream is = ImageUtil.Bitmap2InputStream(bitmap);
-            FileUtil.write(is, fileCache);
+            IOHelper.write(is, fileCache);
             mNetInputStream.close();
             is.close();
             return bitmap;

@@ -1,15 +1,13 @@
 rootProject.name = 'Oranger'
 
 
-include ':HoneyApp'
+def submodule = "submodule"
 
-include ':YaaLib'
+include ':HoneyApp'
 
 include 'YaaLib'
 project(':YaaLib').projectDir = new File('YaaLib')
 
-//
-//
 //include 'OldAppProject'
 //project(':OldAppProject').projectDir = new File('OldAppProject')
 

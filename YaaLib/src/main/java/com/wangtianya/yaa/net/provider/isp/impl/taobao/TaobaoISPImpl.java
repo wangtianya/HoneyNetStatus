@@ -10,7 +10,7 @@ import java.net.URL;
 
 import org.json.JSONObject;
 
-import com.wangtianya.yaa.net.provider.ip.tool.GetIP;
+import com.wangtianya.yaa.net.provider.ip.tools.GetIP;
 import com.wangtianya.yaa.net.provider.isp.ISPAsyncListener;
 import com.wangtianya.yaa.net.provider.isp.ISPModel;
 import com.wangtianya.yaa.net.provider.isp.ISPProviderI;

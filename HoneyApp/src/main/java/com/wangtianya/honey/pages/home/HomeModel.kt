@@ -1,14 +1,11 @@
 package com.wangtianya.honey.pages.home
 
-import android.database.Observable
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import com.wangtianya.honey.R
-import android.databinding.adapters.ViewBindingAdapter.setPadding
-import android.databinding.BindingAdapter
-import android.widget.ImageView
+import android.databinding.ObservableArrayList
+import com.wangtianya.yaa.databinding.AdapterBindingModel
 
 
 /**
@@ -23,4 +20,11 @@ class HomeModel {
     val up = ObservableField<String>("-")
     val down = ObservableField<String>("-")
 
+
+
+    val gridList = ObservableArrayList<AdapterBindingModel>()
+
+
+
+    class GridModel(var imgId: Int, var title: String) : AdapterBindingModel()
 }

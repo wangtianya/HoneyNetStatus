@@ -1,7 +1,6 @@
-package com.wangtianya.yaa.image.utils;
+package com.wangtianya.yaa.other.image.utils;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

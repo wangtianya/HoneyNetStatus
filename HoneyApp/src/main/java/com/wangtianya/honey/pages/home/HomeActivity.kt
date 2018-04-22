@@ -12,7 +12,7 @@ import com.wangtianya.honey.tools.util.ScreenManager
 import com.wangtianya.yaa.core.activity.YaaActivity
 import com.wangtianya.yaa.core.context.YaaApplication
 import com.wangtianya.yaa.core.context.YaaContext
-import com.wangtianya.yaa.core.util.ScreenUtil
+import com.wangtianya.yaa.core.util.ScreenUtil.dip2px
 import com.wangtianya.yaa.core.util.YaaLog
 import com.wangtianya.yaa.core.util.YaaToast
 import com.wangtianya.yaa.net.ping2.PingTaskFactory
@@ -27,12 +27,14 @@ class HomeActivity : YaaActivity() {
 
     lateinit var binding: ActivityMainBinding
 
-    @SuppressWarnings
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // 沉浸式，初始化StatusBar颜色
-        ScreenManager.initScreenColor(window, resources.getColor(R.color.colorPrimaryDark), Color.TRANSPARENT)
+
+
+        ScreenManager.initScreenColor(window, @Suppress("deprecation") resources.getColor(R.color.colorPrimaryDark), Color.TRANSPARENT)
 
         // 初始化数据
         presenter.initData()
@@ -48,10 +50,10 @@ class HomeActivity : YaaActivity() {
         initSwipeRefreshLayout()
     }
 
+    @Suppress("deprecation")
     private fun initSwipeRefreshLayout() {
-        val dp200 = ScreenUtil.dip2px(200, this);
-        binding.swipeRefreshView.setProgressViewOffset(true, 0, dp200)
-        binding.swipeRefreshView.setProgressBackgroundColor(android.R.color.white);
+        binding.swipeRefreshView.setProgressViewOffset(true, 0, dip2px(200))
+        binding.swipeRefreshView.setProgressBackgroundColor(android.R.color.white)
         binding.swipeRefreshView.setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary, R.color.colorPrimaryDark)
 
         // 下拉时触发SwipeRefreshLayout的下拉动画，动画完毕之后就会回调这个方法
@@ -61,6 +63,8 @@ class HomeActivity : YaaActivity() {
                 binding.swipeRefreshView.isRefreshing = false
             }, 1000)
         }
+
+        // layout/activity_main_content_block
     }
 
 

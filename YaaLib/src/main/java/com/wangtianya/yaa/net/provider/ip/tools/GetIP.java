@@ -1,9 +1,8 @@
-package com.wangtianya.yaa.net.provider.ip.tool;
+package com.wangtianya.yaa.net.provider.ip.tools;
 
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

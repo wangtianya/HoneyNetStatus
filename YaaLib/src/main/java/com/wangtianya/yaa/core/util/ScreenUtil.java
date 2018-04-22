@@ -1,6 +1,8 @@
 
 package com.wangtianya.yaa.core.util;
 
+import com.wangtianya.yaa.core.context.YaaContext;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
@@ -27,6 +29,10 @@ public class ScreenUtil {
             mScaledDensity = context.getResources().getDisplayMetrics().scaledDensity;
         }
         return mScaledDensity;
+    }
+
+    public static int dip2px(int dip) {
+        return (int) (0.5F + getDensity(YaaContext.getContext()) * dip);
     }
 
     public static int dip2px(int dip, Context context) {

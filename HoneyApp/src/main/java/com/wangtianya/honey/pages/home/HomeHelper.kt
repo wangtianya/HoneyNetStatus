@@ -1,8 +1,14 @@
 package com.wangtianya.honey.pages.home
 
 import android.graphics.Color
+import android.text.TextUtils
 import com.wangtianya.honey.R
 import com.wangtianya.honey.broadcast.MyNetworkReceiver
+import com.wangtianya.yaa.core.context.YaaContext
+import com.wangtianya.yaa.net.provider.ip.tools.GetIP
+import com.wangtianya.yaa.net.provider.isp.ISPModel
+import com.wangtianya.yaa.net.provider.isp.ISPProvider
+import com.wangtianya.yaa.net.tools.WifiUtil
 
 /**
  * Created by wangtianya on 2018/4/14.
@@ -11,6 +17,34 @@ import com.wangtianya.honey.broadcast.MyNetworkReceiver
 
 class HomeHelper {
     companion object {
+
+        fun getWifiName(): String {
+            var wifiName = ""
+            if (MyNetworkReceiver.isWifi()) {
+                wifiName = WifiUtil.getConnectWifiSsid(YaaContext.getContext())
+                wifiName = wifiName.replace("\"", "")
+            }
+            return wifiName
+        }
+
+        fun getIp() : String {
+            var ip = GetIP.getIpAddressFromWeb()
+            if (TextUtils.isEmpty(ip)) {
+                ip = GetIP.getIntranetIp()
+            }
+            return ip;
+        }
+
+        fun getIsp() : String {
+            val ip = getIp()
+            var isp = ""
+            val ispModel: ISPModel? = ISPProvider.getInstance().getIspModel(ip)
+
+            if (ispModel != null && !TextUtils.isEmpty(ispModel.isp) && !TextUtils.equals("XX", ispModel.isp)) {
+                isp = ispModel.isp
+            }
+            return isp
+        }
 
         fun getNetTypeIcon(): Int {
             return if (!MyNetworkReceiver.isAvailable) {

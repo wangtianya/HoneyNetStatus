@@ -1,4 +1,4 @@
-package com.wangtianya.yaa.net.provider.ip.tool;
+package com.wangtianya.yaa.net.provider.ip.tools;
 
 import java.util.regex.Pattern;
 
