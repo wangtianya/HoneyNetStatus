@@ -1,3 +1,7 @@
-一个网络使用工具，因为我被广告弄烦了。
+简介：一个网络使用工具。
 
-mail: i@wangtianya.com [|cn]
+
+
+
+
+by i@wangtianya.cn
