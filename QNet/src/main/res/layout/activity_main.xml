@@ -18,7 +18,7 @@
                 android:layout_height="match_parent">
 
 
-            <com.wangtianya.honey.common.widget.EmptyTopLayout
+            <com.qjuzi.qnet.common.widget.EmptyTopLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             <Toolbar

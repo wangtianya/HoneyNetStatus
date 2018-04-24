@@ -1,4 +1,4 @@
-package com.wangtianya.honey.common.binding;
+package com.qjuzi.qnet.common.binding;
 
 import android.databinding.BindingAdapter;
 import android.widget.ImageView;

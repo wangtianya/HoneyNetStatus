@@ -42,32 +42,19 @@ class HomeActivity : YaaActivity() {
         initSwipeRefreshLayout()
     }
 
-    @Suppress("deprecation")
     private fun initSwipeRefreshLayout() {
         binding.swipeRefreshView.setProgressViewOffset(true, 0, dip2px(200))
+        @Suppress("deprecation")
         binding.swipeRefreshView.setProgressBackgroundColor(android.R.color.white)
         binding.swipeRefreshView.setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary, R.color.colorPrimaryDark)
 
         // 下拉时触发SwipeRefreshLayout的下拉动画，动画完毕之后就会回调这个方法
         binding.swipeRefreshView.setOnRefreshListener {
-            testPing()
             binding.swipeRefreshView.postDelayed({
                 binding.swipeRefreshView.isRefreshing = false
             }, 1000)
         }
 
-        // layout/activity_main_content_block
-    }
-
-
-    fun testPing() {
-        YaaToast.show((getConnectWifiSsid()))
-    }
-
-    fun getConnectWifiSsid(): String {
-        val wifiManager = application.getSystemService(Context.WIFI_SERVICE) as WifiManager
-        val wifiInfo = wifiManager.connectionInfo
-        return wifiInfo.ssid
     }
 
 

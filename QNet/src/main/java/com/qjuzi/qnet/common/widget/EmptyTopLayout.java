@@ -1,4 +1,4 @@
-package com.wangtianya.honey.common.widget;
+package com.qjuzi.qnet.common.widget;
 
 import com.qjuzi.yaa.core.context.YaaContext;
 import com.qjuzi.yaa.core.util.ScreenUtil;

@@ -1,4 +1,4 @@
-package com.wangtianya.honey.pages.home;
+package com.qjuzi.qnet.pages.home;
 
 /**
  * Created by wangtianya on 2018/4/14.
