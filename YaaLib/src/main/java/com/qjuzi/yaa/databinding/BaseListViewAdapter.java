@@ -13,18 +13,18 @@ import android.widget.BaseAdapter;
 /**
  * Created by tianya on 2017/5/4.
  */
-public class DataBindingBaseAdapter<T extends AdapterBindingModel> extends BaseAdapter {
+public class BaseListViewAdapter<T extends AdapterBindingModel> extends BaseAdapter {
 
     private LayoutInflater inflater;
     private ObservableArrayList<T> modelList;
 
-    public DataBindingBaseAdapter(Context context, ObservableArrayList<T> modelList) {
+    public BaseListViewAdapter(Context context, ObservableArrayList<T> modelList) {
         inflater = LayoutInflater.from(context);
         this.modelList = modelList;
         initNotifyChangeListener();
     }
 
-    public DataBindingBaseAdapter(Context context, ObservableArrayList<T> modelList, int layoutId, int variableId) {
+    public BaseListViewAdapter(Context context, ObservableArrayList<T> modelList, int layoutId, int variableId) {
         inflater = LayoutInflater.from(context);
         for (T model : modelList) {
             model.layoutId = layoutId;

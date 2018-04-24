@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="model" type="com.wangtianya.honey.pages.home.HomeModel"/>
     </data>
     <android.support.v4.widget.SwipeRefreshLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/swipeRefreshView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -53,6 +54,12 @@
                 </RelativeLayout>
             </Toolbar>
 
+
+            <include
+                    android:id="@+id/contentBlock"
+                    bind:model="@{model}"
+                    layout="@layout/activity_main_content_block"/>
+
             <android.support.v4.widget.NestedScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -61,7 +68,9 @@
                 <android.support.v7.widget.RecyclerView
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"/>
+                        android:layout_height="400dp"
+                        android:adapter="@{model.gridAdapter}"
+                        android:gridSpan="@{3}"/>
 
             </android.support.v4.widget.NestedScrollView>
         </LinearLayout>

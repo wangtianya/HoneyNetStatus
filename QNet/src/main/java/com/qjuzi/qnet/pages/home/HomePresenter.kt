@@ -2,6 +2,10 @@ package com.wangtianya.honey.pages.home
 
 import android.graphics.Color
 import android.text.TextUtils
+import com.qjuzi.yaa.BR
+import com.qjuzi.yaa.core.activity.YaaActivity
+import com.qjuzi.yaa.core.context.YaaContext
+import com.qjuzi.yaa.databinding.BaseRecycleViewAdapter
 import com.wangtianya.honey.R
 import com.wangtianya.honey.common.broadcast.MyNetworkReceiver
 import com.wangtianya.honey.common.broadcast.NetworkChangedListener
@@ -108,7 +112,7 @@ class HomePresenter {
 
 
     private fun initGridListData() {
-        val netInfoGrid = HomeModel.GridModel(R.drawable.ic_signal_wifi_off, "信息状态")
+        val netInfoGrid = HomeModel.GridModel(R.drawable.ic_signal_wifi_off, "详细信息")
         homeModel.gridList.add(netInfoGrid)
 
         val speedTestGrid = HomeModel.GridModel(R.drawable.ic_signal_wifi_off, "网络测速")
@@ -116,6 +120,9 @@ class HomePresenter {
 
         val delayGrid = HomeModel.GridModel(R.drawable.ic_signal_wifi_off, "网络延时")
         homeModel.gridList.add(delayGrid)
+
+        homeModel.gridAdapter.set(BaseRecycleViewAdapter<HomeModel.GridModel>(YaaContext.getContext(), homeModel.gridList, R.layout.activity_main_grid_item, BR.model))
+
     }
 
 

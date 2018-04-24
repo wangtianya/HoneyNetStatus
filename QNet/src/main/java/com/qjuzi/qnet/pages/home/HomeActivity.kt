@@ -1,16 +1,15 @@
 package com.wangtianya.honey.pages.home
 
-import android.content.Context
+import android.annotation.SuppressLint
 import android.databinding.DataBindingUtil
 import android.graphics.Color
-import android.net.wifi.WifiManager
 import android.os.Bundle
+import android.support.v7.widget.GridLayoutManager
 import com.wangtianya.honey.R
 import com.wangtianya.honey.databinding.ActivityMainBinding
 import com.wangtianya.honey.common.tools.util.ScreenManager
 import com.qjuzi.yaa.core.activity.YaaActivity
 import com.qjuzi.yaa.core.util.ScreenUtil.dip2px
-import com.qjuzi.yaa.core.util.YaaToast
 
 
 class HomeActivity : YaaActivity() {
@@ -24,15 +23,22 @@ class HomeActivity : YaaActivity() {
         super.onCreate(savedInstanceState)
 
         // 沉浸式，初始化StatusBar颜色
-
-
-        ScreenManager.initScreenColor(window, @Suppress("deprecation") resources.getColor(R.color.colorPrimaryDark), Color.TRANSPARENT)
+        val statusBarColor = @Suppress("deprecation") resources.getColor(R.color.colorPrimaryDark)
+        val navBarColor = Color.TRANSPARENT
+        ScreenManager.initScreenColor(window, statusBarColor, navBarColor)
 
         // 初始化数据
         presenter.initData()
 
         // 初始化UI
         initView()
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onDestroy() {
+        presenter.destory()
+
+        super.onDestroy()
     }
 
     private fun initView() {

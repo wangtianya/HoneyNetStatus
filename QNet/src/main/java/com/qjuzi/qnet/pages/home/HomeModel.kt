@@ -5,7 +5,10 @@ import android.databinding.ObservableInt
 import android.graphics.Color
 import com.wangtianya.honey.R
 import android.databinding.ObservableArrayList
+import android.view.View
+import com.qjuzi.yaa.core.util.YaaToast
 import com.qjuzi.yaa.databinding.AdapterBindingModel
+import com.qjuzi.yaa.databinding.BaseRecycleViewAdapter
 
 
 /**
@@ -22,9 +25,14 @@ class HomeModel {
 
 
 
-    val gridList = ObservableArrayList<AdapterBindingModel>()
+    val gridList = ObservableArrayList<GridModel>()
+    val gridAdapter = ObservableField<BaseRecycleViewAdapter<GridModel>>()
 
 
 
-    class GridModel(var imgId: Int, var title: String) : AdapterBindingModel()
+    class GridModel(var imgId: Int, var title: String) : AdapterBindingModel() {
+        fun onClick(view: View) {
+            YaaToast.show("i love you")
+        }
+    }
 }
