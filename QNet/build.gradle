@@ -2,17 +2,22 @@ buildscript {
     ext.kotlin_version = '1.2.30'
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:1.1.0'
     }
 }
+
+
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+if (rootProject.ext.enableAOP) apply plugin: 'android-aspectjx'
 
 android {
 
@@ -54,8 +59,14 @@ dependencies {
 
     kapt "com.android.databinding:compiler:2.3.0"
 
-    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3'
+
+
 
 
     compile project(':YaaLib')
+
+
+
+    if (rootProject.ext.enableAOP) compile project(':aspectj')
 }

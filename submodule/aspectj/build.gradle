@@ -1,4 +1,12 @@
-
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:1.1.0'
+    }
+}
 
 apply plugin: 'com.android.library'
 apply plugin: 'android-aspectjx'
@@ -31,6 +39,6 @@ dependencies {
 
     compile 'com.android.support:appcompat-v7:26+'
 
-    classpath 'org.aspectj:aspectjtools:1.8.+'
+//    classpath 'org.aspectj:aspectjtools:1.8.+'
 
 }
