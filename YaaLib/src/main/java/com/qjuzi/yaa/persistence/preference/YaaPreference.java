@@ -1,36 +1,37 @@
 
-package com.qjuzi.yaa.persistence;
+package com.qjuzi.yaa.persistence.preference;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-public class ABasePreference {
+@Deprecated
+public class YaaPreference {
 
     private SharedPreferences mSharedPreferences;
 
-    public static ABasePreference fromActivity(Activity activity) {
-        return new ABasePreference(activity, Context.MODE_PRIVATE);
+    public static YaaPreference fromActivity(Activity activity) {
+        return new YaaPreference(activity, Context.MODE_PRIVATE);
     }
 
-    public static ABasePreference fromApp(Context context) {
-        return new ABasePreference(context, Context.MODE_PRIVATE);
+    public static YaaPreference fromApp(Context context) {
+        return new YaaPreference(context, Context.MODE_PRIVATE);
     }
 
-    public static ABasePreference fromName(String name, Context context) {
-        return new ABasePreference(name, context, Context.MODE_PRIVATE);
+    public static YaaPreference fromName(String name, Context context) {
+        return new YaaPreference(name, context, Context.MODE_PRIVATE);
     }
 
-    private ABasePreference(Activity activity, int mode) {
+    private YaaPreference(Activity activity, int mode) {
         mSharedPreferences = activity.getPreferences(mode);
     }
 
-    private ABasePreference(Context context, int mode) {
+    private YaaPreference(Context context, int mode) {
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    private ABasePreference(String name, Context context, int mode) {
+    private YaaPreference(String name, Context context, int mode) {
         mSharedPreferences = context.getSharedPreferences(name, mode);
     }
 
@@ -58,7 +59,7 @@ public class ABasePreference {
      * @return
      */
     public void put(String key, String value) {
-        getPreferneces().edit().putString(key, value).commit();
+        getPreferneces().edit().putString(key, value).apply();
     }
 
     /**
@@ -82,7 +83,7 @@ public class ABasePreference {
      * @return
      */
     public void put(String key, int value) {
-        getPreferneces().edit().putInt(key, value).commit();
+        getPreferneces().edit().putInt(key, value).apply();
     }
 
     /**
@@ -101,7 +102,7 @@ public class ABasePreference {
     }
 
     public void put(String key, long value) {
-        getPreferneces().edit().putLong(key, value).commit();
+        getPreferneces().edit().putLong(key, value).apply();
     }
 
     public long getLong(String key) {
@@ -118,7 +119,7 @@ public class ABasePreference {
      * @return
      */
     public void put(String key, boolean bool) {
-        getPreferneces().edit().putBoolean(key, bool).commit();
+        getPreferneces().edit().putBoolean(key, bool).apply();
     }
 
     /**
@@ -142,7 +143,7 @@ public class ABasePreference {
      * @return
      */
     public void removeString(String key) {
-        getPreferneces().edit().remove(key).commit();
+        getPreferneces().edit().remove(key).apply();
     }
 
 }
