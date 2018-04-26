@@ -1,11 +1,6 @@
 
 package com.qjuzi.yaa.core.activity;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
-import com.qjuzi.yaa.core.context.YaaContext;
-
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.View;
@@ -17,8 +12,6 @@ import android.view.View;
  */
 public class YaaFragment extends Fragment {
 
-    private RequestQueue mRequestQueue;
-
     public YaaFragment() {
         super();
     }
@@ -26,7 +19,6 @@ public class YaaFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mRequestQueue = Volley.newRequestQueue(YaaContext.getContext());
     }
 
     @Override
@@ -37,17 +29,6 @@ public class YaaFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mRequestQueue.cancelAll(this);
     }
-
-    public void addRequest(Request request) {
-        request.setTag(this);
-        mRequestQueue.add(request);
-    }
-
-    public RequestQueue getRequestQueue() {
-        return mRequestQueue;
-    }
-
 
 }

@@ -1,10 +1,9 @@
-package com.wangtianya.honey.pages.home
+package com.qjuzi.qnet.pages.home
 
 import android.annotation.SuppressLint
 import android.databinding.DataBindingUtil
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
 import com.wangtianya.honey.R
 import com.wangtianya.honey.databinding.ActivityMainBinding
 import com.wangtianya.honey.common.tools.util.ScreenManager

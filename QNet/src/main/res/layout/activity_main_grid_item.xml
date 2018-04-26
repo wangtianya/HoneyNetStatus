@@ -3,7 +3,7 @@
 <layout>
     <data>
 
-        <variable name="model" type="com.wangtianya.honey.pages.home.HomeModel.GridModel"/>
+        <variable name="model" type="com.qjuzi.qnet.pages.home.HomeModel.GridModel"/>
     </data>
 
     <LinearLayout
@@ -18,7 +18,7 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:gravity="center"
-                    android:onClick="@{model.onClick}"
+                    android:onClick="@{model::onClick}"
                     android:orientation="vertical">
                 <ImageView
                         android:layout_width="48dp"

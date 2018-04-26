@@ -1,4 +1,4 @@
-package com.wangtianya.honey
+package com.qjuzi.qnet
 
 import android.content.SharedPreferences
 import com.wangtianya.honey.common.broadcast.MyNetworkReceiver

@@ -1,4 +1,4 @@
-package com.wangtianya.honey.pages.home
+package com.qjuzi.qnet.pages.home
 
 import android.graphics.Color
 import android.text.TextUtils

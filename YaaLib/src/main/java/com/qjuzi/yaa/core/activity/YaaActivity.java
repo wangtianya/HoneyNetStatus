@@ -18,7 +18,6 @@ import android.os.Bundle;
 public class YaaActivity extends Activity {
 
     private YaaActivityStack yaaActivityStack = YaaActivityStack.getActivityStack();
-    private RequestQueue mRequestQueue = Volley.newRequestQueue(YaaContext.getContext());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +28,7 @@ public class YaaActivity extends Activity {
     @Override
     public void finish() {
         yaaActivityStack.removeActivity(this);
-        mRequestQueue.cancelAll(this);
         super.finish();
-    }
-
-    public void sendRequest(Request request) {
-        request.setTag(this);
-        mRequestQueue.add(request);
-    }
-
-    public RequestQueue getRequestQueue() {
-        return mRequestQueue;
     }
 
 

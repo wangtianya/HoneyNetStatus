@@ -25,5 +25,5 @@ ext {
     minSdkVersion = 21
 
 
-    enableAOP = true
+    enableAOP = false
 }

@@ -17,16 +17,4 @@ public class YaaContext {
     public static YaaApplication getContext() {
         return sApplication;
     }
-
-    public static void sendRequest(Request request) {
-        sApplication.sendRequest(request);
-    }
-
-    public static void sendRequest(Request request, Object tag) {
-        sApplication.sendRequest(request, tag);
-    }
-
-    public static void cancelRequest(Object tag) {
-        sApplication.cancelRequest(tag);
-    }
 }
