@@ -8,12 +8,16 @@ import com.qjuzi.qnet.databinding.ActivityMainBinding
 import com.qjuzi.yaa.core.activity.YaaActivity
 
 
+/**
+ * Activity的责任：
+ * 1、初始化model，binding，presenter。
+ * 2、生命周期的分发，调用合适presenter进行处理。
+ */
 class HomeActivity : YaaActivity() {
 
     private lateinit var model :HomeModel
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle) {
         super.onCreate(savedInstanceState)
 
         var binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -36,10 +40,4 @@ class HomeActivity : YaaActivity() {
         model.delayTaskPresenter.stopDelayDataUpdateTask()
         super.onPause()
     }
-
-
-
-
-
-
 }
