@@ -11,10 +11,8 @@ import com.qjuzi.yaa.net.provider.isp.ISPProvider
 import com.qjuzi.yaa.net.tools.WifiUtil
 
 /**
- * Created by wangtianya on 2018/4/14.
+ * Helper的作用：有一些比较杂逻辑，写在presenter里会导致逻辑比较乱，影响业务的阅读。
  */
-
-
 class HomeHelper {
     companion object {
 
