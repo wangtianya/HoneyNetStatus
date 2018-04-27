@@ -7,10 +7,11 @@ import com.qjuzi.qnet.R
 import android.databinding.ObservableArrayList
 import android.view.View
 import com.qjuzi.qnet.databinding.ActivityMainBinding
+import com.qjuzi.qnet.pages.delay.DelayPage
 import com.qjuzi.qnet.pages.home.presenter.DelayTaskPresenter
 import com.qjuzi.qnet.pages.home.presenter.HomeMainPresenter
 import com.qjuzi.yaa.BR
-import com.qjuzi.yaa.core.util.YaaToast
+import com.qjuzi.yaa.core.activity.YaaFragmentContainerActivity
 import com.qjuzi.yaa.databinding.AdapterBindingModel
 import com.qjuzi.yaa.databinding.BaseRecycleViewHeaderFooterAdapter
 
@@ -19,7 +20,7 @@ import com.qjuzi.yaa.databinding.BaseRecycleViewHeaderFooterAdapter
  * 1、承载页面所有的数据
  * 2、承载页面所有的事件分发
  */
-class HomeModel(val context: HomeActivity, val binding: ActivityMainBinding) {
+public class HomeModel(public val context: HomeActivity, val binding: ActivityMainBinding) {
     /**
      * 逻辑业务承载类
      */
@@ -46,15 +47,14 @@ class HomeModel(val context: HomeActivity, val binding: ActivityMainBinding) {
     val gridFooterList = ObservableArrayList<GridModel>()
     val gridAdapter = ObservableField<BaseRecycleViewHeaderFooterAdapter<GridModel>>()
 
-    class GridModel(var imgId: Int, var title: String) : AdapterBindingModel() {
+    inner class GridModel(var imgId: Int, var title: String) : AdapterBindingModel() {
         init {
             this.layoutId = R.layout.activity_main_grid_item
             this.variableId = BR.model
-
         }
 
         fun onClick(view: View) {
-            YaaToast.show("i love you")
+            YaaFragmentContainerActivity.startFragment(context,DelayPage().javaClass.name)
         }
     }
 }

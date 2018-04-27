@@ -128,11 +128,11 @@ class HomeMainPresenter(val homeModel: HomeModel) {
     }
 
     private fun initGridListData() {
-        val netInfoGrid = HomeModel.GridModel(R.drawable.ic_signal_wifi_off, "详细信息")
+        val netInfoGrid = homeModel.GridModel(R.drawable.ic_signal_wifi_off, "详细信息")
         homeModel.gridList.add(netInfoGrid)
-        val speedTestGrid = HomeModel.GridModel(R.drawable.ic_signal_wifi_off, "网络测速")
+        val speedTestGrid = homeModel.GridModel(R.drawable.ic_signal_wifi_off, "网络测速")
         homeModel.gridList.add(speedTestGrid)
-        val delayGrid = HomeModel.GridModel(R.drawable.ic_signal_wifi_off, "网络延时")
+        val delayGrid = homeModel.GridModel(R.drawable.ic_signal_wifi_off, "网络延时")
         homeModel.gridList.add(delayGrid)
 
         val adapter = BaseRecycleViewHeaderFooterAdapter<HomeModel.GridModel>(YaaContext.getContext(),

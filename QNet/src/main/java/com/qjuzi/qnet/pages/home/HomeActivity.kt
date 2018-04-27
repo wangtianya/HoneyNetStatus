@@ -17,12 +17,11 @@ class HomeActivity : YaaActivity() {
 
     private lateinit var model :HomeModel
 
-    override fun onCreate(savedInstanceState: Bundle) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        model = HomeModel(this, binding)
+        model = HomeModel(this, DataBindingUtil.setContentView(this, R.layout.activity_main))
         model.mainPresenter.initData()
     }
 

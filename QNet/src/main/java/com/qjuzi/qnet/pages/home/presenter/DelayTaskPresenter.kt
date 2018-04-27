@@ -48,11 +48,6 @@ class DelayTaskPresenter(val homeModel: HomeModel) {
 
             override fun onFinish(result: PingResult) {
                 homeModel.delay.set("-")
-                try {
-                    Thread.sleep(1500)
-                } finally {
-                    startDelayDataUpdate()
-                }
             }
         })
         pingTask?.start()

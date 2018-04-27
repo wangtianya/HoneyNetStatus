@@ -73,7 +73,7 @@ public class PingTaskImpl implements PingTask, Runnable {
 
             //读出所有信息并显示
             while ((str = buf.readLine()) != null) {
-                if (isDead) {
+                if (Thread.interrupted() || isDead) {
                     break;
                 }
 
