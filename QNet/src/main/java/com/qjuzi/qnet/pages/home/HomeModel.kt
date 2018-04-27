@@ -3,9 +3,12 @@ package com.qjuzi.qnet.pages.home
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
 import android.graphics.Color
-import com.wangtianya.honey.R
+import com.qjuzi.qnet.R
 import android.databinding.ObservableArrayList
 import android.view.View
+import com.qjuzi.qnet.databinding.ActivityMainBinding
+import com.qjuzi.qnet.pages.home.presenter.DelayTaskPresenter
+import com.qjuzi.qnet.pages.home.presenter.HomeMainPresenter
 import com.qjuzi.yaa.BR
 import com.qjuzi.yaa.core.util.YaaToast
 import com.qjuzi.yaa.databinding.AdapterBindingModel
@@ -13,10 +16,19 @@ import com.qjuzi.yaa.databinding.BaseRecycleViewHeaderFooterAdapter
 
 
 /**
- * Created by wangtianya on 2018/4/14.
+ * 1、承载页面所有的数据
+ * 2、承载页面所有的事件分发
  */
-class HomeModel {
+class HomeModel(val context: HomeActivity, val binding: ActivityMainBinding) {
+    /**
+     * 逻辑业务承载类
+     */
+    val mainPresenter = HomeMainPresenter(this) // 数据初始化，
+    val delayTaskPresenter = DelayTaskPresenter(this) // 延时的持续更新
 
+    /**
+     * top banner data
+     */
     val ip = ObservableField<String>("-")
     val netTypeIcon = ObservableInt(R.drawable.ic_signal_wifi_off)
     val statusColor = ObservableInt(Color.GRAY)
@@ -26,16 +38,15 @@ class HomeModel {
 
 
 
+    /**
+     * grid app data
+     */
     val gridHeaderList = ObservableArrayList<GridModel>()
     val gridList = ObservableArrayList<GridModel>()
     val gridFooterList = ObservableArrayList<GridModel>()
     val gridAdapter = ObservableField<BaseRecycleViewHeaderFooterAdapter<GridModel>>()
 
-
-
     class GridModel(var imgId: Int, var title: String) : AdapterBindingModel() {
-
-
         init {
             this.layoutId = R.layout.activity_main_grid_item
             this.variableId = BR.model

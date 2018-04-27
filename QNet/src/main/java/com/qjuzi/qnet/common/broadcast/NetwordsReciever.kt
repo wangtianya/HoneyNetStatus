@@ -1,4 +1,4 @@
-package com.wangtianya.honey.common.broadcast
+package com.qjuzi.qnet.common.broadcast
 
 import android.content.BroadcastReceiver
 import android.content.Context

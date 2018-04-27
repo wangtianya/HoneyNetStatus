@@ -1,4 +1,4 @@
-package com.wangtianya.honey.common.tools.util
+package com.qjuzi.qnet.common.tools.util
 
 import android.os.Build
 import android.view.View

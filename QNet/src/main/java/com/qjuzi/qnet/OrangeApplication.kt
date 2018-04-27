@@ -1,7 +1,7 @@
 package com.qjuzi.qnet
 
 import android.content.SharedPreferences
-import com.wangtianya.honey.common.broadcast.MyNetworkReceiver
+import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.qjuzi.yaa.core.context.YaaApplication
 
 /**

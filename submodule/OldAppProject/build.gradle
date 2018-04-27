@@ -6,7 +6,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.wangtianya.honey"
+        applicationId "com.qjuzi.qnet"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion 22
         versionCode 1

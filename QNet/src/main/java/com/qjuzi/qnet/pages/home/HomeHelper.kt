@@ -2,8 +2,8 @@ package com.qjuzi.qnet.pages.home
 
 import android.graphics.Color
 import android.text.TextUtils
-import com.wangtianya.honey.R
-import com.wangtianya.honey.common.broadcast.MyNetworkReceiver
+import com.qjuzi.qnet.R
+import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.qjuzi.yaa.core.context.YaaContext
 import com.qjuzi.yaa.net.provider.ip.tools.GetIP
 import com.qjuzi.yaa.net.provider.isp.ISPModel

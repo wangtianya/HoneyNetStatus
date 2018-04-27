@@ -1,38 +1,86 @@
-package com.qjuzi.qnet.pages.home
+package com.qjuzi.qnet.pages.home.presenter
 
 import android.graphics.Color
 import android.text.TextUtils
-import com.qjuzi.yaa.BR
-import com.qjuzi.yaa.core.activity.YaaActivity
 import com.qjuzi.yaa.core.context.YaaContext
-import com.qjuzi.yaa.databinding.BaseRecycleViewAdapter
 import com.qjuzi.yaa.databinding.BaseRecycleViewHeaderFooterAdapter
-import com.wangtianya.honey.R
-import com.wangtianya.honey.common.broadcast.MyNetworkReceiver
-import com.wangtianya.honey.common.broadcast.NetworkChangedListener
-import com.wangtianya.honey.common.tools.thread.ThreadUtil
+import com.qjuzi.qnet.R
+import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
+import com.qjuzi.qnet.common.broadcast.NetworkChangedListener
+import com.qjuzi.qnet.common.tools.thread.ThreadUtil
+import com.qjuzi.qnet.common.tools.util.ScreenManager
+import com.qjuzi.qnet.pages.home.HomeHelper
+import com.qjuzi.qnet.pages.home.HomeModel
+import com.qjuzi.yaa.core.util.ScreenUtil
 import com.qjuzi.yaa.net.ping2.PingTaskFactory
 import com.qjuzi.yaa.net.ping2.inteface.PingListener
 import com.qjuzi.yaa.net.ping2.inteface.PingResult
 import com.qjuzi.yaa.net.ping2.inteface.PingRow
+import com.qjuzi.yaa.net.ping2.inteface.PingTask
 import com.qjuzi.yaa.net.traffic.CurrentTrafficStats
 
 
-// todo: 根据网络状态、屏幕前台，停止和启动任务
-class HomePresenter {
-
-    val homeModel = HomeModel()
-
+class HomeMainPresenter(val homeModel: HomeModel) {
 
     // 需要被销毁的资源们
     private val currentTrafficStats: CurrentTrafficStats = CurrentTrafficStats.getInstance()
     private lateinit var networkChangedListener: NetworkChangedListener
 
     fun initData() {
+        homeModel.binding.model = homeModel
+
+        initStyle()
+        initTopbar()
+        initSwipeRefreshLayout()
+
         ThreadUtil.runOnNotUI(Runnable { initNetListener() })
-        ThreadUtil.runOnNotUI(Runnable { initDelayData() })
         ThreadUtil.runOnNotUI(Runnable { initUpDownData() })
         ThreadUtil.runOnNotUI(Runnable { initGridListData() })
+    }
+
+    fun destory() {
+        currentTrafficStats.stop()
+        MyNetworkReceiver.removeListener(networkChangedListener)
+        homeModel.delayTaskPresenter.stopDelayDataUpdateTask()
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private fun initStyle() {
+        // 沉浸式，初始化StatusBar颜色
+        val statusBarColor = @Suppress("deprecation") homeModel.context.resources.getColor(R.color.colorPrimaryDark)
+        val navBarColor = Color.TRANSPARENT
+        ScreenManager.initScreenColor(homeModel.context.window, statusBarColor, navBarColor)
+    }
+
+    private fun initTopbar() {
+        homeModel.context.setActionBar(homeModel.binding.toolbar)
+    }
+
+    private fun initSwipeRefreshLayout() {
+        homeModel.binding.swipeRefreshView.setProgressViewOffset(true, 0, ScreenUtil.dip2px(200))
+        @Suppress("deprecation")
+        homeModel.binding.swipeRefreshView.setProgressBackgroundColor(android.R.color.white)
+        homeModel.binding.swipeRefreshView
+                .setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary, R.color.colorPrimaryDark)
+
+        // 下拉时触发SwipeRefreshLayout的下拉动画，动画完毕之后就会回调这个方法
+        homeModel.binding.swipeRefreshView.setOnRefreshListener {
+            homeModel.binding.swipeRefreshView.postDelayed({
+                homeModel.binding.swipeRefreshView.isRefreshing = false
+            }, 1000)
+        }
     }
 
 
@@ -80,37 +128,9 @@ class HomePresenter {
             } else if (!TextUtils.isEmpty(isp)) {
                 sBuilder.append(isp)
             }
-
             homeModel.ip.set(sBuilder.toString())
-
         }
     }
-
-    private fun initDelayData() {
-        PingTaskFactory.newOne("www.baidu.com", object : PingListener {
-            var i: Int = 0
-            override fun onStart(row: PingRow) {
-                homeModel.statusColor.set(Color.GRAY)
-                homeModel.delay.set("-")
-            }
-
-            override fun onProgress(row: PingRow) {
-                if (!MyNetworkReceiver.isAvailable || i++ % 2 == 0) return
-                homeModel.delay.set(HomeHelper.getDelayStr(row.time))
-                homeModel.statusColor.set(HomeHelper.getStatusColorByDelay(row.time))
-            }
-
-            override fun onFinish(result: PingResult) {
-                homeModel.delay.set("-")
-                try {
-                    Thread.sleep(1500)
-                } finally {
-                    initDelayData()
-                }
-            }
-        }).start()
-    }
-
 
     private fun initGridListData() {
         val netInfoGrid = HomeModel.GridModel(R.drawable.ic_signal_wifi_off, "详细信息")
@@ -124,12 +144,7 @@ class HomePresenter {
                 homeModel.gridList, homeModel.gridHeaderList, homeModel.gridFooterList)
 
         homeModel.gridAdapter.set(adapter)
-
     }
 
 
-    fun destory() {
-        currentTrafficStats.stop()
-        MyNetworkReceiver.removeListener(networkChangedListener)
-    }
 }
