@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import com.qjuzi.qnet.R
-import com.qjuzi.qnet.databinding.ActivityMainBinding
+import com.qjuzi.qnet.pages.home.model.HomeModel
 import com.qjuzi.yaa.core.activity.YaaActivity
 
 
@@ -15,7 +15,7 @@ import com.qjuzi.yaa.core.activity.YaaActivity
  */
 class HomeActivity : YaaActivity() {
 
-    private lateinit var model :HomeModel
+    private lateinit var model : HomeModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

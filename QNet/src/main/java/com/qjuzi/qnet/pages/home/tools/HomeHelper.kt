@@ -1,4 +1,4 @@
-package com.qjuzi.qnet.pages.home
+package com.qjuzi.qnet.pages.home.tools
 
 import android.graphics.Color
 import android.text.TextUtils
@@ -30,7 +30,7 @@ class HomeHelper {
             if (TextUtils.isEmpty(ip)) {
                 ip = GetIP.getIntranetIp()
             }
-            return ip;
+            return ip
         }
 
         fun getIsp() : String {

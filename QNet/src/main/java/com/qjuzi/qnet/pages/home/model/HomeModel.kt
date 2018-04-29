@@ -1,4 +1,4 @@
-package com.qjuzi.qnet.pages.home
+package com.qjuzi.qnet.pages.home.model
 
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
@@ -8,6 +8,7 @@ import android.databinding.ObservableArrayList
 import android.view.View
 import com.qjuzi.qnet.databinding.ActivityMainBinding
 import com.qjuzi.qnet.pages.delay.DelayPage
+import com.qjuzi.qnet.pages.home.HomeActivity
 import com.qjuzi.qnet.pages.home.presenter.DelayTaskPresenter
 import com.qjuzi.qnet.pages.home.presenter.HomeMainPresenter
 import com.qjuzi.yaa.BR

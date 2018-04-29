@@ -9,8 +9,8 @@ import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.qjuzi.qnet.common.broadcast.NetworkChangedListener
 import com.qjuzi.qnet.common.tools.thread.ThreadUtil
 import com.qjuzi.qnet.common.tools.util.ScreenManager
-import com.qjuzi.qnet.pages.home.HomeHelper
-import com.qjuzi.qnet.pages.home.HomeModel
+import com.qjuzi.qnet.pages.home.tools.HomeHelper
+import com.qjuzi.qnet.pages.home.model.HomeModel
 import com.qjuzi.yaa.core.util.ScreenUtil
 import com.qjuzi.yaa.net.traffic.CurrentTrafficStats
 

@@ -1,37 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
     <data>
 
-        <variable name="model" type="com.qjuzi.qnet.pages.delay.DelayPageModel.DelayItemModel"/>
+        <variable name="model" type="com.qjuzi.qnet.pages.delay.model.DelayPageModel.DelayItemModel"/>
     </data>
-
     <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="100dp"
             android:background="@drawable/bg_gridlayout_item"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp">
+            <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:src="@{model.imgUrl}"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.title}"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp">
+
             <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:gravity="center"
-                    android:background="@drawable/common_background_borderless"
-                    android:onClick="@{model::onClick}"
-                    android:orientation="vertical">
-                <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_columnWeight="1"
-                        android:src="@drawable/ic_launcher"/>
-
-                <TextView
+                    android:orientation="horizontal">
+                <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="7dp"
-                        android:text="@{model.title}"/>
+                        android:gravity="center">
+                    <ImageView
+                            android:id="@+id/ivStatus"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginLeft="5dp"
+                            android:tint="@{model.statusColor}"
+                            android:src="@drawable/ic_dot"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="18dp"
+                            android:text="@{model.delayText}"/>
+                </LinearLayout>
             </LinearLayout>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#999"
+                    android:text="@{model.ipText}"/>
+
+
+
+        </LinearLayout>
+
     </LinearLayout>
 </layout>

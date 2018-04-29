@@ -1,23 +1,15 @@
 package com.qjuzi.qnet.pages.home.presenter
 
 import android.graphics.Color
-import android.text.TextUtils
-import com.qjuzi.qnet.R
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
-import com.qjuzi.qnet.common.broadcast.NetworkChangedListener
 import com.qjuzi.qnet.common.tools.thread.ThreadUtil
-import com.qjuzi.qnet.common.tools.util.ScreenManager
-import com.qjuzi.qnet.pages.home.HomeHelper
-import com.qjuzi.qnet.pages.home.HomeModel
-import com.qjuzi.yaa.core.context.YaaContext
-import com.qjuzi.yaa.core.util.ScreenUtil
-import com.qjuzi.yaa.databinding.BaseRecycleViewHeaderFooterAdapter
+import com.qjuzi.qnet.pages.home.tools.HomeHelper
+import com.qjuzi.qnet.pages.home.model.HomeModel
 import com.qjuzi.yaa.net.ping2.PingTaskFactory
 import com.qjuzi.yaa.net.ping2.inteface.PingListener
 import com.qjuzi.yaa.net.ping2.inteface.PingResult
 import com.qjuzi.yaa.net.ping2.inteface.PingRow
 import com.qjuzi.yaa.net.ping2.inteface.PingTask
-import com.qjuzi.yaa.net.traffic.CurrentTrafficStats
 
 class DelayTaskPresenter(val homeModel: HomeModel) {
 

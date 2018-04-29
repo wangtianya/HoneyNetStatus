@@ -11,7 +11,7 @@ class ThreadUtil {
         private val mainLooperHandlder : Handler = Handler(Looper.getMainLooper())
         private val executor : Executor = Executors.newCachedThreadPool() as Executor
 
-        fun runOnUI(runnable : Runnable) {
+        fun runOnUI(runnable: () -> Unit) {
             mainLooperHandlder.post(runnable)
         }
 
