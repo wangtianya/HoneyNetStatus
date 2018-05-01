@@ -25,7 +25,7 @@ class OrangeApplication : YaaApplication() {
         val pkName = this.packageName
         val versionName = this.packageManager.getPackageInfo(pkName, 0).versionName
         val strategy = UserStrategy(this)
-
+        strategy.appReportDelay = 15000
         strategy.appChannel = channel  //设置渠道
         strategy.appVersion = versionName      //App的版本
         strategy.appPackageName =  pkName //App的包名

@@ -32,13 +32,17 @@ dependencies {
     implementation 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
 
 
-    api 'com.android.support:support-v4:27.1.1'
-    api 'com.android.support:appcompat-v7:27.1.1'
-    api 'com.android.support:design:27.1.1'
-    api 'com.android.support:recyclerview-v7:27.1.1'
+
+    api rootProject.ext.dependencies[ "support-v4"]
+    api rootProject.ext.dependencies[ "appcompat-v7"]
+    api rootProject.ext.dependencies[ "recyclerview-v7"]
+    api rootProject.ext.dependencies[ "design"]
+    api rootProject.ext.dependencies[ "constraint-layout"]
 
 
-    implementation 'com.google.code.gson:gson:2.8.0'
+
+
+    implementation 'com.google.code.gson:gson:2.8.2'
     implementation group: 'org.jsoup', name: 'jsoup', version: '1.11.2'
 
 

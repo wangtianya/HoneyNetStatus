@@ -1,0 +1,29 @@
+ext {
+    compileSdkVersion = 27
+    buildToolsVersion = "27.0.3"
+
+
+    minSdkVersion = 21
+    targetSdkVersion = 26
+
+    kotlin_version = "1.2.40"
+
+    enableAOP = false
+
+
+    android_support_version = "27.1.1"
+    dependencies = [
+            //android.support
+            "support-v4"       : "com.android.support:support-v4:${android_support_version}",
+            "appcompat-v7"     : "com.android.support:appcompat-v7:${android_support_version}",
+            "design"           : "com.android.support:design:${android_support_version}",
+            "recyclerview-v7"  : "com.android.support:recyclerview-v7:${android_support_version}",
+            "constraint-layout": "com.android.support.constraint:constraint-layout:1.1.0",
+
+            // 多渠道打包及统计
+            "bugly-crashreport": "com.tencent.bugly:crashreport:latest.release",
+            "bugly-nativecrashreport": "com.tencent.bugly:nativecrashreport:latest.release",
+            "walle": "com.meituan.android.walle:library:1.1.6"
+
+    ]
+}
