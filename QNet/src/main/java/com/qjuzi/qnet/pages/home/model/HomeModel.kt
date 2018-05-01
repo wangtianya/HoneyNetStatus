@@ -21,7 +21,7 @@ import com.qjuzi.yaa.databinding.BaseRecycleViewHeaderFooterAdapter
  * 1、承载页面所有的数据
  * 2、承载页面所有的事件分发
  */
-public class HomeModel(public val context: HomeActivity, val binding: ActivityMainBinding) {
+class HomeModel(val context: HomeActivity, val binding: ActivityMainBinding) {
     /**
      * 逻辑业务承载类
      */

@@ -13,6 +13,7 @@ import com.qjuzi.qnet.pages.home.tools.HomeHelper
 import com.qjuzi.qnet.pages.home.model.HomeModel
 import com.qjuzi.yaa.core.util.ScreenUtil
 import com.qjuzi.yaa.net.traffic.CurrentTrafficStats
+import com.tencent.bugly.crashreport.CrashReport
 
 
 class HomeMainPresenter(val homeModel: HomeModel) {
@@ -74,6 +75,7 @@ class HomeMainPresenter(val homeModel: HomeModel) {
         homeModel.binding.swipeRefreshView.setOnRefreshListener {
             homeModel.binding.swipeRefreshView.postDelayed({
                 homeModel.binding.swipeRefreshView.isRefreshing = false
+                CrashReport.testJavaCrash()
             }, 1000)
         }
     }

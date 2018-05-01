@@ -20,6 +20,7 @@ import com.qjuzi.yaa.net.ping2.inteface.PingTask
 /**
  * Created by wangtianya on 2018/4/25.
  */
+@Suppress("unused")
 class DelayPageModel(val context: YaaFragment, var binding: PageDelayBinding) {
 
     val mainPresenter = DelayMainPresenter(this)
@@ -41,11 +42,11 @@ class DelayPageModel(val context: YaaFragment, var binding: PageDelayBinding) {
             this.variableId = BR.model
         }
 
+
         fun onClick(view: View) {
             YaaToast.show("i love you")
         }
     }
-
 
     fun goBack(view: View) {
         context.activity.finish()
