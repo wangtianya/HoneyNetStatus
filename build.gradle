@@ -1,3 +1,17 @@
+ext {
+    compileSdkVersion = 27
+    buildToolsVersion = "27.0.3"
+
+
+    minSdkVersion = 21
+    targetSdkVersion = 26
+
+
+    kotlin_version = "1.2.40"
+
+    enableAOP = false
+}
+
 buildscript {
     repositories {
         google()
@@ -14,18 +28,4 @@ allprojects {
         jcenter()
         maven { url 'https://jitpack.io' }
     }
-}
-
-/**
- * Common config
- */
-ext {
-    compileSdkVersion = 27
-    buildToolsVersion = "27.0.3"
-    minSdkVersion = 21
-
-
-    kotlin_version = "1.2.40"
-
-    enableAOP = false
 }

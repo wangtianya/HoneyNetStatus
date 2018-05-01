@@ -24,4 +24,7 @@
 
 # for bugly
 -dontwarn com.tencent.bugly.**
--keep public class com.tencent.bugly.**{*;}
+-keep class com.tencent.bugly.**{*;}
+
+-dontwarn com.google.**
+-keep class com.google.**{*;}

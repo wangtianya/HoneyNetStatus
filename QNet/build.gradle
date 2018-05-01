@@ -7,6 +7,7 @@ buildscript {
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:1.1.0'
+        classpath 'com.meituan.android.walle:plugin:1.1.6'
     }
 }
 
@@ -16,35 +17,72 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'walle'
 
 if (rootProject.ext.enableAOP) apply plugin: 'android-aspectjx'
 
 android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
-    compileSdkVersion 26
+    signingConfigs {
+        release {
+            storeFile file("/Users/wangtianya/OneDrive/12.开发/QJuzi/qjuzi.keystore")
+            storePassword System.getenv("KSTOREPWD")
+            keyAlias "qnet"
+            keyPassword System.getenv("KEYPWD")
+            v2SigningEnabled true
+        }
+    }
 
     defaultConfig {
         applicationId "com.qjuzi.qnet"
-        minSdkVersion 21
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
         versionCode 1
         versionName "1.0"
-
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         ndk {
             // 设置支持的SO库架构
-            abiFilters 'armeabi' , 'x86' //, 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            abiFilters 'armeabi', 'x86'
         }
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules-common.pro'
         }
     }
+
+    splits {
+        density {
+            enable false // 3.+后，楼下必须要，我不想要。
+            exclude "ldpi", "mdpi", "hdpi", "xxhdpi", "xxxhdpi"
+            compatibleScreens 'small', 'normal', 'large', 'xlarge'
+        }
+    }
+
+    flavorDimensions "density"
+
+    // 多版本配置
+    productFlavors {
+        demo {
+            dimension "density"
+//            applicationIdSuffix ".demo"
+//            versionNameSuffix "-demo"
+        }
+        full {
+            dimension "density"
+        }
+    }
+
 
     dataBinding {
         enabled true
@@ -52,8 +90,13 @@ android {
 
 }
 
-kapt {
-    generateStubs = true
+walle {
+    // 指定渠道包的输出路径
+    apkOutputFolder = new File("${project.buildDir}/outputs/channels");
+    // 定制渠道包的APK的文件名称
+    apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+    // 渠道配置文件
+    channelFile = new File("${project.getProjectDir()}/channel")
 }
 
 dependencies {
@@ -69,14 +112,10 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     kapt 'com.github.bumptech.glide:compiler:4.7.1'
 
-    api 'com.google.dagger:dagger-android:2.11'
-    api 'com.google.dagger:dagger-android-support:2.11' // if you use the support libraries
-    kapt  'com.google.dagger:dagger-android-processor:2.11'
-    kapt 'com.google.dagger:dagger-compiler:2.11'
-
 
     api 'com.tencent.bugly:crashreport:latest.release'
     api 'com.tencent.bugly:nativecrashreport:latest.release'
+    api 'com.meituan.android.walle:library:1.1.6'
 
     api project(':YaaLib')
 

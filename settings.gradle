@@ -8,8 +8,8 @@ include 'QNet'
 include 'YaaLib'
 project(':YaaLib').projectDir = new File('YaaLib')
 
-include 'aspectj'
-project(':aspectj').projectDir = new File(submodule, 'aspectj')
+//include 'aspectj'
+//project(':aspectj').projectDir = new File(submodule, 'aspectj')
 
 //include 'aa'
 //project(':aa').projectDir = new File('aa')
