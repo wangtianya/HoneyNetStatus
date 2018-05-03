@@ -3,22 +3,24 @@ apply from: "./config.gradle"
 buildscript {
     apply from: "./config.gradle"
     repositories {
-        google()
+        mavenCentral()
         jcenter()
+        google()
         maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:1.1.0'
+        if (enableAOP) classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:1.1.0'
         classpath 'com.meituan.android.walle:plugin:1.1.6'
     }
 }
 
 allprojects {
     repositories {
-        google()
+        mavenCentral()
         jcenter()
+        google()
         maven { url 'https://jitpack.io' }
     }
 }

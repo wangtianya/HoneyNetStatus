@@ -1,11 +1,8 @@
 package com.qjuzi.qnet.pages.delay.model
 
-import android.databinding.BindingAdapter
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableField
 import android.view.View
-import android.widget.ImageView
-import com.bumptech.glide.Glide
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.databinding.PageDelayBinding
 import com.qjuzi.qnet.pages.delay.presenter.DelayItemPingPresenter
@@ -21,7 +18,7 @@ import com.qjuzi.yaa.net.ping2.inteface.PingTask
  * Created by wangtianya on 2018/4/25.
  */
 @Suppress("unused")
-class DelayPageModel(val context: YaaFragment, var binding: PageDelayBinding) {
+class DelayPageModel(val context: YaaFragment, var binding: PageDelayBinding){
 
     val mainPresenter = DelayMainPresenter(this)
     val itemPingPresenter = DelayItemPingPresenter(this)
@@ -29,11 +26,11 @@ class DelayPageModel(val context: YaaFragment, var binding: PageDelayBinding) {
     val delayItemList = ObservableArrayList<DelayItemModel>()
     val delayItemAdapter = ObservableField<BaseRecycleViewAdapter<DelayItemModel>>()
 
-    inner class DelayItemModel(var title: String, var host: String?, var imgUrl: String?) : AdapterBindingModel() {
+    inner class DelayItemModel(var title: String, var host: String?, var resId: Int?) : AdapterBindingModel() {
 
         val statusColor : ObservableField<Int> = ObservableField(0)
         val delayText : ObservableField<String> = ObservableField("-")
-        val ipText : ObservableField<String> = ObservableField("-")
+        val ipText : ObservableField<String?> = ObservableField(host)
 
         var pingTask : PingTask? = null
 
@@ -44,7 +41,7 @@ class DelayPageModel(val context: YaaFragment, var binding: PageDelayBinding) {
 
 
         fun onClick(view: View) {
-            YaaToast.show("i love you")
+            YaaToast.show("i love you1")
         }
     }
 

@@ -23,7 +23,7 @@ import com.qjuzi.yaa.databinding.BaseRecycleViewHeaderFooterAdapter
  */
 class HomeModel(val context: HomeActivity, val binding: ActivityMainBinding) {
     /**
-     * 逻辑业务承载类
+     * 逻辑业务承载类，用于消耗Action
      */
     val mainPresenter = HomeMainPresenter(this) // 数据初始化，
     val delayTaskPresenter = DelayTaskPresenter(this) // 延时的持续更新

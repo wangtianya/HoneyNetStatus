@@ -6,6 +6,8 @@ import android.os.Bundle
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.pages.home.model.HomeModel
 import com.qjuzi.yaa.core.activity.YaaActivity
+import com.qjuzi.yaa.core.util.YaaToast
+import kotlinx.android.synthetic.main.page_delay.*
 
 
 /**
@@ -20,9 +22,9 @@ class HomeActivity : YaaActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         model = HomeModel(this, DataBindingUtil.setContentView(this, R.layout.activity_main))
         model.mainPresenter.initData()
+
     }
 
     @SuppressLint("MissingSuperCall") override fun onDestroy() {

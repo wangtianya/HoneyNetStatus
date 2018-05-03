@@ -1,7 +1,5 @@
-
-
-
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-platform-android'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -45,7 +43,7 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules-common.pro'
+            proguardFiles 'proguard-rules-common.pro'
         }
         debug {
             minifyEnabled false
@@ -61,20 +59,31 @@ android {
         }
     }
 
-    flavorDimensions "density"
-
-    // 多版本配置
-    productFlavors {
-        demo {
-            dimension "density"
-//            applicationIdSuffix ".demo"
-//            versionNameSuffix "-demo"
-        }
-        full {
-            dimension "density"
-        }
-    }
-
+//    flavorDimensions "density"
+//
+//    // 多版本配置，暂时没用到，用walle产出的渠道包, 并且没有需要单独集成的功能
+//    productFlavors {
+//        main {
+//        }
+//        GooglePlay {
+//        }
+//        ChineseMarket {
+//        }
+//    }
+//
+//
+//    variantFilter { variant ->
+//        def names = variant.flavors*.name
+//
+//        if (names.contains("GooglePlay") && variant.buildType.name == "debug") {
+//            variant.ignore = true
+//        }
+//
+//        if (names.contains("ChineseMarket") && variant.buildType.name == "debug") {
+//            variant.ignore = true
+//        }
+//
+//    }
 
     dataBinding {
         enabled true
@@ -93,10 +102,11 @@ walle {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
 
-    kapt "com.android.databinding:compiler:2.3.0"
+    kapt "com.android.databinding:compiler:3.1.2"
 
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3'
 

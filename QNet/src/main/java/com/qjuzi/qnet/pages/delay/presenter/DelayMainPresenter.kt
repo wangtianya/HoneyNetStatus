@@ -28,11 +28,13 @@ class DelayMainPresenter(val model: DelayPageModel) {
 
     private fun initItemListAndAdapter() {
 
-        for (i in 1..10) {
-            var item = model.DelayItemModel("电信服务器" + i, "127.0.0.1", "https://static.qjuzi.com/web/imgicon-clue-xl.png")
+        for (i in 1..5) {
+            var item = model.DelayItemModel("电信服务器", "www.baidu.com", R.drawable.ic_videogame)
             model.delayItemList.add(item)
-
         }
+
+        var item = model.DelayItemModel("电信服务器", "127.0.0.1", R.drawable.ic_server)
+        model.delayItemList.add(item)
 
         val adapter = BaseRecycleViewAdapter<DelayPageModel.DelayItemModel>(YaaContext.getContext(), model.delayItemList)
 
