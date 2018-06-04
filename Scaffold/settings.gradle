@@ -1,0 +1,10 @@
+def include_modules(subdir, module_name) {
+    include module_name
+    project(':'+ module_name +'').projectDir = new File(subdir, module_name)
+}
+
+
+
+include 'Scaffold'
+include_modules('Scaffold-modules', 'liblearn')
+include_modules('Scaffold-modules', 'learning-io')

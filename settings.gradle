@@ -1,17 +1,10 @@
 rootProject.name = 'QNet'
 
+// all dependencies
+apply from: "./Dependency/settings.gradle"
 
-def submodule = "submodule"
-
-include 'QNet'
-
-include 'YaaLib'
-project(':YaaLib').projectDir = new File('YaaLib')
-
-//include 'aspectj'
-//project(':aspectj').projectDir = new File(submodule, 'aspectj')
-
-//include 'aa'
-//project(':aa').projectDir = new File('aa')
+// QNet and his dependencies
+apply from: "./QNet/settings.gradle"
 
 
+apply from: "./Scaffold/settings.gradle"

@@ -7,13 +7,19 @@ apply plugin: 'walle'
 
 if (enableAOP) apply plugin: 'android-aspectjx'
 
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+
     signingConfigs {
         release {
-            storeFile file("/Users/wangtianya/OneDrive/12.开发/QJuzi/qjuzi.keystore")
+            storeFile file("/Users/wangtianya/OneDrive/开发/QJuzi/qjuzi.keystore")
             storePassword System.getenv("KSTOREPWD")
             keyAlias "qnet"
             keyPassword System.getenv("KEYPWD")
@@ -51,45 +57,12 @@ android {
         }
     }
 
-    splits {
-        density {
-            enable false // 3.+后，楼下必须要，我不想要。
-            exclude "ldpi", "mdpi", "hdpi", "xxhdpi", "xxxhdpi"
-            compatibleScreens 'small', 'normal', 'large', 'xlarge'
-        }
-    }
-
-//    flavorDimensions "density"
-//
-//    // 多版本配置，暂时没用到，用walle产出的渠道包, 并且没有需要单独集成的功能
-//    productFlavors {
-//        main {
-//        }
-//        GooglePlay {
-//        }
-//        ChineseMarket {
-//        }
-//    }
-//
-//
-//    variantFilter { variant ->
-//        def names = variant.flavors*.name
-//
-//        if (names.contains("GooglePlay") && variant.buildType.name == "debug") {
-//            variant.ignore = true
-//        }
-//
-//        if (names.contains("ChineseMarket") && variant.buildType.name == "debug") {
-//            variant.ignore = true
-//        }
-//
-//    }
-
     dataBinding {
         enabled true
     }
 
 }
+
 
 walle {
     // 指定渠道包的输出路径
@@ -104,21 +77,23 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    kapt rootProject.ext.dependencies["binding-compiler"]
+
+    implementation rootProject.ext.dependencies["smartrefresh"]
 
 
-    kapt "com.android.databinding:compiler:3.1.2"
 
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3'
-
-    implementation 'com.github.bumptech.glide:glide:4.7.1'
-    kapt 'com.github.bumptech.glide:compiler:4.7.1'
+    implementation rootProject.ext.dependencies["glide"]
+    kapt rootProject.ext.dependencies["glide-compiler"]
 
 
-    api rootProject.ext.dependencies[ "bugly-crashreport"]
-    api rootProject.ext.dependencies[ "bugly-nativecrashreport"]
-    api rootProject.ext.dependencies[ "walle"]
+    implementation rootProject.ext.dependencies["bugly-crashreport"]
+    implementation rootProject.ext.dependencies["bugly-nativecrashreport"]
+    implementation rootProject.ext.dependencies["walle"]
 
-    api project(':YaaLib')
+
+
+    implementation project(':YaaLib')
 
 
 

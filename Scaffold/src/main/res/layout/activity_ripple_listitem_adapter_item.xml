@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
+  -->
+<layout>
+
+    <data>
+        <import type="java.util.List"/>
+        <variable name="str" type="String"/>
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/llLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:background="@drawable/common_background_item"
+            android:text="akjdaskjdhaskjdhas"/>
+
+</LinearLayout>
+
+</layout>

@@ -1,0 +1,31 @@
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    api rootProject.ext.dependencies[ "support-annotations"]
+
+    implementation project(':retrofit')
+}
