@@ -19,7 +19,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "cn.wangtianya.learn"
+        applicationId "cn.wangtianya.scaffold"
 
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -75,22 +75,25 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation rootProject.ext.dependencies[ "constraint-layout"]
+    implementation rootProject.ext.dependencies["constraint-layout"]
 
     kapt rootProject.ext.dependencies["binding-compiler"]
 
-    implementation project(":liblearn")
-    implementation project(":learning-io")
+    implementation rootProject.ext.dependencies["appcompat-v7"]
 
+
+    implementation project(":scaffold-lib")
+    implementation project(":liblearn")
+    implementation project(":my-learnings")
 
     //    annotationProcessor project(":processor-auto")
-//    api project(':processor-auto')
+    //    api project(':processor-auto')
 
-//    api project(':apt-process')
-//    annotationProcessor project(":apt-process")
+    //    api project(':apt-process')
+    //    annotationProcessor project(":apt-process")
 
-//    compile project(':processor-native')
-//    annotationProcessor project(":processor-native")
+    //    compile project(':processor-native')
+    //    annotationProcessor project(":processor-native")
 
 
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {

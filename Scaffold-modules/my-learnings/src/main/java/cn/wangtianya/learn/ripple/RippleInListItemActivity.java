@@ -3,6 +3,8 @@
  */
 package cn.wangtianya.learn.ripple;
 
+import com.wangtianya.learn.wiget.DataBindingBaseAdapter;
+
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableArrayList;
@@ -14,7 +16,6 @@ import android.widget.BaseAdapter;
 import cn.wangtianya.learn.BR;
 import cn.wangtianya.learn.R;
 import cn.wangtianya.learn.databinding.ActivityRippleListitemBinding;
-import com.wangtianya.learn.wiget.DataBindingBaseAdapter;
 
 public class RippleInListItemActivity extends Activity {
 

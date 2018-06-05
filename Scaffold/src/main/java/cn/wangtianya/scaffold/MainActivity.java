@@ -1,4 +1,4 @@
-package cn.wangtianya.learn;
+package cn.wangtianya.scaffold;
 
 import com.wangtianya.learn.common.AppModel;
 import com.wangtianya.learn.common.ItemActivity;
@@ -17,7 +17,6 @@ import cn.wangtianya.learn.C1_FourBasicComponents.FourBasicComponentMainFragment
 import cn.wangtianya.learn.temp.TempTestActivity;
 import cn.wangtianya.learn.uithread.UIThreadActivity;
 
-//@Love1999
 public class MainActivity extends ItemActivity {
     public static final String diliver = "------------------------------------------------------------------------------------";
 

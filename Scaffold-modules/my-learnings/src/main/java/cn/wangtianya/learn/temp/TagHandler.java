@@ -113,7 +113,7 @@ public class TagHandler implements Html.TagHandler {
     }
 
     /**
-     * @see android.text.Html
+     * @see Html
      */
     private static void start(Editable text, Object mark) {
         int len = text.length();
@@ -121,7 +121,7 @@ public class TagHandler implements Html.TagHandler {
     }
 
     /**
-     * @see android.text.Html
+     * @see Html
      */
     private static void end(Editable text, Class<?> kind, Object[] replaces) {
         int len = text.length();
@@ -137,7 +137,7 @@ public class TagHandler implements Html.TagHandler {
     }
 
     /**
-     * @see android.text.Html
+     * @see Html
      */
     private static Object getLast(Spanned text, Class<?> kind) {
         /*

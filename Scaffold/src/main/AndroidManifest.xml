@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="cn.wangtianya.learn">
+          package="cn.wangtianya.scaffold">
 
     <application
             android:allowBackup="true"
@@ -8,7 +8,7 @@
             android:label="@string/app_name"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="cn.wangtianya.learn.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -16,61 +16,7 @@
         </activity>
 
 
-        <activity android:name="com.wangtianya.learn.wiget.FragmentContainerActivity">
-        </activity>
 
-        <activity android:name=".communication.CommunicationActivity">
-        </activity>
-
-        <activity android:name="cn.wangtianya.learn.temp.TempTestActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.temp.NullPointerCastActivity">
-        </activity>
-
-        <activity android:name="cn.wangtianya.learn.uithread.UIThreadActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.uithread.NotUIDrawActivity">
-        </activity>
-
-        <activity android:name="cn.wangtianya.learn.mvvm.MVVMActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.mvvm.DataBindingActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.mvvm.DataBinding3Activity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.mvvm.DataBinding2Activity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.mvvm.DataBindingMubanActivity">
-        </activity>
-
-        <activity android:name="cn.wangtianya.learn.dialog.DialogActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.dialog.DialogOneActivity">
-        </activity>
-
-        <activity android:name="cn.wangtianya.learn.memory.MemoryActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.memory.OOMActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.memory.LeakActivity">
-        </activity>
-
-        <activity android:name="cn.wangtianya.learn.ripple.RippleActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.ripple.RippleInListItemActivity">
-        </activity>
-
-        <activity android:name="cn.wangtianya.learn.html.HtmlActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.html.HtmlParseActivity">
-        </activity>
-
-
-        <activity android:name=".event.EventActivity">
-        </activity>
-
-        <service android:name=".C1_FourBasicComponents.service.LearnService"></service>
-        <service android:name=".C1_FourBasicComponents.service.MyIntentService"/>
     </application>
 
 </manifest>

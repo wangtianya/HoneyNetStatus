@@ -4,6 +4,8 @@
 
     <application>
         <activity android:name="com.wangtianya.learn.io.TempTest1Activity"/>
+
+
     </application>
 
 </manifest>

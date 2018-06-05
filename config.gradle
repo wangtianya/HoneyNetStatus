@@ -1,15 +1,17 @@
 ext {
     javaVersion = 1.8
     javaMaxHeapSize = '2g'
+    kotlin_version = "1.2.40"
+
     compileSdkVersion = 27
     buildToolsVersion = "27.0.3"
-
 
     minSdkVersion = 21
     targetSdkVersion = 26
 
-    kotlin_version = "1.2.40"
 
+
+    minifyEnabled = false
     enableAOP = false
 
     android_support_version = "27.1.1"

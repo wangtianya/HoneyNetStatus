@@ -1,10 +1,10 @@
 rootProject.name = 'QNet'
 
 // all dependencies
-apply from: "./Dependency/settings.gradle"
+apply from: "./Dependency/sub_settings.gradle"
 
 // QNet and his dependencies
-apply from: "./QNet/settings.gradle"
+apply from: "./QNet/sub_settings.gradle"
 
 
-apply from: "./Scaffold/settings.gradle"
+apply from: "./Scaffold/sub_settings.gradle"
