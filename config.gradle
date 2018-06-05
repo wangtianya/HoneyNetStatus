@@ -23,7 +23,7 @@ ext {
             "support-annotations"    : "com.android.support:support-annotations:${android_support_version}",
 
             // android support ui
-            "recyclerview-v7"        : "com.android.support:recyclerview-v7:${android_support_version}",
+            "recyclerview"        : "com.android.support:recyclerview-v7:${android_support_version}",
             "constraint-layout"      : "com.android.support.constraint:constraint-layout:1.1.0",
             "smartrefresh"           : 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3',
 

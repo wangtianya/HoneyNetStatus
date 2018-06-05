@@ -2,8 +2,8 @@ package com.qjuzi.qnet.pages.home.presenter
 
 import android.graphics.Color
 import android.text.TextUtils
+import cn.wangtianya.yaa.binding.widget.BindingRecycleViewHeaderFooterAdapter
 import com.qjuzi.yaa.context.YaaContext
-import com.qjuzi.yaa.databinding.BaseRecycleViewHeaderFooterAdapter
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.qjuzi.qnet.common.broadcast.NetworkChangedListener
@@ -137,7 +137,7 @@ class HomeMainPresenter(val homeModel: HomeModel) {
         val delayGrid = homeModel.GridModel(R.drawable.ic_signal_wifi_off, "网络延时")
         homeModel.gridList.add(delayGrid)
 
-        val adapter = BaseRecycleViewHeaderFooterAdapter<HomeModel.GridModel>(YaaContext.getContext(),
+        val adapter = BindingRecycleViewHeaderFooterAdapter<HomeModel.GridModel>(YaaContext.getContext(),
                 homeModel.gridList, homeModel.gridHeaderList, homeModel.gridFooterList)
 
         homeModel.gridAdapter.set(adapter)

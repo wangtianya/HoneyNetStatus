@@ -3,6 +3,8 @@ package com.qjuzi.qnet.pages.delay.model
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableField
 import android.view.View
+import cn.wangtianya.yaa.binding.widget.BindingAdapterItemModel
+import cn.wangtianya.yaa.binding.widget.BindingRecycleViewAdapter
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.databinding.PageDelayBinding
 import com.qjuzi.qnet.pages.delay.presenter.DelayItemPingPresenter
@@ -10,8 +12,6 @@ import com.qjuzi.qnet.pages.delay.presenter.DelayMainPresenter
 import com.qjuzi.yaa.BR
 import com.qjuzi.yaa.core.activity.YaaFragment
 import com.qjuzi.yaa.core.util.YaaToast
-import com.qjuzi.yaa.databinding.AdapterBindingModel
-import com.qjuzi.yaa.databinding.BaseRecycleViewAdapter
 import com.qjuzi.yaa.net.ping2.inteface.PingTask
 
 /**
@@ -24,9 +24,9 @@ class DelayPageModel(val context: YaaFragment, var binding: PageDelayBinding){
     val itemPingPresenter = DelayItemPingPresenter(this)
 
     val delayItemList = ObservableArrayList<DelayItemModel>()
-    val delayItemAdapter = ObservableField<BaseRecycleViewAdapter<DelayItemModel>>()
+    val delayItemAdapter = ObservableField<BindingRecycleViewAdapter<DelayItemModel>>()
 
-    inner class DelayItemModel(var title: String, var host: String?, var resId: Int?) : AdapterBindingModel() {
+    inner class DelayItemModel(var title: String, var host: String?, var resId: Int?) : BindingAdapterItemModel() {
 
         val statusColor : ObservableField<Int> = ObservableField(0)
         val delayText : ObservableField<String> = ObservableField("-")

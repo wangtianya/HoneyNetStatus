@@ -1,11 +1,11 @@
 package com.qjuzi.qnet.pages.delay.presenter
 
 import android.graphics.Color
+import cn.wangtianya.yaa.binding.widget.BindingRecycleViewAdapter
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.common.tools.util.ScreenManager
 import com.qjuzi.qnet.pages.delay.model.DelayPageModel
 import com.qjuzi.yaa.context.YaaContext
-import com.qjuzi.yaa.databinding.BaseRecycleViewAdapter
 
 
 class DelayMainPresenter(val model: DelayPageModel) {
@@ -36,7 +36,7 @@ class DelayMainPresenter(val model: DelayPageModel) {
         var item = model.DelayItemModel("电信服务器", "127.0.0.1", R.drawable.ic_server)
         model.delayItemList.add(item)
 
-        val adapter = BaseRecycleViewAdapter<DelayPageModel.DelayItemModel>(YaaContext.getContext(), model.delayItemList)
+        val adapter = BindingRecycleViewAdapter<DelayPageModel.DelayItemModel>(YaaContext.getContext(), model.delayItemList)
 
         model.delayItemAdapter.set(adapter)
     }

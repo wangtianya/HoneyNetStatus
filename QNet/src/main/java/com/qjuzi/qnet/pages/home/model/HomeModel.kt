@@ -6,6 +6,8 @@ import android.graphics.Color
 import com.qjuzi.qnet.R
 import android.databinding.ObservableArrayList
 import android.view.View
+import cn.wangtianya.yaa.binding.widget.BindingAdapterItemModel
+import cn.wangtianya.yaa.binding.widget.BindingRecycleViewHeaderFooterAdapter
 import com.qjuzi.qnet.databinding.ActivityMainBinding
 import com.qjuzi.qnet.pages.delay.DelayPage
 import com.qjuzi.qnet.pages.home.HomeActivity
@@ -13,8 +15,6 @@ import com.qjuzi.qnet.pages.home.presenter.DelayTaskPresenter
 import com.qjuzi.qnet.pages.home.presenter.HomeMainPresenter
 import com.qjuzi.yaa.BR
 import com.qjuzi.yaa.core.activity.YaaFragmentContainerActivity
-import com.qjuzi.yaa.databinding.AdapterBindingModel
-import com.qjuzi.yaa.databinding.BaseRecycleViewHeaderFooterAdapter
 
 
 /**
@@ -46,9 +46,9 @@ class HomeModel(val context: HomeActivity, val binding: ActivityMainBinding) {
     val gridHeaderList = ObservableArrayList<GridModel>()
     val gridList = ObservableArrayList<GridModel>()
     val gridFooterList = ObservableArrayList<GridModel>()
-    val gridAdapter = ObservableField<BaseRecycleViewHeaderFooterAdapter<GridModel>>()
+    val gridAdapter = ObservableField<BindingRecycleViewHeaderFooterAdapter<GridModel>>()
 
-    inner class GridModel(var imgId: Int, var title: String) : AdapterBindingModel() {
+    inner class GridModel(var imgId: Int, var title: String) : BindingAdapterItemModel() {
         init {
             this.layoutId = R.layout.activity_main_grid_item
             this.variableId = BR.model
