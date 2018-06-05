@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="cn.wangtianya.learn.io">
+          package="cn.wangtianya.scaffold.lib">
 
     <application>
-        <activity android:name="com.wangtianya.learn.io.TempTest1Activity"/>
-
-
     </application>
 
 </manifest>

@@ -74,12 +74,14 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    implementation rootProject.ext.dependencies["kotlin-stdlib"]
     implementation rootProject.ext.dependencies["constraint-layout"]
+    implementation rootProject.ext.dependencies["yaa-context"]
+    implementation rootProject.ext.dependencies["appcompat-v7"]
 
     kapt rootProject.ext.dependencies["binding-compiler"]
 
-    implementation rootProject.ext.dependencies["appcompat-v7"]
 
 
     implementation project(":scaffold-lib")

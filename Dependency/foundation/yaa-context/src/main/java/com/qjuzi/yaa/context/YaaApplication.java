@@ -1,16 +1,8 @@
 
-package com.qjuzi.yaa.core.context;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
+package com.qjuzi.yaa.context;
 
 import android.app.Application;
 
-/**
- * 自定义Application
- * i(a)wangtianya.cn
- */
 public class YaaApplication extends Application {
 
 

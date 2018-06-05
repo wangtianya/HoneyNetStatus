@@ -1,12 +1,8 @@
 
 package com.qjuzi.yaa.core.activity;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
-import com.qjuzi.yaa.core.context.YaaActivityStack;
-import com.qjuzi.yaa.core.context.YaaContext;
 
+import com.qjuzi.yaa.context.YaaActivityStack;
 import android.app.Activity;
 import android.os.Bundle;
 

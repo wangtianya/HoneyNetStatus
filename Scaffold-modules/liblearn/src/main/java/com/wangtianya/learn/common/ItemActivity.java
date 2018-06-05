@@ -22,7 +22,6 @@ public class ItemActivity extends Activity {
         mainLayout = findViewById(R.id.llItems);
     }
 
-
     protected void addItem(String tittle, Class<? extends Activity> clazz) {
         mainLayout.addView(new ButtonItem(tittle, clazz));
     }

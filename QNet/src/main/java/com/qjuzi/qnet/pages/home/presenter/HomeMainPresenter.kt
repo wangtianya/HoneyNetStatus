@@ -2,7 +2,7 @@ package com.qjuzi.qnet.pages.home.presenter
 
 import android.graphics.Color
 import android.text.TextUtils
-import com.qjuzi.yaa.core.context.YaaContext
+import com.qjuzi.yaa.context.YaaContext
 import com.qjuzi.yaa.databinding.BaseRecycleViewHeaderFooterAdapter
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver

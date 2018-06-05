@@ -41,6 +41,5 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation rootProject.ext.dependencies["kotlin-stdlib"]
-    implementation rootProject.ext.dependencies["yaa-context"]
 }
 

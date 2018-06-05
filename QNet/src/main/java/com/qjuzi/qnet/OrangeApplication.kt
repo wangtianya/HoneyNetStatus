@@ -1,9 +1,9 @@
 package com.qjuzi.qnet
 
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
-import com.qjuzi.yaa.core.context.YaaApplication
 import com.tencent.bugly.crashreport.CrashReport
 import com.meituan.android.walle.WalleChannelReader
+import com.qjuzi.yaa.context.YaaApplication
 import com.tencent.bugly.crashreport.CrashReport.UserStrategy
 
 

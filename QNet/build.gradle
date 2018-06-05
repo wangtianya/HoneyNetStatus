@@ -76,26 +76,23 @@ walle {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    kapt rootProject.ext.dependencies["binding-compiler"]
-
+    implementation rootProject.ext.dependencies["kotlin-stdlib"]
+    implementation rootProject.ext.dependencies["yaa-context"]
+    implementation rootProject.ext.dependencies["bugly-crashreport"]
+    implementation rootProject.ext.dependencies["bugly-nativecrashreport"]
+    implementation rootProject.ext.dependencies["walle"]
     implementation rootProject.ext.dependencies["smartrefresh"]
 
+
+    kapt rootProject.ext.dependencies["binding-compiler"]
 
 
     implementation rootProject.ext.dependencies["glide"]
     kapt rootProject.ext.dependencies["glide-compiler"]
 
 
-    implementation rootProject.ext.dependencies["bugly-crashreport"]
-    implementation rootProject.ext.dependencies["bugly-nativecrashreport"]
-    implementation rootProject.ext.dependencies["walle"]
-
-
 
     implementation project(':YaaLib')
-
-
 
     if (enableAOP) api project(':aspectj')
 }

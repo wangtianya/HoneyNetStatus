@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.*
-import com.qjuzi.yaa.core.context.YaaContext
+import com.qjuzi.yaa.context.YaaContext
 
 
 /**

@@ -1,7 +1,7 @@
 
 package com.qjuzi.yaa.core.util;
 
-import com.qjuzi.yaa.core.context.YaaContext;
+import com.qjuzi.yaa.context.YaaContext;
 
 import android.widget.Toast;
 

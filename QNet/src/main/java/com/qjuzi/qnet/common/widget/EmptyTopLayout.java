@@ -1,6 +1,6 @@
 package com.qjuzi.qnet.common.widget;
 
-import com.qjuzi.yaa.core.context.YaaContext;
+import com.qjuzi.yaa.context.YaaContext;
 import com.qjuzi.yaa.core.util.ScreenUtil;
 
 import android.content.Context;

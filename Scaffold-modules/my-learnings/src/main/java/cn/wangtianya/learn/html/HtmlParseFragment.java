@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import cn.wangtianya.learn.R;
 
-public class HtmlParseActivity extends Fragment {
+public class HtmlParseFragment extends Fragment {
     String tagName = "selfdefine";
     String tag = "<selfdefine style=\"background-color:#cc0000;color:#FFFFFF\">&nbsp;1号线&nbsp;</selfdefine>&nbsp;"
             + "<selfdefine style=\"background-color:#158e9b;color:#FFFFFF\">&nbsp;4号线大兴线&nbsp;</selfdefine>&nbsp;";

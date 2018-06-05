@@ -1,6 +1,6 @@
 package com.qjuzi.yaa.core.wiget;
 
-import com.qjuzi.yaa.core.context.YaaContext;
+import com.qjuzi.yaa.context.YaaContext;
 
 import android.content.Context;
 import android.view.LayoutInflater;

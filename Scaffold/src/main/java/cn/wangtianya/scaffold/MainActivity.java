@@ -2,14 +2,11 @@ package cn.wangtianya.scaffold;
 
 import com.wangtianya.learn.common.AppModel;
 import com.wangtianya.learn.common.ItemActivity;
-import com.wangtianya.learn.io.TempTest1Activity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import cn.wangtianya.learn.communication.CommunicationActivity;
 import cn.wangtianya.learn.dialog.DialogActivity;
 import cn.wangtianya.learn.event.EventActivity;
-import cn.wangtianya.learn.html.HtmlActivity;
+import cn.wangtianya.learn.html.HtmlFragment;
 import cn.wangtianya.learn.memory.MemoryActivity;
 import cn.wangtianya.learn.mvvm.MVVMActivity;
 import cn.wangtianya.learn.ripple.RippleActivity;
@@ -40,12 +37,10 @@ public class MainActivity extends ItemActivity {
         addItem("Dialog相关", DialogActivity.class);
         addItem("Memory相关", MemoryActivity.class);
         addItem("RippleActivity相关", RippleActivity.class);
-        addFragmentItem("HtmlParse相关", HtmlActivity.class);
 
         addItem("Event相关", EventActivity.class);
 
+        addFragmentItem("HtmlParse相关", HtmlFragment.class);
 
-
-        runOnUiThread(()->{startActivity(new Intent(this,TempTest1Activity.class));});
     }
 }

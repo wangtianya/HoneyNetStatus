@@ -4,7 +4,7 @@ import android.graphics.Color
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.common.tools.util.ScreenManager
 import com.qjuzi.qnet.pages.delay.model.DelayPageModel
-import com.qjuzi.yaa.core.context.YaaContext
+import com.qjuzi.yaa.context.YaaContext
 import com.qjuzi.yaa.databinding.BaseRecycleViewAdapter
 
 

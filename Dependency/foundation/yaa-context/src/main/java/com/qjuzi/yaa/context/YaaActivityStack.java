@@ -1,5 +1,5 @@
 
-package com.qjuzi.yaa.core.context;
+package com.qjuzi.yaa.context;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,7 @@ import android.app.Activity;
  * <p/>
  * create, 2014/11/02, Daya, i(a)wangtianya.cn
  */
+@Deprecated
 public class YaaActivityStack {
 
     public static YaaActivityStack stack = new YaaActivityStack();

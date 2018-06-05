@@ -4,7 +4,7 @@ import android.graphics.Color
 import android.text.TextUtils
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
-import com.qjuzi.yaa.core.context.YaaContext
+import com.qjuzi.yaa.context.YaaContext
 import com.qjuzi.yaa.net.provider.ip.tools.GetIP
 import com.qjuzi.yaa.net.provider.isp.ISPModel
 import com.qjuzi.yaa.net.provider.isp.ISPProvider

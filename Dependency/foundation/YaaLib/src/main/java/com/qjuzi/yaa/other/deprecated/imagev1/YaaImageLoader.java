@@ -7,7 +7,7 @@ import java.util.Observer;
 import java.util.Set;
 import java.util.concurrent.Executor;
 
-import com.qjuzi.yaa.core.context.YaaContext;
+import com.qjuzi.yaa.context.YaaContext;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
