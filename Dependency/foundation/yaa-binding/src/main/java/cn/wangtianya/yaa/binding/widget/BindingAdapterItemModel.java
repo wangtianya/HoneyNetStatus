@@ -4,7 +4,7 @@ package cn.wangtianya.yaa.binding.widget;
  * Created by wangtianya on 2018/4/20.
  */
 
-public abstract class AdapterBindingModel {
+public abstract class BindingAdapterItemModel {
     public int layoutId;
     public int variableId;
 

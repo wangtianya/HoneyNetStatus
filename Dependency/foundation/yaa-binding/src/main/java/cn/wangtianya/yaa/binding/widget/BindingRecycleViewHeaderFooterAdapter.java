@@ -16,8 +16,8 @@ import android.view.ViewGroup;
  * Created by wangtianya on 2018/4/20.
  */
 
-public class BaseRecycleViewHeaderFooterAdapter<T extends AdapterBindingModel>
-        extends RecyclerView.Adapter<BaseRecycleViewHeaderFooterAdapter.BindingHolder> {
+public class BindingRecycleViewHeaderFooterAdapter<T extends BindingAdapterItemModel>
+        extends RecyclerView.Adapter<BindingRecycleViewHeaderFooterAdapter.BindingHolder> {
 
     private LayoutInflater inflater;
 
@@ -25,14 +25,14 @@ public class BaseRecycleViewHeaderFooterAdapter<T extends AdapterBindingModel>
     private ObservableArrayList<T> itemList;
     private ObservableArrayList<T> footerList;
 
-    public BaseRecycleViewHeaderFooterAdapter(Context context, ObservableArrayList<T> itemList) {
+    public BindingRecycleViewHeaderFooterAdapter(Context context, ObservableArrayList<T> itemList) {
         this(context, itemList, null, null);
     }
 
-    public BaseRecycleViewHeaderFooterAdapter(Context context,
-                                              ObservableArrayList<T> itemList,
-                                              ObservableArrayList<T> headerList,
-                                              ObservableArrayList<T> footerList) {
+    public BindingRecycleViewHeaderFooterAdapter(Context context,
+                                                 ObservableArrayList<T> itemList,
+                                                 ObservableArrayList<T> headerList,
+                                                 ObservableArrayList<T> footerList) {
         inflater = LayoutInflater.from(context);
         this.itemList = itemList;
         this.headerList = headerList;
@@ -48,7 +48,7 @@ public class BaseRecycleViewHeaderFooterAdapter<T extends AdapterBindingModel>
     }
 
     @Override
-    public void onBindViewHolder(BaseRecycleViewHeaderFooterAdapter.BindingHolder holder, int position) {
+    public void onBindViewHolder(BindingRecycleViewHeaderFooterAdapter.BindingHolder holder, int position) {
         holder.bindData(getItemModel(position));
     }
 
@@ -166,7 +166,7 @@ public class BaseRecycleViewHeaderFooterAdapter<T extends AdapterBindingModel>
     }
 
     @Override
-    public void onViewAttachedToWindow(@NonNull BaseRecycleViewHeaderFooterAdapter.BindingHolder holder) {
+    public void onViewAttachedToWindow(@NonNull BindingRecycleViewHeaderFooterAdapter.BindingHolder holder) {
         super.onViewAttachedToWindow(holder);
         int position = holder.getLayoutPosition();
         if (isHeaderViewPos(position) || isFooterViewPos(position)) {

@@ -5,27 +5,26 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableList;
 import android.databinding.ViewDataBinding;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 
 /**
- * Created by wangtianya on 2018/4/20.
+ * Created by tianya on 2017/5/4.
  */
-
-public class BaseRecycleViewAdapter<T extends AdapterBindingModel>
-        extends RecyclerView.Adapter<BaseRecycleViewAdapter.BindingHolder> {
+public class BindingListViewAdapter<T extends BindingAdapterItemModel> extends BaseAdapter {
 
     private LayoutInflater inflater;
     private ObservableArrayList<T> modelList;
 
-    public BaseRecycleViewAdapter(Context context, ObservableArrayList<T> modelList) {
+    public BindingListViewAdapter(Context context, ObservableArrayList<T> modelList) {
         inflater = LayoutInflater.from(context);
         this.modelList = modelList;
         initNotifyChangeListener();
     }
 
-    public BaseRecycleViewAdapter(Context context, ObservableArrayList<T> modelList, int layoutId, int variableId) {
+    public BindingListViewAdapter(Context context, ObservableArrayList<T> modelList, int layoutId, int variableId) {
         inflater = LayoutInflater.from(context);
         for (T model : modelList) {
             model.layoutId = layoutId;
@@ -36,25 +35,33 @@ public class BaseRecycleViewAdapter<T extends AdapterBindingModel>
     }
 
     @Override
-    public BindingHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ViewDataBinding binding = DataBindingUtil.inflate(inflater, viewType, parent, false);
-        return new BindingHolder(binding);
-    }
-
-    // 数据绑定
-    @Override
-    public void onBindViewHolder(BaseRecycleViewAdapter.BindingHolder holder, int position) {
-        holder.bindData(modelList.get(position));
-    }
-
-    @Override
-    public int getItemCount() {
+    public int getCount() {
         return modelList.size();
     }
 
     @Override
-    public int getItemViewType(int position) {
-        return modelList.get(position).layoutId;
+    public Object getItem(int position) {
+        return modelList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewDataBinding dataBinding;
+        T model = modelList.get(position);
+
+        if (convertView == null) {
+            dataBinding = DataBindingUtil.inflate(inflater, model.layoutId, parent, false);
+        } else {
+            dataBinding = DataBindingUtil.getBinding(convertView);
+        }
+
+        dataBinding.setVariable(model.variableId, model);
+        return dataBinding.getRoot();
     }
 
     private void initNotifyChangeListener() {
@@ -85,21 +92,4 @@ public class BaseRecycleViewAdapter<T extends AdapterBindingModel>
             }
         });
     }
-
-    class BindingHolder extends RecyclerView.ViewHolder {
-        ViewDataBinding binding;
-
-        public BindingHolder(ViewDataBinding binding) {
-            super(binding.getRoot());
-            this.binding = binding;
-        }
-
-        public void bindData(T model) {
-            binding.setVariable(model.variableId, model);
-        }
-
-    }
 }
-
-
-

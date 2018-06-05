@@ -43,6 +43,7 @@ ext {
             'glide-compiler'         : 'com.github.bumptech.glide:compiler:4.7.1',
 
             //
-            'yaa-context'            : project(':yaa-context')
+            'yaa-context'            : project(':yaa-context'),
+            'yaa-binding'            : project(':yaa-binding')
     ]
 }
