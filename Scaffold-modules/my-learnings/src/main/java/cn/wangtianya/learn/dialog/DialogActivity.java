@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
- */
 package cn.wangtianya.learn.dialog;
 
 import com.wangtianya.learn.common.ItemActivity;

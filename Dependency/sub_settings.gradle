@@ -8,3 +8,5 @@ def foundation_dir = 'Dependency/foundation'
 // basic dependencies
 include_sub(foundation_dir, 'YaaLib')
 include_sub(foundation_dir, 'yaa-context')
+include_sub(foundation_dir, 'yaa-binding')
+

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
+ *.
  */
 package com.wangtianya.learn.wiget;
 
