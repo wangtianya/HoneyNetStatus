@@ -1,6 +1,5 @@
 package com.qjuzi.qnet.pages.home
 
-import android.annotation.SuppressLint
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import com.qjuzi.qnet.R
@@ -12,7 +11,6 @@ import com.qjuzi.yaa.core.activity.YaaActivity
  * 1、初始化model，binding，presenter。
  * 2、生命周期的分发，调用合适presenter进行处理。
  */
-@SuppressLint("MissingSuperCall")
 class HomeActivity : YaaActivity() {
 
     private lateinit var model: HomeModel
@@ -37,5 +35,6 @@ class HomeActivity : YaaActivity() {
 
     override fun onPause() {
         model.delayTaskPresenter.stopDelayDataUpdateTask()
+        super.onPause()
     }
 }

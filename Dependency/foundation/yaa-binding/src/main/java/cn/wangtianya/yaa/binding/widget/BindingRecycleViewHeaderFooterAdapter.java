@@ -16,23 +16,26 @@ import android.view.ViewGroup;
  * Created by wangtianya on 2018/4/20.
  */
 
-public class BindingRecycleViewHeaderFooterAdapter<T extends BindingAdapterItemModel>
+public class BindingRecycleViewHeaderFooterAdapter
+        <H extends BindingAdapterItemModel
+                , I extends BindingAdapterItemModel
+                , F extends BindingAdapterItemModel>
         extends RecyclerView.Adapter<BindingRecycleViewHeaderFooterAdapter.BindingHolder> {
 
     private LayoutInflater inflater;
 
-    private ObservableArrayList<T> headerList;
-    private ObservableArrayList<T> itemList;
-    private ObservableArrayList<T> footerList;
+    private ObservableArrayList<H> headerList;
+    private ObservableArrayList<I> itemList;
+    private ObservableArrayList<F> footerList;
 
-    public BindingRecycleViewHeaderFooterAdapter(Context context, ObservableArrayList<T> itemList) {
+    public BindingRecycleViewHeaderFooterAdapter(Context context, ObservableArrayList<I> itemList) {
         this(context, itemList, null, null);
     }
 
     public BindingRecycleViewHeaderFooterAdapter(Context context,
-                                                 ObservableArrayList<T> itemList,
-                                                 ObservableArrayList<T> headerList,
-                                                 ObservableArrayList<T> footerList) {
+                                                 ObservableArrayList<I> itemList,
+                                                 ObservableArrayList<H> headerList,
+                                                 ObservableArrayList<F> footerList) {
         inflater = LayoutInflater.from(context);
         this.itemList = itemList;
         this.headerList = headerList;
@@ -65,7 +68,7 @@ public class BindingRecycleViewHeaderFooterAdapter<T extends BindingAdapterItemM
         return getItemModel(position).layoutId;
     }
 
-    private T getItemModel(int position) {
+    private BindingAdapterItemModel getItemModel(int position) {
         int itemSize = itemList.size();
         int headerSize = headerList == null ? 0 : headerList.size();
         int footerSize = footerList == null ? 0 : footerList.size();
@@ -93,30 +96,30 @@ public class BindingRecycleViewHeaderFooterAdapter<T extends BindingAdapterItemM
     }
 
     private void initNotifyChangeListener() {
-        ObservableList.OnListChangedCallback<ObservableList<T>> listChangedCallback = new ObservableList
-                .OnListChangedCallback<ObservableList<T>>() {
+        ObservableList.OnListChangedCallback<ObservableList> listChangedCallback = new ObservableList
+                .OnListChangedCallback<ObservableList>() {
             @Override
-            public void onChanged(ObservableList<T> sender) {
+            public void onChanged(ObservableList sender) {
                 notifyDataSetChanged();
             }
 
             @Override
-            public void onItemRangeChanged(ObservableList<T> sender, int positionStart, int itemCount) {
+            public void onItemRangeChanged(ObservableList sender, int positionStart, int itemCount) {
                 notifyDataSetChanged();
             }
 
             @Override
-            public void onItemRangeInserted(ObservableList<T> sender, int positionStart, int itemCount) {
+            public void onItemRangeInserted(ObservableList sender, int positionStart, int itemCount) {
                 notifyDataSetChanged();
             }
 
             @Override
-            public void onItemRangeMoved(ObservableList<T> sender, int fromPosition, int toPosition, int itemCount) {
+            public void onItemRangeMoved(ObservableList sender, int fromPosition, int toPosition, int itemCount) {
                 notifyDataSetChanged();
             }
 
             @Override
-            public void onItemRangeRemoved(ObservableList<T> sender, int positionStart, int itemCount) {
+            public void onItemRangeRemoved(ObservableList sender, int positionStart, int itemCount) {
                 notifyDataSetChanged();
             }
         };
@@ -134,7 +137,7 @@ public class BindingRecycleViewHeaderFooterAdapter<T extends BindingAdapterItemM
             this.binding = binding;
         }
 
-        public void bindData(T model) {
+        public void bindData(BindingAdapterItemModel model) {
             binding.setVariable(model.variableId, model);
         }
     }

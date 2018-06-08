@@ -7,7 +7,7 @@ public class YaaContext {
     private static YaaApplication application = null;
 
     public static void init(YaaApplication application) {
-        application = application;
+        YaaContext.application = application;
     }
 
     public static YaaApplication getContext() {

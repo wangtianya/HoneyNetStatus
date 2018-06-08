@@ -1,5 +1,6 @@
 package com.wangtianya.learn.common;
 
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 import com.wangtianya.learn.wiget.FragmentContainerActivity;
@@ -21,7 +22,7 @@ public class ButtonFragmentItem extends Button {
         super(AppModel.getContext());
 
         this.setText(tittle);
-        this.setLayoutParams(new ViewGroup.LayoutParams(350, WRAP_CONTENT));
+        this.setLayoutParams(new ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT));
         this.setEllipsize(TextUtils.TruncateAt.MIDDLE);
         this.setLines(1);
         this.setOnClickListener(new OnClickListener() {

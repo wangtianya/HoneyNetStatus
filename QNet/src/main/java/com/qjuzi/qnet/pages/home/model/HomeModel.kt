@@ -1,13 +1,13 @@
 package com.qjuzi.qnet.pages.home.model
 
+import android.databinding.ObservableArrayList
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
 import android.graphics.Color
-import com.qjuzi.qnet.R
-import android.databinding.ObservableArrayList
 import android.view.View
 import cn.wangtianya.yaa.binding.widget.BindingAdapterItemModel
 import cn.wangtianya.yaa.binding.widget.BindingRecycleViewHeaderFooterAdapter
+import com.qjuzi.qnet.R
 import com.qjuzi.qnet.databinding.ActivityMainBinding
 import com.qjuzi.qnet.pages.delay.DelayPage
 import com.qjuzi.qnet.pages.home.HomeActivity
@@ -46,7 +46,7 @@ class HomeModel(val context: HomeActivity, val binding: ActivityMainBinding) {
     val gridHeaderList = ObservableArrayList<GridModel>()
     val gridList = ObservableArrayList<GridModel>()
     val gridFooterList = ObservableArrayList<GridModel>()
-    val gridAdapter = ObservableField<BindingRecycleViewHeaderFooterAdapter<GridModel>>()
+    val gridAdapter = ObservableField<BindingRecycleViewHeaderFooterAdapter<GridModel, GridModel, GridModel>>()
 
     inner class GridModel(var imgId: Int, var title: String) : BindingAdapterItemModel() {
         init {
