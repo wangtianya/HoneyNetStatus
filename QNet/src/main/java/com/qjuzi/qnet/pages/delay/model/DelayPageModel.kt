@@ -35,8 +35,7 @@ class DelayPageModel(val context: YaaFragment, var binding: PageDelayBinding){
         var pingTask : PingTask? = null
 
         init {
-            this.layoutId = R.layout.page_delay_item
-            this.variableId = BR.model
+            setResId(R.layout.page_delay_item, BR.model)
         }
 
 
