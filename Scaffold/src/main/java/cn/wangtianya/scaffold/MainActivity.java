@@ -11,7 +11,6 @@ import cn.wangtianya.learn.event.EventActivity;
 import cn.wangtianya.learn.html.HtmlFragment;
 import cn.wangtianya.learn.memory.MemoryActivity;
 import cn.wangtianya.learn.mvvm.MVVMActivity;
-import cn.wangtianya.learn.recycler.RecyclerFragment;
 import cn.wangtianya.learn.ripple.RippleActivity;
 import cn.wangtianya.learn.temp.TempTestActivity;
 import cn.wangtianya.learn.uithread.UIThreadActivity;
@@ -40,7 +39,6 @@ public class MainActivity extends ItemActivity {
 
         addItem(diliver, CommunicationActivity.class);
         addFragmentItem("HtmlParse相关", HtmlFragment.class);
-        addFragmentItem("Recycler", RecyclerFragment.class);
 
 
     }
