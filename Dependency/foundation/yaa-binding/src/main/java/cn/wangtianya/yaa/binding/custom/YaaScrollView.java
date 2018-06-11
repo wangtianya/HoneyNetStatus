@@ -129,8 +129,7 @@ public class YaaScrollView extends ScrollView {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        if (ev.getAction() == MotionEvent.ACTION_DOWN
-                || ev.getAction() == MotionEvent.ACTION_UP) { // 把事件传给下面
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) { // 把事件传给下面
             onTouchEvent(ev);
             return false;
         }

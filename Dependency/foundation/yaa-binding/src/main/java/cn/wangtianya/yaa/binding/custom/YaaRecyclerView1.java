@@ -7,8 +7,8 @@ import android.view.MotionEvent;
 
 public class YaaRecyclerView1 extends RecyclerView {
 
-
     private float lastY;
+
     public YaaRecyclerView1(Context context) {
         super(context);
     }
@@ -24,28 +24,30 @@ public class YaaRecyclerView1 extends RecyclerView {
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (getParentScrollView().childCanScroll()) {
-            getParentScrollView().requestDisallowInterceptTouchEvent(true); // 传
+            iDoScroll();
         } else {
-            getParentScrollView().requestDisallowInterceptTouchEvent(false); // 不传
+            faterDoScroll();
             return false;
         }
-        if (ev.getAction() == MotionEvent.ACTION_MOVE) {
-            if (lastY > ev.getY()) {
-                // 如果是向上滑动，且不能滑动了，则让ScrollView处理
-                if (!canScrollVertically(1)) {
-                    getParentScrollView().requestDisallowInterceptTouchEvent(false);
-                    return false;
-                }
-            } else if (ev.getY() > lastY) {
-                // 如果是向下滑动，且不能滑动了，则让ScrollView处理
-                if (!canScrollVertically(-1)) {
-                    getParentScrollView().requestDisallowInterceptTouchEvent(false);
-                    return false;
-                }
+            if (ev.getAction() == MotionEvent.ACTION_MOVE) {
+            if (lastY > ev.getY() && !canScrollVertically(1)) {// 如果是向上滑动，且不能滑动了，则让ScrollView处理
+                faterDoScroll();
+                return false;
+            } else if (ev.getY() > lastY && !canScrollVertically(-1)) { // 如果是向下滑动，且不能滑动了，则让ScrollView处理
+                faterDoScroll();
+                return false;
             }
         }
         lastY = ev.getY();
         return super.dispatchTouchEvent(ev);
+    }
+
+    private void faterDoScroll() {
+        getParentScrollView().requestDisallowInterceptTouchEvent(false);
+    }
+
+    private void iDoScroll() {
+        getParentScrollView().requestDisallowInterceptTouchEvent(true); // 传
     }
 
     private YaaScrollView getParentScrollView() {
