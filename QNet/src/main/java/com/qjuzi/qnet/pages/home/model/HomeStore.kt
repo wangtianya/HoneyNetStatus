@@ -5,8 +5,9 @@ import android.databinding.ObservableField
 import android.databinding.ObservableInt
 import android.graphics.Color
 import android.view.View
+import cn.wangtianya.yaa.binding.core.AbsStore
 import cn.wangtianya.yaa.binding.widget.BindingAdapterItemModel
-import cn.wangtianya.yaa.binding.widget.BindingRecycleViewHeaderFooterAdapter
+import cn.wangtianya.yaa.binding.widget.BindingRecycleViewEnhanceAdapter
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.databinding.ActivityMainBinding
 import com.qjuzi.qnet.pages.delay.DelayPage
@@ -21,12 +22,13 @@ import com.qjuzi.yaa.core.activity.YaaFragmentContainerActivity
  * 1、承载页面所有的数据
  * 2、承载页面所有的事件分发
  */
-class HomeModel(val context: HomeActivity, val binding: ActivityMainBinding) {
-    /**
-     * 逻辑业务承载类，用于消耗Action
-     */
-    val mainPresenter = HomeMainPresenter(this) // 数据初始化，
-    val delayTaskPresenter = DelayTaskPresenter(this) // 延时的持续更新
+class HomeStore(val context: HomeActivity) : AbsStore<HomeActivity>(context){
+
+
+    lateinit var binding: ActivityMainBinding
+
+    lateinit var  mainPresenter : HomeMainPresenter
+    lateinit var  delayTaskPresenter : DelayTaskPresenter
 
     /**
      * top banner data
@@ -46,7 +48,7 @@ class HomeModel(val context: HomeActivity, val binding: ActivityMainBinding) {
     val gridHeaderList = ObservableArrayList<GridModel>()
     val gridList = ObservableArrayList<GridModel>()
     val gridFooterList = ObservableArrayList<GridModel>()
-    val gridAdapter = ObservableField<BindingRecycleViewHeaderFooterAdapter<GridModel, GridModel, GridModel>>()
+    val gridAdapter = ObservableField<BindingRecycleViewEnhanceAdapter<GridModel>>()
 
     inner class GridModel(var imgId: Int, var title: String) : BindingAdapterItemModel() {
         init {
@@ -55,7 +57,7 @@ class HomeModel(val context: HomeActivity, val binding: ActivityMainBinding) {
         }
 
         fun onClick(view: View) {
-            YaaFragmentContainerActivity.startFragment(context,DelayPage().javaClass.name)
+            YaaFragmentContainerActivity.startFragment(page.applicationContext, DelayPage().javaClass.name)
         }
     }
 }

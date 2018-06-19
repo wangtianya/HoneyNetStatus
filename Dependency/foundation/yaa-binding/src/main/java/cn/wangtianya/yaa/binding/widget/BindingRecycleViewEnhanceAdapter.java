@@ -5,7 +5,10 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableList;
 import android.databinding.ViewDataBinding;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,21 +19,21 @@ import cn.wangtianya.yaa.binding.R;
  * Created by wangtianya on 2018/4/20.
  */
 
-public class BindingRecycleViewAdapterTemp<T extends BindingAdapterItemModel>
-        extends RecyclerView.Adapter<BindingRecycleViewAdapterTemp.BindingHolder> {
-    public static final int HEADER = -1000;
-    public static final int FOOTER = -2000;
+public class BindingRecycleViewEnhanceAdapter<T extends BindingAdapterItemModel>
+        extends RecyclerView.Adapter<BindingRecycleViewEnhanceAdapter.BindingHolder> {
+    private static final int HEADER = -1000;
+    private static final int FOOTER = -2000;
 
     private Context context;
     private LayoutInflater inflater;
 
-    public LinearLayout headerContainer;
-    public LinearLayout footerContainer;
+    private LinearLayout headerContainer;
+    private LinearLayout footerContainer;
 
     private ObservableArrayList<T> modelList;
 
 
-    public BindingRecycleViewAdapterTemp(Context context, ObservableArrayList<T> modelList) {
+    public BindingRecycleViewEnhanceAdapter(Context context, ObservableArrayList<T> modelList) {
         this.context = context;
         inflater = LayoutInflater.from(context);
         this.modelList = modelList;
@@ -38,8 +41,8 @@ public class BindingRecycleViewAdapterTemp<T extends BindingAdapterItemModel>
         initHeaderFooter();
     }
 
-    public BindingRecycleViewAdapterTemp(Context context, ObservableArrayList<T> modelList, int layoutId,
-                                         int variableId) {
+    public BindingRecycleViewEnhanceAdapter(Context context, ObservableArrayList<T> modelList, int layoutId,
+                                            int variableId) {
         this.context = context;
         inflater = LayoutInflater.from(context);
         for (T model : modelList) {
@@ -71,9 +74,9 @@ public class BindingRecycleViewAdapterTemp<T extends BindingAdapterItemModel>
 
     // 数据绑定
     @Override
-    public void onBindViewHolder(BindingRecycleViewAdapterTemp.BindingHolder holder, int position) {
-        if (position != 0 && position != getItemCount() - 1) {
-            holder.bindData(modelList.get(position));
+    public void onBindViewHolder(BindingRecycleViewEnhanceAdapter.BindingHolder holder, int position) {
+        if (!isHeaderViewPos(position) && !isFooterViewPos(position)) {
+            holder.bindData(modelList.get(position - 1));
         }
     }
 
@@ -84,13 +87,13 @@ public class BindingRecycleViewAdapterTemp<T extends BindingAdapterItemModel>
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0) {
+        if (isHeaderViewPos(position)) {
             return HEADER;
         }
-        if (position == getItemCount() - 1) {
+        if (isFooterViewPos(position)) {
             return FOOTER;
         }
-        return modelList.get(position).layoutId;
+        return modelList.get(position - 1).layoutId;
     }
 
     private void initNotifyChangeListener() {
@@ -187,6 +190,60 @@ public class BindingRecycleViewAdapterTemp<T extends BindingAdapterItemModel>
             parent.removeView(view);
         }
     }
+
+
+    private boolean isHeaderViewPos(int position) {
+        return position == 0;
+    }
+
+    private boolean isFooterViewPos(int position) {
+        return position == getItemCount() - 1;
+    }
+
+
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+
+        RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+        if (layoutManager instanceof GridLayoutManager) {
+            final GridLayoutManager gridLayoutManager = (GridLayoutManager) layoutManager;
+            final GridLayoutManager.SpanSizeLookup spanSizeLookup = gridLayoutManager.getSpanSizeLookup();
+            gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
+                    if (isHeaderViewPos(position)) {
+                        return gridLayoutManager.getSpanCount();
+                    } else if (isFooterViewPos(position)) {
+                        return gridLayoutManager.getSpanCount();
+                    }
+                    if (spanSizeLookup != null) {
+                        return spanSizeLookup.getSpanSize(position);
+                    }
+                    return 1;
+                }
+            });
+            gridLayoutManager.setSpanCount(gridLayoutManager.getSpanCount());
+        }
+    }
+
+
+    @Override
+    public void onViewAttachedToWindow(@NonNull BindingRecycleViewEnhanceAdapter.BindingHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        int position = holder.getLayoutPosition();
+        if (isHeaderViewPos(position) || isFooterViewPos(position)) {
+            ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
+            if (lp != null && lp instanceof StaggeredGridLayoutManager.LayoutParams) {
+                StaggeredGridLayoutManager.LayoutParams p = (StaggeredGridLayoutManager.LayoutParams) lp;
+                p.setFullSpan(true);
+            }
+        }
+
+    }
+
+
 }
 
 

@@ -1,9 +1,7 @@
 package com.qjuzi.qnet.pages.home
 
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import com.qjuzi.qnet.R
-import com.qjuzi.qnet.pages.home.model.HomeModel
+import com.qjuzi.qnet.pages.home.model.HomeStore
 import com.qjuzi.yaa.core.activity.YaaActivity
 
 /**
@@ -13,28 +11,32 @@ import com.qjuzi.yaa.core.activity.YaaActivity
  */
 class HomeActivity : YaaActivity() {
 
-    private lateinit var model: HomeModel
+    private lateinit var store: HomeStore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        model = HomeModel(this, DataBindingUtil.setContentView(this, R.layout.activity_main))
-        model.mainPresenter.initData()
+        store = HomeStore(this)
+
+        setContentView(store.binding.root)
+
+        store.mainPresenter.initData()
+
 
     }
 
     override fun onDestroy() {
-        model.mainPresenter.destory()
+        store.mainPresenter.destory()
         super.onDestroy()
     }
 
     override fun onResume() {
-        model.delayTaskPresenter.startDelayDataUpdateTask()
+        store.delayTaskPresenter.startDelayDataUpdateTask()
         super.onResume()
     }
 
     override fun onPause() {
-        model.delayTaskPresenter.stopDelayDataUpdateTask()
+        store.delayTaskPresenter.stopDelayDataUpdateTask()
         super.onPause()
     }
 }
