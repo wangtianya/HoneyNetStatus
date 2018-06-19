@@ -1,14 +1,19 @@
 package com.wangtianya.learn.common;
 
+import java.net.URISyntaxException;
+
+import com.qjuzi.yaa.context.YaaContext;
 import com.wangtianya.learn.R;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 /**
  * Created by tianya on 2017/4/27.
@@ -32,5 +37,17 @@ public class ItemFragment extends Fragment {
 
     protected void addItem(String title, View.OnClickListener onClickListener) {
         mainLayout.addView(YaUtil.newButton(title, 28, onClickListener));
+    }
+
+    protected void addOpenApi(String tittle, String uri) {
+        addItem(tittle, v -> {
+            try {
+                Intent intent = Intent.parseUri(uri,0);
+                YaaContext.getContext().startActivity(intent);
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+                Toast.makeText(YaaContext.getContext(), "OPEN　API　启动错误", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
