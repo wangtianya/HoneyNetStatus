@@ -1,6 +1,3 @@
-/*
- *.
- */
 package cn.wangtianya.learn.openapi;
 
 import com.wangtianya.learn.common.ItemFragment;

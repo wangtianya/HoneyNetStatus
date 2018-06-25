@@ -16,7 +16,7 @@ import com.qjuzi.yaa.core.activity.YaaFragment
  * Created by wangtianya on 2018/4/25.
  */
 
-
+@SuppressLint("MissingSuperCall")
 class DelayPage : YaaFragment() {
 
     var model : DelayPageModel? = null
@@ -35,14 +35,11 @@ class DelayPage : YaaFragment() {
         return model!!.binding.root
     }
 
-
-    @SuppressLint("MissingSuperCall")
     override fun onResume() {
         super.onResume()
         ThreadUtil.runOnUI{model?.itemPingPresenter?.startAllPing()}
     }
 
-    @SuppressLint("MissingSuperCall")
     override fun onPause() {
         super.onPause()
         ThreadUtil.runOnUI{model?.itemPingPresenter?.stopAllPing()}

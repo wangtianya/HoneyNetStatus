@@ -2,7 +2,7 @@ package com.qjuzi.qnet.pages.home.presenter
 
 import android.graphics.Color
 import android.text.TextUtils
-import android.widget.TextView
+import android.view.View
 import cn.wangtianya.yaa.binding.core.AbsPresenter
 import cn.wangtianya.yaa.binding.widget.BindingRecycleViewEnhanceAdapter
 import com.qjuzi.qnet.R
@@ -14,6 +14,7 @@ import com.qjuzi.qnet.pages.home.model.HomeStore
 import com.qjuzi.qnet.pages.home.tools.HomeHelper
 import com.qjuzi.yaa.context.YaaContext
 import com.qjuzi.yaa.core.util.ScreenUtil
+import com.qjuzi.yaa.core.util.YaaToast
 import com.qjuzi.yaa.net.traffic.CurrentTrafficStats
 import com.tencent.bugly.crashreport.CrashReport
 
@@ -26,7 +27,7 @@ class HomeMainPresenter : AbsPresenter<HomeStore>() {
 
     fun initData() {
 
-        store.binding.model= store
+        store.binding.model = store
 
         initStyle()
         initTopbar()
@@ -44,21 +45,10 @@ class HomeMainPresenter : AbsPresenter<HomeStore>() {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+    @Suppress("deprecation")
     private fun initStyle() {
         // 沉浸式，初始化StatusBar颜色
-        val statusBarColor = @Suppress("deprecation") store.page.resources.getColor(R.color.colorPrimaryDark)
+        val statusBarColor = store.page.resources.getColor(R.color.colorPrimaryDark)
         val navBarColor = Color.TRANSPARENT
         ScreenManager.initScreenColor(store.page.window, statusBarColor, navBarColor)
     }
@@ -67,9 +57,9 @@ class HomeMainPresenter : AbsPresenter<HomeStore>() {
         store.page.setActionBar(store.binding.toolbar)
     }
 
+    @Suppress("deprecation")
     private fun initSwipeRefreshLayout() {
         store.binding.swipeRefreshView.setProgressViewOffset(true, 0, ScreenUtil.dip2px(200))
-        @Suppress("deprecation")
         store.binding.swipeRefreshView.setProgressBackgroundColor(android.R.color.white)
         store.binding.swipeRefreshView
                 .setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary, R.color.colorPrimaryDark)
@@ -133,19 +123,40 @@ class HomeMainPresenter : AbsPresenter<HomeStore>() {
     }
 
     private fun initGridListData() {
-        val netInfoGrid = store.GridModel(R.drawable.ic_signal_wifi_off, "详细信息")
+
+        val netInfoGrid = store.GridModel(R.drawable.ic_info, Color.GRAY)
+        netInfoGrid.title = store.page.getString(R.string.home_info)
         store.gridList.add(netInfoGrid)
-        val speedTestGrid = store.GridModel(R.drawable.ic_signal_wifi_off, "网络测速")
+
+        val speedTestGrid = store.GridModel(R.drawable.ic_download, Color.GRAY)
+        speedTestGrid.title = store.page.getString(R.string.home_download)
         store.gridList.add(speedTestGrid)
-        val delayGrid = store.GridModel(R.drawable.ic_signal_wifi_off, "网络延时")
-        store.gridList.add(delayGrid)
+
+        val pingGrid = store.GridModel(R.drawable.ic_ping, Color.GRAY)
+        pingGrid.title = store.page.getString(R.string.home_ping)
+
+        store.gridList.add(pingGrid)
+
+
+        val regionGrid = store.GridModel(R.drawable.ic_internet, Color.GRAY)
+        regionGrid.title = store.page.getString(R.string.home_delay_region)
+
+        store.gridList.add(regionGrid)
+
+        val dWebGrid = store.GridModel(R.drawable.ic_web, Color.GRAY)
+        dWebGrid.title = store.page.getString(R.string.home_delay_web)
+        store.gridList.add(dWebGrid)
+
+        val dGameGrid = store.GridModel(R.drawable.ic_videogame, Color.GRAY)
+        dGameGrid.title = store.page.getString(R.string.home_delay_game)
+        store.gridList.add(dGameGrid)
+
+        val moreGrid = store.GridModel(R.drawable.ic_directions_run, Color.GRAY)
+        moreGrid.title = store.page.getString(R.string.home_comming)
+        moreGrid.clickListener = View.OnClickListener { YaaToast.show("123") }
+        store.gridList.add(moreGrid)
 
         val adapter = BindingRecycleViewEnhanceAdapter(YaaContext.getContext(), store.gridList)
-
-        val text = TextView(store.page)
-        text.text = "123"
-        adapter.addFooter(text)
-
         store.gridAdapter.set(adapter)
     }
 

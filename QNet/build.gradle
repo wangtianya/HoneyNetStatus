@@ -97,7 +97,7 @@ dependencies {
 
 
     kapt rootProject.ext.dependencies["glide-compiler"]
-    kapt rootProject.ext.dependencies["binding-compiler"]
+//    kapt rootProject.ext.dependencies["binding-compiler"]
 
 
     implementation project(':YaaLib')

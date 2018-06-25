@@ -19,9 +19,10 @@ class DelayMainPresenter(val model: DelayPageModel) {
     }
 
 
+    @Suppress("deprecation")
     private fun initStyle() {
         // 沉浸式，初始化StatusBar颜色
-        val statusBarColor = @Suppress("deprecation") model.context.resources.getColor(R.color.colorPrimaryDark)
+        val statusBarColor = model.context.resources.getColor(R.color.colorPrimaryDark)
         val navBarColor = Color.TRANSPARENT
         ScreenManager.initScreenColor(model.context.activity.window, statusBarColor, navBarColor)
     }

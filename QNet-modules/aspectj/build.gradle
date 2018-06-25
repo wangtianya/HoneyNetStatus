@@ -14,12 +14,14 @@ apply plugin: 'android-aspectjx'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion rootProject.targetSdkVersion
     }
 
     buildTypes {

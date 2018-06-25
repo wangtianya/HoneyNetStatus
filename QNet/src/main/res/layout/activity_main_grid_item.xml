@@ -25,7 +25,8 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_columnWeight="1"
-                        android:src="@drawable/ic_launcher"/>
+                        android:tint="@{model.imgTint}"
+                        android:src="@{model.imgId}"/>
 
                 <TextView
                         android:layout_width="wrap_content"
