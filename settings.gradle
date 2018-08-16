@@ -1,7 +1,7 @@
-rootProject.name = 'QNet'
+rootProject.name = 'QJuzi'
 
 // all dependencies
-apply from: "./Dependency/sub_settings.gradle"
+apply from: "./common/sub_settings.gradle"
 
 // QNet and his dependencies
 apply from: "./QNet/sub_settings.gradle"

@@ -6,7 +6,7 @@ def include_modules(subdir, module_name) {
 
 
 include 'Scaffold'
-include_modules('Scaffold-modules', 'liblearn')
-include_modules('Scaffold-modules', 'scaffold-lib')
-include_modules('Scaffold-modules', 'my-learnings')
+include_modules('Scaffold/modules', 'liblearn')
+include_modules('Scaffold/modules', 'scaffold-lib')
+include_modules('Scaffold/modules', 'my-learnings')
 
