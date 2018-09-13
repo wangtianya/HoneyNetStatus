@@ -3,8 +3,6 @@ rootProject.name = 'ya-android'
 // all dependencies
 apply from: "./dependencies/sub_settings.gradle"
 
-// QNet and his dependencies
+apply from: "./Practice/sub_settings.gradle"
 apply from: "./QNet/sub_settings.gradle"
-
-
 apply from: "./Scaffold/sub_settings.gradle"

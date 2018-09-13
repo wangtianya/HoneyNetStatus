@@ -1,0 +1,13 @@
+def include_modules(subdir, module_name) {
+    include module_name
+    project(':'+ module_name +'').projectDir = new File(subdir, module_name)
+}
+
+
+
+/*
+ * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
+ */
+include 'Practice'
+include_modules('Practice/modules', 'practice-lib')
+
