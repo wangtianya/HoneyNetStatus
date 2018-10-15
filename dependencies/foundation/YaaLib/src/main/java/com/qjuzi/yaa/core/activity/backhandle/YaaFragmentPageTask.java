@@ -1,13 +1,13 @@
 package com.qjuzi.yaa.core.activity.backhandle;
 
-import com.qjuzi.yaa.core.activity.YaaActivity;
+import android.app.Activity;
 
 /**
  * 因为
  * Created by wangtianya on 2018/3/20.
  */
 
-public class YaaFragmentPageTask extends YaaActivity {
+public class YaaFragmentPageTask extends Activity {
 
     private YaaBackHandleFragment mFragmentShouldAskOnBackPressed;
 

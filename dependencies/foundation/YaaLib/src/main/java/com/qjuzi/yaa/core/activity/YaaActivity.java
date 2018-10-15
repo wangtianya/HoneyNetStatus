@@ -1,8 +1,6 @@
 
 package com.qjuzi.yaa.core.activity;
 
-import com.qjuzi.yaa.context.YaaActivityStack;
-
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -13,17 +11,14 @@ import android.os.Bundle;
  */
 public class YaaActivity extends Activity {
 
-    private YaaActivityStack yaaActivityStack = YaaActivityStack.getActivityStack();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        yaaActivityStack.addActivity(this);
     }
 
     @Override
     public void finish() {
-        yaaActivityStack.removeActivity(this);
         super.finish();
     }
 

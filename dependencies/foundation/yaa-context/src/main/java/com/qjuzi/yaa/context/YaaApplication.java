@@ -16,9 +16,4 @@ public class YaaApplication extends Application {
         super.onLowMemory();
         System.gc();
     }
-
-    public void exit() {
-        YaaActivityStack.getActivityStack().exit();
-    }
-
 }
