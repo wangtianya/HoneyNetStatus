@@ -1,0 +1,10 @@
+def include_modules(subdir, module_name) {
+    include module_name
+    project(':'+ module_name +'').projectDir = new File(subdir, module_name)
+}
+
+
+// basic dependencies
+include_modules('common/foundation', 'YaaLib')
+include_modules('common/foundation', 'yaa-context')
+include_modules('common/foundation', 'yaa-binding')
