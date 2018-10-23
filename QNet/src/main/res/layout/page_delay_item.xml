@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+<layout>
     <data>
 
         <variable name="model" type="com.qjuzi.qnet.pages.delay.model.DelayPageModel.DelayItemModel"/>
@@ -23,7 +23,7 @@
             <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@{model.resId}"/>
+                    android:src="@{safeUnbox(model.resId)}"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                             android:id="@+id/ivStatus"
                             android:layout_width="14dp"
                             android:layout_height="14dp"
-                            android:tint="@{model.statusColor}"
+                            android:tint="@{safeUnbox(model.statusColor)}"
                             android:src="@drawable/ic_dot"/>
 
                     <TextView
@@ -59,7 +59,7 @@
                             android:layout_marginLeft="5dp"
                             android:textSize="14dp"
                             android:textColor="#999"
-                            android:text="@{model.delayText}"/>
+                            android:text="@{safeUnbox(model.delayText)}"/>
                 </LinearLayout>
             </LinearLayout>
 

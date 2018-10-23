@@ -38,7 +38,4 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-//    classpath 'org.aspectj:aspectjtools:1.8.+'
-
 }
