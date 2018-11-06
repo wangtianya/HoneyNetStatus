@@ -1,12 +1,12 @@
-def include_modules(subdir, module_name) {
+def include_modules(name, prefix, fileStr) {
+    def module_name = ':' + prefix + '-' + name
     include module_name
-    project(':'+ module_name +'').projectDir = new File(subdir, module_name)
+    project(module_name).projectDir = new File(fileStr)
 }
 
-
-
 include 'QNet'
-include_modules('QNet/modules', 'retrofit')
-include_modules('QNet/modules', 'net-service')
-//include_modules('QNet/modules', 'aspectj')
+include_modules('retrofit', 'qnet-module', 'QNet/modules/retrofit')
+include_modules('net-service', 'qnet-module', 'QNet/modules/net-service')
+// include_modules('QNet/modules', 'aspectj')
+
 

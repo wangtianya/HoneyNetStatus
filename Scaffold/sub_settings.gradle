@@ -1,11 +1,13 @@
-def include_modules(module_name, file) {
+def include_modules(name, prefix, fileStr) {
+    def module_name = ':' + prefix + '-' + name
     include module_name
-    project(module_name).projectDir = file
+    project(module_name).projectDir = new File(fileStr)
 }
 
 include 'Scaffold'
-include_modules(':scaffold-module-scaffold-lib', new File('Scaffold/modules/scaffold-lib'))
+include_modules('scaffold-lib', 'scaffold-module', 'Scaffold/modules/scaffold-lib')
+include_modules('learnings-lib', 'scaffold-module', 'Scaffold/modules/learnings-lib')
+include_modules('learnings', 'scaffold-module', 'Scaffold/modules/learnings')
 
-include_modules(":scaffold-module-learnings-lib", new File('Scaffold/modules/learnings-lib'))
-include_modules(':scaffold-module-learnings', new File('Scaffold/modules/learnings'))
+
 

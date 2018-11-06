@@ -92,11 +92,9 @@ dependencies {
     implementation project(":scaffold-module-learnings")
 
     //    annotationProcessor project(":processor-auto")
-    //    api project(':processor-auto')
+    //    implementation project(':processor-auto')
 
-    //    api project(':apt-process')
-    //    annotationProcessor project(":apt-process")
 
-    //    compile project(':processor-native')
+    //    implementation project(':processor-native')
     //    annotationProcessor project(":processor-native")
 }
