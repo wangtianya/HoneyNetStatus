@@ -1,12 +1,11 @@
-def include_modules(subdir, module_name) {
+def include_modules(module_name, file) {
     include module_name
-    project(':'+ module_name +'').projectDir = new File(subdir, module_name)
+    project(module_name).projectDir = file
 }
 
-
-
 include 'Scaffold'
-include_modules('Scaffold/modules', 'liblearn')
-include_modules('Scaffold/modules', 'scaffold-lib')
-include_modules('Scaffold/modules', 'my-learnings')
+include_modules(':scaffold-module-scaffold-lib', new File('Scaffold/modules/scaffold-lib'))
+
+include_modules(":scaffold-module-liblearn", new File('Scaffold/modules/liblearn'))
+include_modules(':scaffold-module-my-learnings', new File('Scaffold/modules/my-learnings'))
 

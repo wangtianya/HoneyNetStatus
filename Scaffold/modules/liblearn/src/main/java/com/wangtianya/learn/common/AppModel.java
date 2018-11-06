@@ -3,6 +3,7 @@
  */
 package com.wangtianya.learn.common;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 /**
@@ -10,9 +11,8 @@ import android.content.Context;
  */
 
 public class AppModel {
+    @SuppressLint("StaticFieldLeak")
     private static Context context;
-
-
 
     public static void setContext(Context context) {
         AppModel.context = context;

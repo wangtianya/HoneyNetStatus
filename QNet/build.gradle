@@ -63,13 +63,15 @@ android {
 
 
 walle {
-    // 指定渠道包的输出路径
-    apkOutputFolder = new File("${project.buildDir}/outputs/channels");
-    // 定制渠道包的APK的文件名称
-    apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
-    // 渠道配置文件
+    apkOutputFolder = new File("${project.buildDir}/outputs/channels")
+    apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk'
     channelFile = new File("${project.getProjectDir()}/channel")
 }
+
+kapt {
+    generateStubs = true
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -97,6 +99,6 @@ dependencies {
     kapt rootProject.ext.dependencies["glide-compiler"]
 
 
-    implementation project(':YaaLib')
+    implementation project(':foundation-YaaLib')
 
 }

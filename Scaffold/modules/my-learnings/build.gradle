@@ -54,6 +54,6 @@ dependencies {
     implementation rootProject.ext.dependencies["yaa-context"]
     implementation rootProject.ext.dependencies["yaa-binding"]
 
-    implementation project(":liblearn")
+    implementation project(":scaffold-module-liblearn")
 }
 

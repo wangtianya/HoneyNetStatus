@@ -91,9 +91,9 @@ dependencies {
     // kapt rootProject.ext.dependencies["binding-compiler"]
 
 
-    implementation project(":scaffold-lib")
-    implementation project(":liblearn")
-    implementation project(":my-learnings")
+    implementation project(":scaffold-module-scaffold-lib")
+    implementation project(":scaffold-module-liblearn")
+    implementation project(":scaffold-module-my-learnings")
 
     //    annotationProcessor project(":processor-auto")
     //    api project(':processor-auto')

@@ -1,9 +1,10 @@
-package cn.wangtianya.scaffold;
+package com.wangtianya.scaffold;
+
+import android.os.Bundle;
 
 import com.wangtianya.learn.common.AppModel;
 import com.wangtianya.learn.common.ItemActivity;
 
-import android.os.Bundle;
 import cn.wangtianya.learn.C1_FourBasicComponents.FourBasicComponentMainFragment;
 import cn.wangtianya.learn.communication.CommunicationActivity;
 import cn.wangtianya.learn.dialog.DialogActivity;

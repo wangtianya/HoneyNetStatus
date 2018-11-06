@@ -8,5 +8,5 @@ def include_modules(subdir, module_name) {
 include 'QNet'
 include_modules('QNet/modules', 'retrofit')
 include_modules('QNet/modules', 'net-service')
-include_modules('QNet/modules', 'aspectj')
+//include_modules('QNet/modules', 'aspectj')
 
