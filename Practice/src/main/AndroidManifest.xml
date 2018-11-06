@@ -3,7 +3,7 @@
   ~ Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
   -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.wangtianya.pratice">
+          package="com.wangtianya.practice">
 
     <application
             android:name="com.wangtianya.pratice.MyApplication"

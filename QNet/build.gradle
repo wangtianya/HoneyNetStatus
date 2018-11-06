@@ -1,12 +1,10 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-platform-android'
+
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-platform-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'walle'
-
-if (enableAOP) apply plugin: 'android-aspectjx'
-
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -97,10 +95,8 @@ dependencies {
 
 
     kapt rootProject.ext.dependencies["glide-compiler"]
-//    kapt rootProject.ext.dependencies["binding-compiler"]
 
 
     implementation project(':YaaLib')
 
-    if (enableAOP) api project(':aspectj')
 }

@@ -1,0 +1,11 @@
+<resources>
+    <string name="home_info">Info</string>
+    <string name="home_download">Speed</string>
+    <string name="home_ping">Ping tool</string>
+
+    <string name="home_delay_region">Region Delays</string>
+    <string name="home_delay_web">Web Delays</string>
+    <string name="home_delay_game">Games Delays</string>
+
+    <string name="home_comming">More is coming</string>
+</resources>

@@ -28,10 +28,10 @@ ext {
             "smartrefresh"           : 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3',
 
 
-            "kotlin-stdlib"          : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            "kotlin-stdlib"          : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
 
             // binding
-            'binding-compiler'       : "com.android.databinding:compiler:3.1.2",
+            'binding-compiler'       : "androidx.databinding:databinding-compiler:3.4.0-alpha02",
 
             // 多渠道打包及统计
             "bugly-crashreport"      : "com.tencent.bugly:crashreport:latest.release",

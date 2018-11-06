@@ -91,6 +91,7 @@ dependencies {
 
     implementation project(":scaffold-lib")
     implementation project(":liblearn")
+    implementation project(":practice-lib")
     implementation project(":my-learnings")
 
 
