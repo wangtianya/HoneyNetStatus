@@ -59,7 +59,7 @@
                             android:layout_marginLeft="5dp"
                             android:textSize="14dp"
                             android:textColor="#999"
-                            android:text="@{safeUnbox(model.delayText)}"/>
+                            android:text="@{model.delayText}"/>
                 </LinearLayout>
             </LinearLayout>
 
