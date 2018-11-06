@@ -3,7 +3,7 @@ apply plugin: 'java'
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 //    compile project(':apt-lib')
-    implementation 'com.google.auto.service:auto-service:1.0-rc3'
+    implementation 'com.google.auto.service:auto-service:1.0-rc4'
 }
 
 sourceCompatibility = "1.8"

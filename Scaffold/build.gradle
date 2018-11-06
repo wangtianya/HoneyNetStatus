@@ -88,12 +88,8 @@ dependencies {
     implementation rootProject.ext.dependencies["yaa-context"]
     implementation rootProject.ext.dependencies["yaa-binding"]
 
-    // kapt rootProject.ext.dependencies["binding-compiler"]
 
-
-    implementation project(":scaffold-module-scaffold-lib")
-    implementation project(":scaffold-module-liblearn")
-    implementation project(":scaffold-module-my-learnings")
+    implementation project(":scaffold-module-learnings")
 
     //    annotationProcessor project(":processor-auto")
     //    api project(':processor-auto')
@@ -103,10 +99,4 @@ dependencies {
 
     //    compile project(':processor-native')
     //    annotationProcessor project(":processor-native")
-
-
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    androidTestImplementation 'junit:junit:4.12'
 }
