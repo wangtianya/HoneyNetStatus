@@ -1,7 +1,0 @@
-<!--
-  ~.
-  -->
-<resources>
-    <string name="app_name">YaTest</string>
-    <string name="title_activity_data_binding2">DataBinding2Activity</string>
-</resources>
