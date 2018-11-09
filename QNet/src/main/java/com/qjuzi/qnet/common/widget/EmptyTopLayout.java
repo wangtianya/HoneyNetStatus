@@ -1,6 +1,6 @@
 package com.qjuzi.qnet.common.widget;
 
-import com.qjuzi.yaa.context.YaaContext;
+import com.qjuzi.yaa.context.ContextCache;
 import com.qjuzi.yaa.core.util.ScreenUtil;
 
 import android.content.Context;
@@ -27,7 +27,7 @@ public class EmptyTopLayout extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (Build.VERSION.SDK_INT >= 21) {
-            int statusBarHeight = ScreenUtil.getStatusBarHeight(YaaContext.getContext());
+            int statusBarHeight = ScreenUtil.getStatusBarHeight(ContextCache.getContext());
             super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(statusBarHeight, MeasureSpec.EXACTLY));
         } else {
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);

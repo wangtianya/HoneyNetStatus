@@ -1,16 +1,16 @@
 package com.qjuzi.qnet
 
+import android.app.Application
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.tencent.bugly.crashreport.CrashReport
 import com.meituan.android.walle.WalleChannelReader
-import com.qjuzi.yaa.context.YaaApplication
 import com.tencent.bugly.crashreport.CrashReport.UserStrategy
 
 
 /**
  * Created by wangtianya on 2018/4/14.
  */
-class OrangeApplication : YaaApplication() {
+class OrangeApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()

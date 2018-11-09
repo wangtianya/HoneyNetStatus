@@ -2,7 +2,7 @@ package com.wangtianya.learn.common;
 
 import java.net.URISyntaxException;
 
-import com.qjuzi.yaa.context.YaaContext;
+import com.qjuzi.yaa.context.ContextCache;
 import com.wangtianya.learn.R;
 
 import android.app.Fragment;
@@ -43,10 +43,10 @@ public class ItemFragment extends Fragment {
         addItem(tittle, v -> {
             try {
                 Intent intent = Intent.parseUri(uri,0);
-                YaaContext.getContext().startActivity(intent);
+                ContextCache.getContext().startActivity(intent);
             } catch (URISyntaxException e) {
                 e.printStackTrace();
-                Toast.makeText(YaaContext.getContext(), "OPEN　API　启动错误", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ContextCache.getContext(), "OPEN　API　启动错误", Toast.LENGTH_SHORT).show();
             }
         });
     }

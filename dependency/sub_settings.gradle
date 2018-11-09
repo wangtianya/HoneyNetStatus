@@ -1,0 +1,10 @@
+def include_modules(name, prefix, fileStr) {
+    def module_name = ':' + prefix + '-' + name
+    include module_name
+    project(module_name).projectDir = new File(fileStr)
+}
+
+// basic dependencies
+include_modules('YaaLib', 'foundation', 'dependency/foundation/YaaLib')
+include_modules('lib-common', 'foundation', 'dependency/foundation/lib-common')
+include_modules('yaa-binding', 'foundation', 'dependency/foundation/yaa-binding')

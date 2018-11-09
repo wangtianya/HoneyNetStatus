@@ -1,12 +1,14 @@
 package cn.wangtianya.scaffold
 
-import com.qjuzi.yaa.context.YaaApplication
+import android.app.Application
+import com.qjuzi.yaa.context.ContextCache
 
-class ScaffoldApplication : YaaApplication() {
+class ScaffoldApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
         // do something
+        ContextCache.init(this)
     }
 
 }

@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.*
-import com.qjuzi.yaa.context.YaaContext
+import com.qjuzi.yaa.context.ContextCache
 
 
 /**
@@ -49,7 +49,7 @@ class MyNetworkReceiver : BroadcastReceiver() {
         fun addListener(listener: NetworkChangedListener) {
             listeners.add(listener)
 
-            val manager = YaaContext.getContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val manager = ContextCache.getContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             update(manager.activeNetworkInfo)
         }
 

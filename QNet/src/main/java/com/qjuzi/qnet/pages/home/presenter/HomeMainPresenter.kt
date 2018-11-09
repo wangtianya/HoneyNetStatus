@@ -12,7 +12,7 @@ import com.qjuzi.qnet.common.tools.thread.ThreadUtil
 import com.qjuzi.qnet.common.tools.util.ScreenManager
 import com.qjuzi.qnet.pages.home.model.HomeStore
 import com.qjuzi.qnet.pages.home.tools.HomeHelper
-import com.qjuzi.yaa.context.YaaContext
+import com.qjuzi.yaa.context.ContextCache
 import com.qjuzi.yaa.core.util.ScreenUtil
 import com.qjuzi.yaa.core.util.YaaToast
 import com.qjuzi.yaa.net.traffic.CurrentTrafficStats
@@ -156,7 +156,7 @@ class HomeMainPresenter : AbsPresenter<HomeStore>() {
         moreGrid.clickListener = View.OnClickListener { YaaToast.show("123") }
         store.gridList.add(moreGrid)
 
-        val adapter = BindingRecycleViewEnhanceAdapter(YaaContext.getContext(), store.gridList)
+        val adapter = BindingRecycleViewEnhanceAdapter(ContextCache.getContext(), store.gridList)
         store.gridAdapter.set(adapter)
     }
 

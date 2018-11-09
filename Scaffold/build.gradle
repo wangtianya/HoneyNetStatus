@@ -85,15 +85,15 @@ dependencies {
     implementation rootProject.ext.dependencies["smartrefresh"]
     implementation rootProject.ext.dependencies["constraint-layout"]
 
-    implementation rootProject.ext.dependencies["yaa-context"]
+    implementation rootProject.ext.dependencies["foundation-lib-common"]
     implementation rootProject.ext.dependencies["yaa-binding"]
 
 
     implementation project(":scaffold-module-learnings")
+    implementation project(":scaffold-module-learnings-lib")
 
     //    annotationProcessor project(":processor-auto")
     //    implementation project(':processor-auto')
-
 
     //    implementation project(':processor-native')
     //    annotationProcessor project(":processor-native")
