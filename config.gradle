@@ -18,20 +18,14 @@ ext {
     dependencies = [
             //android support
             "support-v4"             : "com.android.support:support-v4:${android_support_version}",
-            "appcompat-v7"           : "com.android.support:appcompat-v7:${android_support_version}",
-            "design"                 : "com.android.support:design:${android_support_version}",
+            "support-v7"             : "com.android.support:appcompat-v7:${android_support_version}",
             "support-annotations"    : "com.android.support:support-annotations:${android_support_version}",
-
-            // android support ui
-            "recyclerview"           : "com.android.support:recyclerview-v7:${android_support_version}",
-            "constraint-layout"      : "com.android.support.constraint:constraint-layout:1.1.0",
-            "smartrefresh"           : 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3',
-
+            "support-design"         : "com.android.support:design:${android_support_version}",
+            "support-recyclerview"           : "com.android.support:recyclerview-v7:${android_support_version}",
+            "support-constraint-layout"      : "com.android.support.constraint:constraint-layout:1.1.0",
+            "support-smartrefresh"           : 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3',
 
             "kotlin-stdlib"          : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
-
-            // binding
-            'binding-compiler'       : "androidx.databinding:databinding-compiler:3.4.0-alpha02",
 
             // 多渠道打包及统计
             "bugly-crashreport"      : "com.tencent.bugly:crashreport:latest.release",

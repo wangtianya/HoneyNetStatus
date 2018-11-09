@@ -28,10 +28,10 @@ dependencies {
 
 
     api rootProject.ext.dependencies[ "support-v4"]
-    api rootProject.ext.dependencies[ "appcompat-v7"]
-    api rootProject.ext.dependencies[ "recyclerview"]
-    api rootProject.ext.dependencies[ "design"]
-    api rootProject.ext.dependencies[ "constraint-layout"]
+    api rootProject.ext.dependencies[ "support-v7"]
+    api rootProject.ext.dependencies[ "support-recyclerview"]
+    api rootProject.ext.dependencies[ "support-design"]
+    api rootProject.ext.dependencies[ "support-constraint-layout"]
     implementation rootProject.ext.dependencies["foundation-lib-common"]
 
 
