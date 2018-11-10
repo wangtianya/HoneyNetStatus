@@ -85,8 +85,7 @@ dependencies {
     implementation rootProject.ext.dependencies["support-smartrefresh"]
     implementation rootProject.ext.dependencies["support-constraint-layout"]
 
-    implementation rootProject.ext.dependencies["foundation-lib-common"]
-    implementation rootProject.ext.dependencies["yaa-binding"]
+    implementation rootProject.ext.dependencies["foundation-core"]
 
 
     implementation project(":scaffold-module-learnings")

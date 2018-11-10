@@ -32,7 +32,7 @@ dependencies {
     api rootProject.ext.dependencies[ "support-recyclerview"]
     api rootProject.ext.dependencies[ "support-design"]
     api rootProject.ext.dependencies[ "support-constraint-layout"]
-    implementation rootProject.ext.dependencies["foundation-lib-common"]
+    implementation rootProject.ext.dependencies["foundation-core"]
 
 
 

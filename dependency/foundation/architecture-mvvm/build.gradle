@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
+ */
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -40,19 +43,22 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation rootProject.ext.dependencies["kotlin-stdlib"]
-
     implementation rootProject.ext.dependencies["support-v4"]
     implementation rootProject.ext.dependencies["support-v7"]
     implementation rootProject.ext.dependencies["support-annotations"]
-
     implementation rootProject.ext.dependencies["support-design"]
     implementation rootProject.ext.dependencies["support-recyclerview"]
     implementation rootProject.ext.dependencies["support-smartrefresh"]
     implementation rootProject.ext.dependencies["support-constraint-layout"]
 
+    implementation rootProject.ext.dependencies["kotlin-stdlib"]
     implementation rootProject.ext.dependencies["foundation-core"]
 
-    implementation project(":scaffold-module-learnings-lib")
+
+
+
+
+
+
 }
 
