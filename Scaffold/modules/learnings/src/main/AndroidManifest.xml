@@ -1,53 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools" package="cn.wangtianya.learn">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="cn.wangtianya.learn">
+
+
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+
+
 
     <application>
 
-        <activity android:name="com.wangtianya.learn.wiget.FragmentContainerActivity">
-        </activity>
+        <activity android:name="com.wangtianya.learn.wiget.FragmentContainerActivity"></activity>
 
-        <activity android:name=".communication.CommunicationActivity">
-        </activity>
+        <activity android:name=".communication.CommunicationActivity"></activity>
 
-        <activity android:name="cn.wangtianya.learn.temp.TempTestActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.temp.NullPointerCastActivity">
-        </activity>
+        <activity android:name="cn.wangtianya.learn.temp.TempTestActivity"></activity>
+        <activity android:name="cn.wangtianya.learn.temp.NullPointerCastActivity"></activity>
 
-        <activity android:name="cn.wangtianya.learn.uithread.UIThreadActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.uithread.NotUIDrawActivity">
-        </activity>
+        <activity android:name="cn.wangtianya.learn.uithread.UIThreadActivity"></activity>
+        <activity android:name="cn.wangtianya.learn.uithread.NotUIDrawActivity"></activity>
 
-        <activity android:name="cn.wangtianya.learn.mvvm.MVVMActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.mvvm.DataBindingActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.mvvm.DataBinding3Activity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.mvvm.DataBinding2Activity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.mvvm.DataBindingMubanActivity">
-        </activity>
+        <activity android:name="cn.wangtianya.learn.mvvm.MVVMActivity"></activity>
+        <activity android:name="cn.wangtianya.learn.mvvm.DataBindingActivity"></activity>
+        <activity android:name="cn.wangtianya.learn.mvvm.DataBinding3Activity"></activity>
+        <activity android:name="cn.wangtianya.learn.mvvm.DataBinding2Activity"></activity>
+        <activity android:name="cn.wangtianya.learn.mvvm.DataBindingMubanActivity"></activity>
 
-        <activity android:name="cn.wangtianya.learn.dialog.DialogActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.dialog.DialogOneActivity">
-        </activity>
+        <activity android:name="cn.wangtianya.learn.dialog.DialogActivity"></activity>
+        <activity android:name="cn.wangtianya.learn.dialog.DialogOneActivity"></activity>
 
-        <activity android:name="cn.wangtianya.learn.memory.MemoryActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.memory.OOMActivity">
-        </activity>
-        <activity android:name="cn.wangtianya.learn.memory.LeakActivity">
-        </activity>
+        <activity android:name="cn.wangtianya.learn.memory.MemoryActivity"></activity>
+        <activity android:name="cn.wangtianya.learn.memory.OOMActivity"></activity>
+        <activity android:name="cn.wangtianya.learn.memory.LeakActivity"></activity>
 
-        <activity android:name="cn.wangtianya.learn.ripple.RippleActivity"/>
-        <activity android:name="cn.wangtianya.learn.ripple.RippleInListItemActivity"/>
-        <activity android:name=".event.EventActivity"/>
-        <service android:name=".C1_FourBasicComponents.service.LearnService" tools:ignore="InnerclassSeparator"/>
-        <service android:name=".C1_FourBasicComponents.service.MyIntentService" tools:ignore="InnerclassSeparator"/>
+        <activity android:name="cn.wangtianya.learn.ripple.RippleActivity" />
+        <activity android:name="cn.wangtianya.learn.ripple.RippleInListItemActivity" />
+        <activity android:name=".event.EventActivity" />
+
+        <service
+            android:name=".C1_FourBasicComponents.service.LearnService"
+            tools:ignore="InnerclassSeparator" />
+        <service
+            android:name=".C1_FourBasicComponents.service.MyIntentService"
+            tools:ignore="InnerclassSeparator" />
+
+        <service
+            android:name=".C1_FourBasicComponents.service.JobIntentTestService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            tools:ignore="InnerclassSeparator" />
+
     </application>
 
 </manifest>

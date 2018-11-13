@@ -85,6 +85,14 @@ public class ServiceLearnFragment extends ItemFragment {
         });
 
 
+
+        addItem("startJobIntentTestService", v ->{
+            Intent intent = new Intent(AppModel.getContext(), JobIntentTestService.class);
+//            AppModel.getContext().startService(intent);
+            JobIntentTestService.enqueueWork(AppModel.getContext(), intent);
+        });
+
+
     }
 
     @Override

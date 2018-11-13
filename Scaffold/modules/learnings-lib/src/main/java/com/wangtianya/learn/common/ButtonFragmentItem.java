@@ -1,5 +1,6 @@
 package com.wangtianya.learn.common;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
@@ -28,6 +29,7 @@ public class ButtonFragmentItem extends Button {
             Intent intent = new Intent(AppModel.getContext(), FragmentContainerActivity.class);
             YaUtil.toast(clazz.getName());
             intent.putExtra("className", clazz.getName());
+            intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
             AppModel.getContext().startActivity(intent);
         });
 

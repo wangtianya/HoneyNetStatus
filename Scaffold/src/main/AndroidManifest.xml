@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.wangtianya.scaffold">
 
+
+
     <application
         android:name="cn.wangtianya.scaffold.ScaffoldApplication"
         android:allowBackup="true"
