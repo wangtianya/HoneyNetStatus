@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.wangtianya.learn.wiget.HandleDispatchRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<cn.wangtianya.learn.ripple.HandleDispatchRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layer0"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_dark">
 
-    <com.wangtianya.learn.wiget.HandleDispatchRelativeLayout
+    <cn.wangtianya.learn.ripple.HandleDispatchRelativeLayout
         android:id="@+id/layer1"
         android:layout_width="300dp"
         android:layout_height="300dp"
@@ -29,6 +29,6 @@
         </com.wangtianya.learn.common.wiget.HandleDispatchRelativeLayout>
 
 
-    </com.wangtianya.learn.wiget.HandleDispatchRelativeLayout>
+    </cn.wangtianya.learn.ripple.HandleDispatchRelativeLayout>
 
-</com.wangtianya.learn.wiget.HandleDispatchRelativeLayout>
+</cn.wangtianya.learn.ripple.HandleDispatchRelativeLayout>

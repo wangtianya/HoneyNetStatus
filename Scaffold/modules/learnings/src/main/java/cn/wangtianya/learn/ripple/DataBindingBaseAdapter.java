@@ -1,7 +1,11 @@
 /*
+ * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
+ */
+
+/*
  *.
  */
-package com.wangtianya.learn.wiget;
+package cn.wangtianya.learn.ripple;
 
 import com.qjuzi.architecure.base.context.ContextCache;
 

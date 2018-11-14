@@ -1,4 +1,7 @@
-package com.wangtianya.learn.wiget;
+/*
+ * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
+ */
+package cn.wangtianya.learn.ripple;
 
 import android.content.Context;
 import android.util.AttributeSet;
