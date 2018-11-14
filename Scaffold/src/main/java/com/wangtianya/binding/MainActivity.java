@@ -1,4 +1,4 @@
-package com.wangtianya.scaffold;
+package com.wangtianya.binding;
 
 import android.os.Bundle;
 

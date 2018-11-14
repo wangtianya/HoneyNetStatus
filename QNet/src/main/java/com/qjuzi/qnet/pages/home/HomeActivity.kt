@@ -2,7 +2,9 @@ package com.qjuzi.qnet.pages.home
 
 import android.app.Activity
 import android.os.Bundle
+import android.support.v7.widget.GridLayoutManager
 import com.qjuzi.qnet.pages.home.model.HomeStore
+import kotlinx.android.synthetic.main.page_delay.view.*
 
 /**
  * Activity的责任：
@@ -20,9 +22,9 @@ class HomeActivity : Activity() {
 
         setContentView(store.binding.root)
 
+        store.binding.root.recyclerView.layoutManager = GridLayoutManager(this, 3)
+
         store.mainPresenter.initData()
-
-
     }
 
     override fun onDestroy() {

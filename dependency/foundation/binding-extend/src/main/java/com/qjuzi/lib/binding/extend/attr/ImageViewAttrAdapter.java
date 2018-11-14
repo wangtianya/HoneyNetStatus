@@ -1,4 +1,7 @@
-package cn.wangtianya.yaa.binding.attr;
+/*
+ * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
+ */
+package com.qjuzi.lib.binding.extend.attr;
 
 import android.databinding.BindingAdapter;
 import android.graphics.Bitmap;
@@ -18,10 +21,5 @@ public class ImageViewAttrAdapter {
     @BindingAdapter("android:src")
     public static void setSrc(ImageView view, int resId) {
         view.setImageResource(resId);
-    }
-
-    @BindingAdapter("android:background")
-    public static void setBackground(RelativeLayout view, int resId) {
-        view.setBackgroundResource(resId);
     }
 }

@@ -6,8 +6,7 @@ import android.databinding.ObservableInt
 import android.graphics.Color
 import android.view.View
 import cn.wangtianya.yaa.binding.core.AbsStore
-import cn.wangtianya.yaa.binding.widget.BindingAdapterItemModel
-import cn.wangtianya.yaa.binding.widget.BindingRecycleViewEnhanceAdapter
+import com.qjuzi.lib.binding.extend.recycler.RecyclerBindingItemModel
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.databinding.ActivityMainBinding
 import com.qjuzi.qnet.pages.home.HomeActivity
@@ -40,24 +39,20 @@ class HomeStore(val context: HomeActivity) : AbsStore<HomeActivity>(context) {
 
 
     val gridList = ObservableArrayList<GridModel>()
-    val gridAdapter = ObservableField<BindingRecycleViewEnhanceAdapter<GridModel>>()
 
-    inner class GridModel(var imgId: Int, var imgTint: Int) : BindingAdapterItemModel() {
-        lateinit var title: String
-        lateinit var clickListener : View.OnClickListener
+    inner class GridModel(var imgId: Int, var imgTint: Int) : RecyclerBindingItemModel() {
+        val title = ObservableField<String>("-")
+
+        override fun getLayoutId(): Int {
+            return R.layout.activity_main_grid_item
+        }
+
         init {
-            this.layoutId = R.layout.activity_main_grid_item
-            this.variableId = BR.model
+            setVariable(BR.model, this)
         }
 
         fun onClick(view: View) {
-//            YaaFragmentContainerActivity.startFragment(page.applicationContext, DelayPage().javaClass.name)
 
-            try {
-                clickListener.onClick(null)
-            } catch (e:Exception) {
-                // pass
-            }
         }
     }
 }

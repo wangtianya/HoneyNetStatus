@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.text.TextUtils
 import android.view.View
 import cn.wangtianya.yaa.binding.core.AbsPresenter
-import cn.wangtianya.yaa.binding.widget.BindingRecycleViewEnhanceAdapter
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.qjuzi.qnet.common.broadcast.NetworkChangedListener
@@ -12,7 +11,6 @@ import com.qjuzi.qnet.common.tools.thread.ThreadUtil
 import com.qjuzi.qnet.common.tools.util.ScreenManager
 import com.qjuzi.qnet.pages.home.model.HomeStore
 import com.qjuzi.qnet.pages.home.tools.HomeHelper
-import com.qjuzi.yaa.context.ContextCache
 import com.qjuzi.yaa.core.util.ScreenUtil
 import com.qjuzi.yaa.core.util.YaaToast
 import com.qjuzi.yaa.net.traffic.CurrentTrafficStats
@@ -125,39 +123,36 @@ class HomeMainPresenter : AbsPresenter<HomeStore>() {
     private fun initGridListData() {
 
         val netInfoGrid = store.GridModel(R.drawable.ic_info, Color.GRAY)
-        netInfoGrid.title = store.page.getString(R.string.home_info)
+        netInfoGrid.title.set(store.page.getString(R.string.home_info))
         store.gridList.add(netInfoGrid)
 
         val speedTestGrid = store.GridModel(R.drawable.ic_download, Color.GRAY)
-        speedTestGrid.title = store.page.getString(R.string.home_download)
+        speedTestGrid.title.set(store.page.getString(R.string.home_download))
         store.gridList.add(speedTestGrid)
 
         val pingGrid = store.GridModel(R.drawable.ic_ping, Color.GRAY)
-        pingGrid.title = store.page.getString(R.string.home_ping)
+        pingGrid.title.set(store.page.getString(R.string.home_ping))
 
         store.gridList.add(pingGrid)
 
 
         val regionGrid = store.GridModel(R.drawable.ic_internet, Color.GRAY)
-        regionGrid.title = store.page.getString(R.string.home_delay_region)
+        regionGrid.title.set(store.page.getString(R.string.home_delay_region))
 
         store.gridList.add(regionGrid)
 
         val dWebGrid = store.GridModel(R.drawable.ic_web, Color.GRAY)
-        dWebGrid.title = store.page.getString(R.string.home_delay_web)
+        dWebGrid.title.set(store.page.getString(R.string.home_delay_web))
         store.gridList.add(dWebGrid)
 
         val dGameGrid = store.GridModel(R.drawable.ic_videogame, Color.GRAY)
-        dGameGrid.title = store.page.getString(R.string.home_delay_game)
+        dGameGrid.title.set(store.page.getString(R.string.home_delay_game))
         store.gridList.add(dGameGrid)
 
         val moreGrid = store.GridModel(R.drawable.ic_directions_run, Color.GRAY)
-        moreGrid.title = store.page.getString(R.string.home_comming)
-        moreGrid.clickListener = View.OnClickListener { YaaToast.show("123") }
+        moreGrid.title.set(store.page.getString(R.string.home_comming))
         store.gridList.add(moreGrid)
 
-        val adapter = BindingRecycleViewEnhanceAdapter(ContextCache.getContext(), store.gridList)
-        store.gridAdapter.set(adapter)
     }
 
 

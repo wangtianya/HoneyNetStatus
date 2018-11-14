@@ -1,4 +1,7 @@
-package cn.wangtianya.yaa.binding.widget;
+/*
+ * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
+ */
+package com.qjuzi.lib.binding.extend.recycler;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -12,35 +15,38 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+
 /**
  * Created by wangtianya on 2018/4/20.
  */
 
-public class BindingRecycleViewHeaderFooterAdapter
-        <H extends BindingAdapterItemModel
-                , I extends BindingAdapterItemModel
-                , F extends BindingAdapterItemModel>
-        extends RecyclerView.Adapter<BindingRecycleViewHeaderFooterAdapter.BindingHolder> {
+public class RecyclerBindingAdapter<T extends RecyclerBindingItemModel>
+        extends RecyclerView.Adapter<RecyclerBindingAdapter.BindingHolder> {
 
     private LayoutInflater inflater;
 
-    private ObservableArrayList<H> headerList;
-    private ObservableArrayList<I> itemList;
-    private ObservableArrayList<F> footerList;
+    private ObservableArrayList<T> headerList;
+    private ObservableArrayList<T> itemList;
+    private ObservableArrayList<T> footerList;
 
-    public BindingRecycleViewHeaderFooterAdapter(Context context, ObservableArrayList<I> itemList) {
+    public RecyclerBindingAdapter(Context context, ObservableArrayList<T> itemList) {
         this(context, itemList, null, null);
     }
 
-    public BindingRecycleViewHeaderFooterAdapter(Context context,
-                                                 ObservableArrayList<I> itemList,
-                                                 ObservableArrayList<H> headerList,
-                                                 ObservableArrayList<F> footerList) {
+    public RecyclerBindingAdapter(Context context,
+                                  ObservableArrayList<T> itemList,
+                                  ObservableArrayList<T> headerList,
+                                  ObservableArrayList<T> footerList) {
         inflater = LayoutInflater.from(context);
         this.itemList = itemList;
         this.headerList = headerList;
         this.footerList = footerList;
-
+        if (this.headerList == null) {
+            this.headerList = new ObservableArrayList<>();
+        }
+        if (this.footerList == null) {
+            this.footerList = new ObservableArrayList<>();
+        }
         initNotifyChangeListener();
     }
 
@@ -51,15 +57,15 @@ public class BindingRecycleViewHeaderFooterAdapter
     }
 
     @Override
-    public void onBindViewHolder(BindingRecycleViewHeaderFooterAdapter.BindingHolder holder, int position) {
+    public void onBindViewHolder(BindingHolder holder, int position) {
         holder.bindData(getItemModel(position));
     }
 
     @Override
     public int getItemCount() {
         int itemSize = itemList.size();
-        int headerSize = headerList == null ? 0 : headerList.size();
-        int footerSize = footerList == null ? 0 : footerList.size();
+        int headerSize = headerList.size();
+        int footerSize = footerList.size();
         return itemSize + headerSize + footerSize;
     }
 
@@ -68,10 +74,10 @@ public class BindingRecycleViewHeaderFooterAdapter
         return getItemModel(position).layoutId;
     }
 
-    private BindingAdapterItemModel getItemModel(int position) {
+    private RecyclerBindingItemModel getItemModel(int position) {
         int itemSize = itemList.size();
-        int headerSize = headerList == null ? 0 : headerList.size();
-        int footerSize = footerList == null ? 0 : footerList.size();
+        int headerSize = headerList.size();
+        int footerSize = footerList.size();
 
         if (headerSize > 0 && position < headerSize) {
             return headerList.get(position);
@@ -84,14 +90,14 @@ public class BindingRecycleViewHeaderFooterAdapter
     }
 
     private boolean isHeaderViewPos(int position) {
-        int headerSize = headerList == null ? 0 : headerList.size();
+        int headerSize = headerList.size();
         return headerSize > 0 && position < headerSize;
     }
 
     private boolean isFooterViewPos(int position) {
         int itemSize = itemList.size();
-        int headerSize = headerList == null ? 0 : headerList.size();
-        int footerSize = footerList == null ? 0 : footerList.size();
+        int headerSize = headerList.size();
+        int footerSize = footerList.size();
         return footerSize > 0 && position >= (headerSize + itemSize);
     }
 
@@ -100,36 +106,42 @@ public class BindingRecycleViewHeaderFooterAdapter
                 .OnListChangedCallback<ObservableList>() {
             @Override
             public void onChanged(ObservableList sender) {
-                notifyDataSetChanged();
+                notifyAndFixIndex();
             }
 
             @Override
             public void onItemRangeChanged(ObservableList sender, int positionStart, int itemCount) {
-                notifyDataSetChanged();
+                notifyAndFixIndex();
             }
 
             @Override
             public void onItemRangeInserted(ObservableList sender, int positionStart, int itemCount) {
-                notifyDataSetChanged();
+                notifyAndFixIndex();
             }
 
             @Override
             public void onItemRangeMoved(ObservableList sender, int fromPosition, int toPosition, int itemCount) {
-                notifyDataSetChanged();
+                notifyAndFixIndex();
             }
 
             @Override
             public void onItemRangeRemoved(ObservableList sender, int positionStart, int itemCount) {
-                notifyDataSetChanged();
+                notifyAndFixIndex();
             }
         };
-
         headerList.addOnListChangedCallback(listChangedCallback);
         itemList.addOnListChangedCallback(listChangedCallback);
         footerList.addOnListChangedCallback(listChangedCallback);
     }
 
-    class BindingHolder extends RecyclerView.ViewHolder {
+    private void notifyAndFixIndex() {
+        RecyclerBindingAttr.fixIndex(headerList);
+        RecyclerBindingAttr.fixIndex(footerList);
+        RecyclerBindingAttr.fixIndex(footerList);
+        notifyDataSetChanged();
+    }
+
+    static class BindingHolder extends RecyclerView.ViewHolder  {
         ViewDataBinding binding;
 
         public BindingHolder(ViewDataBinding binding) {
@@ -137,8 +149,11 @@ public class BindingRecycleViewHeaderFooterAdapter
             this.binding = binding;
         }
 
-        public void bindData(BindingAdapterItemModel model) {
-            binding.setVariable(model.variableId, model);
+        public void bindData(RecyclerBindingItemModel model) {
+            for (int index = 0; index < model.variableMap.size(); index++) {
+                int key = model.variableMap.keyAt(index);
+                binding.setVariable(key, model.variableMap.get(key));
+            }
         }
     }
 
@@ -169,7 +184,7 @@ public class BindingRecycleViewHeaderFooterAdapter
     }
 
     @Override
-    public void onViewAttachedToWindow(@NonNull BindingRecycleViewHeaderFooterAdapter.BindingHolder holder) {
+    public void onViewAttachedToWindow(@NonNull BindingHolder holder) {
         super.onViewAttachedToWindow(holder);
         int position = holder.getLayoutPosition();
         if (isHeaderViewPos(position) || isFooterViewPos(position)) {

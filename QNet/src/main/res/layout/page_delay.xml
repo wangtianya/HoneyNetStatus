@@ -1,75 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-        <variable name="model" type="com.qjuzi.qnet.pages.delay.model.DelayPageModel"/>
+
+        <variable
+            name="model"
+            type="com.qjuzi.qnet.pages.delay.model.DelayPageModel" />
     </data>
+
     <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/swipeRefreshView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context="com.qjuzi.qnet.pages.home.HomeActivity">
+        android:id="@+id/swipeRefreshView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.qjuzi.qnet.pages.home.HomeActivity">
 
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
             <com.qjuzi.qnet.common.widget.EmptyTopLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <Toolbar
-                    android:id="@+id/toolbar"
-                    android:title=" "
-                    android:layout_width="match_parent"
-                    android:titleMarginStart="10dp"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary"
-                    android:titleTextColor="@android:color/white"
-                    android:subtitleTextColor="@android:color/white">
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:subtitleTextColor="@android:color/white"
+                android:title=" "
+                android:titleMarginStart="10dp"
+                android:titleTextColor="@android:color/white">
 
                 <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
                     <ImageView
-                            android:id="@+id/ivBack"
-                            android:layout_width="21dp"
-                            android:layout_height="21dp"
-                            android:src="@drawable/ic_arrow_back"
-                            android:tint="@android:color/white"
-                            android:onClick="@{model::goBack}"
-                            android:layout_centerVertical="true"/>
+                        android:id="@+id/ivBack"
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:layout_centerVertical="true"
+                        android:onClick="@{model::goBack}"
+                        android:src="@drawable/ic_arrow_back"
+                        android:tint="@android:color/white" />
 
                     <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="#fff"
-                            android:layout_marginLeft="10dp"
-                            android:layout_toEndOf="@id/ivBack"
-                            android:textSize="18dp"
-                            android:text="网络延时"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toEndOf="@id/ivBack"
+                        android:text="网络延时"
+                        android:textColor="#fff"
+                        android:textSize="18dp" />
+
                     <ImageView
-                            android:layout_width="21dp"
-                            android:layout_height="21dp"
-                            android:src="@drawable/ic_add"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="15dp"
-                            android:layout_alignParentRight="true"/>
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/ic_add" />
                 </RelativeLayout>
             </Toolbar>
 
 
-
             <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adapter="@{model.delayItemAdapter}"
-                    android:orientation="@{1}"/>
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:items="@{model.delayItemList}" />
         </LinearLayout>
     </android.support.v4.widget.SwipeRefreshLayout>
 </layout>

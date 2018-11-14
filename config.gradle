@@ -37,6 +37,7 @@ ext {
             'glide-compiler'           : 'com.github.bumptech.glide:compiler:4.7.1',
 
             'yaa-binding'              : project(':foundation-yaa-binding'),
+            'foundation-binding-extend': project(':foundation-binding-extend'),
             'foundation-core'          : project(':foundation-core')
     ]
 }

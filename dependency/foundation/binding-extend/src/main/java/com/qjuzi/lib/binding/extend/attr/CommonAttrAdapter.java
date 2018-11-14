@@ -1,4 +1,7 @@
-package cn.wangtianya.yaa.binding.attr;
+/*
+ * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
+ */
+package com.qjuzi.lib.binding.extend.attr;
 
 import android.databinding.BindingAdapter;
 import android.view.View;
@@ -16,7 +19,7 @@ public class CommonAttrAdapter {
     }
 
     @BindingAdapter("android:background")
-    public static void setSrc(LinearLayout view, int resId) {
+    public static void setSrc(View view, int resId) {
         view.setBackgroundResource(resId);
     }
 }
