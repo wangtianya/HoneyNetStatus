@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import com.qjuzi.yaa.context.ContextCache;
+import com.qjuzi.architecure.base.context.ContextCache;
 import com.qjuzi.yaa.persistence.IOHelper;
 import com.qjuzi.yaa.persistence.MD5Util;
 import com.qjuzi.yaa.persistence.SDCardHelper;

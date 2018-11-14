@@ -1,6 +1,6 @@
 package com.qjuzi.qnet.common.widget;
 
-import com.qjuzi.yaa.context.ContextCache;
+import com.qjuzi.architecure.base.context.ContextCache;
 import com.qjuzi.yaa.core.util.ScreenUtil;
 
 import android.content.Context;

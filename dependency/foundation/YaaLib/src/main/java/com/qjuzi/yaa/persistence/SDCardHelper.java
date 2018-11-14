@@ -3,7 +3,7 @@ package com.qjuzi.yaa.persistence;
 
 import java.io.File;
 
-import com.qjuzi.yaa.context.ContextCache;
+import com.qjuzi.architecure.base.context.ContextCache;
 import com.qjuzi.yaa.core.util.YaaLog;
 
 import android.os.Environment;

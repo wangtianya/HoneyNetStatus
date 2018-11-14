@@ -1,7 +1,7 @@
 
 package com.qjuzi.yaa.core.util;
 
-import com.qjuzi.yaa.context.ContextCache;
+import com.qjuzi.architecure.base.context.ContextCache;
 
 import android.widget.Toast;
 

@@ -7,7 +7,7 @@ import java.util.Observer;
 import java.util.Set;
 import java.util.concurrent.Executor;
 
-import com.qjuzi.yaa.context.ContextCache;
+import com.qjuzi.architecure.base.context.ContextCache;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;

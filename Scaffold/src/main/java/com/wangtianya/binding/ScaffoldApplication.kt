@@ -1,7 +1,7 @@
 package cn.wangtianya.scaffold
 
 import android.app.Application
-import com.qjuzi.yaa.context.ContextCache
+import com.qjuzi.architecure.base.context.ContextCache
 
 class ScaffoldApplication : Application() {
 

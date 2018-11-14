@@ -3,7 +3,7 @@
  */
 package com.wangtianya.learn.wiget;
 
-import com.qjuzi.yaa.context.ContextCache;
+import com.qjuzi.architecure.base.context.ContextCache;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;

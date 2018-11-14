@@ -1,5 +1,5 @@
 
-package com.qjuzi.yaa.context;
+package com.qjuzi.architecure.base.context;
 
 import android.app.Application;
 

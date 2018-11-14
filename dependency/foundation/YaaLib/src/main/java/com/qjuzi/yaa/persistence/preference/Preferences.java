@@ -2,7 +2,7 @@ package com.qjuzi.yaa.persistence.preference;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.qjuzi.yaa.context.ContextCache;
+import com.qjuzi.architecure.base.context.ContextCache;
 
 import android.content.Context;
 

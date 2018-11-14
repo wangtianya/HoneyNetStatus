@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
-import com.qjuzi.yaa.context.ContextCache;
+import com.qjuzi.architecure.base.context.ContextCache;
 import com.qjuzi.yaa.other.deprecated.iocV1.annotation.InjectExtra;
 import com.qjuzi.yaa.other.deprecated.iocV1.annotation.InjectResource;
 import com.qjuzi.yaa.other.deprecated.iocV1.annotation.InjectView;

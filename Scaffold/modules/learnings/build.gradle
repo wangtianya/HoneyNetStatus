@@ -51,7 +51,7 @@ dependencies {
     implementation rootProject.ext.dependencies["support-smartrefresh"]
     implementation rootProject.ext.dependencies["support-constraint-layout"]
 
-    implementation rootProject.ext.dependencies["foundation-core"]
+    implementation rootProject.ext.dependencies["foundation-architecture-base"]
 
     implementation project(":scaffold-module-learnings-lib")
 }

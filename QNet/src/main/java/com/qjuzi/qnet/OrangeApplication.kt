@@ -4,7 +4,7 @@ import android.app.Application
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.tencent.bugly.crashreport.CrashReport
 import com.meituan.android.walle.WalleChannelReader
-import com.qjuzi.yaa.context.ContextCache
+import com.qjuzi.architecure.base.context.ContextCache
 import com.tencent.bugly.crashreport.CrashReport.UserStrategy
 
 

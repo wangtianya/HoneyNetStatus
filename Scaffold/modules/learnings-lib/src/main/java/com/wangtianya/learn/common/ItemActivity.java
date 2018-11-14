@@ -1,6 +1,6 @@
 package com.wangtianya.learn.common;
 
-import com.qjuzi.yaa.context.ContextCache;
+import com.qjuzi.architecure.base.context.ContextCache;
 import com.wangtianya.learn.R;
 
 import android.app.Activity;

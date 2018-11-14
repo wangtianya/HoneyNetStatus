@@ -6,9 +6,12 @@ def include_modules(name, prefix, fileStr) {
 
 // basic dependencies
 
-include_modules('core', 'foundation', 'dependency/foundation/core')
-include_modules('binding-extend', 'foundation', 'dependency/foundation/binding-extend')
+include_modules('architecture-base', 'foundation', 'dependency/foundation/architecture-base')
 include_modules('architecture-mvvm', 'foundation', 'dependency/foundation/architecture-mvvm')
+include_modules('architecture-store', 'foundation', 'dependency/foundation/architecture-store')
+
+include_modules('binding-extend', 'foundation', 'dependency/foundation/binding-extend')
+
 
 include_modules('YaaLib', 'foundation', 'dependency/foundation/YaaLib')
-include_modules('yaa-binding', 'foundation', 'dependency/foundation/yaa-binding')
+

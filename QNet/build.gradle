@@ -87,9 +87,10 @@ dependencies {
     implementation rootProject.ext.dependencies["support-smartrefresh"]
     implementation rootProject.ext.dependencies["support-constraint-layout"]
 
-    implementation rootProject.ext.dependencies["foundation-core"]
+    implementation rootProject.ext.dependencies["foundation-architecture-base"]
+    implementation rootProject.ext.dependencies["foundation-architecture-store"]
     implementation rootProject.ext.dependencies["foundation-binding-extend"]
-    implementation rootProject.ext.dependencies["yaa-binding"]
+
 
     implementation rootProject.ext.dependencies["bugly-crashreport"]
     implementation rootProject.ext.dependencies["bugly-nativecrashreport"]
