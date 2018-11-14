@@ -1,6 +1,6 @@
 package cn.wangtianya.learn.C1_FourBasicComponents.service;
 
-import com.wangtianya.learn.common.YaUtil;
+import com.qjuzi.yaa.context.ContextCache;
 
 import android.app.Service;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Created by wangtianya on 2018/3/14.
@@ -49,6 +50,6 @@ public class LearnService extends Service {
 
 class MyIBinder extends Binder {
     public void sayHello() {
-        YaUtil.toast("hello");
+        Toast.makeText(ContextCache.getContext(), "hello", Toast.LENGTH_SHORT).show();
     }
 }

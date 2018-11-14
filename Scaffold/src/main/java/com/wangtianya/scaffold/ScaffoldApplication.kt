@@ -7,7 +7,6 @@ class ScaffoldApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        // do something
         ContextCache.init(this)
     }
 

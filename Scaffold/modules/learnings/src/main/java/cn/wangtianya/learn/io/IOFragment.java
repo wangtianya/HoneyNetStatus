@@ -15,7 +15,7 @@ public class IOFragment extends ItemFragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        addItem("获取目录", (v)->{});
+        addClickItem("获取目录", (v)->{});
     }
 
 

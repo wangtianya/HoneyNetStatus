@@ -13,9 +13,9 @@ public class MVVMActivity extends ItemActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addItem("DataBinding Basic1", DataBindingActivity.class);
-        addItem("DataBinding Basic2", DataBinding2Activity.class);
-        addItem("DataBinding Basic3", DataBinding3Activity.class);
-        addItem("标准Model Test", DataBindingMubanActivity.class);
+        addActivityItem("DataBinding Basic1", DataBindingActivity.class);
+        addActivityItem("DataBinding Basic2", DataBinding2Activity.class);
+        addActivityItem("DataBinding Basic3", DataBinding3Activity.class);
+        addActivityItem("标准Model Test", DataBindingMubanActivity.class);
     }
 }

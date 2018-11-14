@@ -22,32 +22,32 @@ public class ServiceLearnFragment extends ItemFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        addItem("startService", new View.OnClickListener() {
+        addClickItem("startService", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AppModel.getContext(), LearnService.class);
-                AppModel.getContext().startService(intent);
+                Intent intent = new Intent(ContextCache.getContext(), LearnService.class);
+                ContextCache.getContext().startService(intent);
             }
         });
 
-        addItem("stopService", new View.OnClickListener() {
+        addClickItem("stopService", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AppModel.getContext(), LearnService.class);
-                AppModel.getContext().stopService(intent);
+                Intent intent = new Intent(ContextCache.getContext(), LearnService.class);
+                ContextCache.getContext().stopService(intent);
             }
         });
 
 
-        addItem("bindService", new View.OnClickListener() {
+        addClickItem("bindService", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AppModel.getContext(), LearnService.class);
+                Intent intent = new Intent(ContextCache.getContext(), LearnService.class);
                 getActivity().bindService(intent,connection, Context.BIND_AUTO_CREATE);
             }
         });
 
-        addItem("unBindService", new View.OnClickListener() {
+        addClickItem("unBindService", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().unbindService(connection);
@@ -55,41 +55,41 @@ public class ServiceLearnFragment extends ItemFragment {
         });
 
 
-        addItem("-------------------------", null);
+        addClickItem("-------------------------", null);
 
 
-        addItem("startIntentService", new View.OnClickListener() {
+        addClickItem("startIntentService", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AppModel.getContext(), MyIntentService.class);
+                Intent intent = new Intent(ContextCache.getContext(), MyIntentService.class);
                 intent.setAction("love");
                 intent.putExtra("love", "mememe");
-                AppModel.getContext().startService(intent);
+                ContextCache.getContext().startService(intent);
             }
         });
 
-        addItem("bindService", new View.OnClickListener() {
+        addClickItem("bindService", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AppModel.getContext(), MyIntentService.class);
+                Intent intent = new Intent(ContextCache.getContext(), MyIntentService.class);
                 getActivity().bindService(intent,connection, Context.BIND_AUTO_CREATE);
             }
         });
 
-        addItem("stopIntentService", new View.OnClickListener() {
+        addClickItem("stopIntentService", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AppModel.getContext(), MyIntentService.class);
-                AppModel.getContext().stopService(intent);
+                Intent intent = new Intent(ContextCache.getContext(), MyIntentService.class);
+                ContextCache.getContext().stopService(intent);
             }
         });
 
 
 
-        addItem("startJobIntentTestService", v ->{
-            Intent intent = new Intent(AppModel.getContext(), JobIntentTestService.class);
-//            AppModel.getContext().startService(intent);
-            JobIntentTestService.enqueueWork(AppModel.getContext(), intent);
+        addClickItem("startJobIntentTestService", v ->{
+            Intent intent = new Intent(ContextCache.getContext(), JobIntentTestService.class);
+//            ContextCache.getContext().startService(intent);
+            JobIntentTestService.enqueueWork(ContextCache.getContext(), intent);
         });
 
 

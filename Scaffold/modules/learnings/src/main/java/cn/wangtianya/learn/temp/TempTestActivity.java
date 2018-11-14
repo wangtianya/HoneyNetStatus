@@ -13,7 +13,7 @@ public class TempTestActivity extends ItemActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addItem("强转空指针错误打印", NullPointerCastActivity.class);
+        addActivityItem("强转空指针错误打印", NullPointerCastActivity.class);
     }
 
 }

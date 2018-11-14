@@ -3,7 +3,7 @@
  */
 package com.wangtianya.learn.wiget;
 
-import com.wangtianya.learn.common.AppModel;
+import com.qjuzi.yaa.context.ContextCache;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -26,7 +26,7 @@ public class DataBindingBaseAdapter<T> extends BaseAdapter {
     private ObservableArrayList<T> list;
 
     public DataBindingBaseAdapter(int layoutId, ObservableArrayList<T> list, int resId) {
-        this.context = AppModel.getContext();
+        this.context = ContextCache.getContext();
         this.layoutId = layoutId;
         this.list = list;
         this.variableId = resId;

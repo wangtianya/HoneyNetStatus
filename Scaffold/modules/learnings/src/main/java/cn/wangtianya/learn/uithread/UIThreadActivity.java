@@ -13,6 +13,6 @@ public class UIThreadActivity extends ItemActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addItem("非UI线程进行绘制", NotUIDrawActivity.class);
+        addActivityItem("非UI线程进行绘制", NotUIDrawActivity.class);
     }
 }

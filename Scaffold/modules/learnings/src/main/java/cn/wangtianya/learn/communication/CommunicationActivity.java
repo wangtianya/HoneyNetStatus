@@ -17,6 +17,6 @@ public class CommunicationActivity extends ItemActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        addItem("", RippleInListItemActivity.class);
+//        addClickItem("", RippleInListItemActivity.class);
     }
 }

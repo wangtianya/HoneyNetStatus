@@ -17,6 +17,6 @@ public class RippleActivity extends ItemActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addItem("ListView 子控件里2", RippleInListItemActivity.class);
+        addActivityItem("ListView 子控件里2", RippleInListItemActivity.class);
     }
 }

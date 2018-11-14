@@ -10,7 +10,7 @@ public class DialogActivity extends ItemActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addItem("Dialog Basic1", DialogOneActivity.class);
+        addActivityItem("Dialog Basic1", DialogOneActivity.class);
     }
 
     @Override
