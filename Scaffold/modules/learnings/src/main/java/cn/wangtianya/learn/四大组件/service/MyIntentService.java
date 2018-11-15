@@ -1,4 +1,4 @@
-package cn.wangtianya.learn.C1_FourBasicComponents.service;
+package cn.wangtianya.learn.四大组件.service;
 
 import android.app.IntentService;
 import android.content.Intent;

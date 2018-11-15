@@ -2,10 +2,9 @@ package com.wangtianya.binding;
 
 import android.os.Bundle;
 
-import com.wangtianya.learn.common.AppModel;
 import com.wangtianya.learn.common.ItemActivity;
 
-import cn.wangtianya.learn.C1_FourBasicComponents.FourBasicComponentMainFragment;
+import cn.wangtianya.learn.四大组件.FourBasicComponentMainFragment;
 import cn.wangtianya.learn.communication.CommunicationActivity;
 import cn.wangtianya.learn.dialog.DialogActivity;
 import cn.wangtianya.learn.event.EventActivity;

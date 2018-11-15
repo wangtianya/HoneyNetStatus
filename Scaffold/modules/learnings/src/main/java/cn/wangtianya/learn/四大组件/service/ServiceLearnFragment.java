@@ -1,6 +1,6 @@
-package cn.wangtianya.learn.C1_FourBasicComponents.service;
+package cn.wangtianya.learn.四大组件.service;
 
-import com.wangtianya.learn.common.AppModel;
+import com.qjuzi.architecure.base.context.ContextCache;
 import com.wangtianya.learn.common.ItemFragment;
 
 import android.content.ComponentName;
