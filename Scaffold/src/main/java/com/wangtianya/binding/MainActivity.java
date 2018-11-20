@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.wangtianya.learn.common.ItemActivity;
 
+import cn.wangtianya.learn.ui.complex.ComplexUIMainFragment;
 import cn.wangtianya.learn.四大组件.FourBasicComponentMainFragment;
 import cn.wangtianya.learn.communication.CommunicationActivity;
 import cn.wangtianya.learn.dialog.DialogActivity;
@@ -28,18 +29,20 @@ public class MainActivity extends ItemActivity {
         addActivityItem("通信", CommunicationActivity.class);
 
         addActivityItem(diliver, CommunicationActivity.class);
-        addActivityItem("Temp Test", TempTestActivity.class);
+
+        addFragmentItem("复杂UI", ComplexUIMainFragment.class);
+
+        addActivityItem(diliver, CommunicationActivity.class);
+
         addActivityItem("UI线程相关", UIThreadActivity.class);
         addActivityItem("MVVM相关", MVVMActivity.class);
         addActivityItem("Dialog相关", DialogActivity.class);
         addActivityItem("Memory相关", MemoryActivity.class);
         addActivityItem("RippleActivity相关", RippleActivity.class);
         addActivityItem("Event相关", EventActivity.class);
-
         addActivityItem(diliver, CommunicationActivity.class);
         addFragmentItem("HtmlParse相关", HtmlFragment.class);
-
-
+        addActivityItem("Temp Test", TempTestActivity.class);
         addFragmentItem("OpenApi", OpenApiFragment.class);
 
     }

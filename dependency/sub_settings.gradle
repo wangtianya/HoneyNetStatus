@@ -10,8 +10,7 @@ include_modules('architecture-base', 'foundation', 'dependency/foundation/archit
 include_modules('architecture-mvvm', 'foundation', 'dependency/foundation/architecture-mvvm')
 include_modules('architecture-store', 'foundation', 'dependency/foundation/architecture-store')
 
-include_modules('binding-extend', 'foundation', 'dependency/foundation/binding-extend')
-
+include_modules('binding-extend', 'widget', 'dependency/widget/binding-extend')
 
 include_modules('YaaLib', 'foundation', 'dependency/foundation/YaaLib')
 

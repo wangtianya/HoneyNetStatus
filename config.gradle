@@ -17,30 +17,30 @@ ext {
     android_support_version = "27.1.1"
     dependencies = [
             //android support
-            "support-v4"                  : "com.android.support:support-v4:${android_support_version}",
-            "support-v7"                  : "com.android.support:appcompat-v7:${android_support_version}",
-            "support-annotations"         : "com.android.support:support-annotations:${android_support_version}",
-            "support-design"              : "com.android.support:design:${android_support_version}",
-            "support-recyclerview"        : "com.android.support:recyclerview-v7:${android_support_version}",
-            "support-constraint-layout"   : "com.android.support.constraint:constraint-layout:1.1.0",
-            "support-smartrefresh"        : 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3',
+            "support-v4"                   : "com.android.support:support-v4:${android_support_version}",
+            "support-v7"                   : "com.android.support:appcompat-v7:${android_support_version}",
+            "support-annotations"          : "com.android.support:support-annotations:${android_support_version}",
+            "support-design"               : "com.android.support:design:${android_support_version}",
+            "support-recyclerview"         : "com.android.support:recyclerview-v7:${android_support_version}",
+            "support-constraint-layout"    : "com.android.support.constraint:constraint-layout:1.1.0",
+            "support-smartrefresh"         : 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3',
 
-            "kotlin-stdlib"               : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
+            "kotlin-stdlib"                : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
 
             // 多渠道打包及统计
-            "bugly-crashreport"           : "com.tencent.bugly:crashreport:latest.release",
-            "bugly-nativecrashreport"     : "com.tencent.bugly:nativecrashreport:latest.release",
-            "walle"                       : "com.meituan.android.walle:library:1.1.6",
+            "bugly-crashreport"            : "com.tencent.bugly:crashreport:latest.release",
+            "bugly-nativecrashreport"      : "com.tencent.bugly:nativecrashreport:latest.release",
+            "walle"                        : "com.meituan.android.walle:library:1.1.6",
 
             // glide
-            'glide'                       : 'com.github.bumptech.glide:glide:4.7.1',
-            'glide-compiler'              : 'com.github.bumptech.glide:compiler:4.7.1',
+            'glide'                        : 'com.github.bumptech.glide:glide:4.7.1',
+            'glide-compiler'               : 'com.github.bumptech.glide:compiler:4.7.1',
 
 
-            'foundation-architecture-base': project(':foundation-architecture-base'),
-            'foundation-architecture-mvvm': project(':foundation-architecture-mvvm'),
+            'foundation-architecture-base' : project(':foundation-architecture-base'),
+            'foundation-architecture-mvvm' : project(':foundation-architecture-mvvm'),
             'foundation-architecture-store': project(':foundation-architecture-store'),
-            'foundation-binding-extend'   : project(':foundation-binding-extend'),
+            'widget-binding-extend'        : project(':widget-binding-extend'),
 
 
     ]
