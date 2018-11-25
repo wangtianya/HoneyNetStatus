@@ -51,7 +51,7 @@ dependencies {
     implementation rootProject.ext.dependencies["kotlin-stdlib"]
     implementation rootProject.ext.dependencies["foundation-architecture-base"]
 
-    implementation rootProject.ext.dependencies["foundation-binding-extend"]
+    implementation rootProject.ext.dependencies["widget-binding-extend"]
 
 
 
