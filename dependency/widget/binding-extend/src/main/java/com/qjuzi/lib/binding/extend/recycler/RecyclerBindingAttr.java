@@ -55,7 +55,7 @@ public class RecyclerBindingAttr {
         if (view.getLayoutManager() == null) {
             if (layoutManager != null) {
                 view.setLayoutManager(layoutManager);
-            } else if (view.getLayoutManager() == null){
+            } else {
                 view.setLayoutManager(new LinearLayoutManager(view.getContext()));
             }
         }
@@ -68,7 +68,7 @@ public class RecyclerBindingAttr {
         }
     }
 
-    public static <T extends BindingItemModel> void fixIndex(ObservableArrayList<T> models) {
+    static <T extends BindingItemModel> void fixIndex(ObservableArrayList<T> models) {
         for (int i = 0; i < models.size(); i++) {
             models.get(i).index = i;
         }

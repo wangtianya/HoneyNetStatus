@@ -53,7 +53,7 @@ public class ListBindingAttr {
         setAdapter(view, models, null, footers);
     }
 
-    public static <T extends BindingItemModel> void fixIndex(ObservableArrayList<T> models) {
+    static <T extends BindingItemModel> void fixIndex(ObservableArrayList<T> models) {
         for (int i = 0; i < models.size(); i++) {
             models.get(i).index = i;
         }
