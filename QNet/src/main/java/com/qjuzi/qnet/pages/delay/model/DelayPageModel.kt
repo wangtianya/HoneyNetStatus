@@ -3,7 +3,7 @@ package com.qjuzi.qnet.pages.delay.model
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableField
 import android.view.View
-import com.qjuzi.lib.binding.extend.recycler.RecyclerBindingItemModel
+import com.qjuzi.lib.binding.extend.common.BindingItemModel
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.databinding.PageDelayBinding
 import com.qjuzi.qnet.pages.delay.presenter.DelayItemPingPresenter
@@ -24,7 +24,7 @@ class DelayPageModel(val context: YaaFragment, var binding: PageDelayBinding){
 
     val delayItemList = ObservableArrayList<DelayItemModel>()
 
-    inner class DelayItemModel(var title: String, var host: String?, var resId: Int?) : RecyclerBindingItemModel() {
+    inner class DelayItemModel(var title: String, var host: String?, var resId: Int?) : BindingItemModel() {
         override fun getLayoutId(): Int {
             return R.layout.page_delay_item
         }

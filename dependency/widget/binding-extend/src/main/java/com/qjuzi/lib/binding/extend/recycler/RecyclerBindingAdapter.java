@@ -15,12 +15,14 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.qjuzi.lib.binding.extend.common.BindingItemModel;
+
 
 /**
  * Created by wangtianya on 2018/4/20.
  */
 
-public class RecyclerBindingAdapter<T extends RecyclerBindingItemModel>
+public class RecyclerBindingAdapter<T extends BindingItemModel>
         extends RecyclerView.Adapter<RecyclerBindingAdapter.BindingHolder> {
 
     private LayoutInflater inflater;
@@ -74,7 +76,7 @@ public class RecyclerBindingAdapter<T extends RecyclerBindingItemModel>
         return getItemModel(position).layoutId;
     }
 
-    private RecyclerBindingItemModel getItemModel(int position) {
+    private BindingItemModel getItemModel(int position) {
         int itemSize = itemList.size();
         int headerSize = headerList.size();
         int footerSize = footerList.size();
@@ -149,7 +151,7 @@ public class RecyclerBindingAdapter<T extends RecyclerBindingItemModel>
             this.binding = binding;
         }
 
-        public void bindData(RecyclerBindingItemModel model) {
+        public void bindData(BindingItemModel model) {
             for (int index = 0; index < model.variableMap.size(); index++) {
                 int key = model.variableMap.keyAt(index);
                 binding.setVariable(key, model.variableMap.get(key));

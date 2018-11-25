@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import java.util.ArrayList;
 
@@ -41,8 +40,8 @@ public class TestBindingListViewRefreshFragment extends Fragment {
         binding.listView.setOnItemClickListener((parent, view1, position, id) -> {
             TestListViewRefreshItemModel item = new TestListViewRefreshItemModel();
             item.title.set("插入到12");
-//            items.add(item);
-            items.remove(position);
+            item.setVariable(BR.model, item);
+            items.add(position, item);
         });
 
     }

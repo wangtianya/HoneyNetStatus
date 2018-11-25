@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
  */
-package com.qjuzi.lib.binding.extend.recycler;
+package com.qjuzi.lib.binding.extend.common;
 
 import android.util.SparseArray;
 
@@ -9,7 +9,7 @@ import android.util.SparseArray;
  * Created by wangtianya on 2018/9/14.
  */
 
-public abstract class RecyclerBindingItemModel {
+public abstract class BindingItemModel {
     public int index;
     public int layoutId = getLayoutId();
     public SparseArray<Object> variableMap = new SparseArray<>();

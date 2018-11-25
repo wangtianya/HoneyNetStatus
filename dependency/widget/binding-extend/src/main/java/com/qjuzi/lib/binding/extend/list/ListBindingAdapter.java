@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-public class ListBindingAdapter<T extends ListBindingItemModel> extends BaseAdapter {
+import com.qjuzi.lib.binding.extend.common.BindingItemModel;
+
+public class ListBindingAdapter<T extends BindingItemModel> extends BaseAdapter {
 
     private LayoutInflater inflater;
     private ObservableArrayList<T> headerList;
@@ -67,7 +69,7 @@ public class ListBindingAdapter<T extends ListBindingItemModel> extends BaseAdap
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewDataBinding dataBinding;
-        ListBindingItemModel model = getItemModel(position);
+        BindingItemModel model = getItemModel(position);
 
         if (convertView == null) {
             dataBinding = DataBindingUtil.inflate(inflater, model.layoutId, parent, false);
@@ -82,7 +84,7 @@ public class ListBindingAdapter<T extends ListBindingItemModel> extends BaseAdap
         return dataBinding.getRoot();
     }
 
-    private ListBindingItemModel getItemModel(int position) {
+    private BindingItemModel getItemModel(int position) {
         int itemSize = itemList.size();
         int headerSize = headerList.size();
         int footerSize = footerList.size();

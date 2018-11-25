@@ -3,11 +3,11 @@ package cn.wangtianya.learn.ui.list;
 
 import android.databinding.ObservableField;
 
-import com.qjuzi.lib.binding.extend.list.ListBindingItemModel;
+import com.qjuzi.lib.binding.extend.common.BindingItemModel;
 
 import cn.wangtianya.learn.R;
 
-public class TestListViewRefreshItemModel extends ListBindingItemModel {
+public class TestListViewRefreshItemModel extends BindingItemModel {
 
     public ObservableField<String> title = new ObservableField<>("");
 

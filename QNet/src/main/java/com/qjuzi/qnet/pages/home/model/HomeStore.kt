@@ -6,7 +6,6 @@ import android.databinding.ObservableInt
 import android.graphics.Color
 import android.view.View
 import cn.wangtianya.yaa.binding.core.AbsStore
-import com.qjuzi.lib.binding.extend.recycler.RecyclerBindingItemModel
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.databinding.ActivityMainBinding
 import com.qjuzi.qnet.pages.home.HomeActivity
