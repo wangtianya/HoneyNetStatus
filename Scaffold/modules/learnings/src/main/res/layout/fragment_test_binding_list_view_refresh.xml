@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data class=".TestBindingListViewBinding">
+        <variable name="model" type="cn.wangtianya.learn.ui.list.TestBindingListViewRefreshFragment" />
+    </data>
+<LinearLayout
+        android:id="@+id/llLayout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:items="@{model.items}"/>
+</LinearLayout>
+
+</layout>

@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.wangtianya.learn.common.ItemActivity;
 
-import cn.wangtianya.learn.ui.complex.ComplexUIMainFragment;
+import cn.wangtianya.learn.ui.UIFragment;
 import cn.wangtianya.learn.四大组件.FourBasicComponentMainFragment;
 import cn.wangtianya.learn.communication.CommunicationActivity;
 import cn.wangtianya.learn.dialog.DialogActivity;
@@ -26,11 +26,10 @@ public class MainActivity extends ItemActivity {
         super.onCreate(savedInstanceState);
 
         addFragmentItem("四大组件", FourBasicComponentMainFragment.class);
+        addFragmentItem("UI", UIFragment.class);
         addActivityItem("通信", CommunicationActivity.class);
 
         addActivityItem(diliver, CommunicationActivity.class);
-
-        addFragmentItem("复杂UI", ComplexUIMainFragment.class);
 
         addActivityItem(diliver, CommunicationActivity.class);
 

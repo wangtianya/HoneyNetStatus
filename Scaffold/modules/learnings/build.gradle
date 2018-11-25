@@ -54,5 +54,7 @@ dependencies {
     implementation rootProject.ext.dependencies["foundation-architecture-base"]
 
     implementation project(":scaffold-module-learnings-lib")
+
+    implementation rootProject.ext.dependencies["foundation-binding-extend"]
 }
 

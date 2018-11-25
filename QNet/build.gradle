@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-platform-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'walle'
+//apply plugin: 'walle'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -17,7 +17,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("/Users/wangtianya/OneDrive/开发/QJuzi/qjuzi.keystore")
+            storeFile file("E:\\Cloud\\OneDrive\\开发\\敏感\\qjuzi.keystore")
             storePassword System.getenv("KSTOREPWD")
             keyAlias "qnet"
             keyPassword System.getenv("KEYPWD")
@@ -62,11 +62,11 @@ android {
 }
 
 
-walle {
-    apkOutputFolder = new File("${project.buildDir}/outputs/channels")
-    apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk'
-    channelFile = new File("${project.getProjectDir()}/channel")
-}
+//walle {
+//    apkOutputFolder = new File("${project.buildDir}/outputs/channels")
+//    apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk'
+//    channelFile = new File("${project.getProjectDir()}/channel")
+//}
 
 kapt {
     generateStubs = true
