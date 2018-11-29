@@ -10,30 +10,14 @@
     <application>
 
         <activity android:name="com.wangtianya.learn.wiget.FragmentContainerActivity" />
-        <activity android:name=".communication.CommunicationActivity" />
 
-        <activity android:name="cn.wangtianya.learn.temp.TempTestActivity" />
-        <activity android:name="cn.wangtianya.learn.temp.NullPointerCastActivity" />
+        <activity android:name=".widget.dialog.DialogActivity" />
+        <activity android:name=".widget.dialog.DialogOneActivity" />
 
-        <activity android:name="cn.wangtianya.learn.uithread.UIThreadActivity" />
-        <activity android:name="cn.wangtianya.learn.uithread.NotUIDrawActivity" />
 
-        <activity android:name="cn.wangtianya.learn.mvvm.MVVMActivity" />
-        <activity android:name="cn.wangtianya.learn.mvvm.DataBindingActivity" />
-        <activity android:name="cn.wangtianya.learn.mvvm.DataBinding3Activity" />
-        <activity android:name="cn.wangtianya.learn.mvvm.DataBinding2Activity" />
-        <activity android:name="cn.wangtianya.learn.mvvm.DataBindingMubanActivity" />
 
-        <activity android:name="cn.wangtianya.learn.dialog.DialogActivity" />
-        <activity android:name="cn.wangtianya.learn.dialog.DialogOneActivity" />
 
-        <activity android:name="cn.wangtianya.learn.memory.MemoryActivity" />
-        <activity android:name="cn.wangtianya.learn.memory.OOMActivity" />
-        <activity android:name="cn.wangtianya.learn.memory.LeakActivity" />
 
-        <activity android:name="cn.wangtianya.learn.ripple.RippleActivity" />
-        <activity android:name="cn.wangtianya.learn.ripple.RippleInListItemActivity" />
-        <activity android:name=".event.EventActivity" />
 
 
         <activity

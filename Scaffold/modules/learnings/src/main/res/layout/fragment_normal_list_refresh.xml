@@ -2,7 +2,7 @@
 <layout>
 
     <data class=".NormalListRefreshBinding">
-        <variable name="model" type="cn.wangtianya.learn.ui.list.NomralListRefreshFragment" />
+        <variable name="model" type="cn.wangtianya.learn.widget.list.NomralListRefreshFragment" />
     </data>
 <LinearLayout
         android:id="@+id/llLayout"

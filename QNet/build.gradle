@@ -17,7 +17,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("E:\\Cloud\\OneDrive\\开发\\敏感\\qjuzi.keystore")
+            storeFile file("/Users/wangtianya/OneDrive/开发/敏感/qjuzi.keystore")
             storePassword System.getenv("KSTOREPWD")
             keyAlias "qnet"
             keyPassword System.getenv("KEYPWD")

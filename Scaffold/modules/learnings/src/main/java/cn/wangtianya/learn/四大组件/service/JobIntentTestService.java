@@ -50,6 +50,7 @@ public class JobIntentTestService extends JobIntentService {
     @Override
     public void onDestroy() {
         Log.e(JobIntentTestService.class.getName(), "onDestroy");
+
         super.onDestroy();
     }
 

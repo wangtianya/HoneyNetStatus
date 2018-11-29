@@ -2,7 +2,7 @@
 <layout>
 
     <data class=".TestBindingListViewBinding">
-        <variable name="model" type="cn.wangtianya.learn.ui.list.TestBindingListViewRefreshFragment" />
+        <variable name="model" type="cn.wangtianya.learn.widget.list.TestBindingListViewRefreshFragment" />
     </data>
 <LinearLayout
         android:id="@+id/llLayout"

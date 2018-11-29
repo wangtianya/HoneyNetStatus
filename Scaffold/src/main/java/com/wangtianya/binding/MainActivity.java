@@ -4,45 +4,33 @@ import android.os.Bundle;
 
 import com.wangtianya.learn.common.ItemActivity;
 
-import cn.wangtianya.learn.ui.UIFragment;
+import cn.wangtianya.learn.communication.CommunicationFragment;
+import cn.wangtianya.learn.sysbase.SysBaseLearnFragment;
+import cn.wangtianya.learn.other.openapi.OpenApiFragment;
+import cn.wangtianya.learn.other.temp.TempTestFragment;
+import cn.wangtianya.learn.ui.UILearnFragment;
+import cn.wangtianya.learn.widget.WidgetLearnFragment;
 import cn.wangtianya.learn.四大组件.FourBasicComponentMainFragment;
-import cn.wangtianya.learn.communication.CommunicationActivity;
-import cn.wangtianya.learn.dialog.DialogActivity;
-import cn.wangtianya.learn.event.EventActivity;
-import cn.wangtianya.learn.html.HtmlFragment;
-import cn.wangtianya.learn.memory.MemoryActivity;
-import cn.wangtianya.learn.mvvm.MVVMActivity;
-import cn.wangtianya.learn.openapi.OpenApiFragment;
-import cn.wangtianya.learn.ripple.RippleActivity;
-import cn.wangtianya.learn.temp.TempTestActivity;
-import cn.wangtianya.learn.uithread.UIThreadActivity;
 
 public class MainActivity extends ItemActivity {
-    public static final String diliver = "------------------------------------------------------------------------------------";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         addFragmentItem("四大组件", FourBasicComponentMainFragment.class);
-        addFragmentItem("UI", UIFragment.class);
-        addActivityItem("通信", CommunicationActivity.class);
+        addFragmentItem("UI基础", UILearnFragment.class);
+        addFragmentItem("Widget", WidgetLearnFragment.class);
 
-        addActivityItem(diliver, CommunicationActivity.class);
+        addDiliver();
+        addFragmentItem("系统基础", SysBaseLearnFragment.class);
+        addFragmentItem("通信网络", CommunicationFragment.class);
 
-        addActivityItem(diliver, CommunicationActivity.class);
+        addDiliver();
 
-        addActivityItem("UI线程相关", UIThreadActivity.class);
-        addActivityItem("MVVM相关", MVVMActivity.class);
-        addActivityItem("Dialog相关", DialogActivity.class);
-        addActivityItem("Memory相关", MemoryActivity.class);
-        addActivityItem("RippleActivity相关", RippleActivity.class);
-        addActivityItem("Event相关", EventActivity.class);
-        addActivityItem(diliver, CommunicationActivity.class);
-        addFragmentItem("HtmlParse相关", HtmlFragment.class);
-        addActivityItem("Temp Test", TempTestActivity.class);
         addFragmentItem("OpenApi", OpenApiFragment.class);
-
+        addFragmentItem("Temp Test", TempTestFragment.class);
     }
 }

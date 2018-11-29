@@ -8,7 +8,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
@@ -19,15 +21,22 @@ import android.view.View;
 
 public class ServiceLearnFragment extends ItemFragment {
 
+    public void dododo() {
+        Intent intent = new Intent(ContextCache.getContext(), LearnService.class);
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ContextCache.getContext().startForegroundService(intent);
+                dododo();
+            }
+        },6000);
+    }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        addClickItem("startService", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ContextCache.getContext(), LearnService.class);
-                ContextCache.getContext().startService(intent);
-            }
+        addClickItem("startService", v -> {
+            dododo();
         });
 
         addClickItem("stopService", new View.OnClickListener() {
@@ -86,10 +95,16 @@ public class ServiceLearnFragment extends ItemFragment {
 
 
 
-        addClickItem("startJobIntentTestService", v ->{
+        addClickItem("enqueueWorkJobIntentTestService", v ->{
             Intent intent = new Intent(ContextCache.getContext(), JobIntentTestService.class);
-//            ContextCache.getContext().startService(intent);
             JobIntentTestService.enqueueWork(ContextCache.getContext(), intent);
+        });
+
+        addClickItem("startJobIntentTestService", v ->{
+//            Intent intent = new Intent(ContextCache.getContext(), JobIntentTestService.class);
+            Intent intent = new Intent();
+            intent.setClassName(ContextCache.getContext(), "cn.wangtianya.learn.四大组件.service.JobIntentTestService");
+            ContextCache.getContext().startService(intent);
         });
 
 

@@ -5,7 +5,7 @@
 
         <variable
             name="model"
-            type="cn.wangtianya.learn.ui.list.TestListViewRefreshItemModel" />
+            type="cn.wangtianya.learn.widget.list.TestListViewRefreshItemModel" />
     </data>
 
     <LinearLayout
