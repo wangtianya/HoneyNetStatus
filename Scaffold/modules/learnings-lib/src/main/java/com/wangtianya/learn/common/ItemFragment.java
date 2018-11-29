@@ -1,22 +1,21 @@
 package com.wangtianya.learn.common;
 
-import java.net.URISyntaxException;
-
-import com.qjuzi.architecure.base.context.ContextCache;
-import com.wangtianya.learn.R;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.qjuzi.architecure.base.context.ContextCache;
+import com.wangtianya.learn.R;
+
+import java.net.URISyntaxException;
 
 /**
  * Created by tianya on 2017/4/27.
@@ -44,6 +43,12 @@ public class ItemFragment extends Fragment {
 
     public void addClickItem(String title, View.OnClickListener onClickListener) {
         mainLayout.addView(ButtonItemFactory.newClickItem(title, onClickListener));
+    }
+
+    public void addDiliver() {
+        TextView view = new TextView(ContextCache.getContext());
+        view.setMinHeight(100);
+        mainLayout.addView(view);
     }
 
     public void addOpenApi(String tittle, String uri) {
