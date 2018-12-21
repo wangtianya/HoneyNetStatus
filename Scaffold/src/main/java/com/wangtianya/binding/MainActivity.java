@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.wangtianya.learn.common.ItemActivity;
 
 import cn.wangtianya.learn.communication.CommunicationFragment;
+import cn.wangtianya.learn.other.temp.utag.UniverseTagFragment;
 import cn.wangtianya.learn.sysbase.SysBaseLearnFragment;
 import cn.wangtianya.learn.other.openapi.OpenApiFragment;
 import cn.wangtianya.learn.other.temp.TempTestFragment;
@@ -32,5 +33,8 @@ public class MainActivity extends ItemActivity {
 
         addFragmentItem("OpenApi", OpenApiFragment.class);
         addFragmentItem("Temp Test", TempTestFragment.class);
+
+        addFragmentItem("Universe Tag", UniverseTagFragment.class);
+
     }
 }

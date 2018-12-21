@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
+  -->
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/leftStrokeItem"
+        android:right="-1dp">
+        <shape>
+            <corners
+                android:bottomLeftRadius="2dp"
+                android:topLeftRadius="2dp"/>
+            <stroke
+                android:width="0.5dp"
+                android:color="#ff0000"/>
+        </shape>
+    </item>
+
+</layer-list>

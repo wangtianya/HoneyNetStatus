@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="16dp"
+    android:orientation="horizontal">
+
+
+    <FrameLayout
+        android:id="@+id/leftBg"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="2dp"
+        android:background="@drawable/utag_left_bg_color">
+
+        <LinearLayout
+            android:id="@+id/leftStroke"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minWidth="2dp"
+            android:background="@drawable/utag_left_bg_stroke"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/leftIcon"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/sug_gongjiao"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"/>
+
+            <TextView
+                android:id="@+id/leftTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="P"
+                android:textColor="#333"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:textSize="11dp" />
+        </LinearLayout>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/rightBg"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/utag_right_bg_color">
+
+        <LinearLayout
+            android:id="@+id/rightStroke"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minWidth="2dp"
+            android:background="@drawable/utag_right_bg_stroke"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rightTv"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="停车"
+                android:textColor="#333"
+                android:textSize="11dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"/>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
