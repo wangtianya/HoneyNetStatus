@@ -22,4 +22,11 @@ public class CommonAttrAdapter {
     public static void setSrc(View view, int resId) {
         view.setBackgroundResource(resId);
     }
+
+    @BindingAdapter("alphaPress")
+    public static void alphaPress(LinearLayout view, boolean need) {
+        if (need) {
+            AlphaPressTouchListener.enable(view);
+        }
+    }
 }
