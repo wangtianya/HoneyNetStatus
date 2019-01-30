@@ -6,6 +6,8 @@ import android.databinding.ObservableInt
 import android.graphics.Color
 import android.view.View
 import cn.wangtianya.yaa.binding.core.AbsStore
+import com.qjuzi.architecure.mvvm.MVVMModel
+import com.qjuzi.lib.binding.extend.common.BindingItemModel
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.databinding.ActivityMainBinding
 import com.qjuzi.qnet.pages.home.HomeActivity
@@ -18,13 +20,7 @@ import com.qjuzi.yaa.BR
  * 1、承载页面所有的数据
  * 2、承载页面所有的事件分发
  */
-class HomeStore(val context: HomeActivity) : AbsStore<HomeActivity>(context) {
-
-
-    lateinit var binding: ActivityMainBinding
-
-    lateinit var mainPresenter: HomeMainPresenter
-    lateinit var delayTaskPresenter: DelayTaskPresenter
+class HomeModel : MVVMModel<HomeActivity>() {
 
     /**
      * top banner data
@@ -39,7 +35,7 @@ class HomeStore(val context: HomeActivity) : AbsStore<HomeActivity>(context) {
 
     val gridList = ObservableArrayList<GridModel>()
 
-    inner class GridModel(var imgId: Int, var imgTint: Int) : RecyclerBindingItemModel() {
+    inner class GridModel(var imgId: Int, var imgTint: Int) : BindingItemModel() {
         val title = ObservableField<String>("-")
 
         override fun getLayoutId(): Int {

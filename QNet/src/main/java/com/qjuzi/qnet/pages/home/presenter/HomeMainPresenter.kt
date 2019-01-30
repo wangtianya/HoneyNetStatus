@@ -1,23 +1,23 @@
 package com.qjuzi.qnet.pages.home.presenter
 
+import android.arch.lifecycle.Lifecycle
+import android.arch.lifecycle.OnLifecycleEvent
 import android.graphics.Color
 import android.text.TextUtils
-import android.view.View
-import cn.wangtianya.yaa.binding.core.AbsPresenter
+import com.qjuzi.architecure.mvvm.MVVMPresenter
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.qjuzi.qnet.common.broadcast.NetworkChangedListener
 import com.qjuzi.qnet.common.tools.thread.ThreadUtil
 import com.qjuzi.qnet.common.tools.util.ScreenManager
-import com.qjuzi.qnet.pages.home.model.HomeStore
+import com.qjuzi.qnet.pages.home.HomeActivity
 import com.qjuzi.qnet.pages.home.tools.HomeHelper
 import com.qjuzi.yaa.core.util.ScreenUtil
-import com.qjuzi.yaa.core.util.YaaToast
 import com.qjuzi.yaa.net.traffic.CurrentTrafficStats
 import com.tencent.bugly.crashreport.CrashReport
 
 
-class HomeMainPresenter : AbsPresenter<HomeStore>() {
+class HomeMainPresenter : MVVMPresenter<HomeActivity>() {
 
     // 需要被销毁的资源们
     private val currentTrafficStats: CurrentTrafficStats = CurrentTrafficStats.getInstance()
@@ -25,7 +25,7 @@ class HomeMainPresenter : AbsPresenter<HomeStore>() {
 
     fun initData() {
 
-        store.binding.model = store
+        page.binding.model = page.model;
 
         initStyle()
         initTopbar()
@@ -36,36 +36,37 @@ class HomeMainPresenter : AbsPresenter<HomeStore>() {
         ThreadUtil.runOnNotUI(Runnable { initGridListData() })
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun destory() {
         currentTrafficStats.stop()
         MyNetworkReceiver.removeListener(networkChangedListener)
-        store.delayTaskPresenter.stopDelayDataUpdateTask()
+        page.delayTaskPresenter.stopDelayDataUpdateTask()
     }
 
 
     @Suppress("deprecation")
     private fun initStyle() {
         // 沉浸式，初始化StatusBar颜色
-        val statusBarColor = store.page.resources.getColor(R.color.colorPrimaryDark)
+        val statusBarColor = page.resources.getColor(R.color.colorPrimaryDark)
         val navBarColor = Color.TRANSPARENT
-        ScreenManager.initScreenColor(store.page.window, statusBarColor, navBarColor)
+        ScreenManager.initScreenColor(page.window, statusBarColor, navBarColor)
     }
 
     private fun initTopbar() {
-        store.page.setActionBar(store.binding.toolbar)
+        page.setActionBar(page.binding.toolbar)
     }
 
     @Suppress("deprecation")
     private fun initSwipeRefreshLayout() {
-        store.binding.swipeRefreshView.setProgressViewOffset(true, 0, ScreenUtil.dip2px(200))
-        store.binding.swipeRefreshView.setProgressBackgroundColor(android.R.color.white)
-        store.binding.swipeRefreshView
+        page.binding.swipeRefreshView.setProgressViewOffset(true, 0, ScreenUtil.dip2px(200))
+        page.binding.swipeRefreshView.setProgressBackgroundColor(android.R.color.white)
+        page.binding.swipeRefreshView
                 .setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary, R.color.colorPrimaryDark)
 
         // 下拉时触发SwipeRefreshLayout的下拉动画，动画完毕之后就会回调这个方法
-        store.binding.swipeRefreshView.setOnRefreshListener {
-            store.binding.swipeRefreshView.postDelayed({
-                store.binding.swipeRefreshView.isRefreshing = false
+        page.binding.swipeRefreshView.setOnRefreshListener {
+            page.binding.swipeRefreshView.postDelayed({
+                page.binding.swipeRefreshView.isRefreshing = false
                 CrashReport.testJavaCrash()
             }, 1000)
         }
@@ -75,11 +76,11 @@ class HomeMainPresenter : AbsPresenter<HomeStore>() {
     private fun initUpDownData() {
         currentTrafficStats.addCurrentTrafficListener { up, down ->
             if (MyNetworkReceiver.isAvailable) {
-                store.up.set(up)
-                store.down.set(down)
+                page.model.up.set(up)
+                page.model.down.set(down)
             } else {
-                store.up.set("-")
-                store.down.set("-")
+                page.model.up.set("-")
+                page.model.down.set("-")
             }
         };
         ThreadUtil.runOnNotUI(currentTrafficStats)
@@ -89,9 +90,9 @@ class HomeMainPresenter : AbsPresenter<HomeStore>() {
     private fun initNetListener() {
         networkChangedListener = object : NetworkChangedListener {
             override fun call() {
-                store.statusColor.set(Color.GRAY)
-                store.delay.set("-")
-                store.netTypeIcon.set(HomeHelper.getNetTypeIcon())
+                page.model.statusColor.set(Color.GRAY)
+                page.model.delay.set("-")
+                page.model.netTypeIcon.set(HomeHelper.getNetTypeIcon())
                 ThreadUtil.runOnNotUI(Runnable { updateIP() })
             }
         }
@@ -101,7 +102,7 @@ class HomeMainPresenter : AbsPresenter<HomeStore>() {
 
     private fun updateIP() {
         if (!MyNetworkReceiver.isAvailable) {
-            store.ip.set("网络已断开")
+            page.model.ip.set("网络已断开")
         } else {
             val wifiName = HomeHelper.getWifiName()
             val isp = HomeHelper.getIsp()
@@ -116,42 +117,42 @@ class HomeMainPresenter : AbsPresenter<HomeStore>() {
             } else if (!TextUtils.isEmpty(isp)) {
                 sBuilder.append(isp)
             }
-            store.ip.set(sBuilder.toString())
+            page.model.ip.set(sBuilder.toString())
         }
     }
 
     private fun initGridListData() {
 
-        val netInfoGrid = store.GridModel(R.drawable.ic_info, Color.GRAY)
-        netInfoGrid.title.set(store.page.getString(R.string.home_info))
-        store.gridList.add(netInfoGrid)
+        val netInfoGrid = page.model.GridModel(R.drawable.ic_info, Color.GRAY)
+        netInfoGrid.title.set(page.getString(R.string.home_info))
+        page.model.gridList.add(netInfoGrid)
 
-        val speedTestGrid = store.GridModel(R.drawable.ic_download, Color.GRAY)
-        speedTestGrid.title.set(store.page.getString(R.string.home_download))
-        store.gridList.add(speedTestGrid)
+        val speedTestGrid = page.model.GridModel(R.drawable.ic_download, Color.GRAY)
+        speedTestGrid.title.set(page.getString(R.string.home_download))
+        page.model.gridList.add(speedTestGrid)
 
-        val pingGrid = store.GridModel(R.drawable.ic_ping, Color.GRAY)
-        pingGrid.title.set(store.page.getString(R.string.home_ping))
+        val pingGrid = page.model.GridModel(R.drawable.ic_ping, Color.GRAY)
+        pingGrid.title.set(page.getString(R.string.home_ping))
 
-        store.gridList.add(pingGrid)
+        page.model.gridList.add(pingGrid)
 
 
-        val regionGrid = store.GridModel(R.drawable.ic_internet, Color.GRAY)
-        regionGrid.title.set(store.page.getString(R.string.home_delay_region))
+        val regionGrid = page.model.GridModel(R.drawable.ic_internet, Color.GRAY)
+        regionGrid.title.set(page.getString(R.string.home_delay_region))
 
-        store.gridList.add(regionGrid)
+        page.model.gridList.add(regionGrid)
 
-        val dWebGrid = store.GridModel(R.drawable.ic_web, Color.GRAY)
-        dWebGrid.title.set(store.page.getString(R.string.home_delay_web))
-        store.gridList.add(dWebGrid)
+        val dWebGrid = page.model.GridModel(R.drawable.ic_web, Color.GRAY)
+        dWebGrid.title.set(page.getString(R.string.home_delay_web))
+        page.model.gridList.add(dWebGrid)
 
-        val dGameGrid = store.GridModel(R.drawable.ic_videogame, Color.GRAY)
-        dGameGrid.title.set(store.page.getString(R.string.home_delay_game))
-        store.gridList.add(dGameGrid)
+        val dGameGrid = page.model.GridModel(R.drawable.ic_videogame, Color.GRAY)
+        dGameGrid.title.set(page.getString(R.string.home_delay_game))
+        page.model.gridList.add(dGameGrid)
 
-        val moreGrid = store.GridModel(R.drawable.ic_directions_run, Color.GRAY)
-        moreGrid.title.set(store.page.getString(R.string.home_comming))
-        store.gridList.add(moreGrid)
+        val moreGrid = page.model.GridModel(R.drawable.ic_directions_run, Color.GRAY)
+        moreGrid.title.set(page.getString(R.string.home_comming))
+        page.model.gridList.add(moreGrid)
 
     }
 

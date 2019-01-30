@@ -2,7 +2,7 @@
 <layout>
 
     <data>
-        <variable name="model" type="com.qjuzi.qnet.pages.home.model.HomeStore"/>
+        <variable name="model" type="com.qjuzi.qnet.pages.home.model.HomeModel"/>
     </data>
 
     <LinearLayout
