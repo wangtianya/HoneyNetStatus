@@ -29,13 +29,6 @@
         android:orientation="vertical"
         android:visibility="gone" >
 
-        <com.wedcel.dragexpandgrid.view.CustomGridView
-            android:id="@+id/gridview_child_gridview"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/color_777572"
-            android:orientation="vertical" >
-        </com.wedcel.dragexpandgrid.view.CustomGridView>
     </LinearLayout>
 
 </RelativeLayout>

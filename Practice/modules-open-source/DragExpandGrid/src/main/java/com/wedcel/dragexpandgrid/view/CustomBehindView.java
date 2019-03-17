@@ -7,6 +7,9 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.view.Gravity;
@@ -211,11 +214,7 @@ public class CustomBehindView extends GridView {
 	private void createFirstDragImage() {
 		removeDragImage();
 		isDrag = true;
-		ImageView ivDelet = (ImageView) mStartDragItemView.findViewById(R.id.delet_iv);
-		LinearLayout llContainer = (LinearLayout) mStartDragItemView.findViewById(R.id.edit_ll);
-		if (ivDelet != null) {
-			ivDelet.setVisibility(View.VISIBLE);
-		}
+		LinearLayout llContainer = mStartDragItemView.findViewById(R.id.edit_ll);
 		if (llContainer != null) {
 			llContainer.setBackgroundColor(mContext.getResources().getColor(R.color.item_bg));
 		}
@@ -253,11 +252,7 @@ public class CustomBehindView extends GridView {
 			return false;
 		}
 
-		if (y < topOffset || y > topOffset + dragView.getHeight()) {
-			return false;
-		}
-
-		return true;
+		return y >= topOffset && y <= topOffset + dragView.getHeight();
 	}
 
 	@Override
@@ -265,7 +260,6 @@ public class CustomBehindView extends GridView {
 		if (isDrag && mDragImageView != null) {
 			switch (ev.getAction()) {
 				case MotionEvent.ACTION_MOVE:
-					//				LogUtil.d("CustomBehindView onTouchEvent", "ACTION_MOVE");
 					moveX = (int) ev.getX();
 					moveY = (int) ev.getY();
 
@@ -279,6 +273,7 @@ public class CustomBehindView extends GridView {
 					isDrag = false;
 					isFirstLongDrag = false;
 					hasFirstCalculate = false;
+					cancleEditModel();
 					break;
 			}
 			return true;
@@ -362,7 +357,7 @@ public class CustomBehindView extends GridView {
 
 		// 假如tempPosition 改变了并且tempPosition不等于-1,则进行交换
 		if (tempPosition != mDragPosition && tempPosition != AdapterView.INVALID_POSITION && mAnimationEnd) {
-			if (tempPosition != mIconInfoList.size() - 1) {
+			if (tempPosition != 0) {
 				mDragAdapter.reorderItems(mDragPosition, tempPosition);
 				mDragAdapter.setHideItem(tempPosition);
 
@@ -495,66 +490,34 @@ public class CustomBehindView extends GridView {
 	}
 
 
-	public void deletInfo(int position, DragIconInfo iconInfo) {
-		deletAnimation(position);
-		mCustomGroup.deletHomePageInfo(iconInfo);
+	@Override
+	protected void dispatchDraw(Canvas canvas){
+		super.dispatchDraw(canvas);
+		View localView1 = getChildAt(0);
+		int column = getWidth() / localView1.getWidth();
+		int childCount = getChildCount();
+		Paint localPaint;
+		localPaint = new Paint();
+		localPaint.setStyle(Paint.Style.STROKE);
+		localPaint.setColor(mContext.getResources().getColor(R.color.gap_line));
+		for(int i = 0;i < childCount;i++){
+			View cellView = getChildAt(i);
+			if((i + 1) % column == 0){
+				canvas.drawLine(cellView.getLeft(), cellView.getBottom(), cellView.getRight(), cellView.getBottom(), localPaint);
+			}else if((i + 1) > (childCount - (childCount % column))){
+				canvas.drawLine(cellView.getRight(), cellView.getTop(), cellView.getRight(), cellView.getBottom(), localPaint);
+			}else{
+				canvas.drawLine(cellView.getRight(), cellView.getTop(), cellView.getRight(), cellView.getBottom(), localPaint);
+				canvas.drawLine(cellView.getLeft(), cellView.getBottom(), cellView.getRight(), cellView.getBottom(), localPaint);
+			}
+		}
+		if(childCount % column != 0){
+			for(int j = 0 ;j < (column-childCount % column) ; j++){
+				View lastView = getChildAt(childCount - 1);
+				canvas.drawLine(lastView.getRight() + lastView.getWidth() * j, lastView.getTop(), lastView.getRight() + lastView.getWidth()* j, lastView.getBottom(), localPaint);
+			}
+		}
 	}
-
-
-	private void deletAnimation(final int position) {
-		final View view = getChildAt(position);
-		view.setDrawingCacheEnabled(true);
-		Bitmap mDragBitmap = Bitmap.createBitmap(view.getDrawingCache());
-		view.destroyDrawingCache();
-		final ImageView animView = new ImageView(mContext);
-		animView.setImageBitmap(mDragBitmap);
-		LayoutParams ivlp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		parentView.addView(animView, ivlp);
-		final int aimPosit = mIconInfoList.size() - 1;
-
-		AnimatorSet animatorSet = createTranslationAnim(position, aimPosit, view, animView);
-		animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
-		animatorSet.setDuration(500);
-		animatorSet.addListener(new Animator.AnimatorListener() {
-			@Override
-			public void onAnimationStart(Animator animation) {
-				view.setVisibility(View.INVISIBLE);
-			}
-
-			@Override
-			public void onAnimationEnd(Animator animation) {
-				animView.setVisibility(View.GONE);
-				animView.clearAnimation();
-				parentView.removeView(animView);
-				mDragAdapter.reorderItems(position, aimPosit);
-				mDragAdapter.deleteItem(aimPosit);
-				//mDragAdapter.setHideItem(aimPosit);
-
-				final ViewTreeObserver observer = getViewTreeObserver();
-				observer.addOnPreDrawListener(new OnPreDrawListener() {
-
-					@Override
-					public boolean onPreDraw() {
-						observer.removeOnPreDrawListener(this);
-						animateReorder(position, aimPosit);
-						return true;
-					}
-				});
-			}
-
-			@Override
-			public void onAnimationCancel(Animator animation) {
-
-			}
-
-			@Override
-			public void onAnimationRepeat(Animator animation) {
-
-			}
-		});
-		animatorSet.start();
-	}
-
 
 
 	private AnimatorSet createTranslationAnim(int position, int aimPosit, View view, ImageView animView) {
@@ -604,11 +567,7 @@ public class CustomBehindView extends GridView {
 		int position = pointToPosition(tempx,tempy);
 		Rect rect = new Rect();
 		getHitRect(rect);
-		if (position == AdapterView.INVALID_POSITION) {
-			return false;
-		}else{
-			return true;
-		}
+		return position != AdapterView.INVALID_POSITION;
 	}
 
 	public void clearDragView() {

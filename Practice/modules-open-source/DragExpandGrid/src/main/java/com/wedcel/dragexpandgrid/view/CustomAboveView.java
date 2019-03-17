@@ -77,8 +77,7 @@ public class CustomAboveView extends LinearLayout {
 			LinearLayout llRowContainer = rowView.findViewById(R.id.gridview_rowcontainer_ll);
 			final ImageView ivOpenFlag = rowView.findViewById(R.id.gridview_rowopenflag_iv);
 			LinearLayout llBtm = rowView.findViewById(R.id.gridview_rowbtm_ll);
-			final CustomGridView gridViewNoScroll = rowView.findViewById(R.id.gridview_child_gridview);
-			gridViewNoScroll.setParentView(llBtm);
+
 			LayoutParams itemParam = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			itemParam.weight = 1.0f;
 			ItemViewClickListener itemClickLitener = new ItemViewClickListener(llBtm, ivOpenFlag, new ItemViewClickInterface() {
@@ -110,8 +109,8 @@ public class CustomAboveView extends LinearLayout {
 					itemView.setVisibility(View.INVISIBLE);
 				}else{
 					final DragIconInfo iconInfo = mIconInfoList.get(itemInfoIndex);
-					ivIcon.setImageResource(iconInfo.getResIconId());
-					tvName.setText(iconInfo.getName());
+					ivIcon.setImageResource(iconInfo.resIconId);
+					tvName.setText(iconInfo.name);
 					itemView.setId(itemInfoIndex);
 					itemView.setTag(itemInfoIndex);
 
@@ -120,7 +119,7 @@ public class CustomAboveView extends LinearLayout {
 
 						@Override
 						public boolean onLongClick(View v) {
-							if(iconInfo.getId()!= MORE){
+							if(iconInfo.id != 1){
 								int position = (Integer) v.getTag();
 								mCustomGroup.setEditModel(true, position);
 							}

@@ -32,15 +32,4 @@
             android:textSize="15sp" />
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/delet_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@id/edit_ll"
-        android:layout_alignTop="@id/edit_ll"
-        android:background="@drawable/default_btn_selector"
-        android:padding="8dp"
-        android:scaleType="centerInside"
-        android:src="@mipmap/edit_flag" />
-
 </RelativeLayout>

@@ -25,7 +25,7 @@ public class CustomBehindParent extends RelativeLayout {
 		mCustomBehindEditView.setHorizontalSpacing(1);
 		mCustomBehindEditView.setVerticalSpacing(1);
 		mCustomBehindEditView.setSelector(new ColorDrawable(Color.TRANSPARENT));
-		mCustomBehindEditView.setBackgroundColor(mContext.getResources().getColor(R.color.gap_line));
+		mCustomBehindEditView.setBackgroundColor(Color.WHITE);
 		LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		addView(mCustomBehindEditView, lp);
 		mCustomBehindEditView.setDeletAnimView(this);

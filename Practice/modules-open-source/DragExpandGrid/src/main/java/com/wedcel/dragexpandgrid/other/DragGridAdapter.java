@@ -72,29 +72,19 @@ public class DragGridAdapter extends BaseAdapter{
 			viewHold.llContainer = convertView.findViewById(R.id.edit_ll);
 			viewHold.ivIcon = convertView.findViewById(R.id.icon_iv);
 			viewHold.tvName = convertView.findViewById(R.id.name_tv);
-			viewHold.ivDelet = (ImageButton) convertView.findViewById(R.id.delet_iv);
 			convertView.setTag(viewHold);
 		} else {
 			viewHold = (ViewHold) convertView.getTag();
 		}
 		final DragIconInfo iconInfo = mIconInfoList.get(position);
-		viewHold.ivIcon.setImageResource(iconInfo.getResIconId());
-		viewHold.tvName.setText(iconInfo.getName());
-		viewHold.ivDelet.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				modifyPosition = INVALID_POSIT;
-				mCustomBehindView.deletInfo(position,iconInfo);
-			}
-		});
-		if(modifyPosition==position){
-			viewHold.llContainer.setBackgroundColor(mContext.getResources().getColor(R.color.item_bg));
-			viewHold.ivDelet.setVisibility(View.VISIBLE);
-		}else{
-			viewHold.llContainer.setBackgroundColor(Color.WHITE);
-			viewHold.ivDelet.setVisibility(View.GONE);
-		}
+		viewHold.ivIcon.setImageResource(iconInfo.resIconId);
+		viewHold.tvName.setText(iconInfo.name);
+//		if(modifyPosition==position){
+//			viewHold.llContainer.setBackgroundColor(mContext.getResources().getColor(R.color.item_bg));
+//		}else{
+//			viewHold.llContainer.setBackgroundColor(Color.WHITE);
+//		}
+        viewHold.llContainer.setBackgroundColor(Color.WHITE);
 		convertView.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -113,17 +103,6 @@ public class DragGridAdapter extends BaseAdapter{
 		return convertView;
 	}
 
-	/**
-	 *
-	 * 方法: reorderItems <p>
-	 * 描述: TODO <p>
-	 * 参数: @param oldPosition
-	 * 参数: @param newPosition <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午5:02:53
-	 */
 	public void reorderItems(int oldPosition, int newPosition) {
 		DragIconInfo temp = mIconInfoList.get(oldPosition);
 		if (oldPosition < newPosition) {
@@ -160,7 +139,7 @@ public class DragGridAdapter extends BaseAdapter{
 
 	class ViewHold {
 		public LinearLayout llContainer;
-		public ImageView ivIcon,ivDelet;
+		public ImageView ivIcon;
 		public TextView tvName;
 	}
 
