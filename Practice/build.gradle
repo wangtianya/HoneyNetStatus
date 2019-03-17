@@ -90,6 +90,7 @@ dependencies {
 
     implementation project(":practice-module-learnings")
     implementation project(":practice-module-learnings-lib")
+    implementation project(":practice-module-DragExpandGrid")
 
     //    annotationProcessor project(":processor-auto")
     //    implementation project(':processor-auto')

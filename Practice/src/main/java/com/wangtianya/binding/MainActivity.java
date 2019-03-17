@@ -3,6 +3,7 @@ package com.wangtianya.binding;
 import android.os.Bundle;
 
 import com.wangtianya.learn.common.ItemActivity;
+import com.wedcel.dragexpandgrid.DragGridTestFragment;
 
 import cn.wangtianya.learn.communication.CommunicationFragment;
 import cn.wangtianya.learn.other.temp.utag.UniverseTagFragment;
@@ -34,7 +35,10 @@ public class MainActivity extends ItemActivity {
         addFragmentItem("OpenApi", OpenApiFragment.class);
         addFragmentItem("Temp Test", TempTestFragment.class);
 
-        addFragmentItem("Universe Tag", UniverseTagFragment.class);
+
+        addDiliver();
+
+        addFragmentItem("DragGridTestFragment", DragGridTestFragment.class);
 
     }
 }
