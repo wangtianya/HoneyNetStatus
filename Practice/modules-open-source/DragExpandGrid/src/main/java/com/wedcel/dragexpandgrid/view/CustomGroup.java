@@ -27,7 +27,7 @@ public class CustomGroup extends ViewGroup {
     /**
      * 显示的带more的list
      */
-    private ArrayList<DragIconInfo> homePageInfoList = new ArrayList<DragIconInfo>();
+    private ArrayList<DragIconInfo> homePageInfoList = new ArrayList<>();
     private InfoEditModelListener editModelListener;
 
     public interface InfoEditModelListener {
@@ -179,13 +179,6 @@ public class CustomGroup extends ViewGroup {
         mCustomBehindParent.childDispatchTouchEvent(ev);
     }
 
-    private ArrayList<DragIconInfo> getMoreInfoList(ArrayList<DragIconInfo> allInfoList,
-                                                    ArrayList<DragIconInfo> homePageInfoList) {
-        ArrayList<DragIconInfo> moreInfoList = new ArrayList<DragIconInfo>();
-        moreInfoList.addAll(allInfoList);
-        moreInfoList.removeAll(homePageInfoList);
-        return moreInfoList;
-    }
 
     public void dispatchSingle(DragIconInfo dragInfo) {
         if (dragInfo == null) {
