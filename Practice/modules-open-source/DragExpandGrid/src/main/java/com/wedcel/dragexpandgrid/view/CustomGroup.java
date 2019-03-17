@@ -11,18 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import cn.wangtianya.practice.lib.draggrid.R;
-import com.wedcel.dragexpandgrid.model.DargChildInfo;
 import com.wedcel.dragexpandgrid.model.DragIconInfo;
 
 import java.util.ArrayList;
 
-/**
- *
- * 类: CustomGroup <p>
- * 描述: TODO <p>
- * 作者: wedcel wedcel@gmail.com<p>
- * 时间: 2015年8月25日 下午6:54:26 <p>
- */
 public class CustomGroup extends ViewGroup {
 
 	private CustomAboveView mCustomAboveView;
@@ -30,13 +22,9 @@ public class CustomGroup extends ViewGroup {
 	private boolean isEditModel = false;
 	public static final int COLUMNUM = 3;
 	private Context mContext;
-	//所有以的list
-	private ArrayList<DragIconInfo> allInfoList = new ArrayList<DragIconInfo>();
+	private ArrayList<DragIconInfo> allInfoList = new ArrayList<>();
 	/**显示的带more的list*/
 	private ArrayList<DragIconInfo> homePageInfoList = new ArrayList<DragIconInfo>();
-	/**可展开的list*/
-	private ArrayList<DragIconInfo> expandInfoList = new ArrayList<DragIconInfo>();
-
 	/**不可展开的list*/
 	private ArrayList<DragIconInfo> onlyInfoList = new ArrayList<DragIconInfo>();
 
@@ -45,25 +33,16 @@ public class CustomGroup extends ViewGroup {
 
 
 	public interface InfoEditModelListener {
-		public void onModleChanged(boolean isEditModel);
+		void onModleChanged(boolean isEditModel);
 	}
 
-	/**
-	 *
-	 * 标题: 构造器 <p>
-	 * 描述: TODO <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午5:29:30 <p>
-	 * @param context
-	 * @param attrs
-	 */
 	public CustomGroup(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		this.mContext = context;
-		LayoutParams upParams = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+		LayoutParams upParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		mCustomAboveView = new CustomAboveView(context, this);
 		addView(mCustomAboveView, upParams);
-		LayoutParams downParams = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+		LayoutParams downParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		mCustomBehindParent = new CustomBehindParent(mContext, this);
 		addView(mCustomBehindParent, downParams);
 		initData();
@@ -82,30 +61,13 @@ public class CustomGroup extends ViewGroup {
 		this.editModelListener = editModelListener;
 	}
 
-	/**
-	 *
-	 * 方法: initData <p>
-	 * 描述: 初始化监听和数据 <p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午5:29:40
-	 */
 	private void initData() {
 
 		setCustomViewClickListener(new CustomAboveView.CustomAboveViewClickListener() {
 
 			@Override
 			public void onSingleClicked(DragIconInfo iconInfo) {
-				// TODO Auto-generated method stub
 				dispatchSingle(iconInfo);
-			}
-
-			@Override
-			public void onChildClicked(DargChildInfo childInfo) {
-				// TODO Auto-generated method stub
-				dispatchChild((childInfo));
 			}
 		});
 
@@ -129,16 +91,6 @@ public class CustomGroup extends ViewGroup {
 
 	}
 
-	/**
-	 * 方法: onLayout <p>
-	 * 描述: TODO<p>
-	 * @param changed
-	 * @param l
-	 * @param t
-	 * @param r
-	 * @param b <p>
-	 * @see ViewGroup#onLayout(boolean, int, int, int, int) <p>
-	 */
 	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
 		if (isEditModel) {
@@ -150,16 +102,6 @@ public class CustomGroup extends ViewGroup {
 		}
 	}
 
-	/**
-	 *
-	 * 方法: initIconInfo <p>
-	 * 描述: 初始化数据 <p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午5:33:14
-	 */
 	private void initIconInfo() {
 
 
@@ -170,62 +112,19 @@ public class CustomGroup extends ViewGroup {
 		refreshIconInfo();
 	}
 
-	/**
-	 *
-	 * 方法: initAllOriginalInfo <p>
-	 * 描述: 初始化Icon info <p>
-	 * 参数: @return <p>
-	 * 返回: ArrayList<DragIconInfo> <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午5:33:48
-	 */
 	private ArrayList<DragIconInfo> initAllOriginalInfo() {
 		ArrayList<DragIconInfo> iconInfoList = new ArrayList<DragIconInfo>();
-		ArrayList<DargChildInfo> childList = initChildList();
-		iconInfoList.add(new DragIconInfo(1, "第一个单独", R.drawable.ic_launcher, DragIconInfo.CATEGORY_ONLY,
-                new ArrayList<DargChildInfo>()));
-		iconInfoList.add(new DragIconInfo(2, "第二个单独", R.drawable.ic_launcher, DragIconInfo.CATEGORY_ONLY, new ArrayList<DargChildInfo>()));
-		iconInfoList.add(new DragIconInfo(3, "第三个单独", R.drawable.ic_launcher, DragIconInfo.CATEGORY_ONLY, new ArrayList<DargChildInfo>()));
-		iconInfoList.add(new DragIconInfo(4, "第一个可展开", R.drawable.ic_launcher, DragIconInfo.CATEGORY_EXPAND, childList));
-		iconInfoList.add(new DragIconInfo(5, "第二个可展开", R.drawable.ic_launcher, DragIconInfo.CATEGORY_EXPAND, childList));
-		iconInfoList.add(new DragIconInfo(6, "第三个可展开", R.drawable.ic_launcher, DragIconInfo.CATEGORY_EXPAND, childList));
+		iconInfoList.add(new DragIconInfo(1, "第一个单独", R.drawable.ic_launcher, DragIconInfo.CATEGORY_ONLY));
+		iconInfoList.add(new DragIconInfo(3, "第三个单独", R.drawable.ic_launcher, DragIconInfo.CATEGORY_ONLY ));
+        iconInfoList.add(new DragIconInfo(2, "第二个单独", R.drawable.ic_launcher, DragIconInfo.CATEGORY_ONLY ));
+        iconInfoList.add(new DragIconInfo(4, "第一个可展开", R.drawable.ic_launcher, DragIconInfo.CATEGORY_EXPAND ));
+		iconInfoList.add(new DragIconInfo(5, "第二个可展开", R.drawable.ic_launcher, DragIconInfo.CATEGORY_EXPAND));
+		iconInfoList.add(new DragIconInfo(6, "第三个可展开", R.drawable.ic_launcher, DragIconInfo.CATEGORY_EXPAND ));
 
 		return iconInfoList;
 	}
 
 
-	/**
-	 *
-	 * 方法: initChildList <p>
-	 * 描述: 初始化child list <p>
-	 * 参数: @return <p>
-	 * 返回: ArrayList<DargChildInfo> <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午5:36:12
-	 */
-	private ArrayList<DargChildInfo> initChildList() {
-		ArrayList<DargChildInfo> childList = new ArrayList<DargChildInfo>();
-		childList.add(new DargChildInfo(1, "Item1"));
-		childList.add(new DargChildInfo(2, "Item2"));
-		childList.add(new DargChildInfo(3, "Item3"));
-		childList.add(new DargChildInfo(4, "Item4"));
-		childList.add(new DargChildInfo(5, "Item5"));
-		childList.add(new DargChildInfo(6, "Item6"));
-		childList.add(new DargChildInfo(7, "Item7"));
-		return childList;
-	}
-	/**
-	 *
-	 * 方法: getPageInfoList <p>
-	 * 描述: 初始化显示 <p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午5:37:33
-	 */
 	private void getPageInfoList() {
 		homePageInfoList.clear();
 		int count = 0;
@@ -239,37 +138,14 @@ public class CustomGroup extends ViewGroup {
 		}
 	}
 
-	/**
-	 *
-	 * 方法: refreshIconInfo <p>
-	 * 描述: 刷新信息 <p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午5:38:11
-	 */
 	private void refreshIconInfo() {
 		judeHomeInfoValid();
 
 		ArrayList<DragIconInfo> moreInfo = getMoreInfoList(allInfoList, homePageInfoList);
-		expandInfoList = getInfoByType(moreInfo, DragIconInfo.CATEGORY_EXPAND);
 		onlyInfoList = getInfoByType(moreInfo, DragIconInfo.CATEGORY_ONLY);
 		setIconInfoList(homePageInfoList);
 	}
 
-
-
-	/**
-	 *
-	 * 方法: judeHomeInfoValid <p>
-	 * 描述: 判断下显示里面是否包含更多 或者看下是否是最后一个 固定更多的位置 <p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午5:38:37
-	 */
 	private void judeHomeInfoValid() {
 		boolean hasMoreInfo = false;
 		int posit = 0;
@@ -283,8 +159,7 @@ public class CustomGroup extends ViewGroup {
 		}
 		if(!hasMoreInfo){
 			//没有更多 增加
-			homePageInfoList.add(new DragIconInfo(CustomAboveView.MORE, "更多", R.drawable.ic_launcher, 0,
-                    new ArrayList<>()));
+			homePageInfoList.add(new DragIconInfo(CustomAboveView.MORE, "更多", R.drawable.ic_launcher, 0));
 		}else{
 			if(posit!=homePageInfoList.size()-1){
 				//不是最后一个
@@ -294,21 +169,8 @@ public class CustomGroup extends ViewGroup {
 		}
 	}
 
-
-	/**
-	 *
-	 * 方法: getInfoByType <p>
-	 * 描述: TODO <p>
-	 * 参数: @param moreInfo
-	 * 参数: @param categorySpt
-	 * 参数: @return <p>
-	 * 返回: ArrayList<DragIconInfo> <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午6:50:25
-	 */
 	private ArrayList<DragIconInfo> getInfoByType(ArrayList<DragIconInfo> moreInfo, int categorySpt) {
-		ArrayList<DragIconInfo> typeList = new ArrayList<DragIconInfo>();
+		ArrayList<DragIconInfo> typeList = new ArrayList<>();
 		for (DragIconInfo info : moreInfo) {
 			if (info.getCategory() == categorySpt) {
 				typeList.add(info);
@@ -322,16 +184,6 @@ public class CustomGroup extends ViewGroup {
 		mCustomAboveView.setGridViewClickListener(gridViewClickListener);
 	}
 
-	/**
-	 *
-	 * 方法: setIconInfoList <p>
-	 * 描述: 设置信息 <p>
-	 * 参数: @param iconInfoList <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午6:45:55
-	 */
 	public void setIconInfoList(ArrayList<DragIconInfo> iconInfoList) {
 		mCustomAboveView.refreshIconInfoList(iconInfoList);
 		mCustomBehindParent.refreshIconInfoList(iconInfoList);
@@ -376,18 +228,7 @@ public class CustomGroup extends ViewGroup {
 		mCustomBehindParent.childDispatchTouchEvent(ev);
 	}
 
-	/**
-	 *
-	 * 方法: getMoreInfoList <p>
-	 * 描述: TODO <p>
-	 * 参数: @param allInfoList
-	 * 参数: @param homePageInfoList
-	 * 参数: @return <p>
-	 * 返回: ArrayList<DragIconInfo> <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午6:57:06
-	 */
+
 	private ArrayList<DragIconInfo> getMoreInfoList(ArrayList<DragIconInfo> allInfoList, ArrayList<DragIconInfo> homePageInfoList) {
 		ArrayList<DragIconInfo> moreInfoList = new ArrayList<DragIconInfo>();
 		moreInfoList.addAll(allInfoList);
@@ -396,17 +237,6 @@ public class CustomGroup extends ViewGroup {
 	}
 
 
-
-	/**
-	 *
-	 * 方法: deletHomePageInfo <p>
-	 * 描述: TODO <p>
-	 * 参数: @param dragIconInfo <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午6:56:19
-	 */
 	public void deletHomePageInfo(DragIconInfo dragIconInfo) {
 		homePageInfoList.remove(dragIconInfo);
 		mCustomAboveView.refreshIconInfoList(homePageInfoList);
@@ -415,9 +245,6 @@ public class CustomGroup extends ViewGroup {
 			case DragIconInfo.CATEGORY_ONLY:
 				onlyInfoList.add(dragIconInfo);
 				break;
-			case DragIconInfo.CATEGORY_EXPAND:
-				expandInfoList.add(dragIconInfo);
-				break;
 			default:
 				break;
 		}
@@ -425,38 +252,6 @@ public class CustomGroup extends ViewGroup {
 		allInfoList.add(dragIconInfo);
 	}
 
-
-
-
-	/**
-	 *
-	 * 方法: dispatchChild <p>
-	 * 描述: 点击child <p>
-	 * 参数: @param childInfo <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午5:30:58
-	 */
-	protected void dispatchChild(DargChildInfo childInfo) {
-		if (childInfo == null) {
-			return;
-		}
-		Toast.makeText(mContext, "点击了item"+childInfo.getName(), Toast.LENGTH_SHORT).show();
-
-	}
-
-
-	/**
-	 *
-	 * 方法: dispatchSingle <p>
-	 * 描述: 没child的点击 <p>
-	 * 参数: @param dragInfo <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午5:30:40
-	 */
 	public void dispatchSingle(DragIconInfo dragInfo) {
 		if (dragInfo == null) {
 			return;

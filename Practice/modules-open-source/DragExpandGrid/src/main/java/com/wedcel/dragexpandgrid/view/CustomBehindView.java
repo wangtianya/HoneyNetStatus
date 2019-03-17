@@ -30,13 +30,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- *
- * 类: CustomBehindView <p>
- * 描述: TODO <p>
- * 作者: wedcel wedcel@gmail.com<p>
- * 时间: 2015年8月25日 下午4:08:40 <p>
- */
 public class CustomBehindView extends GridView {
 	/*** DragGridView的item长按响应的时间， 默认是1000毫秒，也可以自行设置 **/
 	private long dragResponseMS = 100;
@@ -293,33 +286,12 @@ public class CustomBehindView extends GridView {
 		return super.onTouchEvent(ev);
 	}
 
-	/**
-	 *
-	 * 方法: cancleEditModel <p>
-	 * 描述: 是否修改了<p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午4:19:25
-	 */
+
 	public void cancleEditModel() {
 		removeDragImage();
 		mCustomGroup.setEditModel(false, 0);
 	}
 
-	/**、
-	 *
-	 * 方法: createDragImage <p>
-	 * 描述: TODO <p>
-	 * 参数: @param bitmap
-	 * 参数: @param downX  按下的点相对父控件的X坐标
-	 * 参数: @param downY  按下的点相对父控件的Y坐标<p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午4:19:39
-	 */
 	private void createDragImage(Bitmap bitmap, int downX, int downY) {
 		mWindowLayoutParams = new WindowManager.LayoutParams();
 		mWindowLayoutParams.format = 1;
@@ -336,34 +308,12 @@ public class CustomBehindView extends GridView {
 		mWindowManager.addView(mDragImageView, mWindowLayoutParams);
 	}
 
-	/**
-	 *
-	 * 方法: removeDragImage <p>
-	 * 描述:  从界面上面移除拖动镜像 <p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午4:19:52
-	 */
 	private void removeDragImage() {
 		if (mDragImageView != null) {
 			mWindowManager.removeView(mDragImageView);
 			mDragImageView = null;
 		}
 	}
-
-	/**
-	 *
-	 * 方法: onDragItem <p>
-	 * 描述:  拖动item，在里面实现了item镜像的位置更新，item的相互交换以及GridView的自行滚动 <p>
-	 * 参数: @param moveX
-	 * 参数: @param moveY <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午4:20:08
-	 */
 	private void onDragItem(int moveX, int moveY) {
 		mWindowLayoutParams.x = moveX - mPoint2ItemLeft + mOffset2Left;
 		mWindowLayoutParams.y = moveY - mPoint2ItemTop + mOffset2Top - mStatusHeight;
@@ -374,10 +324,7 @@ public class CustomBehindView extends GridView {
 		mHandler.post(mScrollRunnable);
 	}
 
-	/**
-	 * 当moveY的值大于向上滚动的边界值，触发GridView自动向上滚动 当moveY的值小于向下滚动的边界值，触发GridView自动向下滚动
-	 * 否则不进行滚动
-	 */
+
 	@SuppressLint("NewApi")
 	private Runnable mScrollRunnable = new Runnable() {
 
@@ -497,17 +444,6 @@ public class CustomBehindView extends GridView {
 		resultSet.start();
 	}
 
-	/**
-	 *
-	 * 方法: onStopDrag <p>
-	 * 描述: 停止拖拽我们将之前隐藏的item显示出来，并将镜像移除 <p>
-	 * 参数: @param dropx
-	 * 参数: @param dropy <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午4:20:35
-	 */
 	private void onStopDrag(int dropx, int dropy) {
 
 		View view = getChildAt(mDragPosition - getFirstVisiblePosition());
@@ -519,17 +455,7 @@ public class CustomBehindView extends GridView {
 		removeDragImage();
 	}
 
-	/**
-	 *
-	 * 方法: getStatusHeight <p>
-	 * 描述: 得到标题栏高度 <p>
-	 * 参数: @param context
-	 * 参数: @return <p>
-	 * 返回: int <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午4:20:46
-	 */
+
 	private  int getStatusHeight(Context context) {
 		int statusHeight = 0;
 		Rect localRect = new Rect();
@@ -549,16 +475,6 @@ public class CustomBehindView extends GridView {
 		return statusHeight;
 	}
 
-	/**
-	 *
-	 * 方法: refreshIconInfoList <p>
-	 * 描述: TODO <p>
-	 * 参数: @param iconInfoList <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午7:00:14
-	 */
 	public void refreshIconInfoList(ArrayList<DragIconInfo> iconInfoList) {
 		mIconInfoList.clear();
 		mIconInfoList.addAll(iconInfoList);
@@ -567,30 +483,10 @@ public class CustomBehindView extends GridView {
 		mDragAdapter.notifyDataSetChanged();
 	}
 
-	/**
-	 *
-	 * 方法: getEditList <p>
-	 * 描述: TODO <p>
-	 * 参数: @return <p>
-	 * 返回: ArrayList<DragIconInfo> <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午7:00:24
-	 */
 	public ArrayList<DragIconInfo> getEditList() {
 		return mIconInfoList;
 	}
 
-	/**
-	 *
-	 * 方法: notifyDataSetChange <p>
-	 * 描述: 刷新数据 <p>
-	 * 参数: @param iconInfoList <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午7:00:42
-	 */
 	public void notifyDataSetChange(ArrayList<DragIconInfo> iconInfoList) {
 		mIconInfoList.clear();
 		mIconInfoList.addAll(iconInfoList);
@@ -598,32 +494,13 @@ public class CustomBehindView extends GridView {
 		mDragAdapter.notifyDataSetChanged();
 	}
 
-	/**
-	 *
-	 * 方法: deletInfo <p>
-	 * 描述: 删除 <p>
-	 * 参数: @param position
-	 * 参数: @param iconInfo <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午6:56:47
-	 */
+
 	public void deletInfo(int position, DragIconInfo iconInfo) {
 		deletAnimation(position);
 		mCustomGroup.deletHomePageInfo(iconInfo);
 	}
 
-	/**
-	 *
-	 * 方法: deletAnimation <p>
-	 * 描述: 删除动画 <p>
-	 * 参数: @param position <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午4:21:37
-	 */
+
 	private void deletAnimation(final int position) {
 		final View view = getChildAt(position);
 		view.setDrawingCacheEnabled(true);
@@ -679,20 +556,7 @@ public class CustomBehindView extends GridView {
 	}
 
 
-	/**
-	 *
-	 * 方法: createTranslationAnim <p>
-	 * 描述: TODO <p>
-	 * 参数: @param position
-	 * 参数: @param aimPosit
-	 * 参数: @param view
-	 * 参数: @param animView
-	 * 参数: @return <p>
-	 * 返回: AnimatorSet <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午4:49:23
-	 */
+
 	private AnimatorSet createTranslationAnim(int position, int aimPosit, View view, ImageView animView) {
 		int startx = view.getLeft();
 		int starty = view.getTop();
@@ -716,60 +580,20 @@ public class CustomBehindView extends GridView {
 
 	}
 
-	/**
-	 *
-	 * 方法: isModifyedOrder <p>
-	 * 描述: 是否修改 <p>
-	 * 参数: @return <p>
-	 * 返回: boolean <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午4:35:20
-	 */
 	public boolean isModifyedOrder() {
 		return mDragAdapter.isHasModifyedOrder();
 	}
 
-	/**
-	 *
-	 * 方法: cancleModifyedOrderState <p>
-	 * 描述: TODO <p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午4:35:10
-	 */
+
 	public void cancleModifyedOrderState() {
 		mDragAdapter.setHasModifyedOrder(false);
 	}
 
-	/**
-	 *
-	 * 方法: resetHidePosition <p>
-	 * 描述: TODO <p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午4:35:05
-	 */
+
 	public void resetHidePosition() {
 		mDragAdapter.setHideItem(-1);
 	}
 
-	/**
-	 *
-	 * 方法: isValideEvent <p>
-	 * 描述: 标记是否是在这个view里面的点击事件 防止事件冲突 <p>
-	 * 参数: @param ev
-	 * 参数: @param scrolly
-	 * 参数: @return <p>
-	 * 返回: boolean <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午4:34:01
-	 */
 	public boolean isValideEvent(MotionEvent ev, int scrolly) {
 		int left = ((View)(getParent().getParent())).getLeft();
 		int top = ((View)(getParent().getParent())).getTop();
@@ -787,16 +611,6 @@ public class CustomBehindView extends GridView {
 		}
 	}
 
-	/**
-	 *
-	 * 方法: clearDragView <p>
-	 * 描述: 清除拖动 <p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午4:28:13
-	 */
 	public void clearDragView() {
 		removeDragImage();
 	}

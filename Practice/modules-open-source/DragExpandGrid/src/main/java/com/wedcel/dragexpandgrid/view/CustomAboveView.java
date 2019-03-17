@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import cn.wangtianya.practice.lib.draggrid.R;
-import com.wedcel.dragexpandgrid.model.DargChildInfo;
 import com.wedcel.dragexpandgrid.model.DragIconInfo;
 
 import java.util.ArrayList;
@@ -49,19 +48,8 @@ public class CustomAboveView extends LinearLayout {
 		 * 作者: wedcel wedcel@gmail.com <p>
 		 * 时间: 2015年8月25日 下午5:30:13
 		 */
-		public void onSingleClicked(DragIconInfo iconInfo);
+        void onSingleClicked(DragIconInfo iconInfo);
 
-		/**
-		 *
-		 * 方法: onChildClicked <p>
-		 * 描述: TODO <p>
-		 * 参数: @param childInfo <p>
-		 * 返回: void <p>
-		 * 异常  <p>
-		 * 作者: wedcel wedcel@gmail.com <p>
-		 * 时间: 2015年8月25日 下午5:30:10
-		 */
-		public void onChildClicked(DargChildInfo childInfo);
 	}
 
 
@@ -70,7 +58,6 @@ public class CustomAboveView extends LinearLayout {
 		this.mContext = context;
 		this.mCustomGroup = customGoup;
 		setOrientation(LinearLayout.VERTICAL);
-		initData();
 	}
 
 	public CustomAboveViewClickListener getGridViewClickListener() {
@@ -79,29 +66,6 @@ public class CustomAboveView extends LinearLayout {
 
 	public void setGridViewClickListener(CustomAboveViewClickListener gridViewClickListener) {
 		this.gridViewClickListener = gridViewClickListener;
-	}
-
-	/**
-	 *
-	 * 方法: initData <p>
-	 * 描述: TODO <p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午7:02:12
-	 */
-	private void initData() {
-		mChildClickListener = new CustomGridView.CustomChildClickListener() {
-
-			@Override
-			public void onChildClicked(DargChildInfo chilidInfo) {
-				// TODO Auto-generated method stub
-				if (gridViewClickListener != null) {
-					gridViewClickListener.onChildClicked(chilidInfo);
-				}
-			}
-		};
 	}
 
 	/**
@@ -153,18 +117,15 @@ public class CustomAboveView extends LinearLayout {
 		removeAllViews();
 		int rowNum = mIconInfoList.size() / CustomGroup.COLUMNUM + (mIconInfoList.size() % CustomGroup.COLUMNUM > 0 ? 1 : 0);
 		LayoutParams rowParam = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		LayoutParams verticalParams = new LayoutParams(verticalViewWidth, LayoutParams.FILL_PARENT);
-		LayoutParams horizontalParams = new LayoutParams(LayoutParams.FILL_PARENT, verticalViewWidth);
+		LayoutParams verticalParams = new LayoutParams(verticalViewWidth, LayoutParams.MATCH_PARENT);
+		LayoutParams horizontalParams = new LayoutParams(LayoutParams.MATCH_PARENT, verticalViewWidth);
 		for (int rowIndex = 0; rowIndex < rowNum; rowIndex++) {
 			final View rowView = View.inflate(mContext, R.layout.gridview_above_rowview, null);
 
-			LinearLayout llRowContainer = (LinearLayout) rowView.findViewById(R.id.gridview_rowcontainer_ll);
-			final ImageView ivOpenFlag = (ImageView) rowView.findViewById(R.id.gridview_rowopenflag_iv);
-			LinearLayout llBtm = (LinearLayout) rowView.findViewById(R.id.gridview_rowbtm_ll);
-			final CustomGridView gridViewNoScroll = (CustomGridView) rowView.findViewById(R.id.gridview_child_gridview);
-			if(mChildClickListener!=null){
-				gridViewNoScroll.setChildClickListener(mChildClickListener);
-			}
+			LinearLayout llRowContainer = rowView.findViewById(R.id.gridview_rowcontainer_ll);
+			final ImageView ivOpenFlag = rowView.findViewById(R.id.gridview_rowopenflag_iv);
+			LinearLayout llBtm = rowView.findViewById(R.id.gridview_rowbtm_ll);
+			final CustomGridView gridViewNoScroll = rowView.findViewById(R.id.gridview_child_gridview);
 			gridViewNoScroll.setParentView(llBtm);
 			LayoutParams itemParam = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			itemParam.weight = 1.0f;
@@ -179,28 +140,19 @@ public class CustomAboveView extends LinearLayout {
 					}
 					mItemViewClickListener = listener;
 					DragIconInfo iconInfo = mIconInfoList.get(position);
-					ArrayList<DargChildInfo> childList = iconInfo.getChildList();
-					if (childList.size() > 0) {
-						gridViewNoScroll.refreshDataSet(childList);
-					} else {
-						setViewCollaps();
-						isInterupt = true;
-						if (gridViewClickListener != null) {
-							gridViewClickListener.onSingleClicked(iconInfo);
-						}
-					}
+                    setViewCollaps();
+                    isInterupt = true;
+                    if (gridViewClickListener != null) {
+                        gridViewClickListener.onSingleClicked(iconInfo);
+                    }
 					return isInterupt;
 				}
 
-				@Override
-				public void viewUpdateData(int position) {
-					gridViewNoScroll.notifyDataSetChange(true);
-				}
 			});
 			for (int columnIndex = 0; columnIndex < CustomGroup.COLUMNUM; columnIndex++) {
 				View itemView = View.inflate(mContext, R.layout.gridview_above_itemview, null);
-				ImageView ivIcon = (ImageView) itemView.findViewById(R.id.icon_iv);
-				TextView tvName = (TextView) itemView.findViewById(R.id.name_tv);
+				ImageView ivIcon = itemView.findViewById(R.id.icon_iv);
+				TextView tvName = itemView.findViewById(R.id.name_tv);
 				int itemInfoIndex = rowIndex * CustomGroup.COLUMNUM + columnIndex;
 				if (itemInfoIndex > mIconInfoList.size()-1) {
 					itemView.setVisibility(View.INVISIBLE);
@@ -278,12 +230,9 @@ public class CustomAboveView extends LinearLayout {
 
 
 
-	private CustomGridView.CustomChildClickListener mChildClickListener;
 
 	public interface ItemViewClickInterface {
-		public boolean shoudInteruptViewAnimtion(ItemViewClickListener animUtil, int position);
-
-		public void viewUpdateData(int position);
+		boolean shoudInteruptViewAnimtion(ItemViewClickListener animUtil, int position);
 	}
 
 	public class ItemViewClickListener implements OnClickListener {
@@ -336,11 +285,6 @@ public class CustomAboveView extends LinearLayout {
 			if (isVisible) {
 				if (isTheSameView) {
 					animateCollapsing(mContentParent);
-				} else {
-					if (animationListener != null) {
-						animationListener.viewUpdateData(viewId);//同一行需要更新数据
-
-					}
 				}
 			} else {
 				if (isTheSameView) {
@@ -364,38 +308,10 @@ public class CustomAboveView extends LinearLayout {
 		}
 
 
-
-		/**
-		 *
-		 * 方法: xAxismoveAnim <p>
-		 * 描述: x轴移动 <p>
-		 * 参数: @param v
-		 * 参数: @param startX
-		 * 参数: @param toX <p>
-		 * 返回: void <p>
-		 * 异常  <p>
-		 * 作者: wedcel wedcel@gmail.com <p>
-		 * 时间: 2015年8月25日 下午7:03:35
-		 */
 		public void xAxismoveAnim(View v, int startX, int toX) {
 			moveAnim(v, startX, toX, 0, 0, 200);
 		}
 
-		/**
-		 *
-		 * 方法: moveAnim <p>
-		 * 描述: 移动动画 <p>
-		 * 参数: @param v
-		 * 参数: @param startX
-		 * 参数: @param toX
-		 * 参数: @param startY
-		 * 参数: @param toY
-		 * 参数: @param during <p>
-		 * 返回: void <p>
-		 * 异常  <p>
-		 * 作者: wedcel wedcel@gmail.com <p>
-		 * 时间: 2015年8月25日 下午7:03:40
-		 */
 		private void moveAnim(View v, int startX, int toX, int startY, int toY, long during) {
 			TranslateAnimation anim = new TranslateAnimation(startX, toX, startY, toY);
 			anim.setDuration(during);
@@ -403,33 +319,13 @@ public class CustomAboveView extends LinearLayout {
 			v.startAnimation(anim);
 		}
 
-		/**
-		 *
-		 * 方法: closeExpandView <p>
-		 * 描述: 收缩 <p>
-		 * 参数:  <p>
-		 * 返回: void <p>
-		 * 异常  <p>
-		 * 作者: wedcel wedcel@gmail.com <p>
-		 * 时间: 2015年8月25日 下午7:03:49
-		 */
+
 		public void closeExpandView() {
 			boolean isVisible = mContentParent.getVisibility() == View.VISIBLE;
 			if (isVisible) {
 				animateCollapsing(mContentParent);
 			}
 		}
-
-		/**
-		 *
-		 * 方法: animateCollapsing <p>
-		 * 描述: 收缩动画 <p>
-		 * 参数: @param view <p>
-		 * 返回: void <p>
-		 * 异常  <p>
-		 * 作者: wedcel wedcel@gmail.com <p>
-		 * 时间: 2015年8月25日 下午7:04:01
-		 */
 		public void animateCollapsing(final View view) {
 			int origHeight = view.getHeight();
 
@@ -460,16 +356,7 @@ public class CustomAboveView extends LinearLayout {
 			animator.start();
 		}
 
-		/**
-		 *
-		 * 方法: animateExpanding <p>
-		 * 描述: 动画展开 <p>
-		 * 参数: @param view <p>
-		 * 返回: void <p>
-		 * 异常  <p>
-		 * 作者: wedcel wedcel@gmail.com <p>
-		 * 时间: 2015年8月25日 下午7:04:22
-		 */
+
 		public void animateExpanding(final View view) {
 			view.setVisibility(View.VISIBLE);
 			final int widthSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
@@ -479,19 +366,6 @@ public class CustomAboveView extends LinearLayout {
 			animator.start();
 		}
 
-		/**
-		 *
-		 * 方法: createHeightAnimator <p>
-		 * 描述: TODO <p>
-		 * 参数: @param view
-		 * 参数: @param start
-		 * 参数: @param end
-		 * 参数: @return <p>
-		 * 返回: ValueAnimator <p>
-		 * 异常  <p>
-		 * 作者: wedcel wedcel@gmail.com <p>
-		 * 时间: 2015年8月25日 下午7:04:29
-		 */
 		public ValueAnimator createHeightAnimator(final View view, int start, int end) {
 			ValueAnimator animator = ValueAnimator.ofInt(start, end);
 			animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {

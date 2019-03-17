@@ -19,14 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import cn.wangtianya.practice.lib.draggrid.R;
 
-
-/**
- *
- * 类: DragGridAdapter <p>
- * 描述: TODO <p>
- * 作者: wedcel wedcel@gmail.com<p>
- * 时间: 2015年8月25日 下午5:02:40 <p>
- */
 public class DragGridAdapter extends BaseAdapter{
 	private final int INVALID_POSIT = -100;
 	private int mHidePosition = INVALID_POSIT;
@@ -73,7 +65,7 @@ public class DragGridAdapter extends BaseAdapter{
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		ViewHold viewHold = null;
+		ViewHold viewHold;
 		if (convertView == null) {
 			viewHold = new ViewHold();
 			convertView = View.inflate(mContext, R.layout.gridview_behind_itemview, null);
@@ -148,16 +140,6 @@ public class DragGridAdapter extends BaseAdapter{
 		hasModifyedOrder = true;
 	}
 
-	/**
-	 *
-	 * 方法: setHideItem <p>
-	 * 描述:  拖动的时候会隐藏某个 <p>
-	 * 参数: @param hidePosition <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午5:03:05
-	 */
 	public void setHideItem(int hidePosition) {
 		this.mHidePosition = hidePosition;
 		notifyDataSetChanged();
@@ -182,16 +164,6 @@ public class DragGridAdapter extends BaseAdapter{
 		public TextView tvName;
 	}
 
-	/**
-	 *
-	 * 方法: resetModifyPosition <p>
-	 * 描述: TODO <p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午5:03:16
-	 */
 	public void resetModifyPosition() {
 		modifyPosition = INVALID_POSIT;
 	}
