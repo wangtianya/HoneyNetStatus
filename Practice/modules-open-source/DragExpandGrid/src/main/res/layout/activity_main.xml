@@ -1,10 +1,46 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="bottom"
+              android:orientation="vertical">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginLeft="25dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:includeFontPadding="false"
+                android:text="常用功能"
+                android:textSize="21dp"
+                android:textColor="#333"/>
+
+
+        <ImageView
+                android:layout_width="41dp"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_launcher"/>
+    </RelativeLayout>
 
     <com.wedcel.dragexpandgrid.view.CustomGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"/>
+            android:layout_centerVertical="true"
+            android:includeFontPadding="false"
+            android:text="按住拖动调整顺序"
+            android:gravity="center"
+            android:padding="20dp"
+            android:textSize="13dp"
+            android:textColor="#999"/>
 
-</RelativeLayout>
+</LinearLayout>
+
