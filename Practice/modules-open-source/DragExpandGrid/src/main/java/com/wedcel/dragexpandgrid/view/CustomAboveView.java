@@ -19,13 +19,6 @@ import com.wedcel.dragexpandgrid.model.DragIconInfo;
 
 import java.util.ArrayList;
 
-/**
- *
- * 类: CustomAboveView <p>
- * 描述: TODO <p>
- * 作者: wedcel wedcel@gmail.com<p>
- * 时间: 2015年8月25日 下午7:01:18 <p>
- */
 public class CustomAboveView extends LinearLayout {
 
 	private ArrayList<DragIconInfo> mIconInfoList = new ArrayList<DragIconInfo>();
@@ -38,16 +31,6 @@ public class CustomAboveView extends LinearLayout {
 	public static final int  MORE = 99999;
 
 	public interface CustomAboveViewClickListener {
-		/**
-		 *
-		 * 方法: onSingleClicked <p>
-		 * 描述: TODO <p>
-		 * 参数: @param iconInfo <p>
-		 * 返回: void <p>
-		 * 异常  <p>
-		 * 作者: wedcel wedcel@gmail.com <p>
-		 * 时间: 2015年8月25日 下午5:30:13
-		 */
         void onSingleClicked(DragIconInfo iconInfo);
 
 	}
@@ -68,32 +51,11 @@ public class CustomAboveView extends LinearLayout {
 		this.gridViewClickListener = gridViewClickListener;
 	}
 
-	/**
-	 *
-	 * 方法: refreshIconInfoList <p>
-	 * 描述: TODO <p>
-	 * 参数: @param iconInfoList <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午6:46:22
-	 */
 	public void refreshIconInfoList(ArrayList<DragIconInfo> iconInfoList) {
 		mIconInfoList.clear();
 		mIconInfoList.addAll(iconInfoList);
 		refreshViewUI();
 	}
-
-	/**
-	 *
-	 * 方法: getIconInfoList <p>
-	 * 描述: TODO <p>
-	 * 参数: @return <p>
-	 * 返回: ArrayList<DragIconInfo> <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午6:54:43
-	 */
 	public ArrayList<DragIconInfo> getIconInfoList() {
 		return mIconInfoList;
 	}
@@ -103,16 +65,6 @@ public class CustomAboveView extends LinearLayout {
 		this.mIconInfoList = mIconInfoList;
 	}
 
-	/**
-	 *
-	 * 方法: refreshViewUI <p>
-	 * 描述:  刷新UI<p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午7:02:17
-	 */
 	private void refreshViewUI() {
 		removeAllViews();
 		int rowNum = mIconInfoList.size() / CustomGroup.COLUMNUM + (mIconInfoList.size() % CustomGroup.COLUMNUM > 0 ? 1 : 0);
@@ -195,16 +147,7 @@ public class CustomAboveView extends LinearLayout {
 		}
 	}
 
-	/**
-	 *
-	 * 方法: setViewCollaps <p>
-	 * 描述: TODO <p>
-	 * 参数:  <p>
-	 * 返回: void <p>
-	 * 异常  <p>
-	 * 作者: wedcel wedcel@gmail.com <p>
-	 * 时间: 2015年8月25日 下午7:03:23
-	 */
+
 	public void setViewCollaps() {
 		if (mItemViewClickListener != null) {
 			mItemViewClickListener.closeExpandView();

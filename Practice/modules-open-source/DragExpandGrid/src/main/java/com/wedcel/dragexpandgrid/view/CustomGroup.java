@@ -117,9 +117,9 @@ public class CustomGroup extends ViewGroup {
 		iconInfoList.add(new DragIconInfo(1, "第一个单独", R.drawable.ic_launcher, DragIconInfo.CATEGORY_ONLY));
 		iconInfoList.add(new DragIconInfo(3, "第三个单独", R.drawable.ic_launcher, DragIconInfo.CATEGORY_ONLY ));
         iconInfoList.add(new DragIconInfo(2, "第二个单独", R.drawable.ic_launcher, DragIconInfo.CATEGORY_ONLY ));
-        iconInfoList.add(new DragIconInfo(4, "第一个可展开", R.drawable.ic_launcher, DragIconInfo.CATEGORY_EXPAND ));
-		iconInfoList.add(new DragIconInfo(5, "第二个可展开", R.drawable.ic_launcher, DragIconInfo.CATEGORY_EXPAND));
-		iconInfoList.add(new DragIconInfo(6, "第三个可展开", R.drawable.ic_launcher, DragIconInfo.CATEGORY_EXPAND ));
+        iconInfoList.add(new DragIconInfo(4, "第一个可展开", R.drawable.ic_launcher, DragIconInfo.CATEGORY_ONLY ));
+		iconInfoList.add(new DragIconInfo(5, "第二个可展开", R.drawable.ic_launcher, DragIconInfo.CATEGORY_ONLY));
+		iconInfoList.add(new DragIconInfo(6, "第三个可展开", R.drawable.ic_launcher, DragIconInfo.CATEGORY_ONLY ));
 
 		return iconInfoList;
 	}
