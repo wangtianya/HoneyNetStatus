@@ -3,4 +3,4 @@ rootProject.name = 'ya-android'
 
 apply from: "./dependency/sub_settings.gradle"
 apply from: "./QNet/sub_settings.gradle"
-apply from: "./Scaffold/sub_settings.gradle"
+apply from: "./Practice/sub_settings.gradle"

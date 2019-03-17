@@ -1,0 +1,13 @@
+def include_modules(name, prefix, fileStr) {
+    def module_name = ':' + prefix + '-' + name
+    include module_name
+    project(module_name).projectDir = new File(fileStr)
+}
+
+include 'Practice'
+include_modules('scaffold-lib', 'practice-module', 'Practice/modules/scaffold-lib')
+include_modules('learnings-lib', 'practice-module', 'Practice/modules/learnings-lib')
+include_modules('learnings', 'practice-module', 'Practice/modules/learnings')
+
+
+

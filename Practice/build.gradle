@@ -88,8 +88,8 @@ dependencies {
     implementation rootProject.ext.dependencies["foundation-architecture-base"]
 
 
-    implementation project(":scaffold-module-learnings")
-    implementation project(":scaffold-module-learnings-lib")
+    implementation project(":practice-module-learnings")
+    implementation project(":practice-module-learnings-lib")
 
     //    annotationProcessor project(":processor-auto")
     //    implementation project(':processor-auto')
