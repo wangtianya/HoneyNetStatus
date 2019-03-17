@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Handler;
@@ -25,9 +24,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import cn.wangtianya.practice.lib.draggrid.R;
-
-import com.wedcel.dragexpandgrid.model.DragIconInfo;
-import com.wedcel.dragexpandgrid.other.DragGridAdapter;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

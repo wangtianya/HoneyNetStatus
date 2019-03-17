@@ -12,8 +12,6 @@ import android.widget.Toast;
 
 import cn.wangtianya.practice.lib.draggrid.R;
 
-import com.wedcel.dragexpandgrid.model.DragIconInfo;
-
 import java.util.ArrayList;
 
 public class CustomGroup extends ViewGroup {
@@ -24,10 +22,6 @@ public class CustomGroup extends ViewGroup {
     public static final int COLUMNUM = 4;
     private Context mContext;
     private ArrayList<DragIconInfo> allInfoList = new ArrayList<>();
-    /**
-     * 显示的带more的list
-     */
-    private ArrayList<DragIconInfo> homePageInfoList = new ArrayList<>();
     private InfoEditModelListener editModelListener;
 
     public interface InfoEditModelListener {
@@ -43,16 +37,10 @@ public class CustomGroup extends ViewGroup {
         LayoutParams downParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         mCustomBehindParent = new CustomBehindParent(mContext, this);
         addView(mCustomBehindParent, downParams);
-        setCustomViewClickListener(new CustomAboveView.CustomAboveViewClickListener() {
-            @Override
-            public void onSingleClicked(DragIconInfo iconInfo) {
-                dispatchSingle(iconInfo);
-            }
-        });
 
-
-        setData(initAllOriginalInfo());
+        demo();
     }
+
 
     public CustomGroup(Context context) {
         this(context, null);
@@ -65,7 +53,6 @@ public class CustomGroup extends ViewGroup {
     public void setEditModelListener(InfoEditModelListener editModelListener) {
         this.editModelListener = editModelListener;
     }
-
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -95,52 +82,15 @@ public class CustomGroup extends ViewGroup {
         }
     }
 
-    public void setData(ArrayList<DragIconInfo> datas) {
-
-        allInfoList.clear();
-        allInfoList.addAll(datas);
-
-
-        getPageInfoList();
-        refreshIconInfo();
-    }
-
     private ArrayList<DragIconInfo> initAllOriginalInfo() {
         ArrayList<DragIconInfo> iconInfoList = new ArrayList<>();
-        iconInfoList.add(new DragIconInfo(1, "1", R.drawable.ic_launcher));
-        iconInfoList.add(new DragIconInfo(3, "2", R.drawable.ic_launcher));
-        iconInfoList.add(new DragIconInfo(2, "3", R.drawable.ic_launcher));
-        iconInfoList.add(new DragIconInfo(4, "4", R.drawable.ic_launcher));
-        iconInfoList.add(new DragIconInfo(5, "5", R.drawable.ic_launcher));
-        iconInfoList.add(new DragIconInfo(6, "6", R.drawable.ic_launcher));
+        iconInfoList.add(new DragIconInfo("1", R.drawable.ic_launcher));
+        iconInfoList.add(new DragIconInfo("2", R.drawable.ic_launcher));
+        iconInfoList.add(new DragIconInfo("3", R.drawable.ic_launcher));
+        iconInfoList.add(new DragIconInfo("4", R.drawable.ic_launcher));
+        iconInfoList.add(new DragIconInfo("5", R.drawable.ic_launcher));
+        iconInfoList.add(new DragIconInfo("6", R.drawable.ic_launcher));
         return iconInfoList;
-    }
-
-    private void getPageInfoList() {
-        homePageInfoList.clear();
-        int count = 0;
-        for (DragIconInfo info : allInfoList) {
-            if (count < 9) {
-                homePageInfoList.add(info);
-                count++;
-            } else {
-                break;
-            }
-        }
-    }
-
-    private void refreshIconInfo() {
-        setIconInfoList(homePageInfoList);
-    }
-
-
-    public void setCustomViewClickListener(CustomAboveView.CustomAboveViewClickListener gridViewClickListener) {
-        mCustomAboveView.setGridViewClickListener(gridViewClickListener);
-    }
-
-    public void setIconInfoList(ArrayList<DragIconInfo> iconInfoList) {
-        mCustomAboveView.refreshIconInfoList(iconInfoList);
-        mCustomBehindParent.refreshIconInfoList(iconInfoList);
     }
 
     public boolean isEditModel() {
@@ -160,9 +110,7 @@ public class CustomGroup extends ViewGroup {
             mCustomBehindParent.setVisibility(View.VISIBLE);
             mCustomBehindParent.drawWindowView(position, mCustomAboveView.getFirstEvent());
         } else {
-            homePageInfoList.clear();
-            homePageInfoList.addAll(mCustomBehindParent.getEditList());
-            mCustomAboveView.refreshIconInfoList(homePageInfoList);
+            mCustomAboveView.refreshIconInfoList(allInfoList);
             mCustomAboveView.setVisibility(View.VISIBLE);
             mCustomBehindParent.setVisibility(View.GONE);
             if (mCustomBehindParent.isModifyedOrder()) {
@@ -179,7 +127,6 @@ public class CustomGroup extends ViewGroup {
         mCustomBehindParent.childDispatchTouchEvent(ev);
     }
 
-
     public void dispatchSingle(DragIconInfo dragInfo) {
         if (dragInfo == null) {
             return;
@@ -194,6 +141,37 @@ public class CustomGroup extends ViewGroup {
 
     public void clearEditDragView() {
         mCustomBehindParent.clearDragView();
+    }
+
+
+
+    public void setData(ArrayList<DragIconInfo> datas) {
+        allInfoList.clear();
+        allInfoList.addAll(datas);
+        for (int i = 0; i < datas.size(); i++) {
+            datas.get(i).index = i;
+        }
+
+        mCustomAboveView.refreshIconInfoList(allInfoList);
+        mCustomBehindParent.refreshIconInfoList(allInfoList);
+    }
+
+    public void setItemClickListener(CustomAboveView.ItemClickListener gridViewClickListener) {
+        mCustomAboveView.setGridViewClickListener(gridViewClickListener);
+    }
+    public ArrayList<DragIconInfo> getCurrentDatas() {
+        return new ArrayList<>(allInfoList);
+    }
+
+
+    public void demo() {
+        setItemClickListener(new CustomAboveView.ItemClickListener() {
+            @Override
+            public void onSingleClicked(DragIconInfo iconInfo) {
+                dispatchSingle(iconInfo);
+            }
+        });
+        setData(initAllOriginalInfo());
     }
 
 }

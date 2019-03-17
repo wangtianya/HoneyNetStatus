@@ -6,10 +6,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 
-import cn.wangtianya.practice.lib.draggrid.R;
-
-import com.wedcel.dragexpandgrid.model.DragIconInfo;
-
 import java.util.ArrayList;
 
 public class CustomBehindParent extends RelativeLayout {
