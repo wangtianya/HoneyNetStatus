@@ -110,7 +110,9 @@ public class CustomGroup extends ViewGroup {
             mCustomBehindParent.setVisibility(View.VISIBLE);
             mCustomBehindParent.drawWindowView(position, mCustomAboveView.getFirstEvent());
         } else {
-            mCustomAboveView.refreshIconInfoList(allInfoList);
+            allInfoList.clear();
+            allInfoList.addAll(mCustomBehindParent.getEditList());
+            mCustomAboveView.refreshIconInfoList(mCustomBehindParent.getEditList());
             mCustomAboveView.setVisibility(View.VISIBLE);
             mCustomBehindParent.setVisibility(View.GONE);
             if (mCustomBehindParent.isModifyedOrder()) {
@@ -169,6 +171,13 @@ public class CustomGroup extends ViewGroup {
             @Override
             public void onSingleClicked(DragIconInfo iconInfo) {
                 dispatchSingle(iconInfo);
+            }
+        });
+
+        setEditModelListener(new InfoEditModelListener() {
+            @Override
+            public void onModleChanged(boolean isEditModel) {
+                Toast.makeText(getContext(), "aa", Toast.LENGTH_LONG).show();
             }
         });
         setData(initAllOriginalInfo());
