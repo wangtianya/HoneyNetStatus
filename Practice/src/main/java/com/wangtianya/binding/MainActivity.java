@@ -1,8 +1,13 @@
 package com.wangtianya.binding;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.qjuzi.architecure.base.context.ContextCache;
 import com.wangtianya.learn.common.ItemActivity;
+import com.wangtianya.learn.wiget.FragmentContainerActivity;
 import com.wedcel.dragexpandgrid.DragGridTestFragment;
 
 import cn.wangtianya.learn.communication.CommunicationFragment;
@@ -38,7 +43,13 @@ public class MainActivity extends ItemActivity {
 
         addDiliver();
 
+
         addFragmentItem("DragGridTestFragment", DragGridTestFragment.class);
+
+        Intent intent = new Intent(ContextCache.getContext(), FragmentContainerActivity.class);
+        intent.putExtra("className", DragGridTestFragment.class.getName());
+        intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
+        ContextCache.getContext().startActivity(intent);
 
     }
 }

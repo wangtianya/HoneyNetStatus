@@ -3,6 +3,8 @@
  */
 package com.wedcel.dragexpandgrid.view;
 
+import static com.qjuzi.architecure.base.context.ContextCache.getContext;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -10,6 +12,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
 import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -17,6 +20,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import cn.wangtianya.practice.lib.draggrid.R;
 
 public class DragGridAdapter extends BaseAdapter {
@@ -76,15 +80,18 @@ public class DragGridAdapter extends BaseAdapter {
         } else {
             viewHold = (ViewHold) convertView.getTag();
         }
+
         final DragIconInfo iconInfo = mIconInfoList.get(position);
-        viewHold.ivIcon.setImageResource(iconInfo.resIconId);
+        viewHold.ivIcon.setBackground(mContext.getDrawable(iconInfo.resIconId));
         viewHold.tvName.setText(iconInfo.name);
-        viewHold.tvNotice.setVisibility(position == 0 ? View.VISIBLE : View.GONE);
-        //		if(modifyPosition==position){
-        //			viewHold.llContainer.setBackgroundColor(mContext.getResources().getColor(R.color.item_bg));
-        //		}else{
-        //			viewHold.llContainer.setBackgroundColor(Color.WHITE);
-        //		}
+
+
+        if (position == 0 && mCustomBehindView.isEditModel()) {
+            viewHold.tvNotice.setVisibility(View.VISIBLE);
+        } else {
+            viewHold.tvNotice.setVisibility(View.GONE);
+        }
+
         viewHold.llContainer.setBackgroundColor(Color.WHITE);
         convertView.setOnClickListener(new OnClickListener() {
 

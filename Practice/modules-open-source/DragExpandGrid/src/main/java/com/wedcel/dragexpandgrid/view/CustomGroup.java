@@ -82,17 +82,6 @@ public class CustomGroup extends ViewGroup {
         }
     }
 
-    private ArrayList<DragIconInfo> initAllOriginalInfo() {
-        ArrayList<DragIconInfo> iconInfoList = new ArrayList<>();
-        iconInfoList.add(new DragIconInfo("1", R.drawable.ic_launcher));
-        iconInfoList.add(new DragIconInfo("2", R.drawable.ic_launcher));
-        iconInfoList.add(new DragIconInfo("3", R.drawable.ic_launcher));
-        iconInfoList.add(new DragIconInfo("4", R.drawable.ic_launcher));
-        iconInfoList.add(new DragIconInfo("5", R.drawable.ic_launcher));
-        iconInfoList.add(new DragIconInfo("6", R.drawable.ic_launcher));
-        return iconInfoList;
-    }
-
     public boolean isEditModel() {
         return isEditModel;
     }
@@ -104,7 +93,6 @@ public class CustomGroup extends ViewGroup {
     public void setEditModel(boolean isEditModel, int position) {
         this.isEditModel = isEditModel;
         if (isEditModel) {
-            mCustomAboveView.setViewCollaps();
             mCustomAboveView.setVisibility(View.GONE);
             mCustomBehindParent.notifyDataSetChange(mCustomAboveView.getIconInfoList());
             mCustomBehindParent.setVisibility(View.VISIBLE);
@@ -177,10 +165,25 @@ public class CustomGroup extends ViewGroup {
         setEditModelListener(new InfoEditModelListener() {
             @Override
             public void onModleChanged(boolean isEditModel) {
-                Toast.makeText(getContext(), "aa", Toast.LENGTH_LONG).show();
+                if (isEditModel) {
+
+                }
             }
         });
         setData(initAllOriginalInfo());
+    }
+
+
+    private ArrayList<DragIconInfo> initAllOriginalInfo() {
+        ArrayList<DragIconInfo> iconInfoList = new ArrayList<>();
+        iconInfoList.add(new DragIconInfo("图层", R.drawable.bmskin_main_icon_maplayer_new1));
+        iconInfoList.add(new DragIconInfo("路况", R.drawable.roadcondition_icon_on));
+        iconInfoList.add(new DragIconInfo("街景", R.drawable.bmskin_main_map_icon_streetscape_hide));
+        iconInfoList.add(new DragIconInfo("上报", R.drawable.icon_error_report));
+        iconInfoList.add(new DragIconInfo("用车", R.drawable.icon_aihome_ufunc_caruse));
+        iconInfoList.add(new DragIconInfo("组队", R.drawable.icon_aihome_ufunc_group));
+        iconInfoList.add(new DragIconInfo("实时公交", R.drawable.icon_aihome_ufunc_rtbus));
+        return iconInfoList;
     }
 
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="100dp">
     <LinearLayout
             android:id="@+id/edit_ll"
@@ -14,10 +14,8 @@
 
         <ImageView
                 android:id="@+id/icon_iv"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_launcher"/>
+                android:layout_width="26dp"
+                android:layout_height="23dp"/>
 
         <TextView
                 android:id="@+id/name_tv"
@@ -42,5 +40,6 @@
             android:layout_below="@id/edit_ll"
             android:text="不可调整顺序"
             android:textColor="#dc3f3f"
+            android:visibility="gone"
             android:textSize="9dp"/>
 </RelativeLayout>
