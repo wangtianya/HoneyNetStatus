@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Baidu, Inc. All Rights Reserved.
+ * Copyright (C) 2019 Godya. All Rights Reserved.
  */
 package com.wedcel.dragexpandgrid.view;
 
