@@ -76,11 +76,19 @@ public class MVVMFragment extends Fragment implements LifecycleOwner, LifecycleO
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        MVVMInjectUtil.notifyViewEvent(this, OnViewCreated.class);
+    }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        MVVMInjectUtil.notifyViewEvent(this, OnViewDestroyed.class);
     }
 
     @NonNull

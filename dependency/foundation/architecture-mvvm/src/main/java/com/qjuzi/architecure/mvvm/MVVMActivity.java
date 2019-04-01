@@ -32,8 +32,8 @@ public class MVVMActivity extends Activity implements LifecycleOwner, LifecycleO
         super.onCreate(savedInstanceState);
         MVVMInjectUtil.autoCreateBinding(this, this);
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
+        MVVMInjectUtil.notifyViewEvent(this, OnViewCreated.class); // Maybe here is not perfect.
     }
-
 
 
     @Override
@@ -54,14 +54,18 @@ public class MVVMActivity extends Activity implements LifecycleOwner, LifecycleO
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_PAUSE);
     }
 
+
+
     @Override
     public void onStop() {
         super.onStop();
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_STOP);
     }
 
+
     @Override
     public void onDestroy() {
+        MVVMInjectUtil.notifyViewEvent(this, OnViewDestroyed.class);
         super.onDestroy();
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY);
     }
