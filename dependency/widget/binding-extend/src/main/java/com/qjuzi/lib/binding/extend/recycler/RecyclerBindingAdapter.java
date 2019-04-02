@@ -191,7 +191,7 @@ public class RecyclerBindingAdapter<T extends BindingItemModel>
         int position = holder.getLayoutPosition();
         if (isHeaderViewPos(position) || isFooterViewPos(position)) {
             ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
-            if (lp != null && lp instanceof StaggeredGridLayoutManager.LayoutParams) {
+            if (lp instanceof StaggeredGridLayoutManager.LayoutParams) {
                 StaggeredGridLayoutManager.LayoutParams p = (StaggeredGridLayoutManager.LayoutParams) lp;
                 p.setFullSpan(true);
             }

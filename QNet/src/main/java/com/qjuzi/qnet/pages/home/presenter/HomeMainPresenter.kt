@@ -9,7 +9,7 @@ import com.qjuzi.qnet.R
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.qjuzi.qnet.common.broadcast.NetworkChangedListener
 import com.qjuzi.qnet.common.tools.thread.ThreadUtil
-import com.qjuzi.qnet.common.tools.util.ScreenManager
+import com.qjuzi.qnet.manager.StyleManager
 import com.qjuzi.qnet.pages.home.HomeActivity
 import com.qjuzi.qnet.pages.home.tools.HomeHelper
 import com.qjuzi.yaa.core.util.ScreenUtil
@@ -19,17 +19,14 @@ import com.tencent.bugly.crashreport.CrashReport
 
 class HomeMainPresenter : MVVMPresenter<HomeActivity>() {
 
-    // 需要被销毁的资源们
     private val currentTrafficStats: CurrentTrafficStats = CurrentTrafficStats.getInstance()
     private lateinit var networkChangedListener: NetworkChangedListener
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun initData() {
-
-        page.binding.model = page.model;
-
-        initStyle()
+        page.binding.model = page.model
+        StyleManager.getInstance().initStyle(page)
         initTopbar()
-        initSwipeRefreshLayout()
 
         ThreadUtil.runOnNotUI(Runnable { initNetListener() })
         ThreadUtil.runOnNotUI(Runnable { initUpDownData() })
@@ -43,34 +40,11 @@ class HomeMainPresenter : MVVMPresenter<HomeActivity>() {
         page.delayTaskPresenter.stopDelayDataUpdateTask()
     }
 
-
-    @Suppress("deprecation")
-    private fun initStyle() {
-        // 沉浸式，初始化StatusBar颜色
-        val statusBarColor = page.resources.getColor(R.color.colorPrimaryDark)
-        val navBarColor = Color.TRANSPARENT
-        ScreenManager.initScreenColor(page.window, statusBarColor, navBarColor)
-    }
-
     private fun initTopbar() {
         page.setActionBar(page.binding.toolbar)
     }
 
-    @Suppress("deprecation")
-    private fun initSwipeRefreshLayout() {
-        page.binding.swipeRefreshView.setProgressViewOffset(true, 0, ScreenUtil.dip2px(200))
-        page.binding.swipeRefreshView.setProgressBackgroundColor(android.R.color.white)
-        page.binding.swipeRefreshView
-                .setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary, R.color.colorPrimaryDark)
 
-        // 下拉时触发SwipeRefreshLayout的下拉动画，动画完毕之后就会回调这个方法
-        page.binding.swipeRefreshView.setOnRefreshListener {
-            page.binding.swipeRefreshView.postDelayed({
-                page.binding.swipeRefreshView.isRefreshing = false
-                CrashReport.testJavaCrash()
-            }, 1000)
-        }
-    }
 
 
     private fun initUpDownData() {

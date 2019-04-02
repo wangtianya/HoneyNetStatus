@@ -2,7 +2,7 @@ package com.qjuzi.qnet.pages.delay.presenter
 
 import android.graphics.Color
 import com.qjuzi.qnet.R
-import com.qjuzi.qnet.common.tools.util.ScreenManager
+import com.qjuzi.qnet.manager.StyleManager
 import com.qjuzi.qnet.pages.delay.model.DelayPageModel
 
 
@@ -11,19 +11,12 @@ class DelayMainPresenter(val model: DelayPageModel) {
     fun initData() {
         model.binding.model = model
 
-        initStyle()
+        StyleManager.getInstance().initStyle(model.context.activity)
 
         initItemListAndAdapter()
     }
 
 
-    @Suppress("deprecation")
-    private fun initStyle() {
-        // 沉浸式，初始化StatusBar颜色
-        val statusBarColor = model.context.resources.getColor(R.color.colorPrimaryDark)
-        val navBarColor = Color.TRANSPARENT
-        ScreenManager.initScreenColor(model.context.activity.window, statusBarColor, navBarColor)
-    }
 
     private fun initItemListAndAdapter() {
 

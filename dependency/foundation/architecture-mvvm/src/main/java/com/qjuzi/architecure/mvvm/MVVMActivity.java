@@ -11,6 +11,7 @@ import android.arch.lifecycle.LifecycleRegistry;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import kotlin.Suppress;
 
 public class MVVMActivity extends Activity implements LifecycleOwner, LifecycleObserver {
 

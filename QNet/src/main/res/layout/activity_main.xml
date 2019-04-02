@@ -10,24 +10,17 @@
             type="com.qjuzi.qnet.pages.home.model.HomeModel" />
     </data>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefreshView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.qjuzi.qnet.pages.home.HomeActivity">
-
-
-        <LinearLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
 
-            <com.qjuzi.qnet.common.widget.EmptyTopLayout
+        <com.qjuzi.qnet.common.widget.EmptyTopLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <Toolbar
+        <Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -38,12 +31,12 @@
                 android:titleMarginStart="10dp"
                 android:titleTextColor="@android:color/white">
 
-                <RelativeLayout
+            <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <TextView
+                <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
@@ -51,27 +44,26 @@
                         android:textColor="#fff"
                         android:textSize="18dp" />
 
-                    <ImageView
+                <ImageView
                         android:layout_width="21dp"
                         android:layout_height="21dp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/ic_settings" />
-                </RelativeLayout>
-            </Toolbar>
+            </RelativeLayout>
+        </Toolbar>
 
 
-            <include
+        <include
                 android:id="@+id/contentBlock"
                 layout="@layout/activity_main_content_block"
                 bind:model="@{model}" />
 
-            <android.support.v7.widget.RecyclerView
+        <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:items="@{model.gridList}" />
-        </LinearLayout>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
 </layout>
