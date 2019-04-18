@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import cn.wangtianya.learn.NormalListRefreshBinding;
-import cn.wangtianya.learn.TestBindingListViewBinding;
+;
 
 public class NomralListRefreshFragment extends Fragment {
 
