@@ -5,14 +5,10 @@ import android.databinding.ObservableField
 import android.databinding.ObservableInt
 import android.graphics.Color
 import android.view.View
-import cn.wangtianya.yaa.binding.core.AbsStore
 import com.qjuzi.architecure.mvvm.MVVMModel
 import com.qjuzi.lib.binding.extend.common.BindingItemModel
 import com.qjuzi.qnet.R
-import com.qjuzi.qnet.databinding.ActivityMainBinding
 import com.qjuzi.qnet.pages.home.HomeActivity
-import com.qjuzi.qnet.pages.home.presenter.DelayTaskPresenter
-import com.qjuzi.qnet.pages.home.presenter.HomeMainPresenter
 import com.qjuzi.yaa.BR
 
 

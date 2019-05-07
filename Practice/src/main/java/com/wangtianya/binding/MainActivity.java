@@ -21,11 +21,9 @@ import cn.wangtianya.learn.四大组件.FourBasicComponentMainFragment;
 
 public class MainActivity extends ItemActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         addFragmentItem("四大组件", FourBasicComponentMainFragment.class);
         addFragmentItem("UI基础", UILearnFragment.class);
@@ -40,16 +38,17 @@ public class MainActivity extends ItemActivity {
         addFragmentItem("OpenApi", OpenApiFragment.class);
         addFragmentItem("Temp Test", TempTestFragment.class);
 
-
         addDiliver();
-
 
         addFragmentItem("DragGridTestFragment", DragGridTestFragment.class);
 
+        //        directStart();
+    }
+
+    private void directStart() {
         Intent intent = new Intent(ContextCache.getContext(), FragmentContainerActivity.class);
         intent.putExtra("className", DragGridTestFragment.class.getName());
         intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
         ContextCache.getContext().startActivity(intent);
-
     }
 }
