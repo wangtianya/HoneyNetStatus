@@ -15,7 +15,7 @@ import android.view.WindowManager;
 public class StyleManager {
 
     private static class Holder {
-        private static StyleManager Instance;
+        private static StyleManager Instance = new StyleManager();
     }
 
     public static StyleManager getInstance() {
