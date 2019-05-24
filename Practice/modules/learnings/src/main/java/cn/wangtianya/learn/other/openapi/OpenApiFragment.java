@@ -24,5 +24,14 @@ public class OpenApiFragment extends ItemFragment {
 
         addOpenApi("QRCode", "baidumap://map/place/search?query=世界之窗&region=深圳市&location=22.54074603311,113.97939921156&radius=1000&bounds=22.532400731737,113.97041615646,22.549090824185,113.98838226666");
 
+        addOpenApi("希尔顿5000", "baidumap://map/place/search?query=希尔顿&location=4846323,"
+                + "12947466&bounds=&radius=5000&coord_type=bd09mc&src=webapp-aladdin.poi-general-hotel"
+                + ".title&bdlog={\"baiduid\":\"94FDFF12056B059CAA6F99631BA2962D\"}&open_from=baiduapp");
+
+
+        addOpenApi("希尔顿50000", "baidumap://map/place/search?query=希尔顿&location=4846323,"
+                + "12947466&bounds=&radius=50000&coord_type=bd09mc&src=webapp-aladdin.poi-general-hotel"
+                + ".title&bdlog={\"baiduid\":\"94FDFF12056B059CAA6F99631BA2962D\"}&open_from=baiduapp");
+
     }
 }

@@ -1,9 +1,9 @@
-package cn.wangtianya.scaffold
+package com.wangtianya.practice
 
 import android.app.Application
 import com.qjuzi.architecure.base.context.ContextCache
 
-class ScaffoldApplication : Application() {
+class PracticeApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()

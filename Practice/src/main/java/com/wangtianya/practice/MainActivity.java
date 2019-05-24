@@ -1,4 +1,4 @@
-package com.wangtianya.binding;
+package com.wangtianya.practice;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
@@ -25,30 +25,17 @@ public class MainActivity extends ItemActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addFragmentItem("四大组件", FourBasicComponentMainFragment.class);
-        addFragmentItem("UI基础", UILearnFragment.class);
-        addFragmentItem("Widget", WidgetLearnFragment.class);
 
-        addDiliver();
-        addFragmentItem("系统基础", SysBaseLearnFragment.class);
-        addFragmentItem("通信网络", CommunicationFragment.class);
-
-        addDiliver();
-
-        addFragmentItem("OpenApi", OpenApiFragment.class);
-        addFragmentItem("Temp Test", TempTestFragment.class);
-
-        addDiliver();
-
-        addFragmentItem("DragGridTestFragment", DragGridTestFragment.class);
-
-        //        directStart();
+        startBaiduWork();
     }
 
-    private void directStart() {
-        Intent intent = new Intent(ContextCache.getContext(), FragmentContainerActivity.class);
-        intent.putExtra("className", DragGridTestFragment.class.getName());
-        intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
+    private void startBaiduWork() {
+        Intent intent = new Intent(ContextCache.getContext(), BaiduWorkActivity.class);
+        ContextCache.getContext().startActivity(intent);
+    }
+
+    private void startPractice() {
+        Intent intent = new Intent(ContextCache.getContext(), BaiduWorkActivity.class);
         ContextCache.getContext().startActivity(intent);
     }
 }

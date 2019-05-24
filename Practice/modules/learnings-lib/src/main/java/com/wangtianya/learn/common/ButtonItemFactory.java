@@ -28,6 +28,7 @@ public class ButtonItemFactory {
 
     public static Button newActivityPageItem(String tittle, final Class<? extends Activity> clazz) {
         Button button = new Button(ContextCache.getContext());
+        button.setAllCaps(false);
         button.setText(tittle);
         button.setLines(1);
         button.setLayoutParams(new ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT));
@@ -38,6 +39,7 @@ public class ButtonItemFactory {
 
     public static Button newFragmentPageItem(String tittle, final Class<? extends Fragment> clazz) {
         Button button = new Button(ContextCache.getContext());
+        button.setAllCaps(false);
         button.setText(tittle);
         button.setLayoutParams(new ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT));
         button.setEllipsize(TextUtils.TruncateAt.MIDDLE);
@@ -55,6 +57,7 @@ public class ButtonItemFactory {
 
     public static  Button newClickItem(String tittle, View.OnClickListener onClickListener) {
         Button button = new Button(ContextCache.getContext());
+        button.setAllCaps(false);
         button.setText(tittle);
         button.setLayoutParams(new ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT));
         button.setEllipsize(TextUtils.TruncateAt.MIDDLE);

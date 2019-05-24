@@ -15,6 +15,6 @@ public class TempTestFragment extends ItemFragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        addFragmentItem("Universe Tag", UniverseTagFragment.class);
+
     }
 }
