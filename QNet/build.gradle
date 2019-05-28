@@ -68,9 +68,6 @@ android {
 //    channelFile = new File("${project.getProjectDir()}/channel")
 //}
 
-kapt {
-    generateStubs = true
-}
 
 
 dependencies {
