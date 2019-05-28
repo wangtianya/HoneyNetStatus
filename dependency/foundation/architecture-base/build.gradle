@@ -7,42 +7,9 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
-
-    compileOptions {
-        sourceCompatibility rootProject.ext.javaVersion
-        targetCompatibility rootProject.ext.javaVersion
-    }
-
-    dataBinding {
-        enabled true
-    }
-
-    defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-
-        versionCode 1
-        versionName "1.0"
-    }
-    buildTypes {
-        release {
-            buildConfigField("boolean", "isDebug", "false")
-            minifyEnabled rootProject.ext.minifyEnabled
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        debug{
-            buildConfigField("boolean", "isDebug", "true")
-            minifyEnabled rootProject.ext.minifyEnabled
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation rootProject.ext.dependencies["kotlin-stdlib"]
-//    implementation 'javax.xml.bind:jaxb-api:2.3.1'
-//    implementation 'javax.xml.bind:jaxb-core:2.3.1'
-//    implementation 'javax.xml.bind:jaxb-impl:2.3.1'
 }
 
