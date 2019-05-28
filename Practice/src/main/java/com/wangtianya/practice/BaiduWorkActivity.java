@@ -20,6 +20,8 @@ public class BaiduWorkActivity extends ItemActivity {
         addFragmentItem("DragGridTestFragment", DragGridTestFragment.class);
         addFragmentItem("Temp Test", TempTestFragment.class);
 
+        addOpenApi("希尔顿 location",
+                "baidumap://map/place/search?query=希尔顿&location=4846323,12947466&coord_type=bd09mc\n");
 
         addOpenApi("希尔顿no 5000", "baidumap://map/place/search?query=希尔顿&location=4846323,"
                 + "12947466&coord_type=bd09mc&src=webapp-aladdin.poi-general-hotel"
