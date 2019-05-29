@@ -19,30 +19,30 @@ import com.qjuzi.yaa.core.activity.YaaFragment
 @SuppressLint("MissingSuperCall")
 class DelayPage : YaaFragment() {
 
-    var model : DelayPageModel? = null
+    lateinit var model : DelayPageModel
+    lateinit var binding: PageDelayBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var binding : PageDelayBinding = DataBindingUtil.inflate(LayoutInflater.from(activity), R.layout.page_delay, null, false)
+        binding = DataBindingUtil.inflate(LayoutInflater.from(activity), R.layout.page_delay, null, false)
         model = DelayPageModel(this, binding)
-
-        model!!.mainPresenter.initData()
+        model.mainPresenter.initData()
     }
 
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return model!!.binding.root
+        return model.binding.root
     }
 
     override fun onResume() {
         super.onResume()
-        ThreadUtil.runOnUI{model?.itemPingPresenter?.startAllPing()}
+        ThreadUtil.runOnUI{ model.itemPingPresenter.startAllPing() }
     }
 
     override fun onPause() {
         super.onPause()
-        ThreadUtil.runOnUI{model?.itemPingPresenter?.stopAllPing()}
+        ThreadUtil.runOnUI{ model.itemPingPresenter.stopAllPing() }
     }
 
 }

@@ -6,6 +6,7 @@ apply plugin: 'kotlin-platform-android'
 apply plugin: 'kotlin-kapt'
 //apply plugin: 'walle'
 
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -68,8 +69,6 @@ android {
 //    channelFile = new File("${project.getProjectDir()}/channel")
 //}
 
-
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -87,6 +86,8 @@ dependencies {
     implementation rootProject.ext.dependencies["foundation-architecture-base"]
     implementation rootProject.ext.dependencies["foundation-architecture-store"]
     implementation rootProject.ext.dependencies["foundation-architecture-mvvm"]
+    implementation rootProject.ext.dependencies["foundation-net-lib"]
+
     implementation rootProject.ext.dependencies["widget-binding-extend"]
 
 
@@ -97,7 +98,6 @@ dependencies {
 
 
     kapt rootProject.ext.dependencies["glide-compiler"]
-
 
     implementation project(':foundation-YaaLib')
 
