@@ -1,44 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="cn.wangtianya.learn">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="cn.wangtianya.learn">
 
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
 
     <application>
 
-        <activity android:name="com.wangtianya.learn.wiget.FragmentContainerActivity" />
+        <activity android:name="com.wangtianya.learn.wiget.FragmentContainerActivity"/>
 
-        <activity android:name=".widget.dialog.DialogActivity" />
-        <activity android:name=".widget.dialog.DialogOneActivity" />
+        <activity android:name=".widget.dialog.DialogActivity"/>
+        <activity android:name=".widget.dialog.DialogOneActivity"/>
 
-
-        <activity
-            android:name=".四大组件.activity.task.SingleTaskLearnActivity"
-            android:launchMode="singleTask" />
 
         <activity
-            android:name=".四大组件.activity.task.SingleTaskLearnSubStandardActivity"
-            android:launchMode="standard" />
+                android:name=".四大组件.activity.lifecycle.LifecycleLearnActivity1"/>
 
         <activity
-            android:name=".四大组件.activity.task.SingleTaskLearnSubStandard1Activity"
-            android:launchMode="standard" />
+                android:name=".四大组件.activity.lifecycle.LifecycleLearnActivity2"/>
+
+        <activity
+                android:name=".四大组件.activity.task.SingleTaskLearnSubStandardActivity"
+                android:launchMode="standard"/>
+
+        <activity
+                android:name=".四大组件.activity.task.SingleTaskLearnSubStandard1Activity"
+                android:launchMode="standard"/>
 
         <service
-            android:name=".四大组件.service.LearnService"
-            tools:ignore="InnerclassSeparator" />
+                android:name=".四大组件.service.LearnService"
+                tools:ignore="InnerclassSeparator"/>
         <service
-            android:name=".四大组件.service.MyIntentService"
-            tools:ignore="InnerclassSeparator" />
+                android:name=".四大组件.service.MyIntentService"
+                tools:ignore="InnerclassSeparator"/>
 
         <service
-            android:name=".四大组件.service.JobIntentTestService"
-            android:permission="android.permission.BIND_JOB_SERVICE"
-            tools:ignore="InnerclassSeparator" />
+                android:name=".四大组件.service.JobIntentTestService"
+                android:permission="android.permission.BIND_JOB_SERVICE"
+                tools:ignore="InnerclassSeparator"/>
 
     </application>
 
