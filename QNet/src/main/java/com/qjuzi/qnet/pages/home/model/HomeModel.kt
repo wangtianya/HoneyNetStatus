@@ -5,18 +5,17 @@ import android.databinding.ObservableField
 import android.databinding.ObservableInt
 import android.graphics.Color
 import android.view.View
-import com.qjuzi.architecure.mvvm.MVVMModel
+import com.qjuzi.architecure.tree.TreeModel
 import com.qjuzi.lib.binding.extend.common.BindingItemModel
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.pages.home.HomeActivity
-import com.qjuzi.yaa.BR
 
 
 /**
  * 1、承载页面所有的数据
  * 2、承载页面所有的事件分发
  */
-class HomeModel : MVVMModel<HomeActivity>() {
+class HomeModel : TreeModel<HomeActivity>() {
 
     /**
      * top banner data

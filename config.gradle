@@ -37,7 +37,7 @@ ext {
 
 
             'foundation-architecture-base' : project(':foundation-architecture-base'),
-            'foundation-architecture-mvvm' : project(':foundation-architecture-mvvm'),
+            'foundation-architecture-tree' : project(':foundation-architecture-tree'),
             'foundation-architecture-store': project(':foundation-architecture-store'),
             'foundation-net-lib'           : project(':foundation-net-lib'),
 

@@ -4,7 +4,7 @@ import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.OnLifecycleEvent
 import android.graphics.Color
 import android.text.TextUtils
-import com.qjuzi.architecure.mvvm.MVVMPresenter
+import com.qjuzi.architecure.tree.TreePresenter
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.qjuzi.qnet.common.broadcast.NetworkChangedListener
@@ -15,7 +15,7 @@ import com.qjuzi.qnet.pages.home.tools.HomeHelper
 import com.qjuzi.yaa.net.traffic.CurrentTrafficStats
 
 
-class HomeMainPresenter : MVVMPresenter<HomeActivity>() {
+class HomeMainPresenter : TreePresenter<HomeActivity>() {
 
     private val currentTrafficStats: CurrentTrafficStats = CurrentTrafficStats.getInstance()
     private lateinit var networkChangedListener: NetworkChangedListener

@@ -7,7 +7,7 @@ def include_modules(name, prefix, fileStr) {
 // basic dependencies
 
 include_modules('architecture-base', 'foundation', 'dependency/foundation/architecture-base')
-include_modules('architecture-mvvm', 'foundation', 'dependency/foundation/architecture-mvvm')
+include_modules('architecture-tree', 'foundation', 'dependency/foundation/architecture-tree')
 include_modules('architecture-store', 'foundation', 'dependency/foundation/architecture-store')
 include_modules('net-lib', 'foundation', 'dependency/foundation/net-lib')
 

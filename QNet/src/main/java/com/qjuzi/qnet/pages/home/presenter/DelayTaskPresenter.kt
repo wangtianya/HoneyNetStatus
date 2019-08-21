@@ -3,12 +3,10 @@ package com.qjuzi.qnet.pages.home.presenter
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.OnLifecycleEvent
 import android.graphics.Color
-import cn.wangtianya.yaa.binding.core.AbsPresenter
-import com.qjuzi.architecure.mvvm.MVVMPresenter
+import com.qjuzi.architecure.tree.TreePresenter
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.qjuzi.qnet.common.tools.thread.ThreadUtil
 import com.qjuzi.qnet.pages.home.HomeActivity
-import com.qjuzi.qnet.pages.home.model.HomeModel
 import com.qjuzi.qnet.pages.home.tools.HomeHelper
 import com.qjuzi.yaa.net.ping2.PingTaskFactory
 import com.qjuzi.yaa.net.ping2.inteface.PingListener
@@ -16,7 +14,7 @@ import com.qjuzi.yaa.net.ping2.inteface.PingResult
 import com.qjuzi.yaa.net.ping2.inteface.PingRow
 import com.qjuzi.yaa.net.ping2.inteface.PingTask
 
-class DelayTaskPresenter : MVVMPresenter<HomeActivity>() {
+class DelayTaskPresenter : TreePresenter<HomeActivity>() {
 
     private var pingTask: PingTask? = null
 
