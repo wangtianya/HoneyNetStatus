@@ -49,7 +49,7 @@ public class MVVMInjectUtil {
                 throw new RuntimeException(e);
             }
             if (MVVMModel.class.equals(field.getType().getSuperclass())) {
-                try {
+                try { // TODO import viewmodelprovider to create it
                     MVVMModel model = (MVVMModel) field.getType().getConstructor().newInstance();
                     model.setComponent(target);
                     target.getLifecycle().addObserver(model);
