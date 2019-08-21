@@ -1,6 +1,7 @@
 package com.wangtianya.practice
 
 import android.os.Bundle
+import cn.wangtianya.baidu.BaiduWorkFragment
 import cn.wangtianya.learn.communication.CommunicationFragment
 import cn.wangtianya.learn.sysbase.SysBaseLearnFragment
 import cn.wangtianya.learn.ui.UILearnFragment
@@ -20,6 +21,8 @@ class PracticeActivity : ItemActivity() {
         addDiliver()
         addFragmentItem("系统基础", SysBaseLearnFragment::class.java)
         addFragmentItem("通信网络", CommunicationFragment::class.java)
+
         addDiliver()
+        addFragmentItem("百度工作", BaiduWorkFragment::class.java)
     }
 }

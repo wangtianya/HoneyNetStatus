@@ -3,20 +3,17 @@
  */
 package cn.wangtianya.learn.四大组件.activity.task;
 
+import com.wangtianya.learn.common.ItemActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
-
-import com.wangtianya.learn.common.ItemActivity;
 
 public class SingleTaskLearnActivity extends ItemActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
 
         addActivityItem("launch Standard", SingleTaskLearnSubStandardActivity.class);
         addClickItem("launch Standard newTask", v -> {

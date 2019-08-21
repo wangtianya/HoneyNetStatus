@@ -12,15 +12,16 @@
 
         <activity android:name="com.wangtianya.learn.wiget.FragmentContainerActivity"/>
 
-        <activity android:name=".widget.dialog.DialogActivity"/>
-        <activity android:name=".widget.dialog.DialogOneActivity"/>
-
 
         <activity
                 android:name=".四大组件.activity.lifecycle.LifecycleLearnActivity1"/>
 
         <activity
                 android:name=".四大组件.activity.lifecycle.LifecycleLearnActivity2"/>
+
+        <activity
+                android:name=".四大组件.activity.task.SingleTaskLearnActivity"/>
+
 
         <activity
                 android:name=".四大组件.activity.task.SingleTaskLearnSubStandardActivity"

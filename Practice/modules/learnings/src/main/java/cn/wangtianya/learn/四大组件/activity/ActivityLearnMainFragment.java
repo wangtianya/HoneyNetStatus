@@ -20,7 +20,7 @@ public class ActivityLearnMainFragment extends ItemFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        addActivityItem("LifecycleLearnActivity1", LifecycleLearnActivity1.class);
+        addActivityItem("LifecycleLearnActivity", LifecycleLearnActivity1.class);
         addActivityItem("SingleTaskLearnActivity", SingleTaskLearnActivity.class);
 
     }

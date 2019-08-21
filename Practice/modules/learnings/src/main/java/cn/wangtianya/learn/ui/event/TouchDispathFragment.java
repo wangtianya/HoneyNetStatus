@@ -3,12 +3,12 @@
  */
 package cn.wangtianya.learn.ui.event;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import cn.wangtianya.learn.R;
@@ -46,16 +46,14 @@ public class TouchDispathFragment extends Fragment {
     }
 
 
-    private View.OnTouchListener onTouchListener = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            String myId = v.getTag().toString();
-            Log.e(myId, event.getAction() + "");
+    @SuppressLint("ClickableViewAccessibility")
+    private View.OnTouchListener onTouchListener = (v, event) -> {
+        String myId = v.getTag().toString();
+        Log.e(myId, event.getAction() + "");
 
-            if ("layer2".equals(myId)) {
-                return true;
-            }
-            return false;
+        if ("layer2".equals(myId)) {
+            return true;
         }
+        return false;
     };
 }

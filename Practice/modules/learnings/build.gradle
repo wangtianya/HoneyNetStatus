@@ -53,12 +53,11 @@ dependencies {
 
     implementation rootProject.ext.dependencies["foundation-architecture-base"]
 
-    implementation project(":practice-module-learnings-lib")
-
-
-
 
     implementation rootProject.ext.dependencies["widget-binding-extend"]
     implementation rootProject.ext.dependencies["glide"]
+
+
+    implementation project(":practice-module-learnings-lib")
 }
 

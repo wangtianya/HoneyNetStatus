@@ -11,6 +11,5 @@ include_modules('learnings', 'practice-module', 'Practice/modules/learnings')
 
 
 
-include_modules('DragExpandGrid', 'practice-module', 'Practice/modules-open-source/DragExpandGrid')
 
 
