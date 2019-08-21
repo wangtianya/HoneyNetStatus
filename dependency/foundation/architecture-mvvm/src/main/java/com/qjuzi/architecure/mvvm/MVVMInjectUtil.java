@@ -11,9 +11,10 @@ import android.content.Context;
 import android.databinding.ViewDataBinding;
 import android.view.LayoutInflater;
 
-public class MVVMInjectUtil {
+@SuppressWarnings("unchecked")
+class MVVMInjectUtil {
 
-    public static void autoCreatePresenter(LifecycleOwner target) { // 自动创建、注入Component、自动bindLifecycle
+    static void autoCreatePresenter(LifecycleOwner target) { // 自动创建、注入Component、自动bindLifecycle
         Field[] fields = target.getClass().getDeclaredFields();
         for (Field field : fields) {
             try {
@@ -37,7 +38,7 @@ public class MVVMInjectUtil {
         }
     }
 
-    public static void autoCreateModel(LifecycleOwner target) { // 自动创建、注入Component、自动bindLifecycle
+    static void autoCreateModel(LifecycleOwner target) { // 自动创建、注入Component、自动bindLifecycle
         Field[] fields = target.getClass().getDeclaredFields();
         for (Field field : fields) {
             try {
@@ -61,7 +62,7 @@ public class MVVMInjectUtil {
         }
     }
 
-    public static void autoCreateBinding(LifecycleOwner target, Context context) { // 自动创建、注入Component、自动bindLifecycle
+    static void autoCreateBinding(LifecycleOwner target, Context context) { // 自动创建、注入Component、自动bindLifecycle
         Field[] fields = target.getClass().getDeclaredFields();
         for (Field field : fields) {
             try {
@@ -85,7 +86,7 @@ public class MVVMInjectUtil {
         }
     }
 
-    public static void notifyViewEvent(Object target, Class annotationClass) {
+    static void notifyViewEvent(Object target, Class annotationClass) {
         Field[] fields = target.getClass().getDeclaredFields();
         for (Field field : fields) {
             field.setAccessible(true);
