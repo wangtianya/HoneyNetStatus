@@ -56,7 +56,7 @@ public class TaobaoISPImpl implements ISPProviderI {
         } finally {
             try {
                 reader.close();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 // pass
             }
         }
