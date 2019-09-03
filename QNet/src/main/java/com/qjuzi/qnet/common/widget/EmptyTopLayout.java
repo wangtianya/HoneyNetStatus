@@ -1,7 +1,7 @@
 package com.qjuzi.qnet.common.widget;
 
-import com.qjuzi.architecure.base.context.ContextCache;
-import com.qjuzi.yaa.core.util.ScreenUtil;
+import com.qjuzi.architecure.tree.context.Tree;
+import com.qjuzi.tools.core.util.ScreenUtil;
 
 import android.content.Context;
 import android.os.Build;
@@ -27,7 +27,7 @@ public class EmptyTopLayout extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (Build.VERSION.SDK_INT >= 21) {
-            int statusBarHeight = ScreenUtil.getStatusBarHeight(ContextCache.getContext());
+            int statusBarHeight = ScreenUtil.getStatusBarHeight(Tree.getContext());
             super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(statusBarHeight, MeasureSpec.EXACTLY));
         } else {
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);

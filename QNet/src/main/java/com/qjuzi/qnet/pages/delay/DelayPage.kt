@@ -10,7 +10,7 @@ import com.qjuzi.qnet.R
 import com.qjuzi.qnet.common.tools.thread.ThreadUtil
 import com.qjuzi.qnet.databinding.PageDelayBinding
 import com.qjuzi.qnet.pages.delay.model.DelayPageModel
-import com.qjuzi.yaa.core.activity.YaaFragment
+import com.qjuzi.tools.core.activity.YaaFragment
 
 /**
  * Created by wangtianya on 2018/4/25.

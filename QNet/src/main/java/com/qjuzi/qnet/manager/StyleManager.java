@@ -3,7 +3,7 @@
  */
 package com.qjuzi.qnet.manager;
 
-import com.qjuzi.architecure.base.context.ContextCache;
+import com.qjuzi.architecure.tree.context.Tree;
 import com.qjuzi.qnet.R;
 
 import android.app.Activity;
@@ -40,15 +40,15 @@ public class StyleManager {
     }
 
     public int colorPrimary() {
-        return ContextCache.getContext().getResources().getColor(R.color.colorPrimary);
+        return Tree.getContext().getResources().getColor(R.color.colorPrimary);
     }
 
     public int colorPrimaryDark() {
-        return ContextCache.getContext().getResources().getColor(R.color.colorPrimaryDark);
+        return Tree.getContext().getResources().getColor(R.color.colorPrimaryDark);
     }
 
     public int colorAccent() {
-        return ContextCache.getContext().getResources().getColor(R.color.colorAccent);
+        return Tree.getContext().getResources().getColor(R.color.colorAccent);
     }
 
 }

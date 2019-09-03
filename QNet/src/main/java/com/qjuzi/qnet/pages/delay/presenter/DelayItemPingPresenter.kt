@@ -6,12 +6,12 @@ import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.qjuzi.qnet.common.tools.thread.ThreadUtil
 import com.qjuzi.qnet.pages.delay.model.DelayPageModel
 import com.qjuzi.qnet.pages.home.tools.HomeHelper
-import com.qjuzi.yaa.net.ping2.PingTaskFactory
-import com.qjuzi.yaa.net.ping2.inteface.PingListener
-import com.qjuzi.yaa.net.ping2.inteface.PingResult
-import com.qjuzi.yaa.net.ping2.inteface.PingRow
-import com.qjuzi.yaa.net.provider.ip.tools.GetIP
-import com.qjuzi.yaa.net.provider.ip.tools.IPChecker
+import com.qjuzi.tools.net.ping2.PingTaskFactory
+import com.qjuzi.tools.net.ping2.inteface.PingListener
+import com.qjuzi.tools.net.ping2.inteface.PingResult
+import com.qjuzi.tools.net.ping2.inteface.PingRow
+import com.qjuzi.tools.net.provider.ip.tools.GetIP
+import com.qjuzi.tools.net.provider.ip.tools.IPChecker
 
 class DelayItemPingPresenter(val model: DelayPageModel) {
 

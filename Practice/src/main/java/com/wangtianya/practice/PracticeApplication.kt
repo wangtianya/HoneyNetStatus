@@ -1,13 +1,13 @@
 package com.wangtianya.practice
 
 import android.app.Application
-import com.qjuzi.architecure.base.context.ContextCache
+import com.qjuzi.architecure.tree.context.Tree
 
 class PracticeApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        ContextCache.init(this)
+        Tree.init(this)
     }
 
 }

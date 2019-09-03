@@ -2,13 +2,13 @@ package com.qjuzi.qnet.pages.home.tools
 
 import android.graphics.Color
 import android.text.TextUtils
+import com.qjuzi.architecure.tree.context.Tree
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
-import com.qjuzi.architecure.base.context.ContextCache
-import com.qjuzi.yaa.net.provider.ip.tools.GetIP
-import com.qjuzi.yaa.net.provider.isp.ISPModel
-import com.qjuzi.yaa.net.provider.isp.ISPProvider
-import com.qjuzi.yaa.net.tools.WifiUtil
+import com.qjuzi.tools.net.provider.ip.tools.GetIP
+import com.qjuzi.tools.net.provider.isp.ISPModel
+import com.qjuzi.tools.net.provider.isp.ISPProvider
+import com.qjuzi.tools.net.tools.WifiUtil
 
 /**
  * Helper的作用：有一些比较杂逻辑，写在presenter里会导致逻辑比较乱，影响业务的阅读。
@@ -19,7 +19,7 @@ class HomeHelper {
         fun getWifiName(): String {
             var wifiName = ""
             if (MyNetworkReceiver.isWifi()) {
-                wifiName = WifiUtil.getConnectWifiSsid(ContextCache.getContext())
+                wifiName = WifiUtil.getConnectWifiSsid(Tree.getContext())
                 wifiName = wifiName.replace("\"", "")
             }
             return wifiName

@@ -2,6 +2,7 @@ package cn.wangtianya.yaa.binding.core;
 
 import android.databinding.BaseObservable;
 
+@Deprecated
 public abstract class AbsModel<S extends AbsStore> extends BaseObservable {
 
     public S store;

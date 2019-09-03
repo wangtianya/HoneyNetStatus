@@ -9,8 +9,8 @@ import com.qjuzi.architecure.tree.TreePresenter
 import com.qjuzi.architecure.tree.event.OnViewCreated
 import com.qjuzi.architecure.tree.event.OnViewDestroyed
 import com.qjuzi.qnet.pages.home.HomeActivity
-import com.qjuzi.yaa.core.util.YaaLog
-import com.qjuzi.yaa.core.util.YaaToast
+import com.qjuzi.tools.core.util.YaaLog
+import com.qjuzi.tools.core.util.YaaToast
 
 class TestLifecyclePresenter : TreePresenter<HomeActivity>() {
 

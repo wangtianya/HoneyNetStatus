@@ -2,9 +2,9 @@ package com.qjuzi.qnet
 
 import android.app.Application
 import com.meituan.android.walle.WalleChannelReader
-import com.qjuzi.architecure.base.context.ContextCache
+import com.qjuzi.architecure.tree.context.Tree
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
-import com.qjuzi.qnet.net.NetworkInfoManager
+import com.qjuzi.tools.net.status.NetworkInfoManager
 import com.tencent.bugly.crashreport.CrashReport
 import com.tencent.bugly.crashreport.CrashReport.UserStrategy
 
@@ -16,7 +16,7 @@ class OrangeApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        ContextCache.init(this)
+        Tree.init(this)
         NetworkInfoManager.getInstance().init(this)
         MyNetworkReceiver.register(this)
         initBugly()

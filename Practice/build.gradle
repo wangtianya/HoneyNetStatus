@@ -85,11 +85,11 @@ dependencies {
     implementation rootProject.ext.dependencies["support-smartrefresh"]
     implementation rootProject.ext.dependencies["support-constraint-layout"]
 
-    implementation rootProject.ext.dependencies["foundation-architecture-base"]
+    implementation rootProject.ext.dependencies["foundation-architecture-tree"]
 
 
     implementation project(":practice-module-learnings")
-    implementation project(":practice-module-learnings-lib")
+    implementation project(":foundation-architecture-ifap")
 
     //    annotationProcessor project(":processor-auto")
     //    implementation project(':processor-auto')

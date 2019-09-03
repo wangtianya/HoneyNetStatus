@@ -8,11 +8,11 @@ import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.qjuzi.qnet.common.tools.thread.ThreadUtil
 import com.qjuzi.qnet.pages.home.HomeActivity
 import com.qjuzi.qnet.pages.home.tools.HomeHelper
-import com.qjuzi.yaa.net.ping2.PingTaskFactory
-import com.qjuzi.yaa.net.ping2.inteface.PingListener
-import com.qjuzi.yaa.net.ping2.inteface.PingResult
-import com.qjuzi.yaa.net.ping2.inteface.PingRow
-import com.qjuzi.yaa.net.ping2.inteface.PingTask
+import com.qjuzi.tools.net.ping2.PingTaskFactory
+import com.qjuzi.tools.net.ping2.inteface.PingListener
+import com.qjuzi.tools.net.ping2.inteface.PingResult
+import com.qjuzi.tools.net.ping2.inteface.PingRow
+import com.qjuzi.tools.net.ping2.inteface.PingTask
 
 class DelayTaskPresenter : TreePresenter<HomeActivity>() {
 

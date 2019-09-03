@@ -8,10 +8,10 @@ import com.qjuzi.qnet.R
 import com.qjuzi.qnet.databinding.PageDelayBinding
 import com.qjuzi.qnet.pages.delay.presenter.DelayItemPingPresenter
 import com.qjuzi.qnet.pages.delay.presenter.DelayMainPresenter
-import com.qjuzi.yaa.BR
-import com.qjuzi.yaa.core.activity.YaaFragment
-import com.qjuzi.yaa.core.util.YaaToast
-import com.qjuzi.yaa.net.ping2.inteface.PingTask
+import com.qjuzi.tools.BR
+import com.qjuzi.tools.core.activity.YaaFragment
+import com.qjuzi.tools.core.util.YaaToast
+import com.qjuzi.tools.net.ping2.inteface.PingTask
 
 /**
  * Created by wangtianya on 2018/4/25.

@@ -1,6 +1,6 @@
 package cn.wangtianya.learn.四大组件.service;
 
-import com.qjuzi.architecure.base.context.ContextCache;
+import com.qjuzi.architecure.tree.context.Tree;
 import com.wangtianya.learn.common.ItemFragment;
 
 import android.content.ComponentName;
@@ -22,11 +22,11 @@ import android.view.View;
 public class ServiceLearnFragment extends ItemFragment {
 
     public void dododo() {
-        Intent intent = new Intent(ContextCache.getContext(), LearnService.class);
+        Intent intent = new Intent(Tree.getContext(), LearnService.class);
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                ContextCache.getContext().startForegroundService(intent);
+                Tree.getContext().startForegroundService(intent);
                 dododo();
             }
         },6000);
@@ -42,8 +42,8 @@ public class ServiceLearnFragment extends ItemFragment {
         addClickItem("stopService", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ContextCache.getContext(), LearnService.class);
-                ContextCache.getContext().stopService(intent);
+                Intent intent = new Intent(Tree.getContext(), LearnService.class);
+                Tree.getContext().stopService(intent);
             }
         });
 
@@ -51,7 +51,7 @@ public class ServiceLearnFragment extends ItemFragment {
         addClickItem("bindService", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ContextCache.getContext(), LearnService.class);
+                Intent intent = new Intent(Tree.getContext(), LearnService.class);
                 getActivity().bindService(intent,connection, Context.BIND_AUTO_CREATE);
             }
         });
@@ -70,17 +70,17 @@ public class ServiceLearnFragment extends ItemFragment {
         addClickItem("startIntentService", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ContextCache.getContext(), MyIntentService.class);
+                Intent intent = new Intent(Tree.getContext(), MyIntentService.class);
                 intent.setAction("love");
                 intent.putExtra("love", "mememe");
-                ContextCache.getContext().startService(intent);
+                Tree.getContext().startService(intent);
             }
         });
 
         addClickItem("bindService", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ContextCache.getContext(), MyIntentService.class);
+                Intent intent = new Intent(Tree.getContext(), MyIntentService.class);
                 getActivity().bindService(intent,connection, Context.BIND_AUTO_CREATE);
             }
         });
@@ -88,23 +88,23 @@ public class ServiceLearnFragment extends ItemFragment {
         addClickItem("stopIntentService", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ContextCache.getContext(), MyIntentService.class);
-                ContextCache.getContext().stopService(intent);
+                Intent intent = new Intent(Tree.getContext(), MyIntentService.class);
+                Tree.getContext().stopService(intent);
             }
         });
 
 
 
         addClickItem("enqueueWorkJobIntentTestService", v ->{
-            Intent intent = new Intent(ContextCache.getContext(), JobIntentTestService.class);
-            JobIntentTestService.enqueueWork(ContextCache.getContext(), intent);
+            Intent intent = new Intent(Tree.getContext(), JobIntentTestService.class);
+            JobIntentTestService.enqueueWork(Tree.getContext(), intent);
         });
 
         addClickItem("startJobIntentTestService", v ->{
-//            Intent intent = new Intent(ContextCache.getContext(), JobIntentTestService.class);
+//            Intent intent = new Intent(Tree.getContext(), JobIntentTestService.class);
             Intent intent = new Intent();
-            intent.setClassName(ContextCache.getContext(), "cn.wangtianya.learn.四大组件.service.JobIntentTestService");
-            ContextCache.getContext().startService(intent);
+            intent.setClassName(Tree.getContext(), "cn.wangtianya.learn.四大组件.service.JobIntentTestService");
+            Tree.getContext().startService(intent);
         });
 
 

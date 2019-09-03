@@ -41,7 +41,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation rootProject.ext.dependencies["kotlin-stdlib"]
-    implementation rootProject.ext.dependencies["foundation-architecture-base"]
+    implementation rootProject.ext.dependencies["foundation-architecture-tree"]
     implementation rootProject.ext.dependencies["support-v4"]
     implementation rootProject.ext.dependencies["support-v7"]
     implementation rootProject.ext.dependencies["support-recyclerview"]

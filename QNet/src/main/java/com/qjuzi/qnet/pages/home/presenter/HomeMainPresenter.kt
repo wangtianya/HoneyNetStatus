@@ -12,7 +12,7 @@ import com.qjuzi.qnet.common.tools.thread.ThreadUtil
 import com.qjuzi.qnet.manager.StyleManager
 import com.qjuzi.qnet.pages.home.HomeActivity
 import com.qjuzi.qnet.pages.home.tools.HomeHelper
-import com.qjuzi.yaa.net.traffic.CurrentTrafficStats
+import com.qjuzi.tools.net.traffic.CurrentTrafficStats
 
 
 class HomeMainPresenter : TreePresenter<HomeActivity>() {

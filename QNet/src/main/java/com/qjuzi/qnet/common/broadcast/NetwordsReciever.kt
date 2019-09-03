@@ -4,8 +4,9 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.net.*
-import com.qjuzi.architecure.base.context.ContextCache
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
+import com.qjuzi.architecure.tree.context.Tree
 
 
 /**
@@ -49,7 +50,7 @@ class MyNetworkReceiver : BroadcastReceiver() {
         fun addListener(listener: NetworkChangedListener) {
             listeners.add(listener)
 
-            val manager = ContextCache.getContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val manager = Tree.getContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             update(manager.activeNetworkInfo)
         }
 

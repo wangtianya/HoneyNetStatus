@@ -51,13 +51,11 @@ dependencies {
     implementation rootProject.ext.dependencies["support-smartrefresh"]
     implementation rootProject.ext.dependencies["support-constraint-layout"]
 
-    implementation rootProject.ext.dependencies["foundation-architecture-base"]
+    implementation rootProject.ext.dependencies["foundation-architecture-tree"]
 
 
     implementation rootProject.ext.dependencies["widget-binding-extend"]
     implementation rootProject.ext.dependencies["glide"]
-
-
-    implementation project(":practice-module-learnings-lib")
+    implementation project(':foundation-architecture-ifap')
 }
 

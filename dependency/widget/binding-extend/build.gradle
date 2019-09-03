@@ -52,7 +52,7 @@ dependencies {
     implementation rootProject.ext.dependencies["support-constraint-layout"]
 
     implementation rootProject.ext.dependencies["kotlin-stdlib"]
-    implementation rootProject.ext.dependencies["foundation-architecture-base"]
+    implementation rootProject.ext.dependencies["foundation-architecture-tree"]
 
 
 

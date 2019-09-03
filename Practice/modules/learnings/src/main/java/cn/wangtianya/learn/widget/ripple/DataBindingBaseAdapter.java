@@ -7,7 +7,7 @@
  */
 package cn.wangtianya.learn.widget.ripple;
 
-import com.qjuzi.architecure.base.context.ContextCache;
+import com.qjuzi.architecure.tree.context.Tree;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -30,7 +30,7 @@ public class DataBindingBaseAdapter<T> extends BaseAdapter {
     private ObservableArrayList<T> list;
 
     public DataBindingBaseAdapter(int layoutId, ObservableArrayList<T> list, int resId) {
-        this.context = ContextCache.getContext();
+        this.context = Tree.getContext();
         this.layoutId = layoutId;
         this.list = list;
         this.variableId = resId;

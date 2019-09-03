@@ -8,6 +8,7 @@ import android.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 
+@Deprecated
 public abstract class AbsStore<P> {
 
     public Activity context;

@@ -10,7 +10,7 @@
 
     <application>
 
-        <activity android:name="com.wangtianya.learn.wiget.FragmentContainerActivity"/>
+        <activity android:name="com.wangtianya.learn.common.ItemFragmentContainerActivity"/>
 
 
         <activity
