@@ -49,8 +49,4 @@ dependencies {
     api rootProject.ext.dependencies["support-smartrefresh"]
     api rootProject.ext.dependencies["support-constraint-layout"]
 
-    api rootProject.ext.dependencies["foundation-architecture-store"]
-    api rootProject.ext.dependencies["foundation-architecture-tree"]
-    api rootProject.ext.dependencies["widget-binding-extend"]
-    api project(':foundation-tools-common')
 }

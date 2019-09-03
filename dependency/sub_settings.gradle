@@ -9,7 +9,7 @@ def include_modules(name, prefix, fileStr) {
 include_modules('architecture-tree', 'foundation', 'dependency/foundation/architecture-tree')
 include_modules('architecture-store', 'foundation', 'dependency/foundation/architecture-store')
 include_modules('architecture-ifap', 'foundation', 'dependency/foundation/architecture-ifap')
-include_modules('basic-dependecies', 'foundation', 'dependency/foundation/basic-dependecies')
+include_modules('support-dependecies', 'foundation', 'dependency/foundation/support-dependecies')
 
 
 include_modules('common-dependecies', 'thirdparty', 'dependency/thirdparty/common-dependecies')
