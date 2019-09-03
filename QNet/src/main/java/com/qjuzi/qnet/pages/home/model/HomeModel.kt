@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.view.View
 import com.qjuzi.architecure.tree.TreeModel
 import com.qjuzi.lib.binding.extend.common.BindingItemModel
+import com.qjuzi.qnet.BR
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.pages.home.HomeActivity
 

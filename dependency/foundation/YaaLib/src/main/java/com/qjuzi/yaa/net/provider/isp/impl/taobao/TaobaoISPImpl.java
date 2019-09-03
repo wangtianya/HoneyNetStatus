@@ -29,12 +29,7 @@ public class TaobaoISPImpl implements ISPProviderI {
 
     @Override
     public void getIspModelAsync(final String host, final ISPAsyncListener listener) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                listener.call(convert(request(GetIP.byDomain(host))));
-            }
-        });
+        new Thread(() -> listener.call(convert(request(GetIP.byDomain(host))))).start();
     }
 
     public static String request(String host) {
