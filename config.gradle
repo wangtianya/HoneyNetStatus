@@ -15,6 +15,9 @@ ext {
 
     android_support_version = "28.0.0"
     dependencies = [
+            'thirdparty-common-dependecies' : project(':thirdparty-common-dependecies'),
+            'foundation-basic-dependecies' : project(':foundation-basic-dependecies'),
+
             //android support
             "support-v4"                   : "com.android.support:support-v4:${android_support_version}",
             "support-v7"                   : "com.android.support:appcompat-v7:${android_support_version}",
@@ -38,6 +41,10 @@ ext {
 
             'foundation-architecture-tree' : project(':foundation-architecture-tree'),
             'foundation-architecture-store': project(':foundation-architecture-store'),
+
+
+
+
 
             'widget-binding-extend'        : project(':widget-binding-extend'),
 
