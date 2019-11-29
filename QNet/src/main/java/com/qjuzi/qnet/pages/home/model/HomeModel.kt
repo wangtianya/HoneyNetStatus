@@ -33,6 +33,7 @@ class HomeModel : TreeModel<HomeActivity>() {
 
     inner class GridModel(var imgId: Int, var imgTint: Int) : BindingItemModel() {
         val title = ObservableField<String>("-")
+        lateinit var clickListenr: View.OnClickListener
 
         override fun getLayoutId(): Int {
             return R.layout.activity_main_grid_item
@@ -43,7 +44,9 @@ class HomeModel : TreeModel<HomeActivity>() {
         }
 
         fun onClick(view: View) {
-
+            if (clickListenr != null) {
+                clickListenr.onClick(view)
+            }
         }
     }
 }

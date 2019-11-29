@@ -29,5 +29,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation group: 'org.jsoup', name: 'jsoup', version: '1.11.2'
 
+    implementation rootProject.ext.dependencies["support-v4"]
+
 
 }

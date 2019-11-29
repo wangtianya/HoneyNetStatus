@@ -4,14 +4,17 @@ import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.OnLifecycleEvent
 import android.graphics.Color
 import android.text.TextUtils
+import android.view.View
 import com.qjuzi.architecure.tree.TreePresenter
 import com.qjuzi.qnet.R
 import com.qjuzi.qnet.common.broadcast.MyNetworkReceiver
 import com.qjuzi.qnet.common.broadcast.NetworkChangedListener
 import com.qjuzi.qnet.common.tools.thread.ThreadUtil
 import com.qjuzi.qnet.manager.StyleManager
+import com.qjuzi.qnet.pages.datacross.DataCrossPage
 import com.qjuzi.qnet.pages.home.HomeActivity
 import com.qjuzi.qnet.pages.home.tools.HomeHelper
+import com.qjuzi.tools.core.activity.YaaFragmentContainerActivity
 import com.qjuzi.tools.net.traffic.CurrentTrafficStats
 
 
@@ -95,9 +98,15 @@ class HomeMainPresenter : TreePresenter<HomeActivity>() {
 
     private fun initGridListData() {
 
-        val netInfoGrid = page.model.GridModel(R.drawable.ic_info, Color.GRAY)
+        val netInfoGrid = page.model.GridModel(R.drawable.ic_info, Color.RED)
         netInfoGrid.title.set(page.getString(R.string.home_info))
         page.model.gridList.add(netInfoGrid)
+
+        val crossDataGrid = page.model.GridModel(R.drawable.ic_ping, Color.YELLOW)
+
+        crossDataGrid.title.set(page.getString(R.string.home_ping))
+        crossDataGrid.clickListenr = View.OnClickListener { YaaFragmentContainerActivity.startFragment(page, DataCrossPage::class.java) }
+        page.model.gridList.add(crossDataGrid)
 
         val speedTestGrid = page.model.GridModel(R.drawable.ic_download, Color.GRAY)
         speedTestGrid.title.set(page.getString(R.string.home_download))

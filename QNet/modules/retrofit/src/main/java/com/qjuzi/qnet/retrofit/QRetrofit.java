@@ -5,7 +5,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 
 public class QRetrofit {
-    public static final String defaultUrl = "https://api.qjuzi.com";
+    public static final String defaultUrl = "https://qjuzi.com";
 
     private static Retrofit retrofit;
     private static OkHttpClient okHttpClient;
