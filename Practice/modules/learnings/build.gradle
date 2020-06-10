@@ -13,10 +13,6 @@ android {
         targetCompatibility rootProject.ext.javaVersion
     }
 
-    dataBinding {
-        enabled true
-    }
-
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -36,26 +32,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        //noinspection DataBindingWithoutKapt
+        enabled true
+    }
 }
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation rootProject.ext.dependencies["kotlin-stdlib"]
 
-    implementation rootProject.ext.dependencies["support-v4"]
-    implementation rootProject.ext.dependencies["support-v7"]
-    implementation rootProject.ext.dependencies["support-annotations"]
-
-    implementation rootProject.ext.dependencies["support-design"]
-    implementation rootProject.ext.dependencies["support-recyclerview"]
-    implementation rootProject.ext.dependencies["support-smartrefresh"]
-    implementation rootProject.ext.dependencies["support-constraint-layout"]
-
-    implementation rootProject.ext.dependencies["foundation-architecture-tree"]
+    implementation deps.local.tree
+    implementation deps.local.extbinding
+    implementation deps.local.supports
+    implementation deps.local.ifap
 
 
-    implementation rootProject.ext.dependencies["widget-binding-extend"]
-    implementation rootProject.ext.dependencies["glide"]
-    implementation project(':foundation-architecture-ifap')
+    implementation deps.widget.smartrefresh
+
+    implementation deps.os.kotlin_stdlib
+    implementation deps.os.glide
+
 }
 

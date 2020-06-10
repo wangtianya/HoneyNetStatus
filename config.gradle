@@ -8,46 +8,54 @@ ext {
 
     minSdkVersion = 21
     targetSdkVersion = 28
-
-
     minifyEnabled = false
     enableAOP = false
 
     android_support_version = "28.0.0"
-    dependencies = [
-            'thirdparty-common-dependecies' : project(':thirdparty-common-dependecies'),
-            'foundation-support-dependecies' : project(':foundation-support-dependecies'),
-
-            //android support
-            "support-v4"                   : "com.android.support:support-v4:${android_support_version}",
-            "support-v7"                   : "com.android.support:appcompat-v7:${android_support_version}",
-            "support-annotations"          : "com.android.support:support-annotations:${android_support_version}",
-            "support-design"               : "com.android.support:design:${android_support_version}",
-            "support-recyclerview"         : "com.android.support:recyclerview-v7:${android_support_version}",
-            "support-constraint-layout"    : "com.android.support.constraint:constraint-layout:1.1.0",
-            "support-smartrefresh"         : 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3',
-
-            "kotlin-stdlib"                : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
-
-            // 多渠道打包及统计
-            "bugly-crashreport"            : "com.tencent.bugly:crashreport:latest.release",
-            "bugly-nativecrashreport"      : "com.tencent.bugly:nativecrashreport:latest.release",
-            "walle"                        : "com.meituan.android.walle:library:1.1.6",
-
-            // glide
-            'glide'                        : 'com.github.bumptech.glide:glide:4.7.1',
-            'glide-compiler'               : 'com.github.bumptech.glide:compiler:4.7.1',
-
-
-            'foundation-architecture-tree' : project(':foundation-architecture-tree'),
-            'foundation-architecture-store': project(':foundation-architecture-store'),
-
-
-
-
-
-            'widget-binding-extend'        : project(':widget-binding-extend'),
-
-
-    ]
 }
+
+
+ext.deps = [:]
+
+deps.local = [
+        tree      : project(':foundation-architecture-tree'),
+        extbinding: project(':widget-binding-extend'),
+        ifap      : project(":foundation-architecture-ifap"),
+        learnings : project(":practice-module-learnings"),
+        supports  : project(':foundation-support-dependecies'),
+]
+
+deps.support = [
+        v4              : "com.android.support:support-v4:${android_support_version}",
+        v7              : "com.android.support:appcompat-v7:${android_support_version}",
+        annotations     : "com.android.support:support-annotations:${android_support_version}",
+        design          : "com.android.support:design:${android_support_version}",
+        recyclerview    : "com.android.support:recyclerview-v7:${android_support_version}",
+        constraintlayout: "com.android.support.constraint:constraint-layout:1.1.0",
+]
+
+
+deps.os = [
+        kotlin_stdlib : 'org.jetbrains.kotlin:kotlin-stdlib:1.3.21',
+        glide         : 'com.github.bumptech.glide:glide:4.7.1',
+        glide_compiler: 'com.github.bumptech.glide:compiler:4.7.1',
+        bugly         : 'com.tencent.bugly:crashreport:latest.release',
+        buglyna       : 'com.tencent.bugly:nativecrashreport:latest.release',
+        walle         : "com.meituan.android.walle:library:1.1.6",
+        eventbus      : 'org.greenrobot:eventbus:3.1.1',
+        http_request  : 'com.github.kevinsawicki:http-request:6.0',
+
+        gson          : 'com.google.code.gson:gson:2.8.2',
+        jsoup         : 'org.jsoup:jsoup:1.11.2',
+        volley        : 'eu.the4thfloor.volley:com.android.volley:2015.05.28',
+
+        rxjava        : 'io.reactivex.rxjava2:rxjava:2.2.2',
+        rxandroid     : 'io.reactivex.rxjava2:rxandroid:2.1.0'
+]
+
+
+deps.widget = [
+        smartrefresh: 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3',
+        'material'  : 'com.google.android.material:material:1.0.0',
+
+]

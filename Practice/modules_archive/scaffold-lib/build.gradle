@@ -40,18 +40,18 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation rootProject.ext.dependencies["support-v4"]
-    implementation rootProject.ext.dependencies["support-v7"]
-    implementation rootProject.ext.dependencies["support-annotations"]
-    implementation rootProject.ext.dependencies["support-design"]
-    implementation rootProject.ext.dependencies["support-recyclerview"]
-    implementation rootProject.ext.dependencies["support-smartrefresh"]
-    implementation rootProject.ext.dependencies["support-constraint-layout"]
+    implementation deps.support.v4
+    implementation deps.support.v7
+    implementation deps.support.annotations
+    implementation deps.support.design
+    implementation deps.support.recyclerview
+    implementation deps.widget.smartrefresh
+    implementation deps.support.constraintlayout
 
-    implementation rootProject.ext.dependencies["kotlin-stdlib"]
-    implementation rootProject.ext.dependencies["foundation-architecture-tree"]
+    implementation deps.os.kotlin_stdlib
+    implementation deps.local.tree
 
-    implementation rootProject.ext.dependencies["widget-binding-extend"]
+    implementation deps.local.extbinding
 
 
 

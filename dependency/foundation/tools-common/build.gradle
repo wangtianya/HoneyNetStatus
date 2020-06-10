@@ -20,16 +20,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.dependencies["foundation-architecture-tree"]
+    implementation deps.local.tree
 
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-    implementation 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
-
-
-    implementation 'com.google.code.gson:gson:2.8.2'
-    implementation group: 'org.jsoup', name: 'jsoup', version: '1.11.2'
-
-    implementation rootProject.ext.dependencies["support-v4"]
+    implementation deps.os.volley
+    implementation deps.os.gson
+    implementation deps.os.jsoup
+    implementation deps.support.v4
 
 
 }

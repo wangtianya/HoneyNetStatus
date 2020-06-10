@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -74,27 +76,26 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation rootProject.ext.dependencies["kotlin-stdlib"]
+    implementation deps.os.kotlin_stdlib
 
-    implementation rootProject.ext.dependencies["support-v4"]
-    implementation rootProject.ext.dependencies["support-v7"]
-    implementation rootProject.ext.dependencies["support-annotations"]
+    implementation deps.support.v4
+    implementation deps.support.v7
+    implementation deps.support.annotations
 
-    implementation rootProject.ext.dependencies["support-design"]
-    implementation rootProject.ext.dependencies["support-recyclerview"]
-    implementation rootProject.ext.dependencies["support-smartrefresh"]
-    implementation rootProject.ext.dependencies["support-constraint-layout"]
+    implementation deps.support.design
+    implementation deps.support.recyclerview
+    implementation deps.support.constraintlayout
 
-    implementation rootProject.ext.dependencies["foundation-architecture-tree"]
+    implementation deps.local.tree
+    implementation deps.widget.smartrefresh
 
 
-    implementation project(":practice-module-learnings")
-    implementation project(":foundation-architecture-ifap")
+    implementation deps.local.learnings
+    implementation deps.local.ifap
 
     //    annotationProcessor project(":processor-auto")
     //    implementation project(':processor-auto')
 
     //    implementation project(':processor-native')
     //    annotationProcessor project(":processor-native")
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

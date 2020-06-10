@@ -13,9 +13,6 @@ android {
         targetCompatibility rootProject.ext.javaVersion
     }
 
-    dataBinding {
-        enabled true
-    }
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -41,12 +38,12 @@ android {
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
 
-    api rootProject.ext.dependencies["support-v4"]
-    api rootProject.ext.dependencies["support-v7"]
-    api rootProject.ext.dependencies["support-annotations"]
-    api rootProject.ext.dependencies["support-design"]
-    api rootProject.ext.dependencies["support-recyclerview"]
-    api rootProject.ext.dependencies["support-smartrefresh"]
-    api rootProject.ext.dependencies["support-constraint-layout"]
+    api deps.support.v4
+    api deps.support.v7
+    api deps.support.annotations
+    api deps.support.design
+    api deps.support.recyclerview
+    api deps.support.constraintlayout
+
 
 }

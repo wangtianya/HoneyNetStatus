@@ -6,6 +6,7 @@ import cn.wangtianya.learn.communication.CommunicationFragment
 import cn.wangtianya.learn.sysbase.SysBaseLearnFragment
 import cn.wangtianya.learn.ui.UILearnFragment
 import cn.wangtianya.learn.widget.WidgetLearnFragment
+import cn.wangtianya.learn.widget.bottomsheet.BottomSheetFragment
 import cn.wangtianya.learn.四大组件.FourBasicComponentMainFragment
 import com.wangtianya.learn.common.ItemActivity
 
@@ -24,5 +25,8 @@ class PracticeActivity : ItemActivity() {
 
         addDiliver()
         addFragmentItem("百度工作", BaiduWorkFragment::class.java)
+
+        addFragmentItem("BottomSheetFragment", BottomSheetFragment::class.java)
+
     }
 }

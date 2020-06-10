@@ -40,6 +40,10 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api 'com.github.kevinsawicki:http-request:6.0'
-    api 'org.greenrobot:eventbus:3.1.1'
+    implementation deps.os.kotlin_stdlib
+    implementation deps.local.tree
+    implementation deps.support.v4
+    implementation deps.support.v7
+    implementation deps.support.recyclerview
 }
+

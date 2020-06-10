@@ -7,12 +7,10 @@ def include_modules(name, prefix, fileStr) {
 // basic dependencies
 
 include_modules('architecture-tree', 'foundation', 'dependency/foundation/architecture-tree')
-include_modules('architecture-store', 'foundation', 'dependency/foundation/architecture-store')
 include_modules('architecture-ifap', 'foundation', 'dependency/foundation/architecture-ifap')
 include_modules('support-dependecies', 'foundation', 'dependency/foundation/support-dependecies')
 
 
-include_modules('common-dependecies', 'thirdparty', 'dependency/thirdparty/common-dependecies')
 
 include_modules('binding-extend', 'widget', 'dependency/widget/binding-extend')
 include_modules('tools-common', 'foundation', 'dependency/foundation/tools-common')

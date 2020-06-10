@@ -43,7 +43,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation rootProject.ext.dependencies["support-v4"]
-    implementation rootProject.ext.dependencies["support-v7"]
+    implementation deps.support.v4
+    implementation deps.support.v7
 }
 
