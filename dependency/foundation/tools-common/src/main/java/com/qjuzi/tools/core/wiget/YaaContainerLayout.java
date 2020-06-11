@@ -1,6 +1,6 @@
 package com.qjuzi.tools.core.wiget;
 
-import com.qjuzi.architecure.tree.context.Tree;
+import com.wangtianya.architecure.tree.Tree;
 
 import android.content.Context;
 import android.view.LayoutInflater;

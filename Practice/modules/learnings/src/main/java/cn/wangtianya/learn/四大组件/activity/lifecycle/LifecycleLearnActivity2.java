@@ -1,6 +1,4 @@
-/*
- * Copyright (C) 2019 Baidu, Inc. All Rights Reserved.
- */
+
 package cn.wangtianya.learn.四大组件.activity.lifecycle;
 
 import com.wangtianya.learn.common.ItemActivity;

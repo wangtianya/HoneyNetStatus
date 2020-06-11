@@ -2,18 +2,48 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <data>
-    </data>
-
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/front_frame"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="match_parent">
 
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/front_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_blue_light"
+            android:orientation="vertical"
+            app:layout_behavior="cn.wangtianya.learn.widget.bottomsheet.ThreeLayerSheetBehavior">
+
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@android:color/holo_orange_dark" />
+
+                    <WebView
+                        android:id="@+id/webview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="none"
+                        android:background="@android:color/holo_red_dark"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+
+
     </android.support.design.widget.CoordinatorLayout>
 </layout>

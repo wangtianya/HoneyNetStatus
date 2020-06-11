@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data class=".ActivityMainBinding">
 
         <variable
             name="model"
-            type="com.qjuzi.qnet.pages.home.model.HomeModel" />
+            type="com.wangtianya.qnet.pages.home.model.HomeModel" />
     </data>
 
     <LinearLayout
@@ -16,7 +15,7 @@
             android:orientation="vertical">
 
 
-        <com.qjuzi.qnet.common.widget.EmptyTopLayout
+        <com.wangtianya.qnet.common.widget.EmptyTopLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

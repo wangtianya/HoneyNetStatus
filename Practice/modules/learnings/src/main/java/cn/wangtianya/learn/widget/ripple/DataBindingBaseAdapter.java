@@ -7,7 +7,7 @@
  */
 package cn.wangtianya.learn.widget.ripple;
 
-import com.qjuzi.architecure.tree.context.Tree;
+import com.wangtianya.architecure.tree.Tree;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;

@@ -30,5 +30,7 @@ public class OpenApiFragment extends ItemFragment {
 
         addOpenApi("QRCode", "baidumap://map/place/search?query=世界之窗&region=深圳市&location=22.54074603311,113.97939921156&radius=1000&bounds=22.532400731737,113.97041615646,22.549090824185,113.98838226666");
 
+        addOpenApi("公交线路", "baidumap://map/line?region=南京市&name=公交 8路&version=1.1&src=com.huawei.voiceassist.act");
+
     }
 }

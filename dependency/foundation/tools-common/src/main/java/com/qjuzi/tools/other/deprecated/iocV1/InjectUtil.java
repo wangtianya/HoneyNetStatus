@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
-import com.qjuzi.architecure.tree.context.Tree;
+import com.wangtianya.architecure.tree.Tree;
 import com.qjuzi.tools.other.deprecated.iocV1.annotation.InjectExtra;
 import com.qjuzi.tools.other.deprecated.iocV1.annotation.InjectResource;
 import com.qjuzi.tools.other.deprecated.iocV1.annotation.InjectView;

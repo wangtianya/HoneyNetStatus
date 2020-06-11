@@ -23,6 +23,7 @@ deps.local = [
         ifap      : project(":foundation-architecture-ifap"),
         learnings : project(":practice-module-learnings"),
         supports  : project(':foundation-support-dependecies'),
+        yatools   : project(':foundation-tools-common'),
 ]
 
 deps.support = [

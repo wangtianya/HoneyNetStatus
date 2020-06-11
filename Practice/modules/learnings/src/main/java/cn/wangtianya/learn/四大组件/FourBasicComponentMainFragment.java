@@ -19,7 +19,6 @@ public class FourBasicComponentMainFragment extends ItemFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         addFragmentItem("Activity", ActivityLearnMainFragment.class);
-
         addFragmentItem("service", ServiceLearnFragment.class);
 
 

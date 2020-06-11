@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import com.qjuzi.architecure.tree.context.Tree;
+import com.wangtianya.architecure.tree.Tree;
 import com.qjuzi.tools.persistence.IOHelper;
 import com.qjuzi.tools.persistence.MD5Util;
 import com.qjuzi.tools.persistence.SDCardHelper;

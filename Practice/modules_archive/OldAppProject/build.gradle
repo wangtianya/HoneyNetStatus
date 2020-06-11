@@ -6,7 +6,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.qjuzi.qnet"
+        applicationId "com.wangtianya.qnet"
         minSdkVersion rootProject.ext.minSdkVersion
         versionCode 1
         versionName "1.0"

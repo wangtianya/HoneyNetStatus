@@ -6,14 +6,14 @@
 
         <variable
             name="model"
-            type="com.qjuzi.qnet.pages.delay.model.DelayPageModel" />
+            type="com.wangtianya.qnet.pages.delay.model.DelayPageModel" />
     </data>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.qjuzi.qnet.pages.home.HomeActivity">
+        tools:context="com.wangtianya.qnet.pages.home.HomeActivity">
 
 
         <LinearLayout
@@ -22,7 +22,7 @@
             android:orientation="vertical">
 
 
-            <com.qjuzi.qnet.common.widget.EmptyTopLayout
+            <com.wangtianya.qnet.common.widget.EmptyTopLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

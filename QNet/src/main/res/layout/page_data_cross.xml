@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data class="com.qjuzi.qnet.pages.datacross.DataCrossBinding">
+    <data class="com.wangtianya.qnet.pages.datacross.DataCrossBinding">
 
         <variable
             name="model"
-            type="com.qjuzi.qnet.pages.datacross.model.DataCrossModel" />
+            type="com.wangtianya.qnet.pages.datacross.model.DataCrossModel" />
     </data>
 
     <LinearLayout

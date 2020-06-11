@@ -2,7 +2,7 @@ package com.wangtianya.learn.common;
 
 import java.net.URISyntaxException;
 
-import com.qjuzi.architecure.tree.context.Tree;
+import com.wangtianya.architecure.tree.Tree;
 import com.wangtianya.learn.R;
 
 import android.app.Activity;

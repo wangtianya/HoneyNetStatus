@@ -7,7 +7,7 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
-import com.qjuzi.architecure.tree.context.Tree;
+import com.wangtianya.architecure.tree.Tree;
 
 import android.app.Activity;
 import android.app.Fragment;

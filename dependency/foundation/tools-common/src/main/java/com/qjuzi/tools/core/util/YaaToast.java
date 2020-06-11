@@ -1,7 +1,7 @@
 
 package com.qjuzi.tools.core.util;
 
-import com.qjuzi.architecure.tree.context.Tree;
+import com.wangtianya.architecure.tree.Tree;
 
 import android.widget.Toast;
 

@@ -3,7 +3,7 @@
 <layout>
     <data>
 
-        <variable name="model" type="com.qjuzi.qnet.pages.delay.model.DelayPageModel.DelayItemModel"/>
+        <variable name="model" type="com.wangtianya.qnet.pages.delay.model.DelayPageModel.DelayItemModel"/>
     </data>
     <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"

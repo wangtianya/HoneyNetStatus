@@ -27,7 +27,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.qjuzi.qnet"
+        applicationId "com.wangtianya.qnet"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
 
@@ -74,18 +74,19 @@ dependencies {
     implementation deps.os.kotlin_stdlib
     implementation deps.os.http_request
     implementation deps.os.eventbus
+    implementation deps.os.rxjava
+    implementation deps.os.rxandroid
+
     implementation deps.local.supports
-
-
     implementation deps.local.tree
     implementation deps.local.extbinding
-    implementation project(':foundation-tools-common')
+    implementation deps.local.yatools
 
     implementation deps.os.bugly
     implementation deps.os.buglyna
     implementation deps.os.walle
 
     implementation deps.os.glide
-    kapt deps.os.glide_compiler
+    annotationProcessor deps.os.glide_compiler
 
 }

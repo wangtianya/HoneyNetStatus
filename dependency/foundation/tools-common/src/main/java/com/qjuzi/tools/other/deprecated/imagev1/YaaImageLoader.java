@@ -7,7 +7,7 @@ import java.util.Observer;
 import java.util.Set;
 import java.util.concurrent.Executor;
 
-import com.qjuzi.architecure.tree.context.Tree;
+import com.wangtianya.architecure.tree.Tree;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;

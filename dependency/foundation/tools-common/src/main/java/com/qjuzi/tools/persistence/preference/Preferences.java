@@ -2,7 +2,7 @@ package com.qjuzi.tools.persistence.preference;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.qjuzi.architecure.tree.context.Tree;
+import com.wangtianya.architecure.tree.Tree;
 
 import android.content.Context;
 

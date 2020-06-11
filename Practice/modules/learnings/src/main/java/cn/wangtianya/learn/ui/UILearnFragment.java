@@ -14,7 +14,7 @@ import android.view.View;
 import com.wangtianya.learn.common.ItemFragment;
 
 import cn.wangtianya.learn.ui.event.UIEventFragment;
-import cn.wangtianya.learn.html.HtmlFragment;
+import cn.wangtianya.learn.ui.html.HtmlFragment;
 import cn.wangtianya.learn.ui.uithread.UIThreadFragment;
 
 public class UILearnFragment extends ItemFragment {

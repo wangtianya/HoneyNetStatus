@@ -3,7 +3,7 @@
 <layout>
     <data>
 
-        <variable name="model" type="com.qjuzi.qnet.pages.home.model.HomeModel.GridModel"/>
+        <variable name="model" type="com.wangtianya.qnet.pages.home.model.HomeModel.GridModel"/>
     </data>
 
     <LinearLayout

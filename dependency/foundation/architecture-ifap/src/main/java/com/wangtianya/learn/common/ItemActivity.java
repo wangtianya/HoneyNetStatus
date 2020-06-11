@@ -1,6 +1,6 @@
 package com.wangtianya.learn.common;
 
-import static com.qjuzi.architecure.tree.context.Tree.getContext;
+import static com.wangtianya.architecure.tree.Tree.getContext;
 
 import java.net.URISyntaxException;
 
