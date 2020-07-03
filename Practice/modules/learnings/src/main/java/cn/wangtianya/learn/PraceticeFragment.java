@@ -1,8 +1,3 @@
-
-
-/*
- *.
- */
 package cn.wangtianya.learn;
 
 import android.os.Bundle;

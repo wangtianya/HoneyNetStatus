@@ -1,11 +1,6 @@
 /*
  * Copyright (C) 2018 Godya. All Rights Reserved.
- */
-
-/*
- *.
- */
-package cn.wangtianya.learn.widget.ripple;
+ */package cn.wangtianya.learn.widget.ripple;
 
 import com.wangtianya.architecure.tree.Tree;
 

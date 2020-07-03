@@ -1,6 +1,4 @@
-/*
- *.
- */
+
 package cn.wangtianya.learn.widget.ripple;
 
 import com.wangtianya.learn.common.ItemFragment;

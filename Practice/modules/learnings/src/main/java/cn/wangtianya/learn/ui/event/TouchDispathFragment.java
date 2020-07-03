@@ -1,6 +1,4 @@
-/*
- *.
- */
+
 package cn.wangtianya.learn.ui.event;
 
 import android.annotation.SuppressLint;

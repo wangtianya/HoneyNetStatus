@@ -1,6 +1,4 @@
-/*
- *.
- */
+
 package cn.wangtianya.learn.ui.html;
 
 import com.wangtianya.learn.common.ItemFragment;

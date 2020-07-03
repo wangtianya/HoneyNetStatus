@@ -1,6 +1,4 @@
-/*
- *.
- */
+
 package cn.wangtianya.learn.sysbase.memory;
 
 import java.lang.ref.WeakReference;

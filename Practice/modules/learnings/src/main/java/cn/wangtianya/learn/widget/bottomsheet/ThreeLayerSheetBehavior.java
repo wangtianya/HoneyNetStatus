@@ -335,6 +335,16 @@ public class ThreeLayerSheetBehavior<V extends View> extends CoordinatorLayout.B
             setStateInternal(STATE_EXPANDED);
             return;
         }
+
+        float slideOffSet = Math.abs((float)
+                (mMaxOffset - child.getTop()) / (mParentHeight - mMaxOffset));
+
+        if (slideOffSet > 1) {
+            ViewCompat.offsetTopAndBottom(child, 0);
+            setStateInternal(STATE_HIDDEN);
+            return;
+        }
+
         if (mNestedScrollingChildRef == null || target != mNestedScrollingChildRef.get()
                 || !mNestedScrolled) {
             return;

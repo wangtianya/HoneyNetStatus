@@ -1,11 +1,6 @@
 /*
  * Copyright (C) 2018 Godya. All Rights Reserved.
- */
-
-/*
- *.
- */
-package cn.wangtianya.learn.ui;
+ */package cn.wangtianya.learn.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

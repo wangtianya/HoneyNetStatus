@@ -1,6 +1,4 @@
-/*
- *.
- */
+
 package cn.wangtianya.learn.communication;
 
 import com.wangtianya.learn.common.ItemActivity;

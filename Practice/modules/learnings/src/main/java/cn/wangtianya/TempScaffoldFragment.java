@@ -1,6 +1,4 @@
-/*
- *.
- */
+
 package cn.wangtianya;
 
 import android.os.Bundle;

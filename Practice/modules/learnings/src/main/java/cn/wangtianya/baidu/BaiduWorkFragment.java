@@ -1,8 +1,3 @@
-
-
-/*
- *.
- */
 package cn.wangtianya.baidu;
 
 import com.wangtianya.learn.common.ItemFragment;

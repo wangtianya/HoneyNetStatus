@@ -9,21 +9,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.wangtianya.architecure.tree.TreeFragment;
+import com.wangtianya.learn.common.ItemFragment;
 
 import cn.wangtianya.learn.databinding.LayoutBottomSheetBinding;
 
-public class BottomSheetFragment extends TreeFragment {
+public class BottomSheetFragment extends ItemFragment {
     LayoutBottomSheetBinding binding;
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        ThreeLayerSheetBehavior behavior = ThreeLayerSheetBehavior.from(binding.frontContainer);
-        behavior.setPeekHeight((int) (getActivity().getResources().getDisplayMetrics().density * 350));
-        behavior.setHideHeight((int) (getActivity().getResources().getDisplayMetrics().density * 50));
+        binding = LayoutBottomSheetBinding.inflate(LayoutInflater.from(getActivity()));
 
+        ThreeLayerSheetBehavior<View> behavior = ThreeLayerSheetBehavior.from(binding.frontContainer);
+        behavior.setPeekHeight((int) (getActivity().getResources().getDisplayMetrics().density * 350));
+        behavior.setHideHeight((int) (getActivity().getResources().getDisplayMetrics().density * 100));
         behavior.setHideable(true);
+
+        behavior.setState(ThreeLayerSheetBehavior.STATE_COLLAPSED);
+
+
 
         behavior.setBottomSheetCallback(new ThreeLayerSheetBehavior.BottomSheetCallback() {
             @Override
@@ -38,7 +42,6 @@ public class BottomSheetFragment extends TreeFragment {
         });
 
 
-        behavior.setForceScrolledChild(binding.scroll);
         binding.webview.loadUrl("https://job.csdn.net/");
 
 
